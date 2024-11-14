@@ -1,0 +1,117 @@
+%%% ---------------------------------------------------------------------------------
+%%% Vorlage Abschlussarbeit (LaTeX)
+%%%
+%%% V1   03/2017, Stefan Etschberger (HSA)
+%%% V1.1 04/2021, rnw-hack für biblatex-run
+%%% V2   05/2021, Titelblatt und Erweiterungen: Stefan Jansen (HSA)
+%%% V2.1 05/2021, Trennung von R-Support und einfachem LaTeX: Phillip Heidegger (HSA)
+%%% V2.2 01/2024, Anpassung an THA-Layout
+%%% V3   01/2024, I18n
+%%% ---------------------------------------------------------------------------------
+\documentclass[
+	12pt,
+	a4paper %
+	,
+	twoside % Fuer Veröffentlichung
+	,
+	titlepage,
+	DIV=13,
+	headinclude,
+	footinclude=false %
+	,
+	cleardoublepage=empty %
+	,
+	parskip=half,
+]{scrreprt}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\usepackage[
+	authorName={Lukas Konietzka},
+	authorEnrolmentNo={2122553},
+	authorStreet={Sebastian-Kneipp-Gasse 6A},
+	authorZip={86152},
+	authorCity={Augsburg},
+	authorEMail={lukas.konietzka@tha.de},
+	authorPhone={+49\,172-2728-376},
+	authorSignaturePlace={Augsburg},
+	studyProgram={Informatik},
+	thesisType={Bachelorarbeit},
+	thesisTitle={Automatische Segemntierung von \\ Micro-CT Bildern zur Untersuchung \\ von zahnmedizinischen Strukturen},
+	studyDegree={Bachelor of Science},
+	faculty={{Fakultät für \\ Informatik}},
+	topicAssignment={14 November 2024}
+	submissionDate={20. März 2025},
+	defenseDate={\today},
+	nonDisclosure={false},
+	supervisor={Prof. Dr. Peter Rösch},
+	supervisorDeputy={Prof. Dr. Gundolf Kiefer},
+	language={de}
+]{THA-Abschlussarbeit}
+
+% Literaturdatenbank (.bib-Datei) aus Citavi o.ä.
+\bibliography{Literatur_Abschlussarbeit}
+
+\graphicspath{{Bilder/}}
+
+\usepackage{caption}
+\DeclareCaptionLabelFormat{something}{#2.#1.}
+\captionsetup[lstlisting]{labelformat=something}
+
+\begin{document}
+	% Sprachauswahl zum Umschalten innerhalb des Textes.
+	% Alternativen: \thesisLanguage, ngerman, english
+	\selectlanguage{\thesisLanguage}
+	\pagenumbering{roman}
+	\setcounter{page}{1}
+
+	\THAtitlepage
+
+	\let
+	\cleardoublepage
+	\relax
+	\begin{abstract}
+		\section*{Kurzfassung}
+		bla
+		\end{abstract}
+	\tableofcontents
+
+	%%% --------------------------------------------------
+	%%% Ab hier: Inhalt
+	%%% --------------------------------------------------
+
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
+
+	\include{chapters/Einleitung}
+	\include{chapters/Grundlagen}
+	\include{chapters/Fragestellung}
+	\include{chapters/Methodik}
+	\include{chapters/Ergebnisse}
+	\include{chapters/Diskussion}
+	\include{chapters/Schlussfolgerung}
+
+	\appendix % Ab hier Anhang
+	\AuthorDeclaration % Selbständigkeitserklärung
+	\listoffigures % Abbildungsverzeichnis
+	\listoftables % Tabellenverzeichnis
+	\lstlistoflistings % Listings
+	
+	\include{chapters/Anhang}
+
+	% --------------------------------------------------
+	% Bibliographie
+	% --------------------------------------------------
+	\renewcommand{\bibfont}{\footnotesize}
+	\printbibliography
+	[title={Literaturverzeichnis}, heading=bibintoc]
+
+	% --------------------------------------------------
+	% Index
+	% --------------------------------------------------
+	{\setkomafont{section}{\Huge} % temporarily set chapter font
+	\printindex }
+\end{document}
