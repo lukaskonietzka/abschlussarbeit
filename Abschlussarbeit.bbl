@@ -19,52 +19,44 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
-    \entry{FOTACHE2015243}{article}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=f36252302072c2900a3ad2c06730dd7c}{%
-           family={Fotache},
-           familyi={F\bibinitperiod},
-           given={Marin},
-           giveni={M\bibinitperiod},
+    \entry{lehmann2012}{book}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=0b136e25734f22bc647e9d3601ab9407}{%
+           family={Lehmann},
+           familyi={L\bibinitperiod},
+           given={Klaus\bibnamedelima M},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=2b2116124ce2088bb87a1abf3d412c9c}{%
-           family={Strimbei},
-           familyi={S\bibinitperiod},
-           given={Catalin},
-           giveni={C\bibinitperiod},
+        {{un=0,uniquepart=base,hash=37ec75325127e5c41f53b2e45f671d39}{%
+           family={Hellwig},
+           familyi={H\bibinitperiod},
+           given={Elmar},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7bb2f5b6bef5b914fffff674e254a521}{%
+           family={Wenz},
+           familyi={W\bibinitperiod},
+           given={Hans-J\"{u}rgen},
+           giveni={H\bibinithyphendelim J\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{70845cf830af5a1503e4db91b39dd238}
-      \strng{fullhash}{70845cf830af5a1503e4db91b39dd238}
-      \strng{bibnamehash}{70845cf830af5a1503e4db91b39dd238}
-      \strng{authorbibnamehash}{70845cf830af5a1503e4db91b39dd238}
-      \strng{authornamehash}{70845cf830af5a1503e4db91b39dd238}
-      \strng{authorfullhash}{70845cf830af5a1503e4db91b39dd238}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \list{publisher}{1}{%
+        {Deutscher \"{A}rzteverlag}%
+      }
+      \strng{namehash}{eb14477ae932db40274c1cd7f8c6c2cb}
+      \strng{fullhash}{45b281f3d2ef114a663e0bae967786c5}
+      \strng{bibnamehash}{45b281f3d2ef114a663e0bae967786c5}
+      \strng{authorbibnamehash}{45b281f3d2ef114a663e0bae967786c5}
+      \strng{authornamehash}{eb14477ae932db40274c1cd7f8c6c2cb}
+      \strng{authorfullhash}{45b281f3d2ef114a663e0bae967786c5}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Hypes or not, Big Data, NoSQL, Analytics, Business Intelligence, Data Science require processing huge amounts of data in various and complex ways using a vast array of statistical methods and tools. Market increasingly needs graduates with both databases and data warehouses technological skills and also statistical competencies in order to decipher the business patterns and trends hidden in the mountains of data. This paper presents the main coordinates of data processing today and some implications for academic curricula. It argues that data analysis and business intelligence professionals could benefit if trained to acquire a proper level of SQL and data warehouses knowledge.}
-      \field{issn}{2212-5671}
-      \field{journaltitle}{Procedia Economics and Finance}
-      \field{note}{Globalization and Higher Education in Economics and Business Administration - GEBA 2013}
-      \field{title}{SQL and Data Analysis. Some Implications for Data Analysits and Higher Education}
-      \field{volume}{20}
-      \field{year}{2015}
-      \field{pages}{243\bibrangedash 251}
-      \range{pages}{9}
-      \verb{doi}
-      \verb https://doi.org/10.1016/S2212-5671(15)00071-4
-      \endverb
-      \verb{urlraw}
-      \verb https://www.sciencedirect.com/science/article/pii/S2212567115000714
-      \endverb
-      \verb{url}
-      \verb https://www.sciencedirect.com/science/article/pii/S2212567115000714
-      \endverb
-      \keyw{Big Data,Statistics,Data Analysis,SQL,OLAP}
+      \field{title}{Zahn\"{a}rztliche Prop\"{a}deutik: Einf\"{u}hrung in die Zahnheilkunde; mit 32 Tabellen}
+      \field{year}{2012}
     \endentry
   \enddatalist
 \endrefsection
