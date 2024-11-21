@@ -1,6 +1,71 @@
 \chapter{Einleitung}
-\label{chap:einleitung}
+\label{chap:einleitung} Die Computertomografie (CT) hat die Medizintechnik revolutioniert
+und ist bis heute eines der wichtigsten Methoden für die Bildanalyse. Sie ist
+eine der führenden Erweiterungen der klassischen Röntgentechnik. Für die Entwicklung
+dieser Technologie wurden Godfrey Newbold Hounsfield und Allan McLeod Cormack im
+Jahre 1979 mit dem Nobelpreis für Medizin ausgezeichnet \citep[Seite12]{handels2000}.
 
-\cite{hoffmann2020} test
-\cite{fedorov2012slicer}
-\cite{slicer2024}
+Die Computertomografie wird in den verschiedensten Bereichen und im wahrsten Sinne
+des Wortes von Kopf bis Fuß eingesetzt. So kommt es, dass auch im Dentalbereich CT
+aufnahmen von größter Wichtigkeit sind. Eine konkrete Anwendung in diesem
+Kontext ist die Zahnkaries Forschung der Poliklinik für Zahnerhaltung und
+Parodontologie des LMU- Klinikums München. Die vorliegende Arbeit soll diese
+Forschung unterstützen. In welchem Umfang dies geschehen soll, ist im folgenden
+Kapitel thematisiert.
+
+\section{Ziel der Arbeit}
+\label{sec:ziel_der_arbeit} Diese Arbeit beschreibt eine Technik, mit der dreidimensionale
+Micro-CT Bilder zur Untersuchung zahnmedizinischen Strukturen automatisch mittels
+der Software \textit{3D Slicer} segmentiert und analysiert werden können. Die algorithmische
+Formulierung einer konkreten Segmentierung ist bereits vorhanden und prototypisch
+implementiert. Dieser Algorithmus muss jedoch umständlich über ein Kommando im
+Terminal ausgeführt werden, was die Benutzerfreundlichkeit deutlich beeinträchtigt.
+Ziel dieser Arbeit ist es nun das bereits implementiert Verfahren automatisiert
+über ein interaktives User Interface (UI) zur Verfügung zu stellen. Dabei soll auf
+etablierte und vertraute Lösungen zurückgegriffen werden.
+
+Es stellt sich nun die Frage, zu welchem Zweck eine automatische und interaktive
+Segmentierung überhaupt notwendig ist. Für die Zahnklinik an der LMU in München gibt
+es hierfür viele Gründe. Über den wichtigsten gibt das nächste Kapitel
+Aufschluss.
+
+\section{Relevanz der Arbeit}
+\label{sec:relevanz_der_arbeit} Der wohl relevanteste Punkt dieser Arbeit ist, dass
+Ärzte reine Anwender und keine Entwickler von Software sind. Darüber hinaus
+verfolgt die Parodontologie der LMU in München einen sehr interessanten
+Forschungsansatz, die eine Segmentbetrachtung von Zahn-CTs unumgänglich macht.
+
+Über viele Jahre hinweg wurden in der Zahnklinik sehr viel Bilddaten von Zähnen gesammelt,
+die aufgrund von Zahnkaries entfernt wurden. Hierbei wurden Aufnahmen der unterschiedlichsten
+Arten gemacht. Darunter fallen zum Beispiel einfache Bilddateien, Infrarotbilder
+und die für diese Arbeit so relevanten dreidimensionalen Micro-CT Aufnahmen.
+Dieser große Schatz an Bildmaterial soll verwendet werden, um in ferner Zukunft ein
+neuronales Netzwerk zu trainieren, welches statistische Aussagen über das
+Verhalten von Karies treffen kann. Jedoch gibt es hier ein Problem, bei dem das
+Ergebnis dieser Arbeit Unterstützen kann. Karies auf CT-Bildern zu lokalisieren ist
+nicht trivial. Er ist ohne weitere Bearbeitung des Bildes nur sehr schwer auf
+eine Stelle einzugrenzen. So kommt es vor, dass auf einem CT drei
+unterschiedlichen Ärzten drei unterschiedliche Stellen mit Karies identifizieren.
+Eine Segmentierung des dreidimensionalen CTs kann hier Wunder wirken lassen.
+Durch die Aufteilung des Micro-CTs in seine drei Zahnhartsubstanzen kann in das
+innere der Zähne geblickt werden, was die lokalisierung kariöser Stellen deutlich
+vereinfacht.
+
+Mit dieser klaren und einduetigen identifizierung von Karies, sind die
+Ergebnisse, die ein neuronales Netzer generieren würde viel genauer und brauchbarer.
+Konkret wird mit einer automatischen Segmentierung ein \textit{Ground Trueth} gewonnen,
+der eine eindeutige Basiswahrheit liefert.
+
+Hierbe sei gesagt das diese Anwendung nur ein von vielen Möglichkeiten ist. Konkrete
+Daten über die Ausbreitung einer Krankheit zu besitzten kann in den verschiedensten
+Fällen und Institutionen von größtem Nutzen sein. Dieses Argument weist auf den
+nächsten Teil dieser Arbeit hin.
+
+\section{Fokus der Arbeit}
+\label{sec:fokus_der-arbeit} Durch die integration der automatischen
+Segmentierung in die Plattform \textit{3D Slicer}, steht dieser Algortihmus
+durch das Modul-System auch anderen Institutionen zur Verfühgung. Hierzu setzt diese
+Arbeit den Fokus klar auf die \textit{3D Slicer Extention}
+
+\section{Aufbau der Arbeit}
+\label{sec:aufbau_der_arbeit}

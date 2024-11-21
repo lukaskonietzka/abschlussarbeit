@@ -19,174 +19,32 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
-    \entry{slicer2024}{misc}{}
+    \entry{handels2000}{book}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=ce3f66733f8020adf3ecfd1c5ef3c404}{%
-           family={{3D Slicer Community}},
-           familyi={3\bibinitperiod}}}%
-      }
-      \strng{namehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
-      \strng{fullhash}{ce3f66733f8020adf3ecfd1c5ef3c404}
-      \strng{bibnamehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
-      \strng{authorbibnamehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
-      \strng{authornamehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
-      \strng{authorfullhash}{ce3f66733f8020adf3ecfd1c5ef3c404}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.slicer.org}}
-      \field{note}{Zugriff am 21. November 2024}
-      \field{title}{3D Slicer: A multi-platform, free and open source software package for visualization and image analysis}
-      \field{year}{2024}
-    \endentry
-    \entry{fedorov2012slicer}{article}{}
-      \name{author}{15}{}{%
-        {{un=0,uniquepart=base,hash=d33ae5bf74987de04225fa2b961cff6f}{%
-           family={Fedorov},
-           familyi={F\bibinitperiod},
-           given={Andrey},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8d1c63f9ed5f2a01cb63be2dc89824a1}{%
-           family={Beichel},
-           familyi={B\bibinitperiod},
-           given={Reinhard},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b342b8d22d373edc0ef9b257397d5896}{%
-           family={Kalpathy-Cramer},
-           familyi={K\bibinithyphendelim C\bibinitperiod},
-           given={Jayashree},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f37446486db22f127083985c07a2eb68}{%
-           family={Finet},
-           familyi={F\bibinitperiod},
-           given={Julien},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1d9541a2a6bbc314a46c87545c9010b8}{%
-           family={Fillion-Robin},
-           familyi={F\bibinithyphendelim R\bibinitperiod},
-           given={Jean-Christophe},
-           giveni={J\bibinithyphendelim C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2db4a0dd055335ed301dfce2dcc9712b}{%
-           family={Pujol},
-           familyi={P\bibinitperiod},
-           given={Sonia},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=234d0b665a579fd58da1ab166deee840}{%
-           family={Bauer},
-           familyi={B\bibinitperiod},
-           given={Christian},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c626c0e37081056eb9ff4c4f1b266e7c}{%
-           family={Jennings},
-           familyi={J\bibinitperiod},
-           given={Dylan},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2b32a0a63ba2ca1cbe8a91002fe94204}{%
-           family={Fennessy},
-           familyi={F\bibinitperiod},
-           given={Fiona\bibnamedelima M.},
-           giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=6556f80ba935e9e3980178d889753f1e}{%
-           family={Sonka},
-           familyi={S\bibinitperiod},
-           given={Milan},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=da94b97767e9a5aa669fa74e412ca3bd}{%
-           family={Buatti},
-           familyi={B\bibinitperiod},
-           given={John},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4c17625e55d68aa2ef480fa9c9849c1d}{%
-           family={Aylward},
-           familyi={A\bibinitperiod},
-           given={Stephen\bibnamedelima R.},
-           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=94cd4bab7e359ceb90abb7de0317bc4c}{%
-           family={Miller},
-           familyi={M\bibinitperiod},
-           given={James\bibnamedelima V.},
-           giveni={J\bibinitperiod\bibinitdelim V\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f8350668ee2a9c0c26da09aa05de651e}{%
-           family={Pieper},
-           familyi={P\bibinitperiod},
-           given={Steve},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a9633d3f19515a94aceca647e1e70bdb}{%
-           family={Kikinis},
-           familyi={K\bibinitperiod},
-           given={Ron},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{797ba34b7b353701a70e68df10f37671}
-      \strng{fullhash}{2ac7a756baf261ad07ce5bdcf2fe2fa9}
-      \strng{bibnamehash}{2ac7a756baf261ad07ce5bdcf2fe2fa9}
-      \strng{authorbibnamehash}{2ac7a756baf261ad07ce5bdcf2fe2fa9}
-      \strng{authornamehash}{797ba34b7b353701a70e68df10f37671}
-      \strng{authorfullhash}{2ac7a756baf261ad07ce5bdcf2fe2fa9}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Magnetic Resonance Imaging}
-      \field{month}{11}
-      \field{number}{9}
-      \field{title}{3D Slicer as an Image Computing Platform for the Quantitative Imaging Network}
-      \field{volume}{30}
-      \field{year}{2012}
-      \field{pages}{1323\bibrangedash 1341}
-      \range{pages}{19}
-      \verb{doi}
-      \verb 10.1016/j.mri.2012.05.001
-      \endverb
-    \endentry
-    \entry{hoffmann2020}{thesis}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=7bf9d413f5137247db663346e1161c1a}{%
-           family={Hoffmann},
+        {{un=0,uniquepart=base,hash=90df404e4b5c3d2e93a145a048f7f966}{%
+           family={Handels},
            familyi={H\bibinitperiod},
-           given={Simon},
-           giveni={S\bibinitperiod},
+           given={Heinz},
+           giveni={H\bibinitperiod},
            givenun=0}}%
       }
-      \list{institution}{1}{%
-        {Technische Hochschule Augsburg}%
+      \list{publisher}{1}{%
+        {Springer}%
       }
-      \strng{namehash}{7bf9d413f5137247db663346e1161c1a}
-      \strng{fullhash}{7bf9d413f5137247db663346e1161c1a}
-      \strng{bibnamehash}{7bf9d413f5137247db663346e1161c1a}
-      \strng{authorbibnamehash}{7bf9d413f5137247db663346e1161c1a}
-      \strng{authornamehash}{7bf9d413f5137247db663346e1161c1a}
-      \strng{authorfullhash}{7bf9d413f5137247db663346e1161c1a}
+      \strng{namehash}{90df404e4b5c3d2e93a145a048f7f966}
+      \strng{fullhash}{90df404e4b5c3d2e93a145a048f7f966}
+      \strng{bibnamehash}{90df404e4b5c3d2e93a145a048f7f966}
+      \strng{authorbibnamehash}{90df404e4b5c3d2e93a145a048f7f966}
+      \strng{authornamehash}{90df404e4b5c3d2e93a145a048f7f966}
+      \strng{authorfullhash}{90df404e4b5c3d2e93a145a048f7f966}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{1}
-      \field{title}{Unterst\"{u}tzung der Karies-Klassifizierung in Mikro-CT-Aufnahmen durch 3D-Bildverarbeitung}
-      \field{type}{Bachelorarbeit}
-      \field{year}{2020}
+      \field{title}{Medizinische Bildverarbeitung}
+      \field{year}{2000}
     \endentry
   \enddatalist
 \endrefsection
