@@ -111,6 +111,74 @@
       \field{title}{Medizinische Bildverarbeitung}
       \field{year}{2000}
     \endentry
+    \entry{hoffmann2020}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7bf9d413f5137247db663346e1161c1a}{%
+           family={Hoffmann},
+           familyi={H\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Technische Hochschule Augsburg}%
+      }
+      \strng{namehash}{7bf9d413f5137247db663346e1161c1a}
+      \strng{fullhash}{7bf9d413f5137247db663346e1161c1a}
+      \strng{bibnamehash}{7bf9d413f5137247db663346e1161c1a}
+      \strng{authorbibnamehash}{7bf9d413f5137247db663346e1161c1a}
+      \strng{authornamehash}{7bf9d413f5137247db663346e1161c1a}
+      \strng{authorfullhash}{7bf9d413f5137247db663346e1161c1a}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{title}{Unterst\"{u}tzung der Karies-Klassifizierung in Mikro-CT-Aufnahmen durch 3D-Bildverarbeitung}
+      \field{type}{Bachelorarbeit}
+      \field{year}{2020}
+    \endentry
+    \entry{lehmann2012Zahnheilkunde}{book}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=0b136e25734f22bc647e9d3601ab9407}{%
+           family={Lehmann},
+           familyi={L\bibinitperiod},
+           given={Klaus\bibnamedelima M},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=37ec75325127e5c41f53b2e45f671d39}{%
+           family={Hellwig},
+           familyi={H\bibinitperiod},
+           given={Elmar},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7bb2f5b6bef5b914fffff674e254a521}{%
+           family={Wenz},
+           familyi={W\bibinitperiod},
+           given={Hans-J\"{u}rgen},
+           giveni={H\bibinithyphendelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Deutscher \"{A}rzteverlag}%
+      }
+      \strng{namehash}{eb14477ae932db40274c1cd7f8c6c2cb}
+      \strng{fullhash}{45b281f3d2ef114a663e0bae967786c5}
+      \strng{bibnamehash}{45b281f3d2ef114a663e0bae967786c5}
+      \strng{authorbibnamehash}{45b281f3d2ef114a663e0bae967786c5}
+      \strng{authornamehash}{eb14477ae932db40274c1cd7f8c6c2cb}
+      \strng{authorfullhash}{45b281f3d2ef114a663e0bae967786c5}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Zahn\"{a}rztliche Prop\"{a}deutik: Einf\"{u}hrung in die Zahnheilkunde; mit 32 Tabellen}
+      \field{year}{2012}
+    \endentry
     \entry{poliklinikLMU}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=98f28b1ba0c8a79f3b067f3e0c67f670}{%
