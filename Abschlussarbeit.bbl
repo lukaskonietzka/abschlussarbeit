@@ -19,6 +19,71 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{de20083d}{article}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=771a93e8520806375b786b66b2540e3e}{%
+           family={Crespigny},
+           familyi={C\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0,
+           prefix={de},
+           prefixi={d\bibinitperiod},
+           prefixun=0}}%
+        {{un=0,uniquepart=base,hash=ed78c3375e252266da94cd726f5e51ce}{%
+           family={Bou-Reslan},
+           familyi={B\bibinithyphendelim R\bibinitperiod},
+           given={Hani},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e81105bf20bb2a76dff25de3d2cc354c}{%
+           family={Nishimura},
+           familyi={N\bibinitperiod},
+           given={Merry\bibnamedelima C},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=29ed979c0db5e23c16a299ec7c155def}{%
+           family={Phillips},
+           familyi={P\bibinitperiod},
+           given={Heidi},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9d5470d2b527b3765d3ba8ebb43e345c}{%
+           family={Carano},
+           familyi={C\bibinitperiod},
+           given={Richard\bibnamedelima AD},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9210e0ccbfd92aa0d307714f10ee1a4f}{%
+           family={D\textquoteright{}Arceuil},
+           familyi={D\bibinitperiod},
+           given={Helen\bibnamedelima E},
+           giveni={H\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{9a57e88e1d024501f5ae4d79be35b915}
+      \strng{fullhash}{becc51a8fc9a4a9b47810fa6be664f45}
+      \strng{bibnamehash}{becc51a8fc9a4a9b47810fa6be664f45}
+      \strng{authorbibnamehash}{becc51a8fc9a4a9b47810fa6be664f45}
+      \strng{authornamehash}{9a57e88e1d024501f5ae4d79be35b915}
+      \strng{authorfullhash}{becc51a8fc9a4a9b47810fa6be664f45}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of neuroscience methods}
+      \field{number}{2}
+      \field{title}{3D micro-CT imaging of the postmortem brain}
+      \field{volume}{171}
+      \field{year}{2008}
+      \field{pages}{207\bibrangedash 213}
+      \range{pages}{7}
+    \endentry
     \entry{handels2000}{book}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=90df404e4b5c3d2e93a145a048f7f966}{%
@@ -45,6 +110,29 @@
       \field{labeltitlesource}{title}
       \field{title}{Medizinische Bildverarbeitung}
       \field{year}{2000}
+    \endentry
+    \entry{poliklinikLMU}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=98f28b1ba0c8a79f3b067f3e0c67f670}{%
+           family={Poliklinik},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{98f28b1ba0c8a79f3b067f3e0c67f670}
+      \strng{fullhash}{98f28b1ba0c8a79f3b067f3e0c67f670}
+      \strng{bibnamehash}{98f28b1ba0c8a79f3b067f3e0c67f670}
+      \strng{authorbibnamehash}{98f28b1ba0c8a79f3b067f3e0c67f670}
+      \strng{authornamehash}{98f28b1ba0c8a79f3b067f3e0c67f670}
+      \strng{authorfullhash}{98f28b1ba0c8a79f3b067f3e0c67f670}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.klinikum.uni-muenchen.de/Poliklinik-fuer-Zahnerhaltung-und-Parodontologie/}}
+      \field{note}{Zugriff am 22. November 2024}
+      \field{title}{Poliklinik f\"{u}r Zahnerhaltung und Parodontologie des LMU-Klinikums M\"{u}nchen}
+      \field{year}{2024}
     \endentry
   \enddatalist
 \endrefsection
