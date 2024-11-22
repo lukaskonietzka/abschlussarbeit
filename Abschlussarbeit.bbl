@@ -19,6 +19,74 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{baird2017}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e47de1c60f9b26313fe1f2ae81485f0c}{%
+           family={Baird},
+           familyi={B\bibinitperiod},
+           given={Emily},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3a2adb4bdc707f5f21becb12b393db90}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={Gavin},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{5df378c9c55d94d101c5f5f86bd2bf40}
+      \strng{fullhash}{5df378c9c55d94d101c5f5f86bd2bf40}
+      \strng{bibnamehash}{5df378c9c55d94d101c5f5f86bd2bf40}
+      \strng{authorbibnamehash}{5df378c9c55d94d101c5f5f86bd2bf40}
+      \strng{authornamehash}{5df378c9c55d94d101c5f5f86bd2bf40}
+      \strng{authorfullhash}{5df378c9c55d94d101c5f5f86bd2bf40}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Current Biology}
+      \field{number}{8}
+      \field{title}{X-ray micro computed-tomography}
+      \field{volume}{27}
+      \field{year}{2017}
+      \field{pages}{R289\bibrangedash R291}
+      \range{pages}{-1}
+    \endentry
+    \entry{buzug2011}{incollection}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e53c4b67fcebce78258f1cf930b9075c}{%
+           family={Buzug},
+           familyi={B\bibinitperiod},
+           given={Thorsten\bibnamedelima M},
+           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e53c4b67fcebce78258f1cf930b9075c}
+      \strng{fullhash}{e53c4b67fcebce78258f1cf930b9075c}
+      \strng{bibnamehash}{e53c4b67fcebce78258f1cf930b9075c}
+      \strng{authorbibnamehash}{e53c4b67fcebce78258f1cf930b9075c}
+      \strng{authornamehash}{e53c4b67fcebce78258f1cf930b9075c}
+      \strng{authorfullhash}{e53c4b67fcebce78258f1cf930b9075c}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Springer handbook of medical technology}
+      \field{title}{Computed tomography}
+      \field{year}{2011}
+      \field{pages}{311\bibrangedash 342}
+      \range{pages}{32}
+    \endentry
     \entry{de20083d}{article}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=771a93e8520806375b786b66b2540e3e}{%
@@ -142,12 +210,12 @@
     \endentry
     \entry{lehmann2012Zahnheilkunde}{book}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=0b136e25734f22bc647e9d3601ab9407}{%
+        {{un=1,uniquepart=given,hash=0b136e25734f22bc647e9d3601ab9407}{%
            family={Lehmann},
            familyi={L\bibinitperiod},
            given={Klaus\bibnamedelima M},
            giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
+           givenun=1}}%
         {{un=0,uniquepart=base,hash=37ec75325127e5c41f53b2e45f671d39}{%
            family={Hellwig},
            familyi={H\bibinitperiod},
@@ -179,6 +247,79 @@
       \field{title}{Zahn\"{a}rztliche Prop\"{a}deutik: Einf\"{u}hrung in die Zahnheilkunde; mit 32 Tabellen}
       \field{year}{2012}
     \endentry
+    \entry{lehmann2013bildverarbeitung}{book}{}
+      \name{author}{4}{}{%
+        {{un=1,uniquepart=given,hash=817ec26d9e01fd6d8586ceccbda31c90}{%
+           family={Lehmann},
+           familyi={L\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=9c566b48608b3c7d16b4a181736d01ce}{%
+           family={Oberschelp},
+           familyi={O\bibinitperiod},
+           given={Walter},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c685d9c090d2b0aee696825b7ba832d2}{%
+           family={Pelikan},
+           familyi={P\bibinitperiod},
+           given={Erich},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8352d8569faf2ae47c2e8b86a4d50b41}{%
+           family={Repges},
+           familyi={R\bibinitperiod},
+           given={Rudolf},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{15b28590eac1d82e1c8f19e4f45dbdc5}
+      \strng{fullhash}{5a24d8fcb452cf1302a2320d5bdf646d}
+      \strng{bibnamehash}{5a24d8fcb452cf1302a2320d5bdf646d}
+      \strng{authorbibnamehash}{5a24d8fcb452cf1302a2320d5bdf646d}
+      \strng{authornamehash}{15b28590eac1d82e1c8f19e4f45dbdc5}
+      \strng{authorfullhash}{5a24d8fcb452cf1302a2320d5bdf646d}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Bildverarbeitung f\"{u}r die Medizin: Grundlagen, Modelle, Methoden, Anwendungen}
+      \field{year}{2013}
+    \endentry
+    \entry{nib2024}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=97ea5f9a45b65ca57c9ef079bca1dbc5}{%
+           family={{National Institute of Biomedical Imaging and Bioengineering (NIBIB)}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{97ea5f9a45b65ca57c9ef079bca1dbc5}
+      \strng{fullhash}{97ea5f9a45b65ca57c9ef079bca1dbc5}
+      \strng{bibnamehash}{97ea5f9a45b65ca57c9ef079bca1dbc5}
+      \strng{authorbibnamehash}{97ea5f9a45b65ca57c9ef079bca1dbc5}
+      \strng{authornamehash}{97ea5f9a45b65ca57c9ef079bca1dbc5}
+      \strng{authorfullhash}{97ea5f9a45b65ca57c9ef079bca1dbc5}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Zugriff am: 2024-11-15}
+      \field{title}{X-Rays - Science Topic}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.nibib.nih.gov/science-education/science-topics/x-rays
+      \endverb
+      \verb{url}
+      \verb https://www.nibib.nih.gov/science-education/science-topics/x-rays
+      \endverb
+    \endentry
     \entry{poliklinikLMU}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=98f28b1ba0c8a79f3b067f3e0c67f670}{%
@@ -201,6 +342,34 @@
       \field{note}{Zugriff am 22. November 2024}
       \field{title}{Poliklinik f\"{u}r Zahnerhaltung und Parodontologie des LMU-Klinikums M\"{u}nchen}
       \field{year}{2024}
+    \endentry
+    \entry{scanco2024}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5743b693d4ceb5489553a4f3a363a152}{%
+           family={{SCANCO Medical AG}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{5743b693d4ceb5489553a4f3a363a152}
+      \strng{fullhash}{5743b693d4ceb5489553a4f3a363a152}
+      \strng{bibnamehash}{5743b693d4ceb5489553a4f3a363a152}
+      \strng{authorbibnamehash}{5743b693d4ceb5489553a4f3a363a152}
+      \strng{authornamehash}{5743b693d4ceb5489553a4f3a363a152}
+      \strng{authorfullhash}{5743b693d4ceb5489553a4f3a363a152}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Zugriff am: 22. November 2024}
+      \field{title}{Brochures and Documentation}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.scanco.ch/brochures.html
+      \endverb
+      \verb{url}
+      \verb https://www.scanco.ch/brochures.html
+      \endverb
     \endentry
   \enddatalist
 \endrefsection
