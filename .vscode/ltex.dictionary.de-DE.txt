@@ -3,3 +3,8 @@ Slicer
 Extention
 Denit
 Micro
+.ISQ
+.mhd
+SCANCO
+Metafile
+Metafiles
