@@ -57,6 +57,39 @@
       \field{pages}{R289\bibrangedash R291}
       \range{pages}{-1}
     \endentry
+    \entry{burger2009}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9ad59080ba03ad1d0e62ab1765d41109}{%
+           family={Burger},
+           familyi={B\bibinitperiod},
+           given={Wilhelm},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=19c08e31d97d6b90063b5872fdb30dfb}{%
+           family={Burge},
+           familyi={B\bibinitperiod},
+           given={Mark\bibnamedelima James},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{8ce60a5cf5fe03167855ae83217ac85b}
+      \strng{fullhash}{8ce60a5cf5fe03167855ae83217ac85b}
+      \strng{bibnamehash}{8ce60a5cf5fe03167855ae83217ac85b}
+      \strng{authorbibnamehash}{8ce60a5cf5fe03167855ae83217ac85b}
+      \strng{authornamehash}{8ce60a5cf5fe03167855ae83217ac85b}
+      \strng{authorfullhash}{8ce60a5cf5fe03167855ae83217ac85b}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Digitale Bildverarbeitung: Eine Algorithmische Einf\"{u}hrung Mit Java}
+      \field{year}{2009}
+    \endentry
     \entry{buzug2011}{incollection}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=e53c4b67fcebce78258f1cf930b9075c}{%
@@ -342,6 +375,44 @@
       \field{note}{Zugriff am 22. November 2024}
       \field{title}{Poliklinik f\"{u}r Zahnerhaltung und Parodontologie des LMU-Klinikums M\"{u}nchen}
       \field{year}{2024}
+    \endentry
+    \entry{RoeschKunzelmann2018}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b953931a8bd9ee85ec2ec01df054db18}{%
+           family={R\"{o}sch},
+           familyi={R\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f83357f461221f9ba7442f7189c298c0}{%
+           family={Kunzelmann},
+           familyi={K\bibinitperiod},
+           given={Karl-Heinz},
+           giveni={K\bibinithyphendelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f0fe516509c36454894f06fcd0ace5e9}
+      \strng{fullhash}{f0fe516509c36454894f06fcd0ace5e9}
+      \strng{bibnamehash}{f0fe516509c36454894f06fcd0ace5e9}
+      \strng{authorbibnamehash}{f0fe516509c36454894f06fcd0ace5e9}
+      \strng{authornamehash}{f0fe516509c36454894f06fcd0ace5e9}
+      \strng{authorfullhash}{f0fe516509c36454894f06fcd0ace5e9}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International Journal of Computer Assisted Radiology and Surgery;}
+      \field{number}{June 2018, issue 1 (supplement)}
+      \field{title}{Efficient 3D Rigid Registration of Large Micro CT Images}
+      \field{volume}{13}
+      \field{year}{2018}
+      \field{pages}{118\bibrangedash 119}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1007/s11548-018-1766-y
+      \endverb
     \endentry
     \entry{scanco2024}{misc}{}
       \name{author}{1}{}{%

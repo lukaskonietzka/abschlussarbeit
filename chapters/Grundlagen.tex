@@ -110,12 +110,70 @@ unterschiedliche Firmen, welche die unterschiedlichsten Modelle anbieten. Im
 Falle der Zahnklinik an der LMU in München handelt es sich um ein Micro-CT 40
 der Firma \citet{scanco2024}. Dieses Gerät erstellt Aufnahmen mittels
 Röntgenstrahlung und generiert mithilfe der Computertomografie ein
-dreidimensionales Bild, welches im Format \textit{.isq} abgelegt wird. Wie das Nächste
+dreidimensionales Bild, welches im Format \texttt{.ISQ} abgelegt wird. Wie das Nächste
 Kapitel beschreiben wird ist der Speicherumfang den solch ein Bild benötigt,
 deutlich zu groß. Es bedarf einer Technik, mit der die Aufnahmen auf eine
 handhabbare Größe schrumpfen.
 
 \subsection{Datensätze}
+\label{subsec:datensätze} Die rohen Datensätze, welche direkt aus dem Micr-CT Gerät
+kommen, haben nach \citet{scanco2024} das Format \texttt{.ISQ}. Dieses Format fällt
+speziell auf die Geräte der Firma SCANCO zurück. Wie das vorherige Kapitel
+\ref{subsec:computertomografie} bereits eingeführt hat, ist dieser Dateityp für eine
+weitere Bearbeitung nicht geeignet. Unter Anderm wegen ihrer Größe. \citet{RoeschKunzelmann2018}
+haben hierfür eine Paket entwickelt. Diese convertiert ein \texttt{.ISQ} Format
+in ein \texttt{.mhd} Format. Bei einer \texttt{.mhd} Datei handelt es sich im ein
+Metafile, dass auf die eigentliche Dateiverweist. Folgender Ausschnitt zeigt die
+verwendung das Pakets.
+
+\texttt{python3 isq\_to\_mhd.py <quelle> <ziel>}
+
+Diese Meta-Datei kann genutzt werden um interessante Infos über das Bild zu erlangen.
+Wird dieser Kommand ausgeführt, so erstellt das Skript \texttt{isq\_to\_mhd} ein
+Metafile, das detalierte Daten über die Datei enthält. Ein Ausschnitt dieses
+Metafiles liefer das Listing \ref{lst:inhalt_mhd_datei}
+
+\begin{lstlisting}[
+	caption={Ausschnitt des Inhaltes einer MHD-Datei},
+	label={lst:inhalt_mhd_datei}]
+ObjectType = Image
+NDims = 3
+CenterOfRotation = 0 0 0
+ElementSpacing = 0.02 0.02 0.02
+DimSize = 1024 1024 517
+ElementType = MET_SHORT
+ElementDataFile = P01A-C0005278.ISQ
+\end{lstlisting}
+
+In der Datei sind Infos über die Ausprägung, Art und Größe der Datei zu finden.
+Besonders interessant sind die Punkte \texttt{DimSize und ElementType}. Über
+diese Parameter lässt sich die Größe eines Bildes berechenen. \citet[Seite 10-11]{burger2009}
+erklärt, das ein Bild in Zellen aufgeteilt ist, welche Informationen enthalten.
+Diese Zellen sind im zweidimensionalen Raum als Pixel bekannt. Betrachtet man jedoch
+ein, wie im Falle der Zahnklinik an der LMU ein dreidimensonales Bild, so spricht
+man nicht mehr von Pixeln sonder von Voxeln. Ein Voxel ist demnach das
+dreidimensonale Äquivalent zu einem Pixel. \citet[Seite 10-11]{burger2009} beschreibt
+weiter das jeder diese Zellen ein binäres Wort der Länge $2^{k}$ ist. Die Basis
+2 ergibt sich durch das binäre Wort, wo hingengen für k gilt: $k \in \mathbb{N}$.
+Um für den konkreten Fall aus Listing \ref{lst:inhalt_mhd_datei} das entsprechenden
+$k$ zu ermittlen muss der \texttt{ElemtType} näher betrachtet werden. \texttt{MET\_SHORT}
+steht hierbei für Signed short, was eine größe von 16 bit entspricht. Damit
+ergibt sich für die länge $k$ ein Wert von 4. So gilt nach \citet[Seite 10-11]{burger2009}
+
+\begin{align}
+	\label{equ:größe_bestimmen}1024 \cdot 1024 \cdot 517    & = 542,113,792 \, \text{Voxel}\notag  \\
+	542,113,792 \, \text{Voxel}\cdot 2 \, \text{Byte/Voxel} & = 1,084,227,584 \, \text{Byte}\notag \\
+	1,084,227,584 / 1,000,000,000                           & = 1.0842 \, \text{GB}
+\end{align}
+
+Die erste Gleichung bestimmt die Gesamtzahl aller Voxel. Gleichung 2 Bestimmt die
+Größe des Bildes in der einheit Byte. Die Letzte Zeile nimmt eine Umrechnung von
+Byte nach Gigabyte (GB) vor.
+
+Durch die Gleichungen in \ref{equ:größe_bestimmen} wird klar, das eine CT-Aufnahem
+des Typs \texttt{ISQ} direkt nach seiner Aufnahme über einen GB groß ist. Laut \citet{poliklinikLMU}
+ist dies ein zu Großes Format. Es stellt sich also die spannennde Frage, wie
+solch eine Datei komprimiert werden kann, ohne das es Verluste in der Qualität gibt.
 
 \subsection{Filter}
 
