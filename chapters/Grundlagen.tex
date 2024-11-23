@@ -13,16 +13,16 @@ Extention} wichtig sind.
 \section{Domänenspezifisch}
 \label{sec:domänenspezifisch} Wie bereits aus dem Kapitel \ref{chap:einleitung}
 Einleitung klar wurde, handelt es sich bei den Micro-CT Bilder um Zahnbilder,
-die aufgrund einer Karieserkrankung entfernt wurden. Um zu verstehen, wie eine
-CT-Aufnahme eines Zahns aufgeteilt werden soll, ist es hilfreich zu verstehen,
-wie ein Zahn aufgebaut ist.
+die aufgrund von Zahnkaries entfernt wurden. Um zu verstehen, wie eine CT-Aufnahme
+eines Zahns aufgeteilt werden soll, ist es hilfreich zu verstehen, wie ein Zahn
+aufgebaut ist.
 
 \begin{minipage}{0.40\textwidth}
 	Die Abbildung \ref{fig:aufbau_eines_zahnes} zeigt den groben Aufbau eines Zahnes
 	nach \citet[Seite 17]{lehmann2012Zahnheilkunde}. Zu sehen ist, dass das Denit oder
-	auch Zahnbein genannt, den Großteil eines Zahnes einnimmt. Im bereich der Zahnkrone
+	auch Zahnbein genannt, den Großteil eines Zahnes einnimmt. Im Bereich der Zahnkrone
 	wird das Dentin von Zahnschmelz überzogen. Der Zahnschmelz ragt in die
-	Mundhöle und ist nach \cite[Seite 41]{lehmann2012Zahnheilkunde} das härteste
+	Mundhöhle und ist nach \cite[Seite 41]{lehmann2012Zahnheilkunde} das härteste
 	Material im menschlichen Körper. In der Mitte des Zahnes befindet sich Weichgewebe,
 	welches als Pulpa bezeichnet wird vgl. \citep[Seite ]{lehmann2012Zahnheilkunde}.
 \end{minipage}
@@ -34,19 +34,19 @@ wie ein Zahn aufgebaut ist.
 \end{minipage}
 
 Für die Bearbeitung von Micro-CT Aufnahmen sind die Bereich Schmelz Dentin und Pulpa
-von besonderer Bedeutung. Betrachtet man eine CT wie es zu begin in der
+von besonderer Bedeutung. Betrachtet man eine CT wie es zu Beginn in der
 Abbildung \ref{fig:ct_aufnahme_eines_zahns} gezeigt wurde, so bilden diese 3 Gewebearten
 die unterschiedlichen Grauwerte in einem CT-Bild. \\ \textbf{Pulpa:} Die Pulpa unterscheidet
 sich hierbei nur wenig vom Hintergrund, da sie als einzige der drei Hauptteile
-eines Zahnes eine Weichgewebe ist und bei einer Röntgenaufnahme nicht absorbiert.
+eines Zahnes ein Weichgewebe ist und bei einer Röntgenaufnahme nicht absorbiert.
 Geht man weiter von innen nach außen, so ist der nächste Zahnteil auf einem CT
 das Zahnbein. \\ \textbf{Dentin:} Das Dentin ist laut \citet[Seite 41]{lehmann2012Zahnheilkunde}
-eine Hartsubstanz, die dem Kieferknochen sehr nahe steht. So kommt es, dass dieser
+eine Hartsubstanz, die dem Kieferknochen sehr nah steht. So kommt es, dass dieser
 Teil schon deutlich besser auf einem CT zu erkennen ist. Den äußersten Teil in
-der Mundhöle bildet das Zahnschmelz. \\ \textbf{Schmelz:} Der Schmelz ist wie
+der Mundhöhle bildet das Zahnschmelz. \\ \textbf{Schmelz:} Der Schmelz ist wie
 bereits erwähnt, der härteste Teil im menschlichen Körper und aus diesem Grund auch
-am hellsten auf dem CT zu erkennen. Die folgenden Abbildung
-\ref{fig:pulpa_dentin_schmelz} sollen durch gegenüberstellung den Zusammenhang
+am hellsten auf dem CT zu erkennen. Die folgende Abbildung
+\ref{fig:pulpa_dentin_schmelz} sollen durch Gegenüberstellung den Zusammenhang
 zwischen einem CT-Bild und einer Zahnzeichnung verdeutlichen.
 
 \begin{figure}[h]
@@ -68,15 +68,15 @@ die Technologie der Computertomografie tiefer ein.£
 
 \section{Technologisch}
 \label{sec:technologisch} Dieser Abschnitt erläutert federführend die Technologie
-der Micro-CT bilder und und deren weitere Bearbeitung. Hierbe soll mit der
+der Micro-CT Bilder und deren weitere Bearbeitung. Hierbei soll mit der
 Computertomografie selbst begonnen werden. Für die Einführung in die Bearbeitung
-der Micro-CT Bilder bietet das Pipelinmodell von \citet[Seite 50]{handels2000} eine
-gut Richitline. Er beschreibt mit dieser Visualisierungs-Pipeline Schritte, die bei
-der Bearbeitung und dreidimensonalen Darstellung von CT-Aufnahmen notwendig sind
-vgl. \citep[Seite 50]{handels2000}.
+der Micro-CT Bilder bietet das Pipeline-Modell von \citet[Seite 50]{handels2000}
+eine gute Richtlinie. Er beschreibt mit dieser Visualisierungs-Pipeline Schritte,
+die bei der Bearbeitung und dreidimensionalen Darstellung von CT-Aufnahmen notwendig
+sind (vgl. \citep[Seite 50]{handels2000}).
 
 \subsection{Computertomografie}
-\label{subsec:computertomografie} Die Efindung der Computertomografie (CT) war
+\label{subsec:computertomografie} Die Erfindung der Computertomografie (CT) war
 ein Quantensprung in der Geschichte der Medizin. Sie ist aus heutigen Diagnosen nicht
 mehr wegzudenken. Ein Micro-CT Bild ist laut \citet[Abstract]{baird2017} ein
 Menge hochauflösender Bilder, die wie ein Stapel zusammengelegt werden. Der
@@ -84,12 +84,12 @@ Aspekt Micro deutet dabei darauf hin, dass es eine miniaturisierte Ausführung e
 üblichen Kegelstrahl-CTs ist so \citet[Seite 340]{buzug2011}. Eine andere
 Definition erläutert \citet{lehmann2013bildverarbeitung}. Er beschreibt die
 Computertomografie als Projektionen einzelner Ebenen im Untersuchungsobjekt. Die
-Technologie, mit der diese Bilderstapel aufgenommen werden ist unter der
-Röntgentechnik oder auch X-Ray bekannt. Die Röntgenstrahlung ist eine Form der elektromagnetischen
-Strahlung, ähnlich wie da sichtbare Licht so das \citet{nib2024}. Anders als das
-Licht, haben die Röntgenstrahlen eine viel höhere Energie. Das führt dazu, dass man
-mit dieser elektromagnetischen Strahlung viele Objekte durchdringen kann. So
-auch Gewebeteile eines Zahnes vgl. \citep{nib2024}. Die Abbildung \ref{fig:spectrum}
+Technologie, mit der diese Bilderstapel aufgenommen werden, ist unter der Röntgentechnik
+oder auch X-Ray bekannt. Die Röntgenstrahlung ist eine Form der
+elektromagnetischen Strahlung, ähnlich wie da sichtbare Licht so das \citet{nib2024}.
+Anders als das Licht haben die Röntgenstrahlen eine viel höhere Energie. Das
+führt dazu, dass man mit dieser elektromagnetischen Strahlung viele Objekte durchdringen
+kann. So auch Gewebeteile eines Zahnes vgl. \citep{nib2024}. Die Abbildung \ref{fig:spectrum}
 zeigt diese elektromagnetische Spektrum.
 
 \begin{figure}[h]
@@ -100,19 +100,19 @@ zeigt diese elektromagnetische Spektrum.
 \end{figure}
 
 Durchdringt ein solcher Röntgenstrahl ein Untersuchungsobjekt, werden die Details
-auf Grund der Wechselwirkung mit Materie auf einer CT-Probe sichtbar. Die
-bekannteste Wechselwirkung ist die Absorbtion. Mit der steigerung der Atomzahl in
-einem Element nimmt auch die Absorbtion eines Materials zu, sodass es leicht ist
-verschiedenen Materialien in einer CT-Aufnahme zu unterscheiden \citep{nib2024}.
+aufgrund der Wechselwirkung mit Materie auf einer CT-Probe sichtbar. Die
+bekannteste Wechselwirkung ist die Absorption. Mit der Steigerung der Atomzahl in
+einem Material nimmt auch die Absorption eines Materials zu, sodass es leicht
+ist verschiedenen Materialien in einer CT-Aufnahme zu unterscheiden \citep{nib2024}.
 
 Für eine Micro-CT Aufnahme bedarf es spezieller Technik. Es gibt
 unterschiedliche Firmen, welche die unterschiedlichsten Modelle anbieten. Im
-Falle der Zahnklinik an der LMU in München Handelt es sich um ein Micro-CT 40
-der Firma \citet{scanco2024}. Diese Gerät erstelt Aufnahmen mittels
-Röntgenstrahlung und erstehlt daraus mit Hilfer der Computertomografie ein
-dreidimensonales Bild, welches im Format \textit{.isq} abgelegt wird. Wie das Nächste
+Falle der Zahnklinik an der LMU in München handelt es sich um ein Micro-CT 40
+der Firma \citet{scanco2024}. Dieses Gerät erstellt Aufnahmen mittels
+Röntgenstrahlung und generiert mithilfe der Computertomografie ein
+dreidimensionales Bild, welches im Format \textit{.isq} abgelegt wird. Wie das Nächste
 Kapitel beschreiben wird ist der Speicherumfang den solch ein Bild benötigt,
-deutlich zu groß. Es bedarf einer technik, mit der die Aufnahmen auf eine
+deutlich zu groß. Es bedarf einer Technik, mit der die Aufnahmen auf eine
 handhabbare Größe schrumpfen.
 
 \subsection{Datensätze}
