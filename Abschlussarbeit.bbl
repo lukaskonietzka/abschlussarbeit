@@ -100,7 +100,7 @@
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {Springer}%
+        {Springer-Verlag}%
       }
       \strng{namehash}{e53c4b67fcebce78258f1cf930b9075c}
       \strng{fullhash}{e53c4b67fcebce78258f1cf930b9075c}
@@ -185,6 +185,43 @@
       \field{pages}{207\bibrangedash 213}
       \range{pages}{7}
     \endentry
+    \entry{diwakar2018}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a27fac5ece6ebd5b41875f3b0de99bdf}{%
+           family={Diwakar},
+           familyi={D\bibinitperiod},
+           given={Manoj},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=939a07ef95f263a77489acec648a3070}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Manoj},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{3d116ad0a64e8f9e4eaf16a9cc7f9f0e}
+      \strng{fullhash}{3d116ad0a64e8f9e4eaf16a9cc7f9f0e}
+      \strng{bibnamehash}{3d116ad0a64e8f9e4eaf16a9cc7f9f0e}
+      \strng{authorbibnamehash}{3d116ad0a64e8f9e4eaf16a9cc7f9f0e}
+      \strng{authornamehash}{3d116ad0a64e8f9e4eaf16a9cc7f9f0e}
+      \strng{authorfullhash}{3d116ad0a64e8f9e4eaf16a9cc7f9f0e}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Biomedical Signal Processing and Control}
+      \field{title}{A review on CT image noise and its denoising}
+      \field{volume}{42}
+      \field{year}{2018}
+      \field{pages}{73\bibrangedash 88}
+      \range{pages}{16}
+    \endentry
     \entry{handels2000}{book}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=90df404e4b5c3d2e93a145a048f7f966}{%
@@ -195,7 +232,7 @@
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {Springer}%
+        {Springer-Verlag}%
       }
       \strng{namehash}{90df404e4b5c3d2e93a145a048f7f966}
       \strng{fullhash}{90df404e4b5c3d2e93a145a048f7f966}
@@ -240,6 +277,33 @@
       \field{title}{Unterst\"{u}tzung der Karies-Klassifizierung in Mikro-CT-Aufnahmen durch 3D-Bildverarbeitung}
       \field{type}{Bachelorarbeit}
       \field{year}{2020}
+    \endentry
+    \entry{jahne2024}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2af9a87ab3a028f0648eedb98f353969}{%
+           family={J\"{a}hne},
+           familyi={J\bibinitperiod},
+           given={Bernd},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{2af9a87ab3a028f0648eedb98f353969}
+      \strng{fullhash}{2af9a87ab3a028f0648eedb98f353969}
+      \strng{bibnamehash}{2af9a87ab3a028f0648eedb98f353969}
+      \strng{authorbibnamehash}{2af9a87ab3a028f0648eedb98f353969}
+      \strng{authornamehash}{2af9a87ab3a028f0648eedb98f353969}
+      \strng{authorfullhash}{2af9a87ab3a028f0648eedb98f353969}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Digitale bildverarbeitung: und bildgewinnung}
+      \field{year}{2024}
     \endentry
     \entry{lehmann2012Zahnheilkunde}{book}{}
       \name{author}{3}{}{%
