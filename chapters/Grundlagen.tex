@@ -256,9 +256,9 @@ Vorteil, sodass es letzten Endes auf den Anwendungsfall ankommt.
 Mit der Technik der lokalen Operatoren können nun unterschiedliche Arten
 angwenden werden. \citet[Seite 54 - 55]{handels2000} unterscheidet hier in Glättungsfilter,
 Mittelwertfilter, Medianfilter, Gaußfilter und Binomialfilter. Alle dieser Filter
-bedienen sich einer OperatorMaske um auf Basis der Nachbarelementen ein Statistischen
+bedienen sich einer Operatormaske um auf Basis der Nachbarelementen ein Statistischen
 Wert für den Bildpunkt zu erhalten. Um einen genaueren Einblick in alle Filter
-zu erlangen, sie an dieser Stell auf \citet[Seite 54 - 55]{handels2000} verwiesen.
+zu erlangen, sei an dieser Stell auf \citet[Seite 54 - 55]{handels2000} verwiesen.
 
 Wie zu Anfang dieses Kapitels beschrieben, ist eine Bildvorvearbeitung (Filterung)
 für eine gute Segmnetierung des Bildes unerlässlich. So kommt es das auch in der
@@ -268,7 +268,83 @@ Bildanalyse ist und welche Methoden sich hier bieten, erläutert das folgende Ka
 % ---------------------------------------------------------------------------------------
 
 \subsection{Segmentierung}
-\label{subsec:segmentierung}
+\label{subsec:segmentierung} Die Bildsegmentierung oder Bildaufteilung ist ein wichtiges
+Teilgebiet der Bildverarbeitung und beschäfftigt sich mit der Bildanalyse. Ihr
+Ziel ist es, detailirtere beschreibende Bilder aus dem vorliegenden Orginalbild zu
+berechnen. Dies kann im Falle eines CTs in der Zahnklinik an der LMU München die
+hervorgehobene Darstelllung der Zahnhartsubstanzen sein. \citep[vgl.][Seite 359]{lehmann2013bildverarbeitung}.
+Konkret teilt ein Segmentierungsverfahren also ein Bild in Teilbereiche auf. Dabei
+sind die Teilbereich in sich bemerkenswert homogen. \citet[Seite 1]{ramesh2021}
+beschreibt, dass der Prozess der Segmentierung zur Gewinnung wichtiger Informationen
+dient wie zum Beispiel die Zahnkaries Ausbreitung. So kommt es, dass \citet[Seite
+50]{handels2000} in seiner Visualisierungs-Pipelin die Segmentierung als zweiten
+Schritt und damit als zentrales Problem darstellt.
+
+\citet[Seite 95]{handels2000} und \citet[Seite 360]{lehmann2013bildverarbeitung}
+beschreiben beide, dass die Bildsegmentierung eines CTs für eine gute und
+eindeutige Ärzliche Diagnose nicht mehr wegzudenken ist. Warum dem so ist verdeutlicht
+die Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/bild_interpretation.jpg}
+	\caption{Interpretation einer CT-Aufnahme nach \citet[Seite 360]{lehmann2013bildverarbeitung}}
+	\label{fig:interpretation_einer_ct_aufnahem}
+\end{figure}
+
+Zu erkennen ist das orginale Bild (Ausgangslage) und mögliche
+Interpretationsschritte. \citet[Seite 360]{lehmann2013bildverarbeitung} verdeutlicht
+mit dieser Abbildung \ref{fig:interpretation_einer_ct_aufnahem}, dass mittels
+orginalem Bild die einzig mögliche Interpretation die erste ist. Auch wenn die zweite
+Interpretation die deutlich logischere ist, kann dies ohne weitere Forschung
+nicht bewiesen werden, so \citet[Seite 360]{lehmann2013bildverarbeitung}. Für
+die Schlussvolgerung von Interpretation 1 auf Interpretation 2 ist eine
+Segmentierung des Bildes notwending. Erst mit diesem Verfahren lässt sich zeigen,
+wie die Strukturen wirklich aussehen. So beweist dieses Bild, dass die
+Segmentierung ein wesentlicher Teil der Bildanalyse ist.
+
+Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die auswhal eines
+Verfahrens spielt der Anwendungsbereich eine wichtige Rolle. Die Verfahren, die in
+dieser Arbeit von Wichtigkeit sind, sind die Schwellwertverfahren
+\citep[vgl.][Seite 361]{lehmann2013bildverarbeitung}.
+
+\textbf{Schwelltwertverfahren} (engl.: thresholding) gehören zu den Standardwerkzeugen
+einer Segmentierung, sodass sie dei Basis vieler weiterer Verfahren legen. Bei
+einer Schwellwertbasierten Segmentierung werden die Pixel eines Bildes anhad von
+Schwellwerten eingruppiert \citep[vgl.][Seite 96]{handels2000}. Die nachfolgende
+Gleichung \ref{equ:schwellwertverfahren} soll dies verdeutlichen.
+
+\begin{align}
+	\label{equ:schwellwertverfahren}B(x, y, z) = \begin{cases}1,&\text{falls }t_{\text{unten}}\leq f(x, y, z) \leq t_{\text{oben}}, \\ 0,&\text{sonst}.\end{cases}
+\end{align}
+
+$B(x, y, z)$ Beschreibt einen Pixel in einem dreidimensonalen Bild, demnach ein Voxel.
+Liegen die Werte eines Voxels, also $f(x, y, z)$ innerhalb der beiden Schwellwerte
+$t_{o}ben$ und $t_{u}nten$, dann wird eine 1 zugewiesen. Liegt der aktuell betrachtete
+Voxel nicht zwischen den Schwellwerten, so wird eine 0 zugewiesen.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/beispiel_schwellwertverfahren.jpg}
+	\caption{Ergebnis eines einfachen Schwellwertverfahrens nach \citet[Seite 96]{handels2000}}
+	\label{fig:binäres_schwellwertverfahren}
+\end{figure}
+
+In der Abbildung \ref{fig:binäres_schwellwertverfahren} ist zu erkennen, dass
+nach einem einfachen Schwellwertverfahren das Bild nur noch aus zwei
+unterschiedlichen Graustufen besteht. Abgesehen von der Sinnhaftigkeit, ist diese
+einfach Segmentierung durchaus erfolgreich verlaufen. Der Grund dafür ist die gute
+Wahl des Schwellwertes.
+
+Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des Schwellwertes $t$.
+Diese entscheident zwischen einer guten und einer schlechten Segmentierung. Für die Wahl
+eines Schwellwertes empfielt sich der Blick auf das Bildhistogramm. Diese gibt Aufschluss
+über die Grauwertverteilung eines Bildes\citep[vgl.][Seite 361]{lehmann2013bildverarbeitung}.
+Eines Verfahren, welches eine gute Schwellwertwahl gewährleistet, ohne das zu viele
+Informationen verloren gehen, ist das Verfharen nach \textit{Otsu}.
+
+\textbf{Das Verfahren nach Otsu} gehört zu den Schwellwertverfahren und und bestimmt den
+Schwellwert $t$ durch ein statistische Gütekriterieum.
 
 \section{Verwandte Arbeit}
 \label{sec:verwwandte_arbeit}

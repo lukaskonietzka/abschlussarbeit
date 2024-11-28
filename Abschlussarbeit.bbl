@@ -440,6 +440,59 @@
       \field{title}{Poliklinik f\"{u}r Zahnerhaltung und Parodontologie des LMU-Klinikums M\"{u}nchen}
       \field{year}{2024}
     \endentry
+    \entry{ramesh2021}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=1585158a953a14be5a33cae3fb203ee3}{%
+           family={Ramesh},
+           familyi={R\bibinitperiod},
+           given={KKD},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ef2d91d82e5c93c7470363d352357310}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={G\bibnamedelima Kiran},
+           giveni={G\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=85a4c83984703a9677b7aa177c2a6d6b}{%
+           family={Swapna},
+           familyi={S\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ff2d8b857562dba14ec19e775a71ed33}{%
+           family={Datta},
+           familyi={D\bibinitperiod},
+           given={Debabrata},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=519d5ba1e4b8a0b860f684a9a928a3f5}{%
+           family={Rajest},
+           familyi={R\bibinitperiod},
+           given={S\bibnamedelima Suman},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0e8fb59f28c05366e0a27291487a0ed4}
+      \strng{fullhash}{9afc92eef19af845225f6ecb1578e80a}
+      \strng{bibnamehash}{9afc92eef19af845225f6ecb1578e80a}
+      \strng{authorbibnamehash}{9afc92eef19af845225f6ecb1578e80a}
+      \strng{authornamehash}{0e8fb59f28c05366e0a27291487a0ed4}
+      \strng{authorfullhash}{9afc92eef19af845225f6ecb1578e80a}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{EAI Endorsed Transactions on Pervasive Health and Technology}
+      \field{number}{27}
+      \field{title}{A review of medical image segmentation algorithms}
+      \field{volume}{7}
+      \field{year}{2021}
+      \field{pages}{e6\bibrangedash e6}
+      \range{pages}{-1}
+    \endentry
     \entry{RoeschKunzelmann2018}{inproceedings}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=b953931a8bd9ee85ec2ec01df054db18}{%
