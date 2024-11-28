@@ -282,8 +282,8 @@ Schritt und damit als zentrales Problem darstellt.
 
 \citet[Seite 95]{handels2000} und \citet[Seite 360]{lehmann2013bildverarbeitung}
 beschreiben beide, dass die Bildsegmentierung eines CTs für eine gute und
-eindeutige Ärzliche Diagnose nicht mehr wegzudenken ist. Warum dem so ist, verdeutlicht
-die Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
+eindeutige Ärzliche Diagnose nicht mehr wegzudenken ist. Warum dem so ist,
+verdeutlicht die Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
 
 \begin{figure}[h]
 	\centering
@@ -292,34 +292,33 @@ die Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
 	\label{fig:interpretation_einer_ct_aufnahem}
 \end{figure}
 
-Zu erkennen ist das orginale Bild (Ausgangslage) und mögliche
-Interpretationsschritte. \citet[Seite 360]{lehmann2013bildverarbeitung} verdeutlicht
-mit dieser Abbildung \ref{fig:interpretation_einer_ct_aufnahem}, dass mittels
-orginalem Bild die einzig mögliche Interpretation die erste ist. Auch wenn die zweite
-Interpretation die deutlich logischere ist, kann diese ohne weitere Forschung
-nicht bewiesen werden, so \citet[Seite 360]{lehmann2013bildverarbeitung}. Für
-die Schlussvolgerung von Interpretation 1 auf Interpretation 2 ist eine
-Segmentierung des Bildes notwending. Erst damit lässt sich zeigen,
-wie die Strukturen wirklich aussehen. So beweist dieses Bild, dass die
-Segmentierung ein wesentlicher Teil der Bildanalyse ist.
+Zu erkennen ist das orginale Bild (Ausgangslage) und mögliche Interpretationsschritte.
+\citet[Seite 360]{lehmann2013bildverarbeitung} verdeutlicht mit dieser Abbildung
+\ref{fig:interpretation_einer_ct_aufnahem}, dass mittels orginalem Bild die einzig
+mögliche Interpretation die erste ist. Auch wenn die zweite Interpretation die
+deutlich logischere ist, kann diese ohne weitere Forschung nicht bewiesen werden,
+so \citet[Seite 360]{lehmann2013bildverarbeitung}. Für die Schlussvolgerung von Interpretation
+1 auf Interpretation 2 ist eine Segmentierung des Bildes notwending. Erst damit
+lässt sich zeigen, wie die Strukturen wirklich aussehen. So beweist dieses Bild,
+dass die Segmentierung ein wesentlicher Teil der Bildanalyse ist.
 
-Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die Auswhal eines
-Verfahrens spielt der Anwendungsbereich eine wichtige Rolle. Die Verfahren, die in
-dieser Arbeit von Wichtigkeit sind, sind die Schwellwertverfahren \citep[vgl.][Seite
+Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die Auswhal
+eines Verfahrens spielt der Anwendungsbereich eine wichtige Rolle. Die Verfahren,
+die in dieser Arbeit von Wichtigkeit sind, sind die Schwellwertverfahren \citep[vgl.][Seite
 361]{lehmann2013bildverarbeitung}.
 
-\textbf{Schwelltwertverfahren} (engl.: thresholding) gehören zu den Standardwerkzeugen
-einer Segmentierung, sodass sie die Basis vieler weiterer Verfahren legen. Bei einer
-Schwellwertbasierten Segmentierung werden die Pixel eines Bildes anhand von Schwellwerten
-eingruppiert \citep[vgl.][Seite 96]{handels2000}. Die nachfolgende Gleichung
-\ref{equ:schwellwertverfahren} soll dies verdeutlichen.
+\textbf{Schwelltwertverfahren} (engl.: thresholding) gehören zu den
+Standardwerkzeugen einer Segmentierung, sodass sie die Basis vieler weiterer Verfahren
+legen. Bei einer Schwellwertbasierten Segmentierung werden die Pixel eines
+Bildes anhand von Schwellwerten eingruppiert \citep[vgl.][Seite 96]{handels2000}.
+Die nachfolgende Gleichung \ref{equ:schwellwertverfahren} soll dies verdeutlichen.
 
 \begin{align}
 	\label{equ:schwellwertverfahren}B(x, y, z) = \begin{cases}1,&\text{falls }t_{\text{unten}}\leq f(x, y, z) \leq t_{\text{oben}}, \\ 0,&\text{sonst}.\end{cases}
 \end{align}
 
-$B(x, y, z)$ Beschreibt einen Pixel in einem dreidimensonalen Bild, demnach ein
-Voxel. Liegen die Werte eines Voxels, also $f(x, y, z)$, innerhalb der beiden
+$B(x, y, z)$ Beschreibt einen Pixel in einem dreidimensonalen Bild, demnach ein Voxel.
+Liegen die Werte eines Voxels, also $f(x, y, z)$, innerhalb der beiden
 Schwellwerte $t_{oben}$ und $t_{unten}$, dann wird eine 1 zugewiesen. Liegt der
 aktuell betrachtete Voxel nicht zwischen den Schwellwerten, so wird eine 0 zugewiesen.
 
@@ -337,12 +336,13 @@ durchaus erfolgreich verlaufen. Der Grund dafür ist die gute Wahl des
 Schwellwertes.
 
 Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des
-Schwellwertes $t$. Dieses entscheident zwischen einer guten und einer schlechten Segmentierung.
-Für die Wahl eines Schwellwertes empfielt sich der Blick auf das Bildhistogramm.
-Diese gibt Aufschluss über die Grauwertverteilung eines Bildes \citep[vgl.][Seite361]{lehmann2013bildverarbeitung}.
-Ein Verfahren, welches eine gute
-Schwellwertwahl gewährleistet, ohne das zu viele Informationen verloren gehen,
-ist das Verfahren nach \textit{Otsu}.
+Schwellwertes $t$. Dieses entscheident zwischen einer guten und einer schlechten
+Segmentierung. Für die Wahl eines Schwellwertes empfielt sich der Blick auf das
+Bildhistogramm. Diese gibt Aufschluss über die Grauwertverteilung eines Bildes \citep[vgl.][Seite361]{lehmann2013bildverarbeitung}.
+Ein Verfahren, welches eine gute Schwellwertwahl gewährleistet, ohne das zu
+viele Informationen verloren gehen, ist das Verfahren nach \textit{Otsu}.
+
+\pagebreak
 
 \textbf{Das Verfahren nach Otsu} gehört zu den Schwellwertverfahren und und
 bestimmt den Schwellwert $t$ durch ein statistische Gütekriterieum. Hierzu bedient
@@ -365,47 +365,83 @@ Anordnung der Voxel benötigt dieser Algorthmus nicht \citep[vgl.][Seite 264]{le
 
 Das Otsu-Verfahren teilt die Grauwerte eines Bildes in verschiedenen Klassen ein,
 die durch Schwellwerte getrennt werden. Die Klassen können beispeilsweise mit
-$K_{0}$ bis $K_{n}$ bezeichnet werden, wobei sich diese konkrete Beispiel auf die Klassen
-$K_{0}$ und $K_{1}$ beschränkt. Otsu wählt den Schwellwert $t$, der die Varianz
+$K_{0}$ bis $K_{n}$ bezeichnet werden, wobei sich diese konkrete Beispiel auf die
+Klassen $K_{0}$ und $K_{1}$ beschränkt. Otsu wählt den Schwellwert $t$, der die Varianz
 zwischen den Pixelklassen maximiert und gleichzeitig die Varianz innerhalb jeder
 Klasse minimiert \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
 Matematisch lässt sich dies wie folgt ausdrücken.
 
 \begin{align}
-	\text{max }(\sigma_{zw}^{2}/ \sigma_{in}^{2})
+	t = \text{max }(\sigma_{zw}^{2}/ \sigma_{in}^{2})
 \end{align}
 
 $\sigma_{zw}$ bildet die Varianz zwischen den beiden Klassen $K_{0}$ und $K_{1}$
 und wird gebildet aus der Wahrscheinlichkeiten mit denen jeder einzelne Grauwert
-auftritt. $\sigma_{in}$ hingegen, ist die Varianz innerhalb einer Klasse und entsteht durch die
-Addition der Varianzen der einzelnen Klassen \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
+auftritt. $\sigma_{in}$ hingegen, ist die Varianz innerhalb einer Klasse und entsteht
+durch die Addition der Varianzen der einzelnen Klassen. Der Schwellwert $t$ ist
+nun der, für den das Verhältnis maximal wird \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
 
-Nach Betrachtung dieser grob beschriebenen Berechnung fällt möglicherweise auf, dass
-dieses Verfahren vorallem bei bimodalen Bildern zum Einsatz kommt. Ein Bild ist
-bimodal, wenn es zwei lokale Maxima aufweist. Das Otsu-Verfahren ist jedoch nicht auf
-eine Bimodalität beschränkt und kann auf beliebig viele Klassen erweitert werden
-\citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
+laut \citet[Seite264]{lehmann2013bildverarbeitung} fällt auf, dass dieses
+Verfahren vorallem bei bimodalen Bildern zum Einsatz kommt. Ein Bild ist bimodal,
+wenn es zwei lokale Maxima aufweist. Das Otsu-Verfahren ist jedoch nicht auf eine
+Bimodalität beschränkt und kann auf beliebig viele Klassen erweitert werden \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
 
-Neben unzähligen Segmentierungstechniken, ist eine für diese Arbeits von ganz besonderer
-Bedeutung. Diese Technik wurde speziell zum Segementieren der Micro-CT bilder des
-Zahnklinikums an der LMU in München entwickelt und bildet die Basis dieser Arbeit. Konkret
-ist damit das Hoffmann-Verfahren gemeint, dass von \citet{hoffmann2020} entwickelt wurde.
-Das folgende Kapitel führt in diese Technik ein, die sich unter anderem den eben
-angesprochenen Verfahren bedient.
+Neben unzähligen Segmentierungstechniken, ist eine für diese Arbeits von ganz
+besonderer Bedeutung. Diese Technik wurde speziell zum Segementieren der Micro-CT
+bilder des Zahnklinikums an der LMU in München entwickelt und bildet die Basis dieser
+Arbeit. Konkret ist damit das Hoffmann-Verfahren gemeint \citep{hoffmann2020}.
 % ---------------------------------------------------------------------------------------
 
 \section{Verwandte Arbeit}
-\label{sec:verwwandte_arbeit}
-TODO
+\label{sec:verwwandte_arbeit} TODO
+
+Für eine interaktive Verarbeitung von 3D Bilddaten bieten sich einige
+Möglichkeiten. Die wohl größe und auch verbreiteste Lösung liefer 3D Slicer.
+Warum die Wahl auf diese Plattform viel und welche Vorteile daraus entstehen
+wird im folgenden Abschnitt \ref{sec:3d_slicer} erläutert.
+
+\pagebreak
 % ---------------------------------------------------------------------------------------
 
 \section{Interaktive Bearbeitung mit 3D Slicer}
+\label{sec:3d_slicer} 3D Slicer ist eine Open Source Plattform, die speziel für
+die Verarbeitung für Bilddaten im medizinischen Kontext eingesetzt wird. Dabei wird
+sie von einer aktiven Community regelmäßig gewartet und weiterentwickelt \citep[vgl.][]{slicer2024},
+\citep[vgl.][]{fedorov2012slicer}.
 
+\begin{minipage}{0.50\textwidth}
+	Für Slicer gibt es offizell keine Nutzungsbeschränkung. Jedoch sei auch gesagt,
+	dass 3D Slicer nicht für die klinische Nutzung zugelassen ist. \citet{fedorov2012slicer}
+	macht deutlich, das 3D Slicer ausschließlich für die Forschung gedacht ist.
+\end{minipage}
+\hfill
+\begin{minipage}{0.40\textwidth}
+	\centering
+	\includegraphics[width=0.4\textwidth]{img/3d_slicer_mark.jpg}
+	\captionof{figure}{Logo von 3D Slicer} \label{fig:3d_slicer_logo}
+\end{minipage}
 
+Die Plattform 3D Slicer zeichnet sich durch einige Kriterien besonders aus,
+weswegen die Zahnklinik der LMU in München auch diese Plattform wünscht. Dieses Kapitel
+soll in die wichtigsten Techniken von 3D Slicer einführen und damit eine Grundlage
+für die spätere Implementierung bieten.
+% ---------------------------------------------------------------------------------------
 
-
-\label{sec:3d_slicer}
 \subsection{Extention Manager}
+Der wohl bedeutenste Punkt warum die Wahl auf Slicer viel, ist die modulare
+Softwarearchitektur, welche Slicer von sich aus mitbringt. Um dieses Konzept
+genauer zu beläuchten Teilt man die Platform am besten in zwei Teile auf. Die Kernanwendung
+und die Module, die jeder User personalisiert installieren oder deinstallieren
+kann. Slicer realisiert dies durch den Extention Manager, welcher durchaus
+vergleichbar ist mit dem AppStore. Über diesen können bequem und mit wenig Klicks
+die gewünschten Erweiterungen in das Kernsystem installiert werden.
+
+Neben der Möglichkeit Module zu installieren bietet Slicer noch die Möglichkeit eigenen
+Module zu bauen und Sie im Extention Manager zu veröffentlichen. Hierzu verfolgt Slicer den
+Ansatzt, das jeder Entwickler eines Moduls selbst verantwortlich für Wartung und Weiterentwicklung
+ist. Auch nachdem ein Paket veröffentlicht wurde. Erwähnenswert ist hier die Art und Weise,
+wie Slicer dieses Problem angeht
+
 \subsection{Python Umgebung}
 \subsection{MRML Datenstruktur}
 \subsection{Qt-Designer}
