@@ -282,7 +282,7 @@ Schritt und damit als zentrales Problem darstellt.
 
 \citet[Seite 95]{handels2000} und \citet[Seite 360]{lehmann2013bildverarbeitung}
 beschreiben beide, dass die Bildsegmentierung eines CTs für eine gute und
-eindeutige Ärzliche Diagnose nicht mehr wegzudenken ist. Warum dem so ist verdeutlicht
+eindeutige Ärzliche Diagnose nicht mehr wegzudenken ist. Warum dem so ist, verdeutlicht
 die Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
 
 \begin{figure}[h]
@@ -296,21 +296,21 @@ Zu erkennen ist das orginale Bild (Ausgangslage) und mögliche
 Interpretationsschritte. \citet[Seite 360]{lehmann2013bildverarbeitung} verdeutlicht
 mit dieser Abbildung \ref{fig:interpretation_einer_ct_aufnahem}, dass mittels
 orginalem Bild die einzig mögliche Interpretation die erste ist. Auch wenn die zweite
-Interpretation die deutlich logischere ist, kann dies ohne weitere Forschung
+Interpretation die deutlich logischere ist, kann diese ohne weitere Forschung
 nicht bewiesen werden, so \citet[Seite 360]{lehmann2013bildverarbeitung}. Für
 die Schlussvolgerung von Interpretation 1 auf Interpretation 2 ist eine
-Segmentierung des Bildes notwending. Erst mit diesem Verfahren lässt sich zeigen,
+Segmentierung des Bildes notwending. Erst damit lässt sich zeigen,
 wie die Strukturen wirklich aussehen. So beweist dieses Bild, dass die
 Segmentierung ein wesentlicher Teil der Bildanalyse ist.
 
-Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die auswhal eines
+Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die Auswhal eines
 Verfahrens spielt der Anwendungsbereich eine wichtige Rolle. Die Verfahren, die in
 dieser Arbeit von Wichtigkeit sind, sind die Schwellwertverfahren \citep[vgl.][Seite
 361]{lehmann2013bildverarbeitung}.
 
 \textbf{Schwelltwertverfahren} (engl.: thresholding) gehören zu den Standardwerkzeugen
-einer Segmentierung, sodass sie dei Basis vieler weiterer Verfahren legen. Bei einer
-Schwellwertbasierten Segmentierung werden die Pixel eines Bildes anhad von Schwellwerten
+einer Segmentierung, sodass sie die Basis vieler weiterer Verfahren legen. Bei einer
+Schwellwertbasierten Segmentierung werden die Pixel eines Bildes anhand von Schwellwerten
 eingruppiert \citep[vgl.][Seite 96]{handels2000}. Die nachfolgende Gleichung
 \ref{equ:schwellwertverfahren} soll dies verdeutlichen.
 
@@ -319,8 +319,8 @@ eingruppiert \citep[vgl.][Seite 96]{handels2000}. Die nachfolgende Gleichung
 \end{align}
 
 $B(x, y, z)$ Beschreibt einen Pixel in einem dreidimensonalen Bild, demnach ein
-Voxel. Liegen die Werte eines Voxels, also $f(x, y, z)$ innerhalb der beiden
-Schwellwerte $t_{o}ben$ und $t_{u}nten$, dann wird eine 1 zugewiesen. Liegt der
+Voxel. Liegen die Werte eines Voxels, also $f(x, y, z)$, innerhalb der beiden
+Schwellwerte $t_{oben}$ und $t_{unten}$, dann wird eine 1 zugewiesen. Liegt der
 aktuell betrachtete Voxel nicht zwischen den Schwellwerten, so wird eine 0 zugewiesen.
 
 \begin{figure}[h]
@@ -337,12 +337,12 @@ durchaus erfolgreich verlaufen. Der Grund dafür ist die gute Wahl des
 Schwellwertes.
 
 Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des
-Schwellwertes $t$. Diese entscheident zwischen einer guten und einer schlechten Segmentierung.
+Schwellwertes $t$. Dieses entscheident zwischen einer guten und einer schlechten Segmentierung.
 Für die Wahl eines Schwellwertes empfielt sich der Blick auf das Bildhistogramm.
-Diese gibt Aufschluss über die Grauwertverteilung eines Bildes\citep[vgl.][Seite
-361]{lehmann2013bildverarbeitung}. Eines Verfahren, welches eine gute
+Diese gibt Aufschluss über die Grauwertverteilung eines Bildes \citep[vgl.][Seite361]{lehmann2013bildverarbeitung}.
+Ein Verfahren, welches eine gute
 Schwellwertwahl gewährleistet, ohne das zu viele Informationen verloren gehen,
-ist das Verfharen nach \textit{Otsu}.
+ist das Verfahren nach \textit{Otsu}.
 
 \textbf{Das Verfahren nach Otsu} gehört zu den Schwellwertverfahren und und
 bestimmt den Schwellwert $t$ durch ein statistische Gütekriterieum. Hierzu bedient
@@ -365,43 +365,33 @@ Anordnung der Voxel benötigt dieser Algorthmus nicht \citep[vgl.][Seite 264]{le
 
 Das Otsu-Verfahren teilt die Grauwerte eines Bildes in verschiedenen Klassen ein,
 die durch Schwellwerte getrennt werden. Die Klassen können beispeilsweise mit
-$K_{0}$ bis $K_{n}$ bezeichnet werden, wobei in diesem konkreten Beispiel die Klassen
-$K_{0}$ und $K_{1}$ sein sollen. Otsu wählt den Schwellwert $t$, der die Varianz
+$K_{0}$ bis $K_{n}$ bezeichnet werden, wobei sich diese konkrete Beispiel auf die Klassen
+$K_{0}$ und $K_{1}$ beschränkt. Otsu wählt den Schwellwert $t$, der die Varianz
 zwischen den Pixelklassen maximiert und gleichzeitig die Varianz innerhalb jeder
 Klasse minimiert \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
 Matematisch lässt sich dies wie folgt ausdrücken.
 
 \begin{align}
-	\sigma_{zw}^{2}= P_{0}(g_{0}- g)^{2}+ P_{1}(g_{1}- g)
-\end{align}
-
-$\sigma_{zw}$ bildet die Varianz zwischen den beiden Klassen $K_{0}$ und $K_{1}$
-und wird gebildet aus der Wahrscheinlichkeiten mit denen jeder einzelne grauwert
-vorkommt.
-
-\begin{align}
-	\sigma_{in}^{2}= P_{0}\sigma_{0}^{2}+ P_{1}\sigma_{1}^{2}
-\end{align}
-
-$\sigma_{in}$ hingegen die Varianz innerhalb einer Klasse und entsteht durch die
-Addition der Varianzen der einzelnen Klassen. Der Gesuchte Schwellwert nach Otsu
-ist nun der, für den gilt
-
-\begin{align}
 	\text{max }(\sigma_{zw}^{2}/ \sigma_{in}^{2})
 \end{align}
 
-Nach Betrachtung diesr grob beschriebenen Berechnung fällt möglicherweise auf, dass
-dieses verfahren vorallem bei bimodalen Bildern zum Einsatz kommt. Ein Bild ist
-bimodal, wenn es zwei lokale maxima aufweist. Wie bereits zu beginn klar wurde, kann
-jedoch das Otsu-Verfahren auf beliebig viele Klassen erweitert werde.
+$\sigma_{zw}$ bildet die Varianz zwischen den beiden Klassen $K_{0}$ und $K_{1}$
+und wird gebildet aus der Wahrscheinlichkeiten mit denen jeder einzelne Grauwert
+auftritt. $\sigma_{in}$ hingegen, ist die Varianz innerhalb einer Klasse und entsteht durch die
+Addition der Varianzen der einzelnen Klassen \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
+
+Nach Betrachtung dieser grob beschriebenen Berechnung fällt möglicherweise auf, dass
+dieses Verfahren vorallem bei bimodalen Bildern zum Einsatz kommt. Ein Bild ist
+bimodal, wenn es zwei lokale Maxima aufweist. Das Otsu-Verfahren ist jedoch nicht auf
+eine Bimodalität beschränkt und kann auf beliebig viele Klassen erweitert werden
+\citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
 
 Neben unzähligen Segmentierungstechniken, ist eine für diese Arbeits von ganz besonderer
 Bedeutung. Diese Technik wurde speziell zum Segementieren der Micro-CT bilder des
 Zahnklinikums an der LMU in München entwickelt und bildet die Basis dieser Arbeit. Konkret
 ist damit das Hoffmann-Verfahren gemeint, dass von \citet{hoffmann2020} entwickelt wurde.
 Das folgende Kapitel führt in diese Technik ein, die sich unter anderem den eben
-angesprochenen techniken bedient.
+angesprochenen Verfahren bedient.
 % ---------------------------------------------------------------------------------------
 
 \section{Verwandte Arbeit}
