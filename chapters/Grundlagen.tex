@@ -305,23 +305,23 @@ Segmentierung ein wesentlicher Teil der Bildanalyse ist.
 
 Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die auswhal eines
 Verfahrens spielt der Anwendungsbereich eine wichtige Rolle. Die Verfahren, die in
-dieser Arbeit von Wichtigkeit sind, sind die Schwellwertverfahren
-\citep[vgl.][Seite 361]{lehmann2013bildverarbeitung}.
+dieser Arbeit von Wichtigkeit sind, sind die Schwellwertverfahren \citep[vgl.][Seite
+361]{lehmann2013bildverarbeitung}.
 
 \textbf{Schwelltwertverfahren} (engl.: thresholding) gehören zu den Standardwerkzeugen
-einer Segmentierung, sodass sie dei Basis vieler weiterer Verfahren legen. Bei
-einer Schwellwertbasierten Segmentierung werden die Pixel eines Bildes anhad von
-Schwellwerten eingruppiert \citep[vgl.][Seite 96]{handels2000}. Die nachfolgende
-Gleichung \ref{equ:schwellwertverfahren} soll dies verdeutlichen.
+einer Segmentierung, sodass sie dei Basis vieler weiterer Verfahren legen. Bei einer
+Schwellwertbasierten Segmentierung werden die Pixel eines Bildes anhad von Schwellwerten
+eingruppiert \citep[vgl.][Seite 96]{handels2000}. Die nachfolgende Gleichung
+\ref{equ:schwellwertverfahren} soll dies verdeutlichen.
 
 \begin{align}
 	\label{equ:schwellwertverfahren}B(x, y, z) = \begin{cases}1,&\text{falls }t_{\text{unten}}\leq f(x, y, z) \leq t_{\text{oben}}, \\ 0,&\text{sonst}.\end{cases}
 \end{align}
 
-$B(x, y, z)$ Beschreibt einen Pixel in einem dreidimensonalen Bild, demnach ein Voxel.
-Liegen die Werte eines Voxels, also $f(x, y, z)$ innerhalb der beiden Schwellwerte
-$t_{o}ben$ und $t_{u}nten$, dann wird eine 1 zugewiesen. Liegt der aktuell betrachtete
-Voxel nicht zwischen den Schwellwerten, so wird eine 0 zugewiesen.
+$B(x, y, z)$ Beschreibt einen Pixel in einem dreidimensonalen Bild, demnach ein
+Voxel. Liegen die Werte eines Voxels, also $f(x, y, z)$ innerhalb der beiden
+Schwellwerte $t_{o}ben$ und $t_{u}nten$, dann wird eine 1 zugewiesen. Liegt der
+aktuell betrachtete Voxel nicht zwischen den Schwellwerten, so wird eine 0 zugewiesen.
 
 \begin{figure}[h]
 	\centering
@@ -330,26 +330,90 @@ Voxel nicht zwischen den Schwellwerten, so wird eine 0 zugewiesen.
 	\label{fig:binäres_schwellwertverfahren}
 \end{figure}
 
-In der Abbildung \ref{fig:binäres_schwellwertverfahren} ist zu erkennen, dass
-nach einem einfachen Schwellwertverfahren das Bild nur noch aus zwei
-unterschiedlichen Graustufen besteht. Abgesehen von der Sinnhaftigkeit, ist diese
-einfach Segmentierung durchaus erfolgreich verlaufen. Der Grund dafür ist die gute
-Wahl des Schwellwertes.
+In der Abbildung \ref{fig:binäres_schwellwertverfahren} ist zu erkennen, dass nach
+einem einfachen Schwellwertverfahren das Bild nur noch aus zwei unterschiedlichen
+Graustufen besteht. Abgesehen von der Sinnhaftigkeit, ist diese einfach Segmentierung
+durchaus erfolgreich verlaufen. Der Grund dafür ist die gute Wahl des
+Schwellwertes.
 
-Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des Schwellwertes $t$.
-Diese entscheident zwischen einer guten und einer schlechten Segmentierung. Für die Wahl
-eines Schwellwertes empfielt sich der Blick auf das Bildhistogramm. Diese gibt Aufschluss
-über die Grauwertverteilung eines Bildes\citep[vgl.][Seite 361]{lehmann2013bildverarbeitung}.
-Eines Verfahren, welches eine gute Schwellwertwahl gewährleistet, ohne das zu viele
-Informationen verloren gehen, ist das Verfharen nach \textit{Otsu}.
+Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des
+Schwellwertes $t$. Diese entscheident zwischen einer guten und einer schlechten Segmentierung.
+Für die Wahl eines Schwellwertes empfielt sich der Blick auf das Bildhistogramm.
+Diese gibt Aufschluss über die Grauwertverteilung eines Bildes\citep[vgl.][Seite
+361]{lehmann2013bildverarbeitung}. Eines Verfahren, welches eine gute
+Schwellwertwahl gewährleistet, ohne das zu viele Informationen verloren gehen,
+ist das Verfharen nach \textit{Otsu}.
 
-\textbf{Das Verfahren nach Otsu} gehört zu den Schwellwertverfahren und und bestimmt den
-Schwellwert $t$ durch ein statistische Gütekriterieum.
+\textbf{Das Verfahren nach Otsu} gehört zu den Schwellwertverfahren und und
+bestimmt den Schwellwert $t$ durch ein statistische Gütekriterieum. Hierzu bedient
+sich das Verfahren des Bildhistogrammes. Das tatsächliche Bild, und damit die räumliche
+Anordnung der Voxel benötigt dieser Algorthmus nicht \citep[vgl.][Seite 264]{lehmann2013bildverarbeitung}.
+
+\begin{minipage}{0.40\textwidth}
+	Ein solches Histogramm, welches die Grundlage für für das Verfahren nach Otsu
+	liefert sei in Abbildung \ref{fig:histogramm} gezeigt. Dies gibt Aufschluss über
+	die unterschiedlichen Grauwerte und wie oft sie in einem Bild vorkommen \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
+	Für eine genauere Beschreibung eines Histogrammes, sei an dieser Stelle auf \citet[Seite42]{burger2009}
+	verwiesen.
+\end{minipage}
+\hfill
+\begin{minipage}{0.50\textwidth}
+	\centering
+	\includegraphics[width=1\textwidth]{img/histogramm.jpg}
+	\captionof{figure}{Histogramm einer Zahnaufnahme nach Hoffmann} \label{fig:histogramm}
+\end{minipage}
+
+Das Otsu-Verfahren teilt die Grauwerte eines Bildes in verschiedenen Klassen ein,
+die durch Schwellwerte getrennt werden. Die Klassen können beispeilsweise mit
+$K_{0}$ bis $K_{n}$ bezeichnet werden, wobei in diesem konkreten Beispiel die Klassen
+$K_{0}$ und $K_{1}$ sein sollen. Otsu wählt den Schwellwert $t$, der die Varianz
+zwischen den Pixelklassen maximiert und gleichzeitig die Varianz innerhalb jeder
+Klasse minimiert \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
+Matematisch lässt sich dies wie folgt ausdrücken.
+
+\begin{align}
+	\sigma_{zw}^{2}= P_{0}(g_{0}- g)^{2}+ P_{1}(g_{1}- g)
+\end{align}
+
+$\sigma_{zw}$ bildet die Varianz zwischen den beiden Klassen $K_{0}$ und $K_{1}$
+und wird gebildet aus der Wahrscheinlichkeiten mit denen jeder einzelne grauwert
+vorkommt.
+
+\begin{align}
+	\sigma_{in}^{2}= P_{0}\sigma_{0}^{2}+ P_{1}\sigma_{1}^{2}
+\end{align}
+
+$\sigma_{in}$ hingegen die Varianz innerhalb einer Klasse und entsteht durch die
+Addition der Varianzen der einzelnen Klassen. Der Gesuchte Schwellwert nach Otsu
+ist nun der, für den gilt
+
+\begin{align}
+	\text{max }(\sigma_{zw}^{2}/ \sigma_{in}^{2})
+\end{align}
+
+Nach Betrachtung diesr grob beschriebenen Berechnung fällt möglicherweise auf, dass
+dieses verfahren vorallem bei bimodalen Bildern zum Einsatz kommt. Ein Bild ist
+bimodal, wenn es zwei lokale maxima aufweist. Wie bereits zu beginn klar wurde, kann
+jedoch das Otsu-Verfahren auf beliebig viele Klassen erweitert werde.
+
+Neben unzähligen Segmentierungstechniken, ist eine für diese Arbeits von ganz besonderer
+Bedeutung. Diese Technik wurde speziell zum Segementieren der Micro-CT bilder des
+Zahnklinikums an der LMU in München entwickelt und bildet die Basis dieser Arbeit. Konkret
+ist damit das Hoffmann-Verfahren gemeint, dass von \citet{hoffmann2020} entwickelt wurde.
+Das folgende Kapitel führt in diese Technik ein, die sich unter anderem den eben
+angesprochenen techniken bedient.
+% ---------------------------------------------------------------------------------------
 
 \section{Verwandte Arbeit}
 \label{sec:verwwandte_arbeit}
+TODO
+% ---------------------------------------------------------------------------------------
 
 \section{Interaktive Bearbeitung mit 3D Slicer}
+
+
+
+
 \label{sec:3d_slicer}
 \subsection{Extention Manager}
 \subsection{Python Umgebung}
