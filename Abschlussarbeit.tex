@@ -57,9 +57,16 @@
 
 \graphicspath{{Bilder/}}
 
-\usepackage{caption}
+\usepackage[
+	format=plain,
+	labelfont=bf,
+	textfont=it,
+	justification=raggedright,
+	singlelinecheck=false
+	]{caption}
 \DeclareCaptionLabelFormat{something}{#2.#1.}
 \captionsetup[lstlisting]{labelformat=something}
+
 
 \begin{document}
 	% Sprachauswahl zum Umschalten innerhalb des Textes.

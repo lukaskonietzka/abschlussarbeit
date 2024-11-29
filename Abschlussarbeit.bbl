@@ -418,6 +418,29 @@
       \field{type}{Bachelorarbeit}
       \field{year}{2020}
     \endentry
+    \entry{itk2024}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cb6d675190b04c7e0eadabe06e81e776}{%
+           family={{ITK Development Team}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{cb6d675190b04c7e0eadabe06e81e776}
+      \strng{fullhash}{cb6d675190b04c7e0eadabe06e81e776}
+      \strng{bibnamehash}{cb6d675190b04c7e0eadabe06e81e776}
+      \strng{authorbibnamehash}{cb6d675190b04c7e0eadabe06e81e776}
+      \strng{authornamehash}{cb6d675190b04c7e0eadabe06e81e776}
+      \strng{authorfullhash}{cb6d675190b04c7e0eadabe06e81e776}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://itk.org}}
+      \field{note}{Entwickelt und gepflegt von Kitware, Zugriff am 21. November 2024}
+      \field{title}{ITK: Insight Segmentation and Registration Toolkit}
+      \field{year}{2024}
+    \endentry
     \entry{jahne2024}{book}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=2af9a87ab3a028f0648eedb98f353969}{%
@@ -580,6 +603,29 @@
       \field{title}{Poliklinik f\"{u}r Zahnerhaltung und Parodontologie des LMU-Klinikums M\"{u}nchen}
       \field{year}{2024}
     \endentry
+    \entry{qt2024}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7770e09d25a992e7b3389dd6af3b8480}{%
+           family={{Qt Development Team}},
+           familyi={Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{7770e09d25a992e7b3389dd6af3b8480}
+      \strng{fullhash}{7770e09d25a992e7b3389dd6af3b8480}
+      \strng{bibnamehash}{7770e09d25a992e7b3389dd6af3b8480}
+      \strng{authorbibnamehash}{7770e09d25a992e7b3389dd6af3b8480}
+      \strng{authornamehash}{7770e09d25a992e7b3389dd6af3b8480}
+      \strng{authorfullhash}{7770e09d25a992e7b3389dd6af3b8480}
+      \field{sortinit}{Q}
+      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://doc.qt.io/qt-6/qt-intro.html}}
+      \field{note}{Entwickelt und gepflegt von The Qt Company, Zugriff am 21. November 2024}
+      \field{title}{Qt Documentation: Introduction to Qt}
+      \field{year}{2024}
+    \endentry
     \entry{ramesh2021}{article}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=1585158a953a14be5a33cae3fb203ee3}{%
@@ -698,6 +744,29 @@
       \verb{url}
       \verb https://www.scanco.ch/brochures.html
       \endverb
+    \endentry
+    \entry{vtk2024}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3df4698da7088f98aeb1e5967a743306}{%
+           family={{VTK Development Team}},
+           familyi={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{3df4698da7088f98aeb1e5967a743306}
+      \strng{fullhash}{3df4698da7088f98aeb1e5967a743306}
+      \strng{bibnamehash}{3df4698da7088f98aeb1e5967a743306}
+      \strng{authorbibnamehash}{3df4698da7088f98aeb1e5967a743306}
+      \strng{authornamehash}{3df4698da7088f98aeb1e5967a743306}
+      \strng{authorfullhash}{3df4698da7088f98aeb1e5967a743306}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://vtk.org}}
+      \field{note}{Entwickelt und gepflegt von Kitware, Zugriff am 21. November 2024}
+      \field{title}{VTK: The Visualization Toolkit}
+      \field{year}{2024}
     \endentry
     \entry{zwinkels2015}{article}{}
       \name{author}{1}{}{%

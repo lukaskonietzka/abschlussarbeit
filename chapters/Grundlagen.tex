@@ -267,6 +267,8 @@ die Segmentierung einführt. Warum dies so ein wichtiger Bestandteil der
 Bildanalyse ist und welche Methoden sich hier bieten, erläutert das folgende Kapitel.
 % ---------------------------------------------------------------------------------------
 
+\pagebreak
+
 \subsection{Segmentierung}
 \label{subsec:segmentierung} Die Bildsegmentierung oder Bildaufteilung ist ein wichtiges
 Teilgebiet der Bildverarbeitung und beschäfftigt sich mit der Bildanalyse. Ihr
@@ -306,6 +308,8 @@ Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die Auswhal
 eines Verfahrens spielt der Anwendungsbereich eine wichtige Rolle. Die Verfahren,
 die in dieser Arbeit von Wichtigkeit sind, sind die Schwellwertverfahren \citep[vgl.][Seite
 361]{lehmann2013bildverarbeitung}.
+
+\pagebreak
 
 \textbf{Schwelltwertverfahren} (engl.: thresholding) gehören zu den
 Standardwerkzeugen einer Segmentierung, sodass sie die Basis vieler weiterer Verfahren
@@ -472,7 +476,7 @@ wenig Klicks die gewünschten Erweiterungen in das Kernsystem installiert werden
 \begin{minipage}{0.50\textwidth}
 	\centering
 	\includegraphics[width=0.8\textwidth]{img/extensions_manager.png}
-	\captionof{figure}{3D Slicer Extention Manager} \label{fig:3d_slicer_extention_manager}
+	\captionof{figure}{3D Slicer Extention Manager nach \citet{slicer2024}} \label{fig:3d_slicer_extention_manager}
 \end{minipage}
 
 Slicer realisiert dies, indem die Plattform über ein zusätzliches Reporsitory
@@ -502,7 +506,7 @@ von zusammengehöriger Logik. Bei der Erstellung einer eigenen Extention ist die
 dass nur die Logic implementiert werden muss und die komplexe Architektur von
 Slicer erstmal nicht relevant ist.
 
-Jedoch gibt es in Slicer nicht nur die Möglichkeit eigenen Erweiterungen zu
+Jedoch bietet sich in Slicer nicht nur die Möglichkeit eigenen Erweiterungen zu
 erstellen. Es lässt sich hierfür auch die integrierte Python Konsole nutzen.
 % ---------------------------------------------------------------------------------------
 
@@ -530,10 +534,90 @@ ist.
 \subsection{MRML Datenstruktur}
 \label{subsec:mrml_datenstruktur} Die \textit{Medical Reality Modeling Language
 (MRML, gesprochen “MURml”)} ist ein Datenmodell das dafür entwickelt wurde alle
-möglichen Bilddaten zu visualisieren und speichen die für einen klinischen
-Einsatz finden \citep[vgl.][]{slicer2024}
+möglichen Bilddaten zu visualisieren und zu speichen, die für einen klinischen Zweck
+Einsatz finden \citep[vgl.][]{slicer2024}. Laut der \citet{slicer2024} wurde die
+MRML-Datenstruktur völlig unabhängig von der Slicer Kernanwedung entwickelt. Dies
+ermöglicht ein portieren der Datenstruktur auf andere Softwareapplikationen. Da
+Slicer die einzig große Plattform ist, die diese Datenstruktur nutzt, wird der
+Quellcode für MRML im Reporsitory von 3D Slicher gewartet und weiterentwickelt, so
+\citet{slicer2024}. Durch den Artikel von \citet[Seite 1327]{fedorov2012slicer} wird
+klar, dass MRML mehr ist also nur eine Datenstruktur. Sie beschreiben MRML als Szenenorganisator
+von Bilder, Anotationen, Layouts und Anwendungsstaten.
 
-\subsection{Qt-Designer}
+\citet[Seite 1331]{fedorov2012slicer} beschreiben die MRML-Datenstruktur als Schlüsselkomponenten
+innerhalb von 3D Slicer. Dies ist auf die Softwarearchitektur von Slicer
+zurückzuführen, die in Abbildung \ref{fig:3d_slicer_architektur} beschrieben wurde.
+Die Kernanwendung von Slicer arbeitet nach dem MVC-Pattern. MRML übernimmt hier den
+Teil des \textit{Models (M)} und bildet damit den Grundstein der Anwendung
+\citep[vgl.][Seite 1332]{fedorov2012slicer}.
 
-\section{Architektonisch}
-\label{sec:architektonisch}
+Die \citet{slicer2024} und der Artikel von \citet[Seite 1327]{fedorov2012slicer}
+beschreibt MRML als XML-Format. Wird also eine MRML-Szenen gespeichert, so folgt
+eine Speicherung als .mrml-Datei und damit unter der Haube als XML-Datei. Dabei wird
+laut \citet{slicer2024} nur eine Referenz auf das Bild gespeichert. Die zu bearbeitende
+Aufnahme selbst wird nicht inerhalb einer MRML-Datei abgespeichert.
+
+MRLM bietet eine breite Palette an Datentypen zur Speicherung von unterschiedlichen
+Bildern, die einen unterschiedlichen Bearbeitungsstand aufweisen. Eine grobe Auswahl
+sei hier gezeigt. Für weitere Typen sei auf die Dokumentation verwiesen \citep[vgl.][]{slicer2024}.
+
+\begin{itemize}
+	\item Volume (\textit{vtkMRMLVolume})
+
+	\item Model (\textit{vtkMRMLModelNode})
+
+	\item Segmentation (\textit{vtkMRMLSegmentationNode})
+\end{itemize}
+
+Wie diese grobe Auflistung bereits zeigt, gibt es noch eine besonderheit von MRML.
+Damit ein Verwaltung alle Dateiformate möglich ist, bedient sich MRML einiger Tools,
+die sich bereits etabliert haben. Die wichtigsten sind das \citet{vtk2024} und
+das \citet{itk2024}. Dies beiden Tools sind echte Rießen in ihrere Branche. MRML
+nutzt diese um einige Dateiformate zu lessen und zu schreiben.
+
+Nachdem die Datenstruktur nun beschrieben wurde und alle charakteristischen aus dem
+Kapitel \ref{sec:3d_slicer} beschrieben wurden, soll Abschließend eine kurze
+Einführung in die Benutzerschnittstelle von Slicer folgen. Insbesondere der Schnittstelle
+für die SEMs.
+% ---------------------------------------------------------------------------------------
+
+\subsection{Benutzerschnittstelle}
+\label{subsec:benutzerschnitstelle} Für das erstellen eines Benutzerschnittstelle
+(engl. \textit{User Interface (UI)}), das für eine Slicer Extention nötig ist, nutzt
+3D Slicer den Qt-Designer \citep[vgl.][]{qt2024}. Die Integration des Qt-Designers
+als Applikation in eine andere Applikation funktioniert aufgrund der Plattformintegrität,
+die der Designer mitbringt \citep[vgl.][]{qt2024}. Dieser bietet so die
+Möglichkeit die benötigten Widgets über ein interaktives User Interface zu bauen.
+Für dieses UI-Widget gibt es einen Gegenspieler im Quelltext des Programmes,
+welcher als \textit{ParameterNode} bekannt ist. Der \textit{ParameterNode} ist laut
+\citet{slicer2024} eine leichte Variante eines MRML-Node um
+Parametereinstellungen zu speichern. Durch das Zusammenspiel zwischen UI-Widget und
+\textit{ParameterNode} wird die UI automatisch aktualisiert, wenn sich das Programm
+ändert und umgehert \citet{slicer2024}.
+
+
+\begin{minipage}{0.35\textwidth}
+	Das Erstellen der Verknüpfung zwischen UI-Widget und \textit{ParameterNode}
+	erfolgt über die dynamische Eigenschaft \texttt{SlicerParameter}, die direkt
+	in der Komponentenansicht im Qt-Designer einstellbar ist. Die Abbidlung \ref{fig:qt_designer}
+	soll diesen Vorgang verdeutlichen. Diese Verknüpfung lässt sich laut \citet{slicer2024} auch
+	via Programmcode setzten.
+\end{minipage}
+\hfill
+\begin{minipage}{0.55\textwidth}
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/qt_designer.jpg}
+	\captionof{figure}{Dynamische Eigenschaft einer Komponenten im Qt-Designer nach \citet{slicer2024}}
+	\label{fig:qt_designer}
+\end{minipage}
+
+\texttt{widget.setProperty('SlicerParameterName', 'parameterName')}
+
+Über das Objekt \textit{widget} kann die eigenschaft einer Komponente gesetzt
+werden, ohne dass sie im Designer berührt werden muss.
+
+Mit dem Ende dieses Abschnittes wurden alle wichtigen Bestandteile von 3D Slicer
+abgedeckt und diskutiert, sowie alle weiteren Domänen eingeführt. So bleibt nun die
+Frage nach dem Sinn dieser Arbeit. das Kapitel \ref{chap:fragestellung} soll
+hier Klarheit liefern und die konkrete Fragestellung ausarbeiten.
+% ---------------------------------------------------------------------------------------
