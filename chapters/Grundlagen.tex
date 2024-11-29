@@ -270,22 +270,23 @@ Bildanalyse ist und welche Methoden sich hier bieten, erläutert das folgende Ka
 \pagebreak
 
 \subsection{Segmentierung}
-\label{subsec:segmentierung} Die Bildsegmentierung oder Bildaufteilung ist ein wichtiges
-Teilgebiet der Bildverarbeitung und beschäfftigt sich mit der Bildanalyse. Ihr
-Ziel ist es, detailirtere beschreibende Bilder aus dem vorliegenden Orginalbild zu
-berechnen. Dies kann im Falle eines CTs in der Zahnklinik an der LMU München die
-hervorgehobene Darstelllung der Zahnhartsubstanzen sein. \citep[vgl.][Seite 359]{lehmann2013bildverarbeitung}.
-Konkret teilt ein Segmentierungsverfahren also ein Bild in Teilbereiche auf. Dabei
-sind die Teilbereich in sich bemerkenswert homogen. \citet[Seite 1]{ramesh2021}
-beschreibt, dass der Prozess der Segmentierung zur Gewinnung wichtiger Informationen
-dient wie zum Beispiel die Zahnkaries Ausbreitung. So kommt es, dass \citet[Seite
-50]{handels2000} in seiner Visualisierungs-Pipelin die Segmentierung als zweiten
-Schritt und damit als zentrales Problem darstellt.
+\label{subsec:segmentierung} Die Bildsegmentierung oder Bildaufteilung ist ein
+wichtiges Teilgebiet der Bildverarbeitung und beschäfftigt sich mit der
+Bildanalyse. Ihr Ziel ist es, detailirtere beschreibende Bilder aus dem
+vorliegenden Orginalbild zu berechnen. Dies kann im Falle eines CTs in der Zahnklinik
+an der LMU München die hervorgehobene Darstelllung der Zahnhartsubstanzen sein.
+\citep[vgl.][Seite 359]{lehmann2013bildverarbeitung}. Konkret teilt ein Segmentierungsverfahren
+also ein Bild in Teilbereiche auf. Dabei sind die Teilbereich in sich
+bemerkenswert homogen. \citet[Seite 1]{ramesh2021} beschreibt, dass der Prozess
+der Segmentierung zur Gewinnung wichtiger Informationen dient wie zum Beispiel
+die Zahnkaries Ausbreitung. So kommt es, dass \citet[Seite 50]{handels2000} in
+seiner Visualisierungs-Pipelin die Segmentierung als zweiten Schritt und damit
+als zentrales Problem darstellt.
 
 \citet[Seite 95]{handels2000} und \citet[Seite 360]{lehmann2013bildverarbeitung}
-beschreiben beide, dass die Bildsegmentierung eines CTs für eine gute und
-eindeutige Ärzliche Diagnose nicht mehr wegzudenken ist. Warum dem so ist,
-verdeutlicht die Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
+beschreiben beide, dass die Bildsegmentierung eines CTs für eine gute und eindeutige
+Ärzliche Diagnose nicht mehr wegzudenken ist. Warum dem so ist, verdeutlicht die
+Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
 
 \begin{figure}[h]
 	\centering
@@ -294,19 +295,20 @@ verdeutlicht die Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
 	\label{fig:interpretation_einer_ct_aufnahem}
 \end{figure}
 
-Zu erkennen ist das orginale Bild (Ausgangslage) und mögliche Interpretationsschritte.
-\citet[Seite 360]{lehmann2013bildverarbeitung} verdeutlicht mit dieser Abbildung
-\ref{fig:interpretation_einer_ct_aufnahem}, dass mittels orginalem Bild die einzig
-mögliche Interpretation die erste ist. Auch wenn die zweite Interpretation die
-deutlich logischere ist, kann diese ohne weitere Forschung nicht bewiesen werden,
-so \citet[Seite 360]{lehmann2013bildverarbeitung}. Für die Schlussvolgerung von Interpretation
-1 auf Interpretation 2 ist eine Segmentierung des Bildes notwending. Erst damit
-lässt sich zeigen, wie die Strukturen wirklich aussehen. So beweist dieses Bild,
-dass die Segmentierung ein wesentlicher Teil der Bildanalyse ist.
+Zu erkennen ist das orginale Bild (Ausgangslage) und mögliche
+Interpretationsschritte. \citet[Seite 360]{lehmann2013bildverarbeitung} verdeutlicht
+mit dieser Abbildung \ref{fig:interpretation_einer_ct_aufnahem}, dass mittels
+orginalem Bild die einzig mögliche Interpretation die erste ist. Auch wenn die zweite
+Interpretation die deutlich logischere ist, kann diese ohne weitere Forschung
+nicht bewiesen werden, so \citet[Seite 360]{lehmann2013bildverarbeitung}. Für
+die Schlussvolgerung von Interpretation 1 auf Interpretation 2 ist eine
+Segmentierung des Bildes notwending. Erst damit lässt sich zeigen, wie die
+Strukturen wirklich aussehen. So beweist dieses Bild, dass die Segmentierung ein
+wesentlicher Teil der Bildanalyse ist.
 
-Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die Auswhal
-eines Verfahrens spielt der Anwendungsbereich eine wichtige Rolle. Die Verfahren,
-die in dieser Arbeit von Wichtigkeit sind, sind die Schwellwertverfahren \citep[vgl.][Seite
+Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die Auswhal eines
+Verfahrens spielt der Anwendungsbereich eine wichtige Rolle. Die Verfahren, die in
+dieser Arbeit von Wichtigkeit sind, sind die Schwellwertverfahren \citep[vgl.][Seite
 361]{lehmann2013bildverarbeitung}.
 
 \pagebreak
@@ -340,9 +342,9 @@ durchaus erfolgreich verlaufen. Der Grund dafür ist die gute Wahl des
 Schwellwertes.
 
 Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des
-Schwellwertes $t$. Dieses entscheident zwischen einer guten und einer schlechten
+Schwellwertes $t$. Dieser entscheident zwischen einer guten und einer schlechten
 Segmentierung. Für die Wahl eines Schwellwertes empfielt sich der Blick auf das
-Bildhistogramm. Diese gibt Aufschluss über die Grauwertverteilung eines Bildes \citep[vgl.][Seite361]{lehmann2013bildverarbeitung}.
+Bildhistogramm. Dieses gibt Aufschluss über die Grauwertverteilung eines Bildes \citep[vgl.][Seite361]{lehmann2013bildverarbeitung}.
 Ein Verfahren, welches eine gute Schwellwertwahl gewährleistet, ohne das zu
 viele Informationen verloren gehen, ist das Verfahren nach \textit{Otsu}.
 
@@ -369,7 +371,7 @@ Anordnung der Voxel benötigt dieser Algorthmus nicht \citep[vgl.][Seite 264]{le
 
 Das Otsu-Verfahren teilt die Grauwerte eines Bildes in verschiedenen Klassen ein,
 die durch Schwellwerte getrennt werden. Die Klassen können beispeilsweise mit
-$K_{0}$ bis $K_{n}$ bezeichnet werden, wobei sich diese konkrete Beispiel auf die
+$K_{0}$ bis $K_{n}$ bezeichnet werden, wobei sich dieses konkrete Beispiel auf die
 Klassen $K_{0}$ und $K_{1}$ beschränkt. Otsu wählt den Schwellwert $t$, der die Varianz
 zwischen den Pixelklassen maximiert und gleichzeitig die Varianz innerhalb jeder
 Klasse minimiert \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
@@ -385,7 +387,7 @@ auftritt. $\sigma_{in}$ hingegen, ist die Varianz innerhalb einer Klasse und ent
 durch die Addition der Varianzen der einzelnen Klassen. Der Schwellwert $t$ ist
 nun der, für den das Verhältnis maximal wird \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
 
-laut \citet[Seite264]{lehmann2013bildverarbeitung} fällt auf, dass dieses
+Laut \citet[Seite264]{lehmann2013bildverarbeitung} fällt auf, dass dieses
 Verfahren vorallem bei bimodalen Bildern zum Einsatz kommt. Ein Bild ist bimodal,
 wenn es zwei lokale Maxima aufweist. Das Otsu-Verfahren ist jedoch nicht auf eine
 Bimodalität beschränkt und kann auf beliebig viele Klassen erweitert werden \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
@@ -393,29 +395,66 @@ Bimodalität beschränkt und kann auf beliebig viele Klassen erweitert werden \c
 Neben unzähligen Segmentierungstechniken, ist eine für diese Arbeits von ganz
 besonderer Bedeutung. Diese Technik wurde speziell zum Segementieren der Micro-CT
 bilder des Zahnklinikums an der LMU in München entwickelt und bildet die Basis dieser
-Arbeit. Konkret ist damit das Hoffmann-Verfahren gemeint \citep{hoffmann2020}.
+Arbeit. Konkret ist damit das Hoffmann-Verfahren gemeint \citep[vgl.][]{hoffmann2020}.
 % ---------------------------------------------------------------------------------------
 
 \section{Verwandte Arbeit}
-\label{sec:verwwandte_arbeit} TODO
+\label{sec:verwwandte_arbeit} Wie bereits in der Einleitung dieser Arbeit klar wurde
+verfügt die Poliklinik für Zahnerhaltung und Parodontologie des LMU-Klinikums München
+über einen breiten Schatz an Bilddaten. Im Rahmen einer Bachelorarbeit an der
+Hohschule für angewnadte Wissenschafften in Augsburg unterstützte \citet{hoffmann2020}
+die Verarbeitung dieser Bilddaten mit Methoden der 3D-Bildverarbeitung. Konkret
+sollte die Arbeit die Kariesklassifizierung unterstützen. Hierzu entwickelte er ein
+Verfahren, das auf Basis adaptiver Schwellwertverfahren die Zahnsubstanzen
+Schmelz und Dentin aus dem Orginalbild herrauslöst. Konkret kann diese Segmentierung
+mir zwei verschiedenen Verfahren durchgeführt werden.
 
-Für eine interaktive Verarbeitung von 3D Bilddaten bieten sich einige
-Möglichkeiten. Die wohl größe und auch verbreiteste Lösung liefer 3D Slicer.
-Warum die Wahl auf diese Plattform viel und welche Vorteile daraus entstehen
-wird im folgenden Abschnitt \ref{sec:3d_slicer} erläutert.
+\begin{minipage}{0.30\textwidth}
+	Durch die Segmentbetrachtung der Beiden Zahnhauptteile Schmelz und Dentin konnte
+	\citet{hoffmann2020} eine gute Hilfe für die Befundung kariöse Stellen liefern.
+	Ein Ergebnis aus der Arbeit von Hoffman sei in Abbildung \ref{fig:ergebnis_hoffmann}
+	gezeigt.
+\end{minipage}
+\hfill
+\begin{minipage}{0.60\textwidth}
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/ergebnis_hoffmann.jpg}
+	\captionof{figure}{Ergebnisansicht eines CTs nach Bearbeitung mit dem Verfahren nach \citet[Seite 56]{hoffmann2020}}
+	\label{fig:ergebnis_hoffmann}
+\end{minipage}
+
+\citet{hoffmann2020} entwickelte hierfür ein Prototypisches Verfahren, mit dem
+es gelang ca. 250 Datensätze der Zahnklinik automatisch aufzubereiten. \citet{hoffmann2020}
+beschreibt weiter, dass dieses Verfahren bis zu einem gewissen Vortschritt des
+Karies durchgeführt werden konnte, da der Algorithmus diesbezüglich seine Grenzen
+hat. Für die Spätere Darstellung der Ergebnisse kann eine überlappende Ansicht
+in einer Visualisierungssoftware verwendet werden.
+
+So ergibt sich die Situation, dass der Algorithmus ein gutes Ergebnis liefert,
+jedoch nicht benutzerfreundlich zu bedienen ist. Für das Starten und Visualisueren
+des Verfahrens sind aufwendige Befehle über das Terminal zu tippen \citep[vgl.][Seite
+53]{hoffmann2020}. Genau an dieser Stelle soll die vorliegende Arbeit anknüpfen
+und das Verfahren nach \citet{hoffmann2020} so interaktiv und benutzerfreundlich
+gestallten.
+
+Für eine interaktive Verarbeitung von 3D Bilddaten bieten sich einige Möglichkeiten.
+Die wohl beste Lösung liefer 3D Slicer. Warum die Wahl auf diese Plattform viel und
+welche Vorteile daraus entstehen wird im folgenden Abschnitt \ref{sec:3d_slicer}
+erläutert.
 
 \pagebreak
 % ---------------------------------------------------------------------------------------
 
 \section{Interaktive Bildbearbeitung mit 3D Slicer}
-\label{sec:3d_slicer} 3D Slicer ist eine Open Source Plattform, die speziel für
-die Verarbeitung für Bilddaten im medizinischen Kontext eingesetzt wird. Dabei wird
+\label{sec:3d_slicer} 3D Slicer ist eine Open Source Plattform, die speziel für die
+Verarbeitung für Bilddaten im medizinischen Kontext eingesetzt wird. Dabei wird
 sie von einer aktiven Community regelmäßig gewartet und weiterentwickelt \citep[vgl.][]{slicer2024},
-\citep[vgl.][]{fedorov2012slicer}. Für Slicer gibt es offizell keine Nutzungsbeschränkung.
-Jedoch sei auch gesagt, dass 3D Slicer nicht für die klinische Nutzung zugelassen
-ist. \citet{fedorov2012slicer} macht deutlich, das 3D Slicer ausschließlich für
-die Forschung gedacht ist. Um einen ersten Überblick über die Komponenten von Slicer
-zu erlangen, soll die Abbildung \ref{fig:3d_slicer_oekosystem} betrachtet weden.
+\citep[vgl.][]{fedorov2012slicer}. Für Slicer gibt es offizell keine
+Nutzungsbeschränkung. Jedoch sei auch gesagt, dass 3D Slicer nicht für die
+klinische Nutzung zugelassen ist. \citet{fedorov2012slicer} macht deutlich, das 3D
+Slicer ausschließlich für die Forschung gedacht ist. Um einen ersten Überblick
+über die Komponenten von Slicer zu erlangen, soll die Abbildung \ref{fig:3d_slicer_oekosystem}
+betrachtet weden.
 
 \begin{figure}[h]
 	\centering
@@ -424,17 +463,17 @@ zu erlangen, soll die Abbildung \ref{fig:3d_slicer_oekosystem} betrachtet weden.
 	\label{fig:3d_slicer_oekosystem}
 \end{figure}
 
-\citet[Seite 1326]{fedorov2012slicer} Teilt mit der Abbildung \ref{fig:3d_slicer_oekosystem}
-die Plattform in drei Schichten auf. Auf der obersten wird klar, dass 3D Slicer aus
-der Kernanwendung und den Installierbaren Modulen besteht. Neben den bereits
-vorhandenen Modulen können von externen Entwicklern Module über die Slicer
-Extentions entwickelt und bereitgestellt weden. Um eine Weiterentwicklung möglich
-zu machen hat Slicer eine Reihe von Abhängigkeiten, die jedoch portabel gehalten
-werden. Auf der untersten Schicht sind die Platformspezifischen Anforderungen zu
-sehen, die Slicer erfüllen soll.
+\citet[Seite 1326]{fedorov2012slicer} Teilt mit der Abbildung
+\ref{fig:3d_slicer_oekosystem} die Plattform in drei Schichten auf. Auf der obersten
+wird klar, dass 3D Slicer aus der Kernanwendung und den Installierbaren Modulen
+besteht. Neben den bereits vorhandenen Modulen können von externen Entwicklern Module
+über die Slicer Extentions entwickelt und bereitgestellt weden. Um eine
+Weiterentwicklung möglich zu machen hat Slicer eine Reihe von Abhängigkeiten, die
+jedoch portabel gehalten werden. Auf der untersten Schicht sind die
+Platformspezifischen Anforderungen zu sehen, die Slicer erfüllen soll.
 
-So kommt es, dass das 3D Slicer Ökosystem sich durch einige Kriterien besonders auszeichnet.
-Die wohl wichtigsten seien hier Stichpunktartig genannt \citep[vgl.][]{slicer2024},
+So kommt es, dass das 3D Slicer Ökosystem sich durch einige Kriterien besonders
+auszeichnet. Die wohl wichtigsten seien hier Stichpunktartig genannt \citep[vgl.][]{slicer2024},
 \citep[vgl.][]{fedorov2012slicer}.
 
 \begin{itemize}
@@ -447,22 +486,22 @@ Die wohl wichtigsten seien hier Stichpunktartig genannt \citep[vgl.][]{slicer202
 	\item Modulare Infrastruktur durch den Extention Manager
 \end{itemize}
 
-3D Slicer hat für alle diese Punkte jeweils eine Lösung entwickelt, wobei der erste
-Punkt durch die Open Source Philosiphie schon gegeben ist. Die folgenden
-Abschnitte decken diese Lösungen ab und bilden so eine erste Grundlage für die
-Entwicklung mit 3D Slicer\citep[vgl.][]{slicer2024}, \citep[vgl.][]{fedorov2012slicer}.
+3D Slicer hat für alle diese Punkte jeweils eine Lösung entwickelt, wobei der
+erste Punkt durch die Open Source Philosiphie schon gegeben ist. Die folgenden Abschnitte
+decken diese Lösungen ab und bilden so eine erste Grundlage für die Entwicklung mit
+3D Slicer\citep[vgl.][]{slicer2024}, \citep[vgl.][]{fedorov2012slicer}.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Extention Manager}
-Der wohl bedeutenste Punkt ist die modulare Softwarearchitektur, welche Slicer von
-sich aus mitbringt. Um dieses Konzept genauer zu beläuchten Teilt man die
-Platform am besten in zwei Teile auf. Die Kernanwendung und die Module, welcher
-jeder User personalisiert installieren oder deinstallieren kann. Diese Module werden
-als \textit{Slicer lodabel module} bezeichnet \citep[vgl.][Seite 1332]{fedorov2012slicer}.
-Slicer realisiert die Struktur durch den Extention Manager, welcher durchaus
-vergleichbar ist mit dem AppStore. Abbildung \ref{fig:3d_slicer_extention_manager}
-zeigt einen Ausschnit des Extention Manager. Über diesen können bequem und mit
-wenig Klicks die gewünschten Erweiterungen in das Kernsystem installiert werden.
+Der wohl bedeutenste Punkt ist die modulare Softwarearchitektur, welche Slicer
+von sich aus mitbringt. Um dieses Konzept genauer zu beläuchten Teilt man die Platform
+am besten in zwei Teile auf. Die Kernanwendung und die Module, welcher jeder User
+personalisiert installieren oder deinstallieren kann. Diese Module werden als
+\textit{Slicer lodabel module} bezeichnet \citep[vgl.][Seite 1332]{fedorov2012slicer}.
+Slicer realisiert die Struktur durch den Extention Manager, welcher durchaus vergleichbar
+ist mit dem AppStore. Abbildung \ref{fig:3d_slicer_extention_manager} zeigt
+einen Ausschnit des Extention Manager. Über diesen können bequem und mit wenig Klicks
+die gewünschten Erweiterungen in das Kernsystem installiert werden.
 
 \begin{minipage}{0.40\textwidth}
 	Neben der Möglichkeit Module zu installieren bietet Slicer noch die Möglichkeit
@@ -479,17 +518,16 @@ wenig Klicks die gewünschten Erweiterungen in das Kernsystem installiert werden
 	\captionof{figure}{3D Slicer Extention Manager nach \citet{slicer2024}} \label{fig:3d_slicer_extention_manager}
 \end{minipage}
 
-Slicer realisiert dies, indem die Plattform über ein zusätzliches Reporsitory
-verfühgt, dass sich \textit{ExtentionIndex} nennt. Dieses Repository ist an den Extention
-Manager angebunden und enthält eine Reihe an \texttt{JSON}-Files. Dies Files folgen
-einem Template und verweisen auf die unterschiedlichen Repositorys der Erweiterungen
-\citep[vgl.][]{slicer2024}.
+Slicer realisiert dies, indem die Plattform über ein zusätzliches Reporsitory verfühgt,
+dass sich \textit{ExtentionIndex} nennt. Dieses Repository ist an den Extention
+Manager angebunden und enthält eine Reihe an \texttt{JSON}-Files. Dies Files
+folgen einem Template und verweisen auf die unterschiedlichen Repositorys der
+Erweiterungen \citep[vgl.][]{slicer2024}.
 
 Die Kernanwendung von 3D Slicer folgt einem Softwarepattern, dass sich \textit{Model
-View Controler (MVC)} nennt. Bei der Erstellung einer SEM soll dieser Absatzt ebenfalls
-gepflegt werden. Eine High Level Betrachtung der Softwarearchitektur von 3D
-Slicer bietet \cite[Seite 1332]{fedorov2012slicer} mit der Abbildung
-\ref{fig:3d_slicer_architektur}.
+View Controler (MVC)} nennt. Bei der Erstellung einer SEM soll dieser Absatzt
+ebenfalls gepflegt werden. Eine High Level Betrachtung der Softwarearchitektur von
+3D Slicer bietet \cite[Seite 1332]{fedorov2012slicer} mit der Abbildung \ref{fig:3d_slicer_architektur}.
 
 \begin{figure}[h]
 	\centering
@@ -498,68 +536,68 @@ Slicer bietet \cite[Seite 1332]{fedorov2012slicer} mit der Abbildung
 	\label{fig:3d_slicer_architektur}
 \end{figure}
 
-Das Zusammenspiel zwischen \textit{GUI, MRML und Logic} bilden das MVC-Pattern
-in der Kernanwendung. Das indentische Pattern spiegelt sich auch in den einzelnen
-Modulen von Slicer wieder. So wird sichergestellt, dass ein Softwareentwicklungsparadigma
-eingehalten wird, was sich \textit{separation of concerns} nennt. Die Kapselung
-von zusammengehöriger Logik. Bei der Erstellung einer eigenen Extention ist die Idee,
-dass nur die Logic implementiert werden muss und die komplexe Architektur von
-Slicer erstmal nicht relevant ist.
+Das Zusammenspiel zwischen \textit{GUI, MRML und Logic} bilden das MVC-Pattern in
+der Kernanwendung. Das indentische Pattern spiegelt sich auch in den einzelnen
+Modulen von Slicer wieder. So wird sichergestellt, dass ein
+Softwareentwicklungsparadigma eingehalten wird, was sich \textit{separation of
+concerns} nennt. Die Kapselung von zusammengehöriger Logik. Bei der Erstellung
+einer eigenen Extention ist die Idee, dass nur die Logic implementiert werden muss
+und die komplexe Architektur von Slicer erstmal nicht relevant ist.
 
-Jedoch bietet sich in Slicer nicht nur die Möglichkeit eigenen Erweiterungen zu
-erstellen. Es lässt sich hierfür auch die integrierte Python Konsole nutzen.
+Jedoch bietet sich in Slicer nicht nur die Möglichkeit eigenen Erweiterungen zu erstellen.
+Es lässt sich hierfür auch die integrierte Python Konsole nutzen.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Python Umgebung}
-\label{subsec:pythob_umgebung} 3D Slicer bringt eine integrierte Python Konsole mit,
-über die mit der Datenstruktur interagiert werden kann. So ist es möglich Python
-Skripte direkt in der Konsole auszuführen. Um dies zu realisieren bringt Slicer
-mit der Installation im jeweiligen Betriebssystem eine eigenen Python Umgebung
-mit. Dieses sieht wie folgt aus.
+\label{subsec:pythob_umgebung} 3D Slicer bringt eine integrierte Python Konsole
+mit, über die mit der Datenstruktur interagiert werden kann. So ist es möglich
+Python Skripte direkt in der Konsole auszuführen. Um dies zu realisieren bringt Slicer
+mit der Installation im jeweiligen Betriebssystem eine eigenen Python Umgebung mit.
+Dieses sieht wie folgt aus.
 
 \texttt{./Slicer/bin/PythonSlicer}
 
-Diese Python Umgebung verfügt über alle notwendigen Abhängigkeiten und Pakete.
-Bei der Entwicklung eines SEM kann dann auf die Pip-Pakete in der integrierten
-Python Umgebung zurückgegriffen werden. So kommt es das für eine Entwicklung mit
-Slicer keine eigenen Python Umgebung auf der lokalen Maschine installiert sein muss.
-Slicer bringt hier alls mit.
+Diese Python Umgebung verfügt über alle notwendigen Abhängigkeiten und Pakete. Bei
+der Entwicklung eines SEM kann dann auf die Pip-Pakete in der integrierten Python
+Umgebung zurückgegriffen werden. So kommt es das für eine Entwicklung mit Slicer
+keine eigenen Python Umgebung auf der lokalen Maschine installiert sein muss. Slicer
+bringt hier alls mit.
 
-Für den letzten charakteristischen Punkt von Slicer aus Kapitel
-\ref{sec:3d_slicer} führt der nächste Abschnitt in die durchaus komplexe
-Datenstruktur MRML ein, die bei einer Entwicklung mit Slicer unausweichlich zu berücksichtigen
-ist.
+Für den letzten charakteristischen Punkt von Slicer aus Kapitel \ref{sec:3d_slicer}
+führt der nächste Abschnitt in die durchaus komplexe Datenstruktur MRML ein, die
+bei einer Entwicklung mit Slicer unausweichlich zu berücksichtigen ist.
 % ---------------------------------------------------------------------------------------
 
 \subsection{MRML Datenstruktur}
 \label{subsec:mrml_datenstruktur} Die \textit{Medical Reality Modeling Language
-(MRML, gesprochen “MURml”)} ist ein Datenmodell das dafür entwickelt wurde alle
-möglichen Bilddaten zu visualisieren und zu speichen, die für einen klinischen Zweck
+(MRML, gesprochen “MURml”)} ist ein Datenmodell das dafür entwickelt wurde alle möglichen
+Bilddaten zu visualisieren und zu speichen, die für einen klinischen Zweck
 Einsatz finden \citep[vgl.][]{slicer2024}. Laut der \citet{slicer2024} wurde die
-MRML-Datenstruktur völlig unabhängig von der Slicer Kernanwedung entwickelt. Dies
-ermöglicht ein portieren der Datenstruktur auf andere Softwareapplikationen. Da
-Slicer die einzig große Plattform ist, die diese Datenstruktur nutzt, wird der
-Quellcode für MRML im Reporsitory von 3D Slicher gewartet und weiterentwickelt, so
-\citet{slicer2024}. Durch den Artikel von \citet[Seite 1327]{fedorov2012slicer} wird
-klar, dass MRML mehr ist also nur eine Datenstruktur. Sie beschreiben MRML als Szenenorganisator
-von Bilder, Anotationen, Layouts und Anwendungsstaten.
+MRML-Datenstruktur völlig unabhängig von der Slicer Kernanwedung entwickelt.
+Dies ermöglicht ein portieren der Datenstruktur auf andere Softwareapplikationen.
+Da Slicer die einzig große Plattform ist, die diese Datenstruktur nutzt, wird der
+Quellcode für MRML im Reporsitory von 3D Slicher gewartet und weiterentwickelt,
+so \citet{slicer2024}. Durch den Artikel von \citet[Seite 1327]{fedorov2012slicer}
+wird klar, dass MRML mehr ist also nur eine Datenstruktur. Sie beschreiben MRML
+als Szenenorganisator von Bilder, Anotationen, Layouts und Anwendungsstaten.
 
-\citet[Seite 1331]{fedorov2012slicer} beschreiben die MRML-Datenstruktur als Schlüsselkomponenten
-innerhalb von 3D Slicer. Dies ist auf die Softwarearchitektur von Slicer
-zurückzuführen, die in Abbildung \ref{fig:3d_slicer_architektur} beschrieben wurde.
-Die Kernanwendung von Slicer arbeitet nach dem MVC-Pattern. MRML übernimmt hier den
-Teil des \textit{Models (M)} und bildet damit den Grundstein der Anwendung
-\citep[vgl.][Seite 1332]{fedorov2012slicer}.
+\citet[Seite 1331]{fedorov2012slicer} beschreiben die MRML-Datenstruktur als
+Schlüsselkomponenten innerhalb von 3D Slicer. Dies ist auf die Softwarearchitektur
+von Slicer zurückzuführen, die in Abbildung \ref{fig:3d_slicer_architektur}
+beschrieben wurde. Die Kernanwendung von Slicer arbeitet nach dem MVC-Pattern.
+MRML übernimmt hier den Teil des \textit{Models (M)} und bildet damit den Grundstein
+der Anwendung \citep[vgl.][Seite 1332]{fedorov2012slicer}.
 
 Die \citet{slicer2024} und der Artikel von \citet[Seite 1327]{fedorov2012slicer}
 beschreibt MRML als XML-Format. Wird also eine MRML-Szenen gespeichert, so folgt
-eine Speicherung als .mrml-Datei und damit unter der Haube als XML-Datei. Dabei wird
-laut \citet{slicer2024} nur eine Referenz auf das Bild gespeichert. Die zu bearbeitende
-Aufnahme selbst wird nicht inerhalb einer MRML-Datei abgespeichert.
+eine Speicherung als .mrml-Datei und damit unter der Haube als XML-Datei. Dabei
+wird laut \citet{slicer2024} nur eine Referenz auf das Bild gespeichert. Die zu
+bearbeitende Aufnahme selbst wird nicht inerhalb einer MRML-Datei abgespeichert.
 
-MRLM bietet eine breite Palette an Datentypen zur Speicherung von unterschiedlichen
-Bildern, die einen unterschiedlichen Bearbeitungsstand aufweisen. Eine grobe Auswahl
-sei hier gezeigt. Für weitere Typen sei auf die Dokumentation verwiesen \citep[vgl.][]{slicer2024}.
+MRLM bietet eine breite Palette an Datentypen zur Speicherung von
+unterschiedlichen Bildern, die einen unterschiedlichen Bearbeitungsstand aufweisen.
+Eine grobe Auswahl sei hier gezeigt. Für weitere Typen sei auf die Dokumentation
+verwiesen \citep[vgl.][]{slicer2024}.
 
 \begin{itemize}
 	\item Volume (\textit{vtkMRMLVolume})
@@ -569,39 +607,38 @@ sei hier gezeigt. Für weitere Typen sei auf die Dokumentation verwiesen \citep[
 	\item Segmentation (\textit{vtkMRMLSegmentationNode})
 \end{itemize}
 
-Wie diese grobe Auflistung bereits zeigt, gibt es noch eine besonderheit von MRML.
-Damit ein Verwaltung alle Dateiformate möglich ist, bedient sich MRML einiger Tools,
-die sich bereits etabliert haben. Die wichtigsten sind das \citet{vtk2024} und
-das \citet{itk2024}. Dies beiden Tools sind echte Rießen in ihrere Branche. MRML
-nutzt diese um einige Dateiformate zu lessen und zu schreiben.
+Wie diese grobe Auflistung bereits zeigt, gibt es noch eine besonderheit von
+MRML. Damit ein Verwaltung alle Dateiformate möglich ist, bedient sich MRML
+einiger Tools, die sich bereits etabliert haben. Die wichtigsten sind das \citet{vtk2024}
+und das \citet{itk2024}. Dies beiden Tools sind echte Rießen in ihrere Branche.
+MRML nutzt diese um einige Dateiformate zu lessen und zu schreiben.
 
-Nachdem die Datenstruktur nun beschrieben wurde und alle charakteristischen aus dem
-Kapitel \ref{sec:3d_slicer} beschrieben wurden, soll Abschließend eine kurze
-Einführung in die Benutzerschnittstelle von Slicer folgen. Insbesondere der Schnittstelle
-für die SEMs.
+Nachdem die Datenstruktur nun beschrieben wurde und alle charakteristischen aus
+dem Kapitel \ref{sec:3d_slicer} beschrieben wurden, soll Abschließend eine kurze
+Einführung in die Benutzerschnittstelle von Slicer folgen. Insbesondere der
+Schnittstelle für die SEMs.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Benutzerschnittstelle}
-\label{subsec:benutzerschnitstelle} Für das erstellen eines Benutzerschnittstelle
-(engl. \textit{User Interface (UI)}), das für eine Slicer Extention nötig ist, nutzt
-3D Slicer den Qt-Designer \citep[vgl.][]{qt2024}. Die Integration des Qt-Designers
-als Applikation in eine andere Applikation funktioniert aufgrund der Plattformintegrität,
-die der Designer mitbringt \citep[vgl.][]{qt2024}. Dieser bietet so die
-Möglichkeit die benötigten Widgets über ein interaktives User Interface zu bauen.
-Für dieses UI-Widget gibt es einen Gegenspieler im Quelltext des Programmes,
-welcher als \textit{ParameterNode} bekannt ist. Der \textit{ParameterNode} ist laut
-\citet{slicer2024} eine leichte Variante eines MRML-Node um
-Parametereinstellungen zu speichern. Durch das Zusammenspiel zwischen UI-Widget und
-\textit{ParameterNode} wird die UI automatisch aktualisiert, wenn sich das Programm
-ändert und umgehert \citet{slicer2024}.
-
+\label{subsec:benutzerschnitstelle} Für das erstellen eines
+Benutzerschnittstelle (engl. \textit{User Interface (UI)}), das für eine Slicer Extention
+nötig ist, nutzt 3D Slicer den Qt-Designer \citep[vgl.][]{qt2024}. Die
+Integration des Qt-Designers als Applikation in eine andere Applikation
+funktioniert aufgrund der Plattformintegrität, die der Designer mitbringt \citep[vgl.][]{qt2024}.
+Dieser bietet so die Möglichkeit die benötigten Widgets über ein interaktives User
+Interface zu bauen. Für dieses UI-Widget gibt es einen Gegenspieler im Quelltext
+des Programmes, welcher als \textit{ParameterNode} bekannt ist. Der \textit{ParameterNode}
+ist laut \citet{slicer2024} eine leichte Variante eines MRML-Node um Parametereinstellungen
+zu speichern. Durch das Zusammenspiel zwischen UI-Widget und \textit{ParameterNode}
+wird die UI automatisch aktualisiert, wenn sich das Programm ändert und umgehert
+\citet{slicer2024}.
 
 \begin{minipage}{0.35\textwidth}
 	Das Erstellen der Verknüpfung zwischen UI-Widget und \textit{ParameterNode}
 	erfolgt über die dynamische Eigenschaft \texttt{SlicerParameter}, die direkt
 	in der Komponentenansicht im Qt-Designer einstellbar ist. Die Abbidlung \ref{fig:qt_designer}
-	soll diesen Vorgang verdeutlichen. Diese Verknüpfung lässt sich laut \citet{slicer2024} auch
-	via Programmcode setzten.
+	soll diesen Vorgang verdeutlichen. Diese Verknüpfung lässt sich laut \citet{slicer2024}
+	auch via Programmcode setzten.
 \end{minipage}
 \hfill
 \begin{minipage}{0.55\textwidth}
@@ -613,11 +650,11 @@ Parametereinstellungen zu speichern. Durch das Zusammenspiel zwischen UI-Widget 
 
 \texttt{widget.setProperty('SlicerParameterName', 'parameterName')}
 
-Über das Objekt \textit{widget} kann die eigenschaft einer Komponente gesetzt
-werden, ohne dass sie im Designer berührt werden muss.
+Über das Objekt \textit{widget} kann die eigenschaft einer Komponente gesetzt werden,
+ohne dass sie im Designer berührt werden muss.
 
 Mit dem Ende dieses Abschnittes wurden alle wichtigen Bestandteile von 3D Slicer
-abgedeckt und diskutiert, sowie alle weiteren Domänen eingeführt. So bleibt nun die
-Frage nach dem Sinn dieser Arbeit. das Kapitel \ref{chap:fragestellung} soll
+abgedeckt und diskutiert, sowie alle weiteren Domänen eingeführt. So bleibt nun
+die Frage nach dem Sinn dieser Arbeit. das Kapitel \ref{chap:fragestellung} soll
 hier Klarheit liefern und die konkrete Fragestellung ausarbeiten.
 % ---------------------------------------------------------------------------------------
