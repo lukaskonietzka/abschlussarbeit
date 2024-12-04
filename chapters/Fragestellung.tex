@@ -1,5 +1,39 @@
 \chapter{Fragestellung}
-\label{chap:fragestellung} Dieses Kapitel soll die zentrale Frage beleuchten, welche
+\label{chap:fragestellung} Dieses Kapitel beleuchten die zentrale Frage, welche
 mit Hilfe der Ergebnisse dieser Arbeit beantwortet werden sollen. Dabei kann die
-Fragestellung in ersterl Linie als Ergebnis der Theoretischen Grundlagen Kapitel
+Fragestellung in erster Linie als Ergebnis der theoretischen Grundlagen Kapitel
 \ref{chap:theoretische_grundlagen} interpretiert werden.
+
+Die vorliegende Arbeit befasst sich mit der Erstellung einer Slicer-Extension,
+die ein spezifisches Segmentierungsverfahren auf Basis der Methode nach Hoffmann
+integriert. Die Grundlagen für diese Methode bilden die theoretischen Grundlagen.
+
+Die Methode nach Hoffmann nutzt bestehende Segmentierungsmethoden und wurde speziell
+für die Anforderungen der Zahnklinik in München entwickelt. Sie ist prototypisch
+implementiert und zeigt in ihrer Funktionalität vielversprechende Ergebnisse. Allerdings
+hat das aktuelle Verfahren eine wesentliche Einschränkung: Es muss über das
+Terminal ausgeführt werden. Dies erschwert die Anwendung in der klinischen Praxis
+und reduziert die Benutzerfreundlichkeit erheblich.
+
+Als interaktive Lösung bietet sich die Software 3D Slicer an, da sie bereits in
+der Zahnklinik eingesetzt wird und über eine flexible Infrastruktur für die
+Integration von Erweiterungen verfügt. Diese Eigenschaften machen Slicer zu einer
+idealen Plattform, um die Methode nach Hoffmann in einer benutzerfreundlichen
+Form bereitzustellen.
+
+Die zentrale Frage, die so aus den Grundlagen abgeleitet werden kann ist:
+
+\begin{enumerate}
+	\item Kann das Verfahren nach Hoffmann als Extension in Slicer implementiert werden?
+
+	\item Ist es möglich, die Integration so zu gestalten, dass der zugrunde liegende
+		Algorithmus problemlos austauschbar ist oder zusätzliche Algorithmen eingebaut
+		werden können?
+
+	\item Welche Erfahrungen lassen sich bei der Entwicklung einer Slicer-Extension
+		sammeln, und welche Herausforderungen treten dabei auf?
+\end{enumerate}
+
+Im folgenden Kapitel wird dargestellt, wie diese Fragestellung methodisch bearbeitet
+wurde. Es wird gezeigt, wie das Problem strukturiert in Teilaufgaben zerlegt wurde
+und welche Schritte zur Lösung unternommen wurden.
