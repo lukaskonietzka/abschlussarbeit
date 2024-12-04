@@ -31,8 +31,10 @@
       \strng{authorbibnamehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
       \strng{authornamehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
       \strng{authorfullhash}{ce3f66733f8020adf3ecfd1c5ef3c404}
+      \field{extraname}{1}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
@@ -41,6 +43,37 @@
       \field{note}{Zugriff am 21. November 2024}
       \field{title}{3D Slicer: A multi-platform, free and open source software package for visualization and image analysis}
       \field{year}{2024}
+    \endentry
+    \entry{extensionsIndex2024}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ce3f66733f8020adf3ecfd1c5ef3c404}{%
+           family={{3D Slicer Community}},
+           familyi={3\bibinitperiod}}}%
+      }
+      \strng{namehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
+      \strng{fullhash}{ce3f66733f8020adf3ecfd1c5ef3c404}
+      \strng{bibnamehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
+      \strng{authorbibnamehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
+      \strng{authornamehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
+      \strng{authorfullhash}{ce3f66733f8020adf3ecfd1c5ef3c404}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/Slicer/ExtensionsIndex}}
+      \field{note}{GitHub repository}
+      \field{title}{Slicer Extensions Index}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://github.com/Slicer/ExtensionsIndex
+      \endverb
+      \verb{url}
+      \verb https://github.com/Slicer/ExtensionsIndex
+      \endverb
     \endentry
     \entry{baird2017}{article}{}
       \name{author}{2}{}{%
