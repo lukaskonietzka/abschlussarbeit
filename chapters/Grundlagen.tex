@@ -37,14 +37,14 @@ aufgebaut ist.
 Für die Bearbeitung von Micro-CT Aufnahmen sind die Bereich Schmelz Dentin und Pulpa
 von besonderer Bedeutung. Betrachtet man eine CT wie es zu Beginn in der
 Abbildung \ref{fig:ct_aufnahme_eines_zahns} gezeigt wurde, so bilden diese 3 Gewebearten
-die unterschiedlichen Grauwerte in einem CT-Bild. \\ \textbf{Pulpa:} Die Pulpa unterscheidet
+die unterschiedlichen Grauwerte in einem CT-Bild. \\ \textbf{Die Pulpa} unterscheidet
 sich hierbei nur wenig vom Hintergrund, da sie als einzige der drei Hauptteile
 eines Zahnes ein Weichgewebe ist und bei einer Röntgenaufnahme nicht absorbiert.
 Geht man weiter von innen nach außen, so ist der nächste Zahnteil auf einem CT
-das Zahnbein. \\ \textbf{Dentin:} Das Dentin ist laut \citet[Seite 41]{lehmann2012Zahnheilkunde}
+das Zahnbein. \\ \textbf{Das Dentin} ist laut \citet[Seite 41]{lehmann2012Zahnheilkunde}
 eine Hartsubstanz, die dem Kieferknochen sehr nah steht. So kommt es, dass dieser
 Teil schon deutlich besser auf einem CT zu erkennen ist. Den äußersten Teil in
-der Mundhöhle bildet das Zahnschmelz. \\ \textbf{Schmelz:} Der Schmelz ist wie
+der Mundhöhle bildet das Zahnschmelz. \\ \textbf{Der Schmelz} ist wie
 bereits erwähnt, der härteste Teil im menschlichen Körper und aus diesem Grund auch
 am hellsten auf dem CT zu erkennen. Die folgende Abbildung
 \ref{fig:pulpa_dentin_schmelz} sollen durch Gegenüberstellung den Zusammenhang
@@ -61,11 +61,9 @@ zwischen einem CT-Bild und einer Zahnzeichnung verdeutlichen.
 \end{figure}
 
 Mit diesem Domänenwissen kann ein Schritt weiter gegangen werden, sodass der
-Fokus nun auf die CT-Bilder gesetzt wird. Das Kapitel \ref{sec:technologisch} Technologien
-führt die Technologie der Computertomografie tiefer ein. Mit diesem
-Domänenwissen kann ein Schritt weiter gegangen werden, sodass der Fokus nun auf die
-CT-Bilder gesetzt wird. Das Kapitel \ref{sec:technologisch} Technologien führt
-die Technologie der Computertomografie tiefer ein.
+Fokus nun auf die CT-Bilder gesetzt wird. Das Kapitel \ref{sec:technologisch} Bildgebung
+führt die Technologie der Computertomografie tiefer ein. Darüber hinaus werden die
+verschiedenen Formate und statistische Modelle der CT-Aufnahmen vorgestellt.
 % ---------------------------------------------------------------------------------------
 
 \section{Bildgebung}
@@ -345,8 +343,8 @@ Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des
 Schwellwertes $t$. Dieser entscheident zwischen einer guten und einer schlechten
 Segmentierung. Für die Wahl eines Schwellwertes empfielt sich der Blick auf das
 Bildhistogramm. Dieses gibt Aufschluss über die Grauwertverteilung eines Bildes \citep[vgl.][Seite361]{lehmann2013bildverarbeitung}.
-Ein Verfahren, welches eine gute Schwellwertwahl gewährleistet, ohne das zu
-viele Informationen verloren gehen, ist das Verfahren nach \textit{Otsu}.
+Verfahren, welche eine gute Schwellwertwahl gewährleistet, ohne das zu
+viele Informationen verloren gehen, sind die Verfahren \textit{Otsu} und \textit{Renyi}.
 
 \pagebreak
 
@@ -396,6 +394,17 @@ Neben unzähligen Segmentierungstechniken, ist eine für diese Arbeits von ganz
 besonderer Bedeutung. Diese Technik wurde speziell zum Segementieren der Micro-CT
 bilder des Zahnklinikums an der LMU in München entwickelt und bildet die Basis dieser
 Arbeit. Konkret ist damit das Hoffmann-Verfahren gemeint \citep[vgl.][]{hoffmann2020}.
+
+
+\textbf{Das Verfahren nach Renyi} ist ein weiteres Verfahre, das im Laufe dieser Arbeit
+noch eine wichtige Rolle spielt. Wie bereits Beschrieben gehört es ebenfalls zu der
+Gruppe der Schwellwertverfahren und genneriert demnach Schwellwert $t$. Wie auch das
+Verfahren nach Otsu, benötigt Renyi keine Information über die räumliche Anordnung der
+Bilder. Es genügt das Bildhistogramm. QUELLE
+
+TODO
+
+\pagebreak
 % ---------------------------------------------------------------------------------------
 
 \section{Verwandte Arbeit}
