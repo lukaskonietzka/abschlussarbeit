@@ -12,59 +12,134 @@ einzelnen Teilprobleme erarbeitet. Sollte für eine Aufgabe mehrere Ansätze exi
 so werden diese im letzten Abschnitt miteinander verglichen und ein passender
 Ansatz gewählt.
 
-Bei der Durchführung dieser Schritte zum erreichen eines Ergebnisses, soll der in
-der Softwareentwicklung allgemeine bekannte Ansatzt \textit{make it run, make it
-right, make it fast} verfolgt werden. Dieser beschreibt, dass zunächst dafür
-gesorgt werden soll, dass ein Problem überhaupt gelöst wird. Im Anschluss soll
-es so umgebaut werdem dass eine Wartbarkeit und Erweiterbarkeit entsteht. Erst an
-aller letzter Stellte steht die Performance. QUELLE
+Bei der Durchführung dieser Schritte zum Erreichen eines Ergebnisses, soll der in
+der Softwareentwicklung allgemeine bekannte Ansatz \textit{make it run, make it right,
+make it fast} verfolgt werden. Dieser beschreibt, dass zunächst dafür gesorgt
+werden soll, dass ein Problem überhaupt gelöst wird. Im Anschluss soll es so
+umgebaut werden, dass eine Wartbarkeit und Erweiterbarkeit entsteht. Erst an
+letzter Stelle steht die Performance. QUELLE
 
 \section{Anforderungsanalyse}
-\label{sec:anforderungsanalyse} Nach genauerem Betrachten der Fragestellung aus Kapitel
-\ref{chap:fragestellung} wird klar, dass im Rahmen dieser vorliegenden Arbeit
-eine Extension für die Plattform 3D Slicer entwickelt werden soll. Diese Erweiterung
-beinhaltet das Segmentierungsverfahren nach Hoffmann \citep[vgl.][]{hoffmann2020},
-wie es in Kapitel \ref{sec:verwwandte_arbeit} beschrieben wurde. Das Verfahren
-segmentiert Micro-CT Aufnahmen der Zahnklinik in München und wird zu Forschung
-eingesetzt. Da Ärzte keine Softwareentwickler sind, ist es wichtig, dass das Verfahren
-eine UI erhält die eingängig und übersichtlich ist. Außerdem ist eine stabile
-Anwendung gefragt, die sich gut in die Kernanwendung von 3D Slicer einfügt. Für
-einen Überblick über die wichtigsten Eigenschaften von 3D Slicer sei auf das
-Kapitel \ref{sec:3d_slicer} verwiesen.
+\label{sec:anforderungsanalyse} Nach genauerem Betrachten der Fragestellung aus
+Kapitel \ref{chap:fragestellung} wird klar, dass im Rahmen dieser vorliegenden Arbeit
+eine Extension für die Plattform 3D Slicer entwickelt werden soll. Diese
+Erweiterung beinhaltet das Segmentierungsverfahren nach Hoffmann \citep[vgl.][]{hoffmann2020},
+wie es in Kapitel \ref{sec:verwwandte_arbeit} beschrieben wurde. Das Verfahren segmentiert
+Micro-CT Aufnahmen der Zahnklinik in München und wird zu Forschung eingesetzt.
+Da Ärzte keine Softwareentwickler sind, ist es wichtig, dass das Verfahren eine
+UI erhält die eingängig und übersichtlich ist. Außerdem ist eine stabile Anwendung
+gefragt, die sich gut in die Kernanwendung von 3D Slicer einfügt. Für einen Überblick
+über die wichtigsten Eigenschaften von 3D Slicer sei auf das Kapitel \ref{sec:3d_slicer}
+verwiesen.
 
 Die Extension selber soll neben einer Einzelbildbearbeitung auch einen Batch-Prozess
 ermöglichen. So können Beispielsweise Parameter an einem Bild erprobt werden und
-diese anschließend in eine Batch-Prozess für viele Bilder überführt werden.
-Außerdem soll es möglich sein, verschiedenen Segmentierungsverfahren, die in
-Hoffman vorgesehen sind, auch in der Extention auszuwählen.
+diese anschließend in eine Batchprozess für viele Bilder überführt werden. Außerdem
+soll es möglich sein, verschiedenen Segmentierungsverfahren, die in Hoffmann vorgesehen
+sind, auch in der Extention auszuwählen.
 
-Ein wichtiger Softwartechnischer Anspruch an die Extension ist die Erweiterbarkeit.
-Es soll ohne große Mühen möglich sein, ein weiteres Verfahren zu implementieren ohne
-das große Anpassungen an der UI oder der Erweiterung selbst, unternommen werden
-müssen. Für die Architektur und die Bentzung dieser Software soll es selbstverständlich
-eine Dokumentation mit Benutzerhandbuch geben. Auch das Testen der Software soll
-natürlich nicht zu kurz kommen, weswegen ein Reihe an Unit-Tests (Das Testen
-eine konkreten Programmeinheit) vorgesehen ist
+Ein wichtiger Softwaretechnischer Anspruch an die Extension ist die
+Erweiterbarkeit. Es soll ohne große Mühen möglich sein, ein weiteres Verfahren
+zu integrieren, ohne das große Anpassungen an der UI oder der Erweiterung selbst,
+unternommen werden müssen. Für die Architektur und die Benutzung dieser Software
+soll es selbstverständlich eine Dokumentation mit Benutzerhandbuch geben. Auch
+das Testen der Software soll natürlich nicht zu kurz kommen, weswegen eine Reihe
+an Unit-Tests (Das Testen einer konkreten Programmeinheit) vorgesehen ist.
 
-Diese doch breite Palette an Anforderungen, lässt sich unmöglich auf einmal
-bearbeiten. Hierzu sieht diese Arbeit eine Aufteilung in Teilprobleme vor. Der
-nächste Abschnitt Blickt auf die herausgearbeiteten Anforderungen in diesem
-Kapitel und leitet daraus Teilprobleme ab.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/domaenenmodell.jpg}
+	\caption{UML-Domänenmodell des gesamten Softwaresystems}
+	\label{fig:3d_slicer_domäne}
+\end{figure}
+
+Diese doch breite Palette an Anforderungen lässt sich unmöglich auf einmal bearbeiten.
+Hierzu sieht diese Arbeit eine Aufteilung in Teilprobleme vor. Der nächste Abschnitt
+blickt auf die herausgearbeiteten Anforderungen in diesem Kapitel und leitet daraus
+Teilprobleme ab.
 
 \section{Zerlegung in Teilprobleme}
+\label{sec_zerlegung_in_teilprobleme} Durch die Aufteilung des Gesamtsystems in mehrere
+kleine Teilaufgaben, wird die Software für den Entwicklungsprozess
+übersichtlicher. Die einzelnen Domänen können so schneller und besser verstanden
+werden. Es gibt viele Möglichkeiten ein Softwaresystem in kleine Teile
+aufzuteilen, sodass es am Ende auf den konkreten Anwendungsfall ankommt. Diese
+Arbeit sieht folgenden Teilaufgaben für das Gesamtsystem vor:
+
+\begin{itemize}
+	\item \textbf{Architekturdesign:} Mit Hilfe von UML Diagrammen soll die
+		Architektur dieses Systems abgebilde werden und suksesive immer detalierte
+		beschrieben werden. Es soll dann verglichen werden, welche Softwarepatterns
+		für dieses System in Frage kommen, Durch Bearbeitung dieses Teilproblems, kann der
+        Anforderung der flexiblen Architektur gerecht weden. Ist dies geschehen, so kann mit einem UI
+		Design begonnen werden.
+
+	\item \textbf{UI Design:} Es soll eine Design erstellt werden, dass sich an erfolgreichen
+		und etablierten 3D Slicer Extentions orientiert. Jedoch sollen die Wünsche
+		des Endnutzers auch nicht zu kurz kommen. Für eine visualsierung des Designs
+		bedient sich diese Arbeit der Wireframes.
+
+	\item \textbf{Pseude-Extension:} Bevor der tatsächliche Algorithmus
+		eingebunden werden kann, ist es wichtig eine funktionierende Erweiterung zu haben,
+		die erstmal nichts sinvolles tut, aber funktioniert und in Slicer eingebunden
+		werden kann.
+
+	\item \textbf{Hoffmann als Python Paket:} Nachdem die leere Extension
+		lauffähig ist, kann mit der Paketerstellung des Hoffmann begonnen werden.
+		Hier soll das Verfahren von einem Python Notebook in eine Python Wheel Datei
+		überführt werden, sodass eine abkapselung gegeben ist.
+
+	\item \textbf{Speicheurng der Parameter:} Für die Speicherung der
+		Parametereinstellungen hat Slicer den Mechanismus des ParameterNode
+		entworfen. Diese wurde bereits in Abschnitt \ref{subsec:benutzerschnitstelle}
+		erwähnt. Diese Mechnismus ist nicht trivial, erhöht die Benutzerfreundlichkeit
+		des Systems aber erheblich.
+
+	\item \textbf{Single Prozess:} Sobald alle notwendigen Vorbereitungen
+		getorffen sind, kann der Algorithmus nun eingebettet werden. Hierzu
+		betrachtet man isoliert den Single Prozess. Auch Die Ui wird erst nur so weit
+		gebaut, wie es für diesen Prozess nötig ist.
+
+	\item \textbf{Batch Prozess:} Ist das einfache Verfahren fertig implementiert
+		und funktioniert, so kann der Batch Prozess hinzukommen. Hier muss bedarf
+        es einer zusätzlichen Arbeit in der UI, da der Benutzer über das Verwenden
+        dieser Funktion gewarnt werden muss. Der Batch Prozess bedard nämlich
+        erheblicher Ressourcen.
+
+	\item \textbf{Dokumentation und Benutzerhandbuch:} Abschließend ist eine
+		ausführliche Dokumentation der Architektur erwünscht, sodass zukünftige Entwickler
+		wissen, wo sie ansetzten müssen. Hinzu kommt eine Benutzerhandbuch für eine Verwendung
+		der Erweiterung.
+
+	\item \textbf{Test:} An letzter Stelle sollen noch Softwaretests implementiert
+		werde, um die Richtigkeit der Extension sicherzustellen. 3D Slicer sieht
+		hier Unittests vor.
+\end{itemize}
+
+Die Ordnung dieser Punkte gibt eine grobe Orientierung bezüglich der Reihenfolge
+während der Umsetzung an. Bei der Bearbeitung der einzelnen Teilaufgaben ist es
+auch wichtig eine gute Recherche zum aktuellen Stand der Technik durchzuführen. Es
+ist sehr ungünstig, wenn sich zu Ende eines Projektes herraustellt, dass Lösungen,
+in die erhebliche Ressourcen investiert wurden, bereits veröffentlicht sind.
+
+\section{Recherche zum Stand der Kunst}
+\label{sec:recherche} Bei der Recherche ist es wichtig
+
+\section{Erarbeiten von Lösungsansätzen}
+\label{sec:lösungsansätze} hier geht es um Brainstorming
 
 \textbf{Architekturdesign}
 
-\textbf{Leere Extension}
+\textbf{UI Design}
 
 \textbf{Pseude Extension}
 
-\textbf{Modularisierung Hoffmann}
+\textbf{Hoffmann als Python Paket}
 
-\textbf{Erstellung UI}
+\textbf{Single Prozess}
 
-\section{Recherche zum Stand der Kunst}
+\textbf{Batch Prozess}
 
-\section{Erarbeiten von Lösungsansätzen}
+\textbf{Analysen}
 
 \section{Auswahl von Lösungsansätzen}
