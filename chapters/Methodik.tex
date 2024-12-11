@@ -100,23 +100,22 @@ für das Gesamtsystem vor:
 		unumgänglich sind. Als Beispiel sei hier das Laden von CT-Bildern in die Szene
 		gedacht.
 
-	\item \textbf{Kappselung Hoffmann:} Nachdem die leere Extension
-		lauffähig ist und auch einige Hilfsfunktionen bereitstehen, kann mit der Paketerstellung
-		des Hoffmann begonnen werden. Hier soll das Verfahren von einem Python
-		Notebook in eine Bibliothek überführt werden, sodass dieses Verfahren in der
-		Extention ausführbar ist. Die konkrete Art des Paketes ist noch nicht
-		festgelegt.
+	\item \textbf{Kappselung Hoffmann:} Nachdem die leere Extension lauffähig ist
+		und auch einige Hilfsfunktionen bereitstehen, kann mit der Paketerstellung des
+		Hoffmann begonnen werden. Hier soll das Verfahren von einem Python Notebook
+		in eine Bibliothek überführt werden, sodass dieses Verfahren in der Extention
+		ausführbar ist. Die konkrete Art des Paketes ist noch nicht festgelegt.
 
-	\item \textbf{Speicheurng der Parameter:} Der Benutzer steuert das Verfahren
+	\item \textbf{Speicherung der Parameter:} Der Benutzer steuert das Verfahren
 		über die Parameter in der UI. Für die Speicherung der Parametereinstellungen
 		hat Slicer den Mechanismus des ParameterNode entworfen. Diese wurde bereits
-		in Abschnitt \ref{subsec:benutzerschnitstelle} erwähnt. Diese Mechanismus ist
+		in Abschnitt \ref{subsec:benutzerschnitstelle} erwähnt. Dieser Mechanismus ist
 		nicht trivial, erhöht die Benutzerfreundlichkeit des Systems aber erheblich
 		und soll demnach auch in diese Extention Anwendung finden.
 
 	\item \textbf{Single Prozess:} Sobald alle notwendigen Vorbereitungen
 		getroffen sind, kann der Algorithmus nun eingebettet werden. Hierzu
-		betrachtet man isoliert den Single Prozess. Auch Die Ui wird erst nur so weit
+		betrachtet man isoliert den Single Prozess. Auch Die UI wird erst nur so weit
 		entwickel, wie es für den einfachen Prozess nötig ist. Hierbei wird auf das erstellte
 		Paket für das Hoffmann Verfahren und die zuvor erstellen Hilfsfunktionen zurückgegriffen.
 
@@ -136,29 +135,66 @@ für das Gesamtsystem vor:
 	\item \textbf{Tests:} An letzter Stelle sollen noch Softwaretests
 		implementiert werde, um die Richtigkeit der Extension sicherzustellen. 3D
 		Slicer sieht hier Unittests vor, die über den Developer Modus in Slicer direkt
-		in der jeweileigen Extension ausfeführt werden können.
+		in der jeweiligen Extension ausgeführt werden können.
 \end{itemize}
 
 Die Ordnung dieser Punkte gibt eine grobe Orientierung bezüglich der Reihenfolge
 während der Umsetzung an. Bei der Bearbeitung der einzelnen Teilaufgaben ist es auch
 wichtig eine gute Recherche zum aktuellen Stand der Technik durchzuführen. Es
-ist sehr ungünstig, wenn sich zu Ende eines Projektes herrausstellt, dass
+ist sehr ungünstig, wenn sich zu Ende eines Projektes herausstellt, dass
 Lösungen, in die erhebliche Ressourcen investiert wurden, bereits veröffentlicht
 sind. Um dies zu vermeiden, führt das nächste Kapitel ein umfassende Recherche
 zu den Teilaufgaben durch.
 % ---------------------------------------------------------------------------------------
 
 \section{Recherche zum Stand der Kunst}
-\label{sec:recherche} Für die Recherche zu den verschiedenen Teilaufgaben ist die 
-Dokumentation der Open Source Plattform 3D Slicer eine wichtige Ressource 
-\cite[vgl.][]{slicer2024}. Diese zeigt bereits etablierte Verfahren und einen
-\textit{Best Practise} Ansatz. Auch das \citet{extensionsIndex2024} Repository ist eine
-wichtige Quelle, da so ein Einblick in andere Lösungen möglich ist. So kommt es, das nach
-ausführlicher Recherche zu den Teilaufgaben UI-Design, Pseudo-Extention, Kappselung Hoffmann,
-Speicherung Parameter, Dokumentation und Test bereits Lösungen existieren. Bei diesen Lösungen
-handelt es sich jedoch nicht um konkrete Ergebnisse, sondern vielmehr um einen Leitfaden
-zur zur Lösung der Teilaufgabe. Die Recherche hat demnach ergeben, dass diese Teilprobleme im
-Kontext der 3D Slicer Umgebmung nicht das erstemal zu Tage treten un Lösungswege existieren.
+\label{sec:recherche} Für die Recherche zu den verschiedenen Teilaufgaben ist
+die Dokumentation der Open Source Plattform 3D Slicer eine wichtige Ressource
+\cite[vgl.]{[}]{slicer2024}. Diese zeigt bereits etablierte Verfahren und einen \textit{Best
+Practise} Ansatz. Auch das \citet{extensionsIndex2024} Repository ist eine
+wichtige Quelle, da so ein Einblick in andere Lösungen möglich ist. So kommt es,
+das nach ausführlicher Recherche zu den Teilaufgaben UI-Design, Pseudo-Extension,
+Kapselung Hoffmann, Speicherung Parameter, Dokumentation und Test bereits Lösungen
+existieren. Bei diesen Lösungen handelt es sich jedoch nicht um konkrete
+Ergebnisse, sondern vielmehr um einen Leitfaden zur Lösung der Teilaufgabe. Die
+Recherche hat demnach ergeben, dass diese Teilprobleme im Kontext der 3D Slicer Umgebung,
+nicht das erste Mal zutage treten und Lösungswege existieren.
+
+\begin{minipage}{0.40\textwidth}
+	Für ein UI Design wird sehr empfohlen, bereits etablierte 3D Slicer Extensions
+	als Orientierung zu nutzen. Eine sehr gute Orientierung bietet das Modul \textit{Transforms},
+	das in Abbildung \ref{fig:module_example} zu sehen ist. Zu Erkennen ist, dass die
+	UI mittels Collapsible Buttons in verschiedenen Gruppen unterteilt wird. Ohne
+	in die verschiedenen Gruppen hineinzublicken, lässt sich gut abschätzen,
+	welche Parameter wo zu erwarten sind. Dies ermöglicht dem Benutzer ein isolierteres
+	Betrachten der unterschiedlichen Funktionen in diesem Modul und so eine gute Benuzterfreundlichkeit.
+\end{minipage}
+\hfill
+\begin{minipage}{0.50\textwidth}
+	\centering
+	\includegraphics[scale=0.50]{img/modul_example.jpg}
+	\captionof{figure}{Das Modul Transforms als Beispiel einer etabliertne 3D Slicer Extension UI | Screenshot aus 3D Slicer}
+	\label{fig:module_example}
+\end{minipage}
+
+Für die Extension, welche in der vorliegenden Arbeit erstellt werden soll, wird genau
+dieser Ansatz gepflegt und somit eine gute Benutzbarkeit des Moduls gewährleistet.
+Die speziellen wünsche der konkreten benutzergruppe sollen jedoch nicht zu kurz
+kommen.
+
+Für das erstellen einer ersten funktionierenden Extension, bietet Slicer eine sehr
+gute Hilfe. 3D Slicer hat hierfür ein eigenes Modul entickelt, das sich \textit{Extention
+Wizard} nennt. Dieses Modul gibt eine gute Einführung in die Entwicklung mit Slicer.
+Hiermit lässt sich mittels Leitfaden eine erste Demo Extension erstellen, die sich
+bereits gut in 3D Slicer einfügt. Diese Lösung könnte als Abstraktionsschicht betrachtet
+werden, da durch dieses Modul im ersten Schritt nahe zu keine Kentnisse über die Kernanwendung
+von Slicer nötig sind. Der Extentionwizard ist wie folgt zu finden:
+
+\texttt{Modules -> Developer Tools -> Extension Wizard}
+
+Für die Kapselung einer 
+
+
 % ---------------------------------------------------------------------------------------
 
 \section{Erarbeiten von Lösungsansätzen}
