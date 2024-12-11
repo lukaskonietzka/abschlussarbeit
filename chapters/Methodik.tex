@@ -15,9 +15,8 @@ Ansatz gewählt.
 Bei der Durchführung dieser Schritte zum Erreichen eines Ergebnisses, soll der in
 der Softwareentwicklung allgemeine bekannte Ansatz \textit{make it run, make it right,
 make it fast} verfolgt werden. Dieser beschreibt, dass zunächst dafür gesorgt
-werden soll, dass ein Problem überhaupt gelöst wird. Im Anschluss soll es so
-umgebaut werden, dass eine Wartbarkeit und Erweiterbarkeit entsteht. Erst an
-letzter Stelle steht die Performance. QUELLE
+werden soll, dass ein Problem überhaupt gelöst wird, bevor man viel Zeit in ein
+Refactoing oder eine Optimierung steckt.
 % ---------------------------------------------------------------------------------------
 
 \section{Anforderungsanalyse}
@@ -70,72 +69,96 @@ Teilprobleme ab.
 
 \section{Zerlegung in Teilprobleme}
 \label{sec_zerlegung_in_teilprobleme} Durch die Aufteilung des Gesamtsystems in mehrere
-kleine Teilaufgaben, wird die Software für den Entwicklungsprozess
-übersichtlicher. Die einzelnen Domänen können so schneller und besser verstanden
-werden. Es gibt viele Möglichkeiten ein Softwaresystem in kleine Teile
-aufzuteilen, sodass es am Ende auf den konkreten Anwendungsfall ankommt. Diese
-Arbeit sieht folgenden Teilaufgaben für das Gesamtsystem vor:
+kleine Teilaufgaben wird die Software für den Entwicklungsprozess übersichtlicher.
+Die einzelnen Domänen können so schneller und besser verstanden werden. Es gibt viele
+Möglichkeiten ein Softwaresystem in kleine Teile aufzuteilen, sodass es am Ende
+auf den konkreten Anwendungsfall ankommt. Diese Arbeit sieht folgenden Teilaufgaben
+für das Gesamtsystem vor:
 
 \begin{itemize}
-	\item \textbf{Architekturdesign:} Mit Hilfe von UML Diagrammen soll die
-		Architektur dieses Systems abgebilde werden und suksesive immer detalierte
-		beschrieben werden. Es soll dann verglichen werden, welche Softwarepatterns
-		für dieses System in Frage kommen, Durch Bearbeitung dieses Teilproblems,
-		kann der Anforderung der flexiblen Architektur gerecht weden. Ist dies geschehen,
-		so kann mit einem UI Design begonnen werden.
+	\item \textbf{Architekturdesign:} Mithilfe von UML Diagrammen soll die
+		Architektur dieses Systems abgebildet werden und sukzessive immer
+		detaillierter beschrieben werden. Es soll dann verglichen werden, welche
+		Softwarepatterns für dieses System infrage kommen. Durch die Bearbeitung dieses
+		Teilproblems kann die Anforderung an eine flexible Architektur erfüllt werden.
+		Anschließend kann mit der Entwicklung des UI-Designs begonnen werden.
 
-	\item \textbf{UI Design:} Es soll eine Design erstellt werden, dass sich an erfolgreichen
-		und etablierten 3D Slicer Extentions orientiert. Jedoch sollen die Wünsche
-		des Endnutzers auch nicht zu kurz kommen. Für eine visualsierung des Designs
+	\item \textbf{UI Design:} Es soll ein Design erstellt werden, dass sich an erfolgreichen
+		und etablierten 3D Slicer Extensions orientiert. Jedoch sollen die Wünsche
+		des Endnutzers auch nicht zu kurz kommen. Für eine Visualisierung des Designs
 		bedient sich diese Arbeit der Wireframes.
 
-	\item \textbf{Pseude-Extension:} Bevor der tatsächliche Algorithmus
+	\item \textbf{Pseudo-Extension:} Bevor der tatsächliche Algorithmus
 		eingebunden werden kann, ist es wichtig eine funktionierende Erweiterung zu haben,
-		die erstmal nichts sinvolles tut, aber funktioniert und in Slicer eingebunden
+		die noch keine konkrete Aufgabe hat, aber funktioniert und in Slicer eingebunden
 		werden kann.
 
-	\item \textbf{Hoffmann als Python Paket:} Nachdem die leere Extension
-		lauffähig ist, kann mit der Paketerstellung des Hoffmann begonnen werden.
-		Hier soll das Verfahren von einem Python Notebook in eine Python Wheel Datei
-		überführt werden, sodass eine abkapselung gegeben ist.
+	\item \textbf{Hilfsfunktionen:} Nachdem die Infrastruktur der Erweiterung
+		steht und funktioniert, kann mit der Implementierung einiger Hilfsfunktionen
+		begonnen werden. Hierbei handelt es sich um Methode, die nicht direkt etwas mit
+		dem Verfahren zu tun haben, jedoch kleine Nebenaufgaben erfüllen und so
+		unumgänglich sind. Als Beispiel sei hier das Laden von CT-Bildern in die Szene
+		gedacht.
 
-	\item \textbf{Speicheurng der Parameter:} Für die Speicherung der
-		Parametereinstellungen hat Slicer den Mechanismus des ParameterNode
-		entworfen. Diese wurde bereits in Abschnitt \ref{subsec:benutzerschnitstelle}
-		erwähnt. Diese Mechnismus ist nicht trivial, erhöht die Benutzerfreundlichkeit
-		des Systems aber erheblich.
+	\item \textbf{Kappselung Hoffmann:} Nachdem die leere Extension
+		lauffähig ist und auch einige Hilfsfunktionen bereitstehen, kann mit der Paketerstellung
+		des Hoffmann begonnen werden. Hier soll das Verfahren von einem Python
+		Notebook in eine Bibliothek überführt werden, sodass dieses Verfahren in der
+		Extention ausführbar ist. Die konkrete Art des Paketes ist noch nicht
+		festgelegt.
+
+	\item \textbf{Speicheurng der Parameter:} Der Benutzer steuert das Verfahren
+		über die Parameter in der UI. Für die Speicherung der Parametereinstellungen
+		hat Slicer den Mechanismus des ParameterNode entworfen. Diese wurde bereits
+		in Abschnitt \ref{subsec:benutzerschnitstelle} erwähnt. Diese Mechanismus ist
+		nicht trivial, erhöht die Benutzerfreundlichkeit des Systems aber erheblich
+		und soll demnach auch in diese Extention Anwendung finden.
 
 	\item \textbf{Single Prozess:} Sobald alle notwendigen Vorbereitungen
-		getorffen sind, kann der Algorithmus nun eingebettet werden. Hierzu
+		getroffen sind, kann der Algorithmus nun eingebettet werden. Hierzu
 		betrachtet man isoliert den Single Prozess. Auch Die Ui wird erst nur so weit
-		gebaut, wie es für diesen Prozess nötig ist.
+		entwickel, wie es für den einfachen Prozess nötig ist. Hierbei wird auf das erstellte
+		Paket für das Hoffmann Verfahren und die zuvor erstellen Hilfsfunktionen zurückgegriffen.
 
 	\item \textbf{Batch Prozess:} Ist das einfache Verfahren fertig implementiert
 		und funktioniert, so kann der Batch Prozess hinzukommen. Hier bedarf es
 		einer zusätzlichen Arbeit in der UI, da der Benutzer über das Verwenden dieser
-		Funktion gewarnt werden muss. Der Batch Prozess bedard nämlich erheblicher
-		Ressourcen. Hinzukommt die Implementierung einer Vortschittsanzeige, sodass
+		Funktion gewarnt werden muss. Der Batch Prozess bedarf nämlich erheblicher
+		Ressourcen. Hinzukommt die Implementierung einer Fortschrittsanzeige, sodass
 		zu erkennen ist, dass ein Hintergrundprozess läuft.
 
 	\item \textbf{Dokumentation und Benutzerhandbuch:} Abschließend ist eine
 		ausführliche Dokumentation der Architektur erwünscht, sodass zukünftige Entwickler
-		wissen, wo sie ansetzten müssen. Hinzu kommt eine Benutzerhandbuch für eine Verwendung
-		der Erweiterung.
+		wissen, wo sie ansetzten müssen. Hinzu kommt ein Benutzerhandbuch für eine Verwendung
+		der Erweiterung. Das Benutzerhandbuch und die Architekturdokumentation
+		erfolgen in einer README.md innerhalb der Extension.
 
 	\item \textbf{Tests:} An letzter Stelle sollen noch Softwaretests
 		implementiert werde, um die Richtigkeit der Extension sicherzustellen. 3D
-		Slicer sieht hier Unittests vor.
+		Slicer sieht hier Unittests vor, die über den Developer Modus in Slicer direkt
+		in der jeweileigen Extension ausfeführt werden können.
 \end{itemize}
 
 Die Ordnung dieser Punkte gibt eine grobe Orientierung bezüglich der Reihenfolge
-während der Umsetzung an. Bei der Bearbeitung der einzelnen Teilaufgaben ist es
-auch wichtig eine gute Recherche zum aktuellen Stand der Technik durchzuführen. Es
-ist sehr ungünstig, wenn sich zu Ende eines Projektes herraustellt, dass Lösungen,
-in die erhebliche Ressourcen investiert wurden, bereits veröffentlicht sind.
+während der Umsetzung an. Bei der Bearbeitung der einzelnen Teilaufgaben ist es auch
+wichtig eine gute Recherche zum aktuellen Stand der Technik durchzuführen. Es
+ist sehr ungünstig, wenn sich zu Ende eines Projektes herrausstellt, dass
+Lösungen, in die erhebliche Ressourcen investiert wurden, bereits veröffentlicht
+sind. Um dies zu vermeiden, führt das nächste Kapitel ein umfassende Recherche
+zu den Teilaufgaben durch.
 % ---------------------------------------------------------------------------------------
 
 \section{Recherche zum Stand der Kunst}
-\label{sec:recherche} Bei der Recherche ist es wichtig
+\label{sec:recherche} Für die Recherche zu den verschiedenen Teilaufgaben ist die 
+Dokumentation der Open Source Plattform 3D Slicer eine wichtige Ressource 
+\cite[vgl.][]{slicer2024}. Diese zeigt bereits etablierte Verfahren und einen
+\textit{Best Practise} Ansatz. Auch das \citet{extensionsIndex2024} Repository ist eine
+wichtige Quelle, da so ein Einblick in andere Lösungen möglich ist. So kommt es, das nach
+ausführlicher Recherche zu den Teilaufgaben UI-Design, Pseudo-Extention, Kappselung Hoffmann,
+Speicherung Parameter, Dokumentation und Test bereits Lösungen existieren. Bei diesen Lösungen
+handelt es sich jedoch nicht um konkrete Ergebnisse, sondern vielmehr um einen Leitfaden
+zur zur Lösung der Teilaufgabe. Die Recherche hat demnach ergeben, dass diese Teilprobleme im
+Kontext der 3D Slicer Umgebmung nicht das erstemal zu Tage treten un Lösungswege existieren.
 % ---------------------------------------------------------------------------------------
 
 \section{Erarbeiten von Lösungsansätzen}
@@ -145,9 +168,9 @@ in die erhebliche Ressourcen investiert wurden, bereits veröffentlicht sind.
 
 \textbf{UI Design}
 
-\textbf{Pseude Extension}
+\textbf{Pseudo Extension}
 
-\textbf{Hoffmann als Python Paket}
+\textbf{Kappselung Hoffmann}
 
 \textbf{Single Prozess}
 
