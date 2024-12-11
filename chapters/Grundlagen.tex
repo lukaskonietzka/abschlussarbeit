@@ -3,12 +3,11 @@
 ein, die in dieser Arbeit benötigt werden. Den ersten Teil bilden die domänenspezifischen
 Grundlagen \ref{sec:domänenspezifisch}, welche genauer darauf eingehen, welchen Inhalt
 die zu bearbeitenden Bilder bieten und wie dieser zu verstehen ist. Abschnitt
-\ref{sec:technologisch} geht hierbei auf verschiedenen Technologien ein, die eine
+\ref{sec:technologisch} geht anschließend genauer auf die Bildgebung ein, die eine
 wichtige Rolle spielen. Der Abschnitt \ref{sec:verwwandte_arbeit} geht auf die
 Arbeit von \citet{hoffmann2020} ein und legte damit den Grundstein dieser Arbeit.
-Die Abschnitte \ref{sec:3d_slicer} und \ref{sec:architektonisch} führen in
-Softwareentwicklungsthemen ein, die zum Erstellen einer \textit{3D Slicer
-Extention} wichtig sind.
+Die Abschnitt \ref{sec:3d_slicer} führt in Softwareentwicklungsthemen ein, die zum
+Erstellen einer \textit{3D Slicer Extention} wichtig sind.
 % ---------------------------------------------------------------------------------------
 
 \section{Domänenspezifisch}
@@ -23,7 +22,7 @@ aufgebaut ist.
 	nach \citet[Seite 17]{lehmann2012Zahnheilkunde}. Zu sehen ist, dass das Denit oder
 	auch Zahnbein genannt, den Großteil eines Zahnes einnimmt. Im Bereich der Zahnkrone
 	wird das Dentin von Zahnschmelz überzogen. Der Zahnschmelz ragt in die
-	Mundhöhle und ist nach \cite[Seite 41]{lehmann2012Zahnheilkunde} das härteste
+	Mundhöhle und ist nach \citet[Seite 41]{lehmann2012Zahnheilkunde} das härteste
 	Material im menschlichen Körper. In der Mitte des Zahnes befindet sich Weichgewebe,
 	welches als Pulpa bezeichnet wird vgl. \citep[Seite ]{lehmann2012Zahnheilkunde}.
 \end{minipage}
@@ -40,6 +39,7 @@ Abbildung \ref{fig:ct_aufnahme_eines_zahns} gezeigt wurde, so bilden diese 3 Gew
 die unterschiedlichen Grauwerte in einem CT-Bild. \\ \textbf{Die Pulpa} unterscheidet
 sich hierbei nur wenig vom Hintergrund, da sie als einzige der drei Hauptteile
 eines Zahnes ein Weichgewebe ist und bei einer Röntgenaufnahme nicht absorbiert.
+Dieser Teil ist für demanch für die spätere Verarbeitung weniger interessant.
 Geht man weiter von innen nach außen, so ist der nächste Zahnteil auf einem CT
 das Zahnbein. \\ \textbf{Das Dentin} ist laut \citet[Seite 41]{lehmann2012Zahnheilkunde}
 eine Hartsubstanz, die dem Kieferknochen sehr nah steht. So kommt es, dass dieser
@@ -422,13 +422,14 @@ zwei verschiedenen Verfahren durchgeführt werden.
 	Durch die Segmentbetrachtung der Beiden Zahnhauptteile Schmelz und Dentin konnte
 	\citet{hoffmann2020} eine gute Hilfe für die Befundung kariöse Stellen liefern.
 	Ein Ergebnis aus der Arbeit von Hoffman sei in Abbildung \ref{fig:ergebnis_hoffmann}
-	gezeigt.
+	gezeigt. \citet{hoffmann2020} entwickelte hierfür ein Prototypisches Verfahren,
+	mit dem es gelang ca. 250 Datensätze der Zahnklinik automatisch aufzubereiten.
 \end{minipage}
 \hfill
 \begin{minipage}{0.60\textwidth}
 	\centering
-	\includegraphics[width=0.9\textwidth]{img/ergebnis_hoffmann.jpg}
-	\captionof{figure}{Ergebnisansicht eines CTs nach Bearbeitung mit dem Verfahren nach \citet[Seite 56]{hoffmann2020}}
+	\includegraphics[width=0.7\textwidth]{img/ergebnis_hoffmann_2.jpg}
+	\captionof{figure}{Reproduzierte Ergebnisansicht eines CTs nach Bearbeitung mit dem Verfahren nach \citet[Seite 56]{hoffmann2020}}
 	\label{fig:ergebnis_hoffmann}
 \end{minipage}
 

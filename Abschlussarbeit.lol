@@ -7,6 +7,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {lstlisting}{\numberline {4.1}{\ignorespaces Prinzipeller Aufbau eines Projektes für eine Slicer Extension nach Slicer (2024)}}{29}{lstlisting.4.1}%
+\contentsline {lstlisting}{\numberline {4.2}{\ignorespaces Aufbau einer Testklasse zum ausführen von Unittest nach \citet {slicer2024}}}{29}{lstlisting.4.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

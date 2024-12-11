@@ -8,3 +8,7 @@ Micro
 SCANCO
 Metafile
 Metafiles
+Transforms
+ParameterNodeWrapper
+Collapsible
+ParameterNode

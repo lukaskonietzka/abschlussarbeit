@@ -108,14 +108,14 @@ für das Gesamtsystem vor:
 
 	\item \textbf{Speicherung der Parameter:} Der Benutzer steuert das Verfahren
 		über die Parameter in der UI. Für die Speicherung der Parametereinstellungen
-		hat Slicer den Mechanismus des ParameterNode entworfen. Diese wurde bereits
-		in Abschnitt \ref{subsec:benutzerschnitstelle} erwähnt. Dieser Mechanismus ist
-		nicht trivial, erhöht die Benutzerfreundlichkeit des Systems aber erheblich
-		und soll demnach auch in diese Extention Anwendung finden.
+		hat Slicer den Mechanismus ParameterNode entworfen. Diese wurde bereits in
+		Abschnitt \ref{subsec:benutzerschnitstelle} erwähnt. Dieser Mechanismus ist nicht
+		trivial, erhöht die Benutzerfreundlichkeit des Systems aber erheblich und
+		soll demnach auch in diese Extention Anwendung finden.
 
 	\item \textbf{Single Prozess:} Sobald alle notwendigen Vorbereitungen
 		getroffen sind, kann der Algorithmus nun eingebettet werden. Hierzu
-		betrachtet man isoliert den Single Prozess. Auch Die UI wird erst nur so weit
+		betrachtet man isoliert den Single Prozess. Auch die UI wird erst nur so weit
 		entwickel, wie es für den einfachen Prozess nötig ist. Hierbei wird auf das erstellte
 		Paket für das Hoffmann Verfahren und die zuvor erstellen Hilfsfunktionen zurückgegriffen.
 
@@ -143,7 +143,7 @@ während der Umsetzung an. Bei der Bearbeitung der einzelnen Teilaufgaben ist es
 wichtig eine gute Recherche zum aktuellen Stand der Technik durchzuführen. Es
 ist sehr ungünstig, wenn sich zu Ende eines Projektes herausstellt, dass
 Lösungen, in die erhebliche Ressourcen investiert wurden, bereits veröffentlicht
-sind. Um dies zu vermeiden, führt das nächste Kapitel ein umfassende Recherche
+sind. Um dies zu vermeiden, führt das nächste Kapitel eine umfassende Recherche
 zu den Teilaufgaben durch.
 % ---------------------------------------------------------------------------------------
 
@@ -161,45 +161,45 @@ Recherche hat demnach ergeben, dass diese Teilprobleme im Kontext der 3D Slicer 
 nicht das erste Mal zutage treten und Lösungswege existieren.
 
 \begin{minipage}{0.40\textwidth}
-	Für ein UI Design wird sehr empfohlen, bereits etablierte 3D Slicer Extensions
+	Für ein \textbf{UI Design} wird sehr empfohlen, bereits etablierte 3D Slicer Extensions
 	als Orientierung zu nutzen. Eine sehr gute Orientierung bietet das Modul \textit{Transforms},
 	das in Abbildung \ref{fig:module_example} zu sehen ist. Zu Erkennen ist, dass die
 	UI mittels Collapsible Buttons in verschiedenen Gruppen unterteilt wird. Ohne
 	in die verschiedenen Gruppen hineinzublicken, lässt sich gut abschätzen,
-	welche Parameter wo zu erwarten sind. Dies ermöglicht dem Benutzer ein isolierteres
-	Betrachten der unterschiedlichen Funktionen in diesem Modul und so eine gute Benuzterfreundlichkeit.
+	welche Parameter wo zu erwarten sind. Dies ermöglicht dem Benutzer ein isoliertes
+	Betrachten der unterschiedlichen Funktionen in diesem Modul und so eine gute Benutzerfreundlichkeit.
 \end{minipage}
 \hfill
 \begin{minipage}{0.50\textwidth}
 	\centering
 	\includegraphics[scale=0.50]{img/modul_example.jpg}
-	\captionof{figure}{Das Modul Transforms als Beispiel einer etabliertne 3D Slicer Extension UI | Screenshot aus 3D Slicer}
+	\captionof{figure}{Das Modul Transforms als Beispiel einer etablierten UI für eine Slicer Extension | Screenshot aus 3D Slicer}
 	\label{fig:module_example}
 \end{minipage}
 
 Für die Extension, welche in der vorliegenden Arbeit erstellt werden soll, wird genau
 dieser Ansatz gepflegt und somit eine gute Benutzbarkeit des Moduls gewährleistet.
-Die speziellen wünsche der konkreten benutzergruppe sollen jedoch nicht zu kurz
+Die speziellen wünsche der konkreten Benutzergruppe sollen jedoch nicht zu kurz
 kommen.
 
-Für das erstellen einer ersten funktionierenden Extension, bietet Slicer eine sehr
-gute Hilfe. 3D Slicer hat hierfür ein eigenes Modul entickelt, das sich \textit{Extention
-Wizard} nennt. Dieses Modul gibt eine gute Einführung in die Entwicklung mit Slicer.
-Hiermit lässt sich mittels Leitfaden eine erste Demo Extension erstellen, die sich
-bereits gut in 3D Slicer einfügt. Diese Lösung könnte als Abstraktionsschicht
-betrachtet werden, da durch dieses Modul im ersten Schritt nahe zu keine Kentnisse
-über die Kernanwendung von Slicer nötig sind. Der Extentionwizard ist wie folgt
-zu finden:
+Für das Erstellen einer \textbf{ersten funktionierenden Extension} bietet Slicer eine
+sehr gute Hilfe. 3D Slicer hat hierfür ein eigenes Modul entwickelt, das sich
+\textit{Extention Wizard} nennt. Dieses Modul gibt eine gute Einführung in die
+Entwicklung mit Slicer. Hiermit lässt sich mittels Leitfaden eine erste Demo Extension
+erstellen, die sich bereits gut in 3D Slicer einfügt. Diese Lösung könnte als Abstraktionsschicht
+betrachtet werden, da durch dieses Modul im ersten Schritt nahe zu keine
+Kenntnisse über die Kernanwendung von Slicer nötig sind. Der Extentionwizard ist
+wie folgt zu finden:
 
 \texttt{Modules -> Developer Tools -> Extension Wizard}
 
-Für die Kapselung einer bestimmten Einheit von Code, sieht Slicer eine Bibliothek
-innerhalb der Extention vor, so beschreibt es di\citet{slicer2024}. Das Listing \ref{lst:3d_slicer_projektverzeichnis}
-zeigt, wo eine Bibliothek innerhalb einer Extention einzuordnen ist, hier als \texttt{MyLib}
-zu sehen. Innerhalb dieses Ordners können sich weitere Module befinden, die als
-einfache Python-Files abgelegt werden. Zu beachten ist, das in jeder Bibliothek
-eine \texttt{\_\_init\_\_.py} hinzugefüht wird, sodass dieser Ordner auch
-entsprechend verwendet werden kann.
+Für \textbf{die Kapselung} einer bestimmten Einheit von Code, sieht Slicer eine
+Bibliothek innerhalb der Extention vor, so beschreibt es di\citet{slicer2024}.
+Das Listing \ref{lst:3d_slicer_projektverzeichnis} zeigt, wo eine Bibliothek innerhalb
+einer Extention einzuordnen ist, hier als \texttt{MyLib} zu sehen. Innerhalb
+dieses Ordners können sich weitere Module befinden, die als einfache Python-Files
+abgelegt werden. Zu beachten ist, dass in jeder Bibliothek eine \texttt{\_\_init\_\_.py}
+hinzugefügt wird, sodass dieser Ordner auch entsprechend verwendet werden kann.
 
 \begin{lstlisting}[
     language={python},
@@ -213,15 +213,48 @@ entsprechend verwendet werden kann.
 |-- MyExtension.py
 \end{lstlisting}
 
-Für die Teilaufgabe zur Speicherung der Parameter Nutzt Slicer eine Technik, das
+Für die Teilaufgabe zur \textbf{Speicherung der Parameter} nutzt Slicer eine Technik, das
 durchaus als eines der Kernfunktionen beschrieben werden kann. Die Rede ist hier
-von der Klasse des \texttt{ParameterNodeWrappers}. Dieser wurde bereits zu einem
-früheren Zeitpunkt in dieser Arbeit beschrieben. Für die Funktion dieser Lösung,
-sei auf den Abschnitt \ref{subsec:benutzerschnitstelle} Benutzerschnittstelle verwiesen.
+von der Klasse \texttt{ParameterNodeWrapper}. Dieser wurde bereits zu einem
+früheren Zeitpunkt in dieser Arbeit beschrieben. Für die Funktion dieser Lösung sei
+auf den Abschnitt \ref{subsec:benutzerschnitstelle} Benutzerschnittstelle verwiesen.
 
-Sowol das Benutzerhandbuch, also auch die technische Dokumentation einer Slicer Extension
-wird, immer in der \texttt{README.md} des jeweiligen Repository hinterlget. In der Extension
-selber sieht Slicer keine umfangreiche Dokumentation vor.
+Sowohl das \textbf{Benutzerhandbuch}, also auch die technische Dokumentation einer Slicer
+Extension wird immer in der \texttt{README.md} des jeweiligen Repository hinterlegt.
+In der Extension selber sieht Slicer keine umfangreiche Dokumentation vor. Es wird
+lediglich via Link auf die Dokumentation im Repository verwiesen und eine kurze Einführung
+gegeben.
+
+Für die Letzte Teilaufgabe, das \textbf{Testen}, gibt die Dokumentation von 3D Slicer ebenfalls
+eine konkrete Struktur vor. Ist ist also nicht nötig eigenen Verfahren zu
+entwickeln. Für die Softwaretests stell Slicer eine eigene Klasse innerhalb der Slicer
+Bibliothek bereit, die alle wichtigen Funktionen enthält, um konkrete Testfälle zu
+schreiben. Die Klasse Trägt den Namen \textsl{ScriptedLoadableModuleTest} und kann
+als Elternklasse für einen Testfall verwendet werden.
+
+\begin{lstlisting}[
+    language={python},
+    caption={Aufbau einer Testklasse zum ausführen von Unittest nach \citet{slicer2024}},
+    label={lst:3d_slicer_test_class}]
+class MyExtensionTest(ScriptedLoadableModuleTest)
+    def setUp(self):
+      # do something befor a test
+    def runTest(self):
+      # execute your test case here
+    def testMyExtension1(self):
+      # write your test case here
+\end{lstlisting}
+
+Im Listing \ref{lst:3d_slicer_test_class} ist zu sehen, dass sich die Klasse in drei
+Teil aufteilt, die Methode \texttt{setUp()}, die als Vorbedingung dient, die Methode
+\texttt{runTest()}, die über die UI getriggert werden kann um die Test zu starten und
+die konkreten Textfälle, die in selbst definierten Methoden geschrieben weden
+können. Als Beispiel sie hier die Methode \texttt{testMyExtension1()} gezeigt.
+
+Im Laufe dieses Kapitels wurde klar, dass es für einige der Teilaufgaben bereits Lösungen
+oder Lösungsansätze gibt, die zu etwas weniger Entwicklungsarbeit führen. Jeodch trifft
+dies nicht auf alle Punkte zu, sodass sich der nächste Abschnitt mit der Erarbeitung von
+konkreten Lösungsansäätzen für die noch nicht behandelten Teilaufgaben beschäftigt.
 % ---------------------------------------------------------------------------------------
 
 \section{Erarbeiten von Lösungsansätzen}
@@ -229,17 +262,10 @@ selber sieht Slicer keine umfangreiche Dokumentation vor.
 
 \textbf{Architekturdesign}
 
-\textbf{UI Design}
-
-\textbf{Pseudo Extension}
-
-\textbf{Kappselung Hoffmann}
-
 \textbf{Single Prozess}
 
 \textbf{Batch Prozess}
 
-\textbf{Analysen}
 % ---------------------------------------------------------------------------------------
 
 \section{Auswahl von Lösungsansätzen}
