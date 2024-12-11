@@ -186,15 +186,42 @@ Für das erstellen einer ersten funktionierenden Extension, bietet Slicer eine s
 gute Hilfe. 3D Slicer hat hierfür ein eigenes Modul entickelt, das sich \textit{Extention
 Wizard} nennt. Dieses Modul gibt eine gute Einführung in die Entwicklung mit Slicer.
 Hiermit lässt sich mittels Leitfaden eine erste Demo Extension erstellen, die sich
-bereits gut in 3D Slicer einfügt. Diese Lösung könnte als Abstraktionsschicht betrachtet
-werden, da durch dieses Modul im ersten Schritt nahe zu keine Kentnisse über die Kernanwendung
-von Slicer nötig sind. Der Extentionwizard ist wie folgt zu finden:
+bereits gut in 3D Slicer einfügt. Diese Lösung könnte als Abstraktionsschicht
+betrachtet werden, da durch dieses Modul im ersten Schritt nahe zu keine Kentnisse
+über die Kernanwendung von Slicer nötig sind. Der Extentionwizard ist wie folgt
+zu finden:
 
 \texttt{Modules -> Developer Tools -> Extension Wizard}
 
-Für die Kapselung einer 
+Für die Kapselung einer bestimmten Einheit von Code, sieht Slicer eine Bibliothek
+innerhalb der Extention vor, so beschreibt es di\citet{slicer2024}. Das Listing \ref{lst:3d_slicer_projektverzeichnis}
+zeigt, wo eine Bibliothek innerhalb einer Extention einzuordnen ist, hier als \texttt{MyLib}
+zu sehen. Innerhalb dieses Ordners können sich weitere Module befinden, die als
+einfache Python-Files abgelegt werden. Zu beachten ist, das in jeder Bibliothek
+eine \texttt{\_\_init\_\_.py} hinzugefüht wird, sodass dieser Ordner auch
+entsprechend verwendet werden kann.
 
+\begin{lstlisting}[
+    language={python},
+    caption={Prinzipeller Aufbau eines Projektes für eine Slicer Extension nach Slicer (2024)},
+    label={lst:3d_slicer_projektverzeichnis}]
+|-- CMakeLists.txt
+|-- MyLib
+|   |-- __init__.py
+|   |-- cool_maths.py
+|   |-- utils.py
+|-- MyExtension.py
+\end{lstlisting}
 
+Für die Teilaufgabe zur Speicherung der Parameter Nutzt Slicer eine Technik, das
+durchaus als eines der Kernfunktionen beschrieben werden kann. Die Rede ist hier
+von der Klasse des \texttt{ParameterNodeWrappers}. Dieser wurde bereits zu einem
+früheren Zeitpunkt in dieser Arbeit beschrieben. Für die Funktion dieser Lösung,
+sei auf den Abschnitt \ref{subsec:benutzerschnitstelle} Benutzerschnittstelle verwiesen.
+
+Sowol das Benutzerhandbuch, also auch die technische Dokumentation einer Slicer Extension
+wird, immer in der \texttt{README.md} des jeweiligen Repository hinterlget. In der Extension
+selber sieht Slicer keine umfangreiche Dokumentation vor.
 % ---------------------------------------------------------------------------------------
 
 \section{Erarbeiten von Lösungsansätzen}
