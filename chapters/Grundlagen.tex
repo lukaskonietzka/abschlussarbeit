@@ -241,12 +241,12 @@ Mittelpunkt und damit einen aktuellen Pixel betrachtetn zu können, bedarf es ei
 ungeraden Seitenanzahl. Diese eingränzung lässt sich wie folgt generisch fassen.
 
 \begin{align}
-	\label{equ:lokaler_operator}M_{(2_m+1)x(2_m+1)} & = \begin{bmatrix}n & n & n & n & n\\ n & n & n & n & n\\ n & n & x & n & n\\ n & n & n & n & n\\ n & n & n & n & n\\\end{bmatrix}
+	\label{equ:lokaler_operator}M_{(2_m+1)x(2_m+1)} & = \begin{bmatrix}k_{11} & k_{12} & k_{1n}\\ k_{21} & x & k_{2n}\\ k_{n1} & k_{n2} & k_{nn}\\\end{bmatrix} & m \in \mathbb{N}
 \end{align}
 
 Die Gleichung \ref{equ:lokaler_operator} beschreibt die mögliche Ausprägung eines
 lokalen Operators als Matrix. Dabei sei $m \in \mathbb{N}$. Die Variable $x$ beschreibt
-das aktuell betrachtete Pixel, während $n$ die Nachbarn illustrieren soll. Durch
+das aktuell betrachtete Pixel, während $k$ die Nachbarn illustrieren soll. Durch
 die Gleichung ist auch zu erkennen, das die Maske des lokalen Operators beliebig
 groß werden kann. Eine hohe Ordnung der Operatormatrix ist jedoch nicht immer von
 Vorteil, sodass es letzten Endes auf den Anwendungsfall ankommt.

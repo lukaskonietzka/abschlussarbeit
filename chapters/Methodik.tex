@@ -150,7 +150,7 @@ zu den Teilaufgaben durch.
 \section{Recherche zum Stand der Kunst}
 \label{sec:recherche} Für die Recherche zu den verschiedenen Teilaufgaben ist
 die Dokumentation der Open Source Plattform 3D Slicer eine wichtige Ressource
-\cite[vgl.]{[}]{slicer2024}. Diese zeigt bereits etablierte Verfahren und einen \textit{Best
+\cite[vgl.][]{slicer2024}. Diese zeigt bereits etablierte Verfahren und einen \textit{Best
 Practise} Ansatz. Auch das \citet{extensionsIndex2024} Repository ist eine
 wichtige Quelle, da so ein Einblick in andere Lösungen möglich ist. So kommt es,
 das nach ausführlicher Recherche zu den Teilaufgaben UI-Design, Pseudo-Extension,
@@ -194,7 +194,7 @@ wie folgt zu finden:
 \texttt{Modules -> Developer Tools -> Extension Wizard}
 
 Für \textbf{die Kapselung} einer bestimmten Einheit von Code, sieht Slicer eine
-Bibliothek innerhalb der Extention vor, so beschreibt es di\citet{slicer2024}.
+Bibliothek innerhalb der Extention vor, so beschreibt es die \citet{slicer2024}.
 Das Listing \ref{lst:3d_slicer_projektverzeichnis} zeigt, wo eine Bibliothek innerhalb
 einer Extention einzuordnen ist, hier als \texttt{MyLib} zu sehen. Innerhalb
 dieses Ordners können sich weitere Module befinden, die als einfache Python-Files
@@ -223,7 +223,9 @@ Sowohl das \textbf{Benutzerhandbuch}, also auch die technische Dokumentation ein
 Extension wird immer in der \texttt{README.md} des jeweiligen Repository hinterlegt.
 In der Extension selber sieht Slicer keine umfangreiche Dokumentation vor. Es wird
 lediglich via Link auf die Dokumentation im Repository verwiesen und eine kurze Einführung
-gegeben.
+gegeben. Auch hier gibt es wieder etablierte Designs, die als Vorlage verwenden werden können.
+Die \citet{slicer2024} erwähnt hier unter anderem das Module
+\href{https://github.com/lassoan/SlicerSegmentMesher}{SegmentMesher} als gutes Beispiel.
 
 Für die Letzte Teilaufgabe, das \textbf{Testen}, gibt die Dokumentation von 3D Slicer ebenfalls
 eine konkrete Struktur vor. Ist ist also nicht nötig eigenen Verfahren zu
