@@ -150,7 +150,7 @@ zu den Teilaufgaben durch.
 \section{Recherche zum Stand der Kunst}
 \label{sec:recherche} Für die Recherche zu den verschiedenen Teilaufgaben ist
 die Dokumentation der Open Source Plattform 3D Slicer eine wichtige Ressource
-\cite[vgl.][]{slicer2024}. Diese zeigt bereits etablierte Verfahren und einen \textit{Best
+\cite[vgl.]{[}]{slicer2024}. Diese zeigt bereits etablierte Verfahren und einen \textit{Best
 Practise} Ansatz. Auch das \citet{extensionsIndex2024} Repository ist eine
 wichtige Quelle, da so ein Einblick in andere Lösungen möglich ist. So kommt es,
 das nach ausführlicher Recherche zu den Teilaufgaben UI-Design, Pseudo-Extension,
@@ -162,12 +162,13 @@ nicht das erste Mal zutage treten und Lösungswege existieren.
 
 \begin{minipage}{0.40\textwidth}
 	Für ein \textbf{UI Design} wird sehr empfohlen, bereits etablierte 3D Slicer Extensions
-	als Orientierung zu nutzen. Eine sehr gute Orientierung bietet das Modul \textit{Transforms},
-	das in Abbildung \ref{fig:module_example} zu sehen ist. Zu Erkennen ist, dass die
-	UI mittels Collapsible Buttons in verschiedenen Gruppen unterteilt wird. Ohne
-	in die verschiedenen Gruppen hineinzublicken, lässt sich gut abschätzen,
-	welche Parameter wo zu erwarten sind. Dies ermöglicht dem Benutzer ein isoliertes
-	Betrachten der unterschiedlichen Funktionen in diesem Modul und so eine gute Benutzerfreundlichkeit.
+	als Orientierung zu nutzen. Eine sehr gute Orientierung bietet das Modul
+	\textit{Transforms}, das in Abbildung \ref{fig:module_example} zu sehen ist. Zu
+	Erkennen ist, dass die UI mittels Collapsible Buttons in verschiedenen Gruppen
+	unterteilt wird. Ohne in die verschiedenen Gruppen hineinzublicken, lässt sich
+	gut abschätzen, welche Parameter wo zu erwarten sind. Dies ermöglicht dem
+	Benutzer ein isoliertes Betrachten der unterschiedlichen Funktionen in diesem
+	Modul und so eine gute Benutzerfreundlichkeit.
 \end{minipage}
 \hfill
 \begin{minipage}{0.50\textwidth}
@@ -182,21 +183,21 @@ dieser Ansatz gepflegt und somit eine gute Benutzbarkeit des Moduls gewährleist
 Die speziellen wünsche der konkreten Benutzergruppe sollen jedoch nicht zu kurz
 kommen.
 
-Für das Erstellen einer \textbf{ersten funktionierenden Extension} bietet Slicer eine
-sehr gute Hilfe. 3D Slicer hat hierfür ein eigenes Modul entwickelt, das sich
-\textit{Extention Wizard} nennt. Dieses Modul gibt eine gute Einführung in die
-Entwicklung mit Slicer. Hiermit lässt sich mittels Leitfaden eine erste Demo Extension
-erstellen, die sich bereits gut in 3D Slicer einfügt. Diese Lösung könnte als Abstraktionsschicht
-betrachtet werden, da durch dieses Modul im ersten Schritt nahe zu keine
-Kenntnisse über die Kernanwendung von Slicer nötig sind. Der Extentionwizard ist
-wie folgt zu finden:
+Für das Erstellen einer \textbf{ersten funktionierenden Extension} bietet Slicer
+eine sehr gute Hilfe. 3D Slicer hat hierfür ein eigenes Modul entwickelt, das sich
+\textit{Extention Wizard} nennt. Dieses Modul gibt eine gute Einführung in die Entwicklung
+mit Slicer. Hiermit lässt sich mittels Leitfaden eine erste Demo Extension
+erstellen, die sich bereits gut in 3D Slicer einfügt. Diese Lösung könnte als
+Abstraktionsschicht betrachtet werden, da durch dieses Modul im ersten Schritt nahe
+zu keine Kenntnisse über die Kernanwendung von Slicer nötig sind. Der
+Extentionwizard ist wie folgt zu finden:
 
 \texttt{Modules -> Developer Tools -> Extension Wizard}
 
 Für \textbf{die Kapselung} einer bestimmten Einheit von Code, sieht Slicer eine
 Bibliothek innerhalb der Extention vor, so beschreibt es die \citet{slicer2024}.
-Das Listing \ref{lst:3d_slicer_projektverzeichnis} zeigt, wo eine Bibliothek innerhalb
-einer Extention einzuordnen ist, hier als \texttt{MyLib} zu sehen. Innerhalb
+Das Listing \ref{lst:3d_slicer_projektverzeichnis} zeigt, wo eine Bibliothek
+innerhalb einer Extention einzuordnen ist, hier als \texttt{MyLib} zu sehen. Innerhalb
 dieses Ordners können sich weitere Module befinden, die als einfache Python-Files
 abgelegt werden. Zu beachten ist, dass in jeder Bibliothek eine \texttt{\_\_init\_\_.py}
 hinzugefügt wird, sodass dieser Ordner auch entsprechend verwendet werden kann.
@@ -213,26 +214,29 @@ hinzugefügt wird, sodass dieser Ordner auch entsprechend verwendet werden kann.
 |-- MyExtension.py
 \end{lstlisting}
 
-Für die Teilaufgabe zur \textbf{Speicherung der Parameter} nutzt Slicer eine Technik, das
-durchaus als eines der Kernfunktionen beschrieben werden kann. Die Rede ist hier
-von der Klasse \texttt{ParameterNodeWrapper}. Dieser wurde bereits zu einem
-früheren Zeitpunkt in dieser Arbeit beschrieben. Für die Funktion dieser Lösung sei
-auf den Abschnitt \ref{subsec:benutzerschnitstelle} Benutzerschnittstelle verwiesen.
+Für die Teilaufgabe zur \textbf{Speicherung der Parameter} nutzt Slicer eine
+Technik, das durchaus als eines der Kernfunktionen beschrieben werden kann. Die
+Rede ist hier von der Klasse \texttt{ParameterNodeWrapper}. Dieser wurde bereits
+zu einem früheren Zeitpunkt in dieser Arbeit beschrieben. Für die Funktion dieser
+Lösung sei auf den Abschnitt \ref{subsec:benutzerschnitstelle} Benutzerschnittstelle
+verwiesen.
 
-Sowohl das \textbf{Benutzerhandbuch}, also auch die technische Dokumentation einer Slicer
-Extension wird immer in der \texttt{README.md} des jeweiligen Repository hinterlegt.
-In der Extension selber sieht Slicer keine umfangreiche Dokumentation vor. Es wird
-lediglich via Link auf die Dokumentation im Repository verwiesen und eine kurze Einführung
-gegeben. Auch hier gibt es wieder etablierte Designs, die als Vorlage verwenden werden können.
-Die \citet{slicer2024} erwähnt hier unter anderem das Module
-\href{https://github.com/lassoan/SlicerSegmentMesher}{SegmentMesher} als gutes Beispiel.
+Sowohl das \textbf{Benutzerhandbuch}, also auch die technische Dokumentation einer
+Slicer Extension wird immer in der \texttt{README.md} des jeweiligen Repository
+hinterlegt. In der Extension selber sieht Slicer keine umfangreiche Dokumentation
+vor. Es wird lediglich via Link auf die Dokumentation im Repository verwiesen
+und eine kurze Einführung gegeben. Auch hier gibt es wieder etablierte Designs,
+die als Vorlage verwenden werden können. Die \citet{slicer2024} erwähnt hier
+unter anderem das Module
+\href{https://github.com/lassoan/SlicerSegmentMesher}{SegmentMesher} als gutes
+Beispiel.
 
-Für die Letzte Teilaufgabe, das \textbf{Testen}, gibt die Dokumentation von 3D Slicer ebenfalls
-eine konkrete Struktur vor. Ist ist also nicht nötig eigenen Verfahren zu
-entwickeln. Für die Softwaretests stell Slicer eine eigene Klasse innerhalb der Slicer
-Bibliothek bereit, die alle wichtigen Funktionen enthält, um konkrete Testfälle zu
-schreiben. Die Klasse Trägt den Namen \textsl{ScriptedLoadableModuleTest} und kann
-als Elternklasse für einen Testfall verwendet werden.
+Für die Letzte Teilaufgabe, das \textbf{Testen}, gibt die Dokumentation von 3D Slicer
+ebenfalls eine konkrete Struktur vor. Ist ist also nicht nötig eigenen Verfahren
+zu entwickeln. Für die Softwaretests stell Slicer eine eigene Klasse innerhalb der
+Slicer Bibliothek bereit, die alle wichtigen Funktionen enthält, um konkrete Testfälle
+zu schreiben. Die Klasse Trägt den Namen \textsl{ScriptedLoadableModuleTest} und
+kann als Elternklasse für einen Testfall verwendet werden.
 
 \begin{lstlisting}[
     language={python},
@@ -249,14 +253,16 @@ class MyExtensionTest(ScriptedLoadableModuleTest)
 
 Im Listing \ref{lst:3d_slicer_test_class} ist zu sehen, dass sich die Klasse in drei
 Teil aufteilt, die Methode \texttt{setUp()}, die als Vorbedingung dient, die Methode
-\texttt{runTest()}, die über die UI getriggert werden kann um die Test zu starten und
-die konkreten Textfälle, die in selbst definierten Methoden geschrieben weden
-können. Als Beispiel sie hier die Methode \texttt{testMyExtension1()} gezeigt.
+\texttt{runTest()}, die über die UI getriggert werden kann um die Test zu starten
+und die konkreten Textfälle, die in selbst definierten Methoden geschrieben
+weden können. Als Beispiel sie hier die Methode \texttt{testMyExtension1()}
+gezeigt.
 
-Im Laufe dieses Kapitels wurde klar, dass es für einige der Teilaufgaben bereits Lösungen
-oder Lösungsansätze gibt, die zu etwas weniger Entwicklungsarbeit führen. Jeodch trifft
-dies nicht auf alle Punkte zu, sodass sich der nächste Abschnitt mit der Erarbeitung von
-konkreten Lösungsansäätzen für die noch nicht behandelten Teilaufgaben beschäftigt.
+Im Laufe dieses Kapitels wurde klar, dass es für einige der Teilaufgaben bereits
+Lösungen oder Lösungsansätze gibt, die zu etwas weniger Entwicklungsarbeit
+führen. Jeodch trifft dies nicht auf alle Punkte zu, sodass sich der nächste
+Abschnitt mit der Erarbeitung von konkreten Lösungsansäätzen für die noch nicht
+behandelten Teilaufgaben beschäftigt.
 % ---------------------------------------------------------------------------------------
 
 \section{Erarbeiten von Lösungsansätzen}
