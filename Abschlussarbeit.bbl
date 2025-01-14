@@ -113,6 +113,79 @@
       \field{pages}{R289\bibrangedash R291}
       \range{pages}{-1}
     \endentry
+    \entry{bein2006}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=356c72b4a7b56e71c1c3e61fe2fc3d5a}{%
+           family={Bein},
+           familyi={B\bibinitperiod},
+           given={Berthold},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{356c72b4a7b56e71c1c3e61fe2fc3d5a}
+      \strng{fullhash}{356c72b4a7b56e71c1c3e61fe2fc3d5a}
+      \strng{bibnamehash}{356c72b4a7b56e71c1c3e61fe2fc3d5a}
+      \strng{authorbibnamehash}{356c72b4a7b56e71c1c3e61fe2fc3d5a}
+      \strng{authornamehash}{356c72b4a7b56e71c1c3e61fe2fc3d5a}
+      \strng{authorfullhash}{356c72b4a7b56e71c1c3e61fe2fc3d5a}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Best Practice \& Research Clinical Anaesthesiology}
+      \field{number}{1}
+      \field{title}{Entropy}
+      \field{volume}{20}
+      \field{year}{2006}
+      \field{pages}{101\bibrangedash 109}
+      \range{pages}{9}
+    \endentry
+    \entry{bromiley2004}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=568736e86a08f9f03acf39ef250f833f}{%
+           family={Bromiley},
+           familyi={B\bibinitperiod},
+           given={PA},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=42e99af30cead7225c40534e5e7afc72}{%
+           family={Thacker},
+           familyi={T\bibinitperiod},
+           given={NA},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=942880f0dc3ae30c30cc935f529fcf3f}{%
+           family={Bouhova-Thacker},
+           familyi={B\bibinithyphendelim T\bibinitperiod},
+           given={E},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d6ce652cef51b02df94a142ff77cb80f}
+      \strng{fullhash}{228222019c883d9a7d8f7834f37d56a0}
+      \strng{bibnamehash}{228222019c883d9a7d8f7834f37d56a0}
+      \strng{authorbibnamehash}{228222019c883d9a7d8f7834f37d56a0}
+      \strng{authornamehash}{d6ce652cef51b02df94a142ff77cb80f}
+      \strng{authorfullhash}{228222019c883d9a7d8f7834f37d56a0}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Statistics and Inf. Series (2004-004)}
+      \field{number}{2004}
+      \field{title}{Shannon entropy, Renyi entropy, and information}
+      \field{volume}{9}
+      \field{year}{2004}
+      \field{pages}{2\bibrangedash 8}
+      \range{pages}{7}
+    \endentry
     \entry{burger2009}{book}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=9ad59080ba03ad1d0e62ab1765d41109}{%

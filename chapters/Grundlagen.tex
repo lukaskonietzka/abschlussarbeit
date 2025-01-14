@@ -400,17 +400,29 @@ der Renyi Entropie. Auch hier ist eine einteilung der Voxel in Klassen
 vorgesehen.
 % ---------------------------------------------------------------------------------------
 
-\textbf{Das Verfahren nach Renyi} ist ein weiteres Verfahre, das im Laufe dieser
+\textbf{Das Verfahren nach Renyi} ist ein weiteres Verfahren, das im Laufe dieser
 Arbeit noch eine wichtige Rolle spielt. Wie bereits Beschrieben gehört es ebenfalls
 zu der Gruppe der Schwellwertverfahren und genneriert demnach ein Schwellwert $t$.
 Wie auch das Verfahren nach Otsu, benötigt Renyi keine Information über die räumliche
-Anordnung der Bilder, es genügt das Bildhistogramm. Im ersten Schritt unterteilt
-Renyi die Grauwerte der Voxel wieder in unterschiedliche Klasse. Dabei wird
-zunächst ein Schwellwert gebildet, der noch nicht optinal ist. Anschließend soll
-die Entropie der einzelnen Klassen bestimmt werden. Die Gleichung ... soll dies verdeutlichen.
+Anordnung der Bilder, es genügt das Bildhistogramm. Dabei ist der optimal Schwellwert $t$
+der, der eine maximale Entropie der Bildverteilung erzeugt. Unter einer Entropie wird ein
+Konzept verstanden, das eine Unordung, Unsicherheit oder den Informationsgehlat innerhalb
+eines Systems beschreibt, so \citet{bein2006}. QUELLE Die Rényi-Entropie ist eine Verallgemeinerung der
+Shannon-Entropie und hängt von einem Parameter $q$ ab. Die Entropie misst die Unsicherheit
+oder den Informationsgehalt einer Wahrscheinlichkeitsverteilung, welche sich wie folgt 
+ausdrücken lässt \citep[vgl.][K. 2]{bromiley2004}.
 
-Eine Entropie ist ein Konzept, das Unordnung, Unsicherheit oder Informationsgehalt
-beschreibt.
+\begin{align}
+	H_q(P) = \frac{1}{1-q} \ln \left( \sum_{i=1}^N p_i^q \right)
+\end{align}
+
+Besonderes Augenmerk verdienen hierbei die Paramter $p_i$ und $q$, welche di charakteristischen
+Eigenschaften der Rényi-Entropie beschreiben. Der Parameter $p_i$ ist die Wahrscheinlichkeit
+eines jeden Grauwertes im Bild. $i$ symbolisiert hierbei jeden Grauwert. Wie wiele Grauwerte
+genau betrachten werden sollen definiert $N$. Die Variable $q$
+hingegen beeinflusst die Gewichtung der Wahrscheinlichkeit $p_i$ für jeden Grauwert. Setzt man 
+den Parameter $q$ auf $q = 1$ so lässt sich so mittels Algebra die Shannon-Entropie zeigen
+\citep[vgl.][K. 2]{bromiley2004}.
 
 Neben unzähligen weiteren Segmentierungstechniken, ist eine für diese Arbeits
 von ganz besonderer Bedeutung. Diese Technik wurde speziell zum Segementieren der
