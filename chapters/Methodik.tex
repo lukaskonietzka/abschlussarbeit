@@ -16,41 +16,41 @@ Bei der Durchführung dieser Schritte zum Erreichen eines Ergebnisses, soll der 
 der Softwareentwicklung allgemeine bekannte Ansatz \textit{make it run, make it right,
 make it fast} verfolgt werden. Dieser beschreibt, dass zunächst dafür gesorgt
 werden soll, dass ein Problem überhaupt gelöst wird, bevor man viel Zeit in ein
-Refactoing oder eine Optimierung steckt.
+Refactoing oder eine Optimierung steckt. QUELLE
 % ---------------------------------------------------------------------------------------
 
 \section{Anforderungsanalyse}
 \label{sec:anforderungsanalyse} Nach genauerem Betrachten der Fragestellung aus
-Kapitel \ref{chap:fragestellung} wird klar, dass im Rahmen dieser vorliegenden Arbeit
-eine Extension für die Plattform 3D Slicer entwickelt werden soll. Diese
-Erweiterung beinhaltet das Segmentierungsverfahren nach Hoffmann \citep[vgl.][]{hoffmann2020},
-wie es in Kapitel \ref{sec:verwwandte_arbeit} beschrieben wurde. Das Verfahren segmentiert
-Micro-CT Aufnahmen der Zahnklinik in München und wird zu Forschungszwecke eingesetzt.
-Da Ärzte keine Softwareentwickler sind, ist es wichtig, dass das Verfahren eine
-UI erhält die eingängig und übersichtlich ist. Außerdem ist eine stabile Anwendung
-gefragt, die sich gut in die Kernanwendung von 3D Slicer einfügt. Für einen Überblick
-über die wichtigsten Eigenschaften von 3D Slicer sei auf das Kapitel \ref{sec:3d_slicer}
-verwiesen.
+Kapitel \ref{chap:fragestellung} können einige Anforderungen abgeleitet werden, die
+für diese Arbeit wichig sind. In erster Linie wird klar, dass im Rahme dieser vorliegenden
+Arbeit eine Extension für die Plattform 3D Slicer entwickelt werden soll. Diese
+Erweiterung soll die anatomische Segmentierung nach Hoffmann \citep[vgl.][]{hoffmann2020}
+beinhalten, wie sie in Kapitel \ref{sec:verwwandte_arbeit} beschrieben wurde. Da
+Ärzte keine Softwareentwickler sind, ist es wichtig, dass das Verfahren eine UI erhält
+die eingängig und übersichtlich ist. Außerdem ist eine stabile Anwendung gefragt,
+die sich gut in die Kernanwendung von 3D Slicer einfügt. Für einen Überblick
+über die wichtigsten Eigenschaften von 3D Slicer sei auf das Kapitel
+\ref{sec:3d_slicer} verwiesen.
 
 Die Extension selber soll neben einer Einzelbildbearbeitung auch einen Batch-Prozess
 ermöglichen. So können Beispielsweise Parameter an einem Bild erprobt werden und
-diese anschließend in eine Batchprozess für viele Bilder überführt werden. Außerdem
-soll es möglich sein, verschiedenen Segmentierungsverfahren, die in Hoffmann vorgesehen
-sind, auch in der Extention auszuwählen.
+diese anschließend in einen Batch-Prozess für viele Bilder überführt werden.
+Außerdem soll es möglich sein, verschiedenen Schwellwertverfahren, die in der
+anatomischen Segmentierung vorgesehen sind, auch in der Extention auszuwählen.
 
-Ein wichtiger Softwaretechnischer Anspruch an die Extension ist die
-Erweiterbarkeit. Es soll ohne große Mühen möglich sein, ein weiteres Verfahren
-zu integrieren, ohne das große Anpassungen an der UI oder der Erweiterung selbst,
-unternommen werden müssen. Für ein solides Verständnis dieser Software soll es selbstverständlich
-eine Dokumentation mit Benutzerhandbuch geben. Zudem wird großer Wert auf die
-Qualitätssicherung gelegt, weshalb eine Reihe von Unit-Tests (Tests für einzelne
-Programmeinheiten) vorgesehen ist.
+Ein wichtiger Softwaretechnischer Anspruch an die Extension ist die Erweiterbarkeit.
+Es soll ohne große Mühen möglich sein, ein weiteres Verfahren zu integrieren,
+ohne das große Anpassungen an der UI oder der Erweiterung selbst, unternommen werden
+müssen. Für ein solides Verständnis dieser Software soll es selbstverständlich
+eine Dokumentation mit Benutzerhandbuch geben. Zudem wird großer Wert auf die Qualitätssicherung
+gelegt, weshalb eine Reihe von Unit-Tests (Tests für einzelne Programmeinheiten)
+vorgesehen ist.
 
-Um die Anforderungen an die Software besser zu verstehen und zu strukturieren,
-ist neben der Sammlung technischer Spezifikationen auch ein solides Verständnis
-für die zugrunde liegende Domäne essenziell. Die Abbildung \ref{fig:3d_slicer_domäne}
-veranschaulicht dies durch ein UML-Domänenmodell (Unified Modeling Language),
-das einen visuellen Überblick über die verschiedenen Teile der Software bietet. Dazu
+Um die Anforderungen an die Software besser zu verstehen und zu strukturieren, ist
+neben der Sammlung technischer Spezifikationen auch ein solides Verständnis für die
+zugrunde liegende Domäne essenziell. Die Abbildung \ref{fig:3d_slicer_domäne}
+veranschaulicht dies durch ein UML-Domänenmodell (Unified Modeling Language), das
+einen visuellen Überblick über die verschiedenen Teile der Software bietet. Dazu
 sind auch einige Anforderungen wieder zu erkennen.
 
 \begin{figure}[h]
@@ -60,20 +60,24 @@ sind auch einige Anforderungen wieder zu erkennen.
 	\label{fig:3d_slicer_domäne}
 \end{figure}
 
-Diese doch breite Palette an Anforderungen lässt sich unmöglich auf einmal
-bearbeiten. Auch durch eine visuelle Darstellung kann dies nicht vereinfacht werden.
-Hierzu sieht diese Arbeit eine Aufteilung in Teilprobleme vor. Der nächste Abschnitt
-blickt auf die herausgearbeiteten Anforderungen in diesem Kapitel und leitet daraus
+Diese doch breite Palette an Anforderungen lässt sich unmöglich auf einmal bearbeiten.
+Auch durch eine visuelle Darstellung kann dies nicht vereinfacht werden. Hierzu sieht
+diese Arbeit eine Aufteilung in Teilprobleme vor. Der nächste Abschnitt blickt
+auf die herausgearbeiteten Anforderungen in diesem Kapitel und leitet daraus
 Teilprobleme ab.
 % ---------------------------------------------------------------------------------------
 
+Hier das Herrangehen an die Anforderungen beschreiben und noch in der
+Anforderungsanalyse erwähnen, dass es zu anforderungen an die software kommt,
+ganz am anfang.
+
 \section{Zerlegung in Teilprobleme}
-\label{sec_zerlegung_in_teilprobleme} Durch die Aufteilung des Gesamtsystems in mehrere
-kleine Teilaufgaben wird die Software für den Entwicklungsprozess übersichtlicher.
-Die einzelnen Domänen können so schneller und besser verstanden werden. Es gibt viele
-Möglichkeiten ein Softwaresystem in kleine Teile aufzuteilen, sodass es am Ende
-auf den konkreten Anwendungsfall ankommt. Diese Arbeit sieht folgenden Teilaufgaben
-für das Gesamtsystem vor:
+\label{sec_zerlegung_in_teilprobleme} Durch die Aufteilung des Gesamtsystems in
+mehrere kleine Teilaufgaben wird die Software für den Entwicklungsprozess
+übersichtlicher. Die einzelnen Domänen können so schneller und besser verstanden
+werden. Es gibt viele Möglichkeiten ein Softwaresystem in kleine Teile
+aufzuteilen, sodass es am Ende auf den konkreten Anwendungsfall ankommt. Diese
+Arbeit sieht folgenden Teilaufgaben für das Gesamtsystem vor:
 
 \begin{itemize}
 	\item \textbf{Architekturdesign:} Mithilfe von UML Diagrammen soll die
@@ -139,141 +143,12 @@ für das Gesamtsystem vor:
 \end{itemize}
 
 Die Ordnung dieser Punkte gibt eine grobe Orientierung bezüglich der Reihenfolge
-während der Umsetzung an. Bei der Bearbeitung der einzelnen Teilaufgaben ist es auch
-wichtig eine gute Recherche zum aktuellen Stand der Technik durchzuführen. Es
-ist sehr ungünstig, wenn sich zu Ende eines Projektes herausstellt, dass
-Lösungen, in die erhebliche Ressourcen investiert wurden, bereits veröffentlicht
-sind. Um dies zu vermeiden, führt das nächste Kapitel eine umfassende Recherche
-zu den Teilaufgaben durch.
+während der Umsetzung an. Bei der Bearbeitung der einzelnen Teilaufgaben ist es
+auch wichtig eine gute Recherche zum aktuellen Stand der Technik durchzuführen. Es
+ist sehr ungünstig, wenn sich zu Ende eines Projektes herausstellt, dass Lösungen,
+in die erhebliche Ressourcen investiert wurden, bereits veröffentlicht sind. Um
+dies zu vermeiden, führt das nächste Kapitel eine umfassende Recherche zu den Teilaufgaben
+durch.
 % ---------------------------------------------------------------------------------------
 
 \section{Recherche zum Stand der Kunst}
-\label{sec:recherche} Für die Recherche zu den verschiedenen Teilaufgaben ist
-die Dokumentation der Open Source Plattform 3D Slicer eine wichtige Ressource
-\cite[vgl.]{[}]{slicer2024}. Diese zeigt bereits etablierte Verfahren und einen \textit{Best
-Practise} Ansatz. Auch das \citet{extensionsIndex2024} Repository ist eine
-wichtige Quelle, da so ein Einblick in andere Lösungen möglich ist. So kommt es,
-das nach ausführlicher Recherche zu den Teilaufgaben UI-Design, Pseudo-Extension,
-Kapselung Hoffmann, Speicherung Parameter, Dokumentation und Test bereits Lösungen
-existieren. Bei diesen Lösungen handelt es sich jedoch nicht um konkrete
-Ergebnisse, sondern vielmehr um einen Leitfaden zur Lösung der Teilaufgabe. Die
-Recherche hat demnach ergeben, dass diese Teilprobleme im Kontext der 3D Slicer Umgebung,
-nicht das erste Mal zutage treten und Lösungswege existieren.
-
-\begin{minipage}{0.40\textwidth}
-	Für ein \textbf{UI Design} wird sehr empfohlen, bereits etablierte 3D Slicer Extensions
-	als Orientierung zu nutzen. Eine sehr gute Orientierung bietet das Modul
-	\textit{Transforms}, das in Abbildung \ref{fig:module_example} zu sehen ist. Zu
-	Erkennen ist, dass die UI mittels Collapsible Buttons in verschiedenen Gruppen
-	unterteilt wird. Ohne in die verschiedenen Gruppen hineinzublicken, lässt sich
-	gut abschätzen, welche Parameter wo zu erwarten sind. Dies ermöglicht dem
-	Benutzer ein isoliertes Betrachten der unterschiedlichen Funktionen in diesem
-	Modul und so eine gute Benutzerfreundlichkeit.
-\end{minipage}
-\hfill
-\begin{minipage}{0.50\textwidth}
-	\centering
-	\includegraphics[scale=0.50]{img/modul_example.jpg}
-	\captionof{figure}{Das Modul Transforms als Beispiel einer etablierten UI für eine Slicer Extension | Screenshot aus 3D Slicer}
-	\label{fig:module_example}
-\end{minipage}
-
-Für die Extension, welche in der vorliegenden Arbeit erstellt werden soll, wird genau
-dieser Ansatz gepflegt und somit eine gute Benutzbarkeit des Moduls gewährleistet.
-Die speziellen wünsche der konkreten Benutzergruppe sollen jedoch nicht zu kurz
-kommen.
-
-Für das Erstellen einer \textbf{ersten funktionierenden Extension} bietet Slicer
-eine sehr gute Hilfe. 3D Slicer hat hierfür ein eigenes Modul entwickelt, das sich
-\textit{Extention Wizard} nennt. Dieses Modul gibt eine gute Einführung in die Entwicklung
-mit Slicer. Hiermit lässt sich mittels Leitfaden eine erste Demo Extension
-erstellen, die sich bereits gut in 3D Slicer einfügt. Diese Lösung könnte als
-Abstraktionsschicht betrachtet werden, da durch dieses Modul im ersten Schritt nahe
-zu keine Kenntnisse über die Kernanwendung von Slicer nötig sind. Der
-Extentionwizard ist wie folgt zu finden:
-
-\texttt{Modules -> Developer Tools -> Extension Wizard}
-
-Für \textbf{die Kapselung} einer bestimmten Einheit von Code, sieht Slicer eine
-Bibliothek innerhalb der Extention vor, so beschreibt es die \citet{slicer2024}.
-Das Listing \ref{lst:3d_slicer_projektverzeichnis} zeigt, wo eine Bibliothek
-innerhalb einer Extention einzuordnen ist, hier als \texttt{MyLib} zu sehen. Innerhalb
-dieses Ordners können sich weitere Module befinden, die als einfache Python-Files
-abgelegt werden. Zu beachten ist, dass in jeder Bibliothek eine \texttt{\_\_init\_\_.py}
-hinzugefügt wird, sodass dieser Ordner auch entsprechend verwendet werden kann.
-
-\begin{lstlisting}[
-    language={python},
-    caption={Prinzipeller Aufbau eines Projektes für eine Slicer Extension nach Slicer (2024)},
-    label={lst:3d_slicer_projektverzeichnis}]
-|-- CMakeLists.txt
-|-- MyLib
-|   |-- __init__.py
-|   |-- cool_maths.py
-|   |-- utils.py
-|-- MyExtension.py
-\end{lstlisting}
-
-Für die Teilaufgabe zur \textbf{Speicherung der Parameter} nutzt Slicer eine
-Technik, das durchaus als eines der Kernfunktionen beschrieben werden kann. Die
-Rede ist hier von der Klasse \texttt{ParameterNodeWrapper}. Dieser wurde bereits
-zu einem früheren Zeitpunkt in dieser Arbeit beschrieben. Für die Funktion dieser
-Lösung sei auf den Abschnitt \ref{subsec:benutzerschnitstelle} Benutzerschnittstelle
-verwiesen.
-
-Sowohl das \textbf{Benutzerhandbuch}, also auch die technische Dokumentation einer
-Slicer Extension wird immer in der \texttt{README.md} des jeweiligen Repository
-hinterlegt. In der Extension selber sieht Slicer keine umfangreiche Dokumentation
-vor. Es wird lediglich via Link auf die Dokumentation im Repository verwiesen
-und eine kurze Einführung gegeben. Auch hier gibt es wieder etablierte Designs,
-die als Vorlage verwenden werden können. Die \citet{slicer2024} erwähnt hier
-unter anderem das Module
-\href{https://github.com/lassoan/SlicerSegmentMesher}{SegmentMesher} als gutes
-Beispiel.
-
-Für die Letzte Teilaufgabe, das \textbf{Testen}, gibt die Dokumentation von 3D Slicer
-ebenfalls eine konkrete Struktur vor. Ist ist also nicht nötig eigenen Verfahren
-zu entwickeln. Für die Softwaretests stell Slicer eine eigene Klasse innerhalb der
-Slicer Bibliothek bereit, die alle wichtigen Funktionen enthält, um konkrete Testfälle
-zu schreiben. Die Klasse Trägt den Namen \textsl{ScriptedLoadableModuleTest} und
-kann als Elternklasse für einen Testfall verwendet werden.
-
-\begin{lstlisting}[
-    language={python},
-    caption={Aufbau einer Testklasse zum ausführen von Unittest nach \citet{slicer2024}},
-    label={lst:3d_slicer_test_class}]
-class MyExtensionTest(ScriptedLoadableModuleTest)
-    def setUp(self):
-      # do something befor a test
-    def runTest(self):
-      # execute your test case here
-    def testMyExtension1(self):
-      # write your test case here
-\end{lstlisting}
-
-Im Listing \ref{lst:3d_slicer_test_class} ist zu sehen, dass sich die Klasse in drei
-Teil aufteilt, die Methode \texttt{setUp()}, die als Vorbedingung dient, die Methode
-\texttt{runTest()}, die über die UI getriggert werden kann um die Test zu starten
-und die konkreten Textfälle, die in selbst definierten Methoden geschrieben
-weden können. Als Beispiel sie hier die Methode \texttt{testMyExtension1()}
-gezeigt.
-
-Im Laufe dieses Kapitels wurde klar, dass es für einige der Teilaufgaben bereits
-Lösungen oder Lösungsansätze gibt, die zu etwas weniger Entwicklungsarbeit
-führen. Jeodch trifft dies nicht auf alle Punkte zu, sodass sich der nächste
-Abschnitt mit der Erarbeitung von konkreten Lösungsansäätzen für die noch nicht
-behandelten Teilaufgaben beschäftigt.
-% ---------------------------------------------------------------------------------------
-
-\section{Erarbeiten von Lösungsansätzen}
-\label{sec:lösungsansätze} hier geht es um Brainstorming
-
-\textbf{Architekturdesign}
-
-\textbf{Single Prozess}
-
-\textbf{Batch Prozess}
-
-% ---------------------------------------------------------------------------------------
-
-\section{Auswahl von Lösungsansätzen}
