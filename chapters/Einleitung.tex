@@ -64,57 +64,57 @@ selben Micro-CT Bild drei unterschiedliche Stellen mit Karies identifizieren. Ei
 Segmentierung des dreidimensionalen CTs kann hier Wunder wirken lassen. Durch
 die Aufteilung des Micro-CTs in seine zwei Zahnhauptsubstanzen, kann eine sehr gute
 visuelle Darstellung des Zahnes gewährleistet werden. Für Ärztes bietet diese
-Darstellung einen sehr großen Mehrwert. QUELLE WALTER
+Darstellung einen sehr großen Mehrwert \citep[vgl.][S. 1]{walter2025projekt}.
 
-Mit dieser klaren und einduetigen identifizierung von Karies, sind die Ergebnisse,
-die ein neuronales Netzer generieren würde viel genauer und brauchbarer. Konkret
-wird mit einer automatischen Segmentierung ein \textit{Ground Trueth} gewonnen, der
-eine eindeutige Basiswahrheit liefert. Hierbe sei gesagt das diese Anwendung nur
-ein von vielen Möglichkeiten ist. Konkrete Daten über die Ausbreitung einer Krankheit
-im Menschlichen Körper zu besitzten kann in den verschiedensten Fällen und Institutionen
-von größtem Nutzen sein. So zeigen es auch \citet{de20083d} in ihrem Paper.
+Mit dieser klaren und einduetigen identifizierung von Karies, sind die
+Ergebnisse, die ein neuronales Netzer generieren würde viel genauer und brauchbarer.
+Konkret wird mit einer automatischen Segmentierung ein \textit{Ground Trueth} gewonnen,
+der eine eindeutige Basiswahrheit liefert. Hierbe sei gesagt das diese Anwendung
+nur ein von vielen Möglichkeiten ist. Konkrete Daten über die Ausbreitung einer
+Krankheit im Menschlichen Körper zu besitzten kann in den verschiedensten Fällen
+und Institutionen von größtem Nutzen sein. So zeigen es auch \citet{de20083d} in
+ihrem Paper.
 
-Anhand dieser Argumente wird deutlich, dass eine automatische Segmentierung
-durchaus einen mehrwert für Ärzte bilden kann. Nicht zuletzt auch durch die enorme
-Zeitersparung. Für eine automatische Segmentierung von Micro-CT Bildern gibt es
-einige Softwarelösungen am Markt, die alle eine gut optionen sind. Aus diesem
-Gurnd wird soll folgenden Kapitel ein mögliches Framework diskutiert werden.
+Anhand dieser Argumente wird deutlich, dass eine automatische Segmentierung durchaus
+einen mehrwert für Ärzte bilden kann. Nicht zuletzt auch durch die enorme
+Zeitersparung. Für eine automatische Segmentierung von Micro-CT Bildern gibt es einige
+Softwarelösungen am Markt, die alle eine gut optionen sind. Aus diesem Gurnd wird
+soll folgenden Kapitel ein mögliches Framework diskutiert werden.
 % ---------------------------------------------------------------------------------------
 
 \section{Fokus der Arbeit}
-\label{sec:fokus_der-arbeit} Dieser Arbeit setzt den Fokus auf die Open Sorce
-Plattform \textit{3D Slicer}, da diese ohnehin bereits eine breite Anwendung in
-der Zahnklinik in München findet. Durch die Modul und Plug-In Infrastruktur dieser
-Plattform kann die Softwar auch anderen Institutionen bereitgestellt werden.
-Hierzu muss diese einfach als \textit{3D Slicer Extetion} bereitgestellt werden.
-\textit{3DSlicer} bietet einen Extension Manager, der ähnlich wie ein App Store
-betrachtet werden kann. So bleibt die vorerst konkret entwickelte Software nicht
-nur einer Einrichtung vorbehalten. Eine tiefere Einfürhung in die Open Sorce
-Plattform bietet der Abschnitt \ref{sec:3d_slicer}. Das weitere Optimieren des bereits
-bestehenden Verfahrens wird in dieser Arbeit nicht weiter thematisiert. Es
-werden lediglich Anpassungen vorgenommen, sodass eine Benutzerschnittstelle verwendet
-werden kann.
+\label{sec:fokus_der-arbeit} Dieser Arbeit setzt den Fokus auf die Open Sorce Plattform
+\textit{3D Slicer}, da diese ohnehin bereits eine breite Anwendung in der Zahnklinik
+in München findet. Durch die Modul und Plug-In Infrastruktur dieser Plattform
+kann die Softwar auch anderen Institutionen bereitgestellt werden. Hierzu muss diese
+einfach als \textit{3D Slicer Extetion} bereitgestellt werden. \textit{3DSlicer}
+bietet einen Extension Manager, der ähnlich wie ein App Store betrachtet werden kann.
+So bleibt die vorerst konkret entwickelte Software nicht nur einer Einrichtung
+vorbehalten. Eine tiefere Einfürhung in die Open Sorce Plattform bietet der Abschnitt
+\ref{sec:3d_slicer}. Das weitere Optimieren des bereits bestehenden Verfahrens
+wird in dieser Arbeit nicht weiter thematisiert. Es werden lediglich Anpassungen
+vorgenommen, sodass eine Benutzerschnittstelle verwendet werden kann.
 
-Mit diesem Umfang, der Motiavtion und dem gesetzten Fokus, ergibt sich für dies Arbeit
-eine konkrete Struktur, die einen hohen detailgrad aufweisen wird. Um einen Überblich
-zu gewähren, sei diese Struktr hier kurz eräutert.
+Mit diesem Umfang, der Motiavtion und dem gesetzten Fokus, ergibt sich für dies
+Arbeit eine konkrete Struktur, die einen hohen detailgrad aufweisen wird. Um
+einen Überblich zu gewähren, sei diese Struktr hier kurz eräutert.
 % ---------------------------------------------------------------------------------------
 
 \section{Aufbau der Arbeit}
-\label{sec:aufbau_der_arbeit} Die Arbeit ist in sieben Kapitel unterteilt. Nach der
-Einführung in Kapitel \ref{chap:einleitung}, in der die Relevanz und der Fokus
-beschrieben werden, werden in Kapitel \ref{chap:theoretische_grundlagen} die theoretischen
-und technischen Grundlagen behandelt, welche zum Verstehen der Ergebnisse
-essenziell sind. Als Ergebnis der theoretischen Grundlagen bildet das Kapitel \ref{chap:fragestellung}
-eine konkrete Forschungsfrage. Während sich Kapitel \ref{chap:methodik} darum
-kümmert mit welchen Methodiken und Lösungsansätzen an die Forschungsfrage
-herrangegangen wird, erläutert das Kapitel \ref{chap:ergebnisse} was die konkreten
-Ergebnisse der Arbeit sind. In Kapitel \ref{chap:diskussion} erfolgt eine
-kritische Diskussio der Resultate einschließich möglicher Limitationen. Das Abschließende
-Kapitel\ref{chap:schlussfolgerung} fasst die wichtigsten Erkenntnisse zusammen
-und gibt einen Ausblick auf zukünftige Forschungsfragen.
+\label{sec:aufbau_der_arbeit} Die Arbeit ist in sieben Kapitel unterteilt. Nach
+der Einführung in Kapitel \ref{chap:einleitung}, in der die Relevanz und der Fokus
+beschrieben werden, werden in Kapitel \ref{chap:theoretische_grundlagen} die
+theoretischen und technischen Grundlagen behandelt, welche zum Verstehen der Ergebnisse
+essenziell sind. Als Ergebnis der theoretischen Grundlagen bildet das Kapitel
+\ref{chap:fragestellung} eine konkrete Forschungsfrage. Während sich Kapitel \ref{chap:methodik}
+darum kümmert mit welchen Methodiken und Lösungsansätzen an die Forschungsfrage herrangegangen
+wird, erläutert das Kapitel \ref{chap:ergebnisse} was die konkreten Ergebnisse
+der Arbeit sind. In Kapitel \ref{chap:diskussion} erfolgt eine kritische Diskussio
+der Resultate einschließich möglicher Limitationen. Das Abschließende Kapitel\ref{chap:schlussfolgerung}
+fasst die wichtigsten Erkenntnisse zusammen und gibt einen Ausblick auf zukünftige
+Forschungsfragen.
 
-Die theoretischen Grundlagen die wie beschrieben direkt nach der Einleitung
-folgen, sind zentral für das Versetehen der Fragestellung und der später folgenden
+Die theoretischen Grundlagen die wie beschrieben direkt nach der Einleitung folgen,
+sind zentral für das Versetehen der Fragestellung und der später folgenden
 Ergebnisse der Arbeit.
 % ---------------------------------------------------------------------------------------

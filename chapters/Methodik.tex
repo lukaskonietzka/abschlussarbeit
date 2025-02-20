@@ -1,20 +1,27 @@
 \chapter{Methodik}
 \label{chap:methodik} Dieses Kapitel zeigt auf, welches methodische Herangehen
 an die Fragestellung verfolgt wurden, um ein aussagekräftiges Ergebnis zu erzielen.
-Dabei wurde mit einer umfangreichen Anforderungsanalyse gestartet, welche die Domäne
-und die Ausgangslage klären soll. Sind diese Konzepte klar, so wird die endgültige
-Problemstellung in mehrere kleine Teilaufgaben zerlegt. Für jede dieser
-Teilaufgaben wurde dann eine Recherche zum Stand der Technik durchgeführt, um bereits
-existierenden Lösungen ausfindig zu machen. Sofern es für eine Teilaufgabe noch
-keine Lösung gibt, werden anschließend konkrete Lösungsansätzen für die einzelnen
-Teilprobleme erarbeitet. Sollte für eine Aufgabe mehrere Ansätze existieren, so werden
-diese im letzten Abschnitt miteinander verglichen und ein passender Ansatz gewählt.
+Die Forschung innerhalb dieser Arbeit folgt einem praktischen Entwicklungsansatz
 
-Bei der Durchführung dieser Schritte zum Erreichen eines Ergebnisses, soll der
-in der Softwareentwicklung allgemeine bekannte Ansatz \textit{make it run, make it
-right, make it fast} verfolgt werden. Dieser beschreibt, dass zunächst dafür gesorgt
-werden soll, dass ein Problem überhaupt gelöst wird, bevor man viel Zeit in ein Refactoing
-oder eine Optimierung steckt. QUELLE
+Dabei wurde mit einer umfangreichen Anforderungsanalyse gestartet, welche die
+Domäne und die Ausgangslage klären soll. Sind diese Konzepte klar, so wird die
+endgültige Problemstellung in mehrere kleine Teilaufgaben zerlegt. Für jede dieser
+Teilaufgaben wurde dann eine Recherche zum Stand der Technik durchgeführt, um
+bereits existierenden Lösungen ausfindig zu machen. Sofern es für eine Teilaufgabe
+noch keine Lösung gibt, werden anschließend konkrete Lösungsansätzen für die
+einzelnen Teilprobleme erarbeitet. Sollte für eine Aufgabe mehrere Ansätze existieren,
+so werden diese im letzten Abschnitt miteinander verglichen und ein passender
+Ansatz gewählt.
+
+Bei der Durchführung dieser Schritte zum Erreichen eines Ergebnisses, soll der in
+der Softwareentwicklung allgemeine bekannte Ansatz \textit{make it run, make it right,
+make it fast} verfolgt werden. Dieser beschreibt, dass zunächst dafür gesorgt
+werden soll, dass ein Problem überhaupt gelöst wird, bevor man viel Zeit in ein
+Refactoing oder eine Optimierung steckt. QUELLE
+% ---------------------------------------------------------------------------------------
+
+\section{Forschungsdesign}
+TODO
 % ---------------------------------------------------------------------------------------
 
 \section{Anforderungsanalyse}
@@ -24,57 +31,65 @@ einige Anforderungen abgeleitet werden, die für die Erweiterung gelten sollen. 
 den Anforderungen aus der Fragestellung und den konkreten Zielsetzung, wurde
 auch die Klinik für Zahnerhaltung mit in diesen Prozess eingebunden. Hierzu wurde
 inerhalb eines Meetings mit dem Verantwortlichen Arzt ,Dr. Elias Walter, ein
-Anforderungskatalog ausgearbeitet. Diese Anforderungen waren vorallem zu Beginn der
-Entwicklung sehr wichtig um einen ersten Anhhaltspunkt zu gewinnen. Im Laufe des
-Entwicklungsprozesses wurden Statusberichte eingeplant, die ein reagieren auf Anforderungsänderungen
-ermöglichen sollen.
+Anforderungskatalog ausgearbeitet \citep[vgl.][]{walter2025}. Diese
+Anforderungen waren vorallem zu Beginn der Entwicklung sehr wichtig um einen
+ersten Anhhaltspunkt zu gewinnen. Im Laufe des Entwicklungsprozesses wurden Statusberichte
+eingeplant, die ein reagieren auf Anforderungsänderungen ermöglichen sollen.
 
-In erster Linie wird klar, dass im Rahme dieser vorliegenden Arbeit eine
-Extension für die Plattform 3D Slicer entwickelt werden soll. Diese Erweiterung soll
-die anatomische Segmentierung nach Hoffmann \citep[vgl.][]{hoffmann2020}
-beinhalten, wie sie in Kapitel \ref{sec:verwwandte_arbeit} beschrieben wurde.
-Greift man das Ziel dieser Arbeit aus der Einleitung \ref{sec:ziel_der_arbeit}
-nochmals auf, dann kann hierdurch die nächste wichtige Anforderung abgeleitet werden.
-Die Erweiterung soll gut und einfach über ein User Interface (UI) bedient werden
-können. Außerdem ist eine stabile Anwendung gefragt, die sich gut in die
-Kernanwendung von 3D Slicer einfügt. Die Extension selber soll neben einer Einzelbildbearbeitung
-auch einen Batch-Prozess ermöglichen. So können Beispielsweise Parameter an
-einem Bild erprobt werden und diese anschließend in einen Batch-Prozess für
-viele Bilder überführt werden. Außerdem soll es möglich sein, verschiedenen
-Schwellwertverfahren, die in der anatomischen Segmentierung vorgesehen sind,
-auch in der Extention auszuwählen. Ein wichtiger Softwaretechnischer Anspruch an
-die Extension ist die Erweiterbarkeit. Es soll ohne große Mühen möglich sein, ein
-weiteres Verfahren zu integrieren, ohne das große Anpassungen an der UI oder der
-Erweiterung selbst, unternommen werden müssen. Für ein solides Verständnis
-dieser Software soll es selbstverständlich eine Dokumentation mit
-Benutzerhandbuch geben. Zudem wird großer Wert auf die Qualitätssicherung gelegt,
-weshalb eine Reihe von Unit-Tests (Tests für einzelne Programmeinheiten)
-vorgesehen ist.
-
-Um die Anforderungen an die Software besser zu verstehen und zu strukturieren, ist
-neben der Sammlung technischer Spezifikationen auch ein solides Verständnis für die
-zugrunde liegende Domäne essenziell. Die Abbildung \ref{fig:3d_slicer_domäne}
+In erster Linie wird klar, dass im Rahme dieser vorliegenden Arbeit eine Extension
+für die Plattform 3D Slicer entwickelt werden soll. Diese Erweiterung soll die
+anatomische Segmentierung nach Hoffmann \citep[vgl.][]{hoffmann2020} beinhalten,
+wie sie in Kapitel \ref{sec:verwwandte_arbeit} beschrieben wurde. Greift man das
+Ziel dieser Arbeit aus der Einleitung \ref{sec:ziel_der_arbeit} nochmals auf,
+dann kann hierdurch die nächste wichtige Anforderung abgeleitet werden. Die Erweiterung
+soll gut und einfach über ein User Interface (UI) bedient werden können.
+Außerdem ist eine stabile Anwendung gefragt, die sich gut in die Kernanwendung von
+3D Slicer einfügt. \citet[]{walter2025} machte im Interview deutlich, das ie
+Extension neben einer Einzelbildbearbeitung auch einen Batch-Prozess ermöglichen
+so. So können Beispielsweise Parameter an einem Bild erprobt werden und diese anschließend
+in einen Batch-Prozess für viele Bilder überführt werden. Außerdem soll es
+möglich sein, verschiedenen Schwellwertverfahren, die in der anatomischen
+Segmentierung vorgesehen sind, auch in der Extention auszuwählen. Ein wichtiger
+Softwaretechnischer Anspruch an die Extension ist die Erweiterbarkeit. Es soll ohne
+große Mühen möglich sein, ein weiteres Verfahren zu integrieren, ohne das große Anpassungen
+an der UI oder der Erweiterung selbst, unternommen werden müssen. Für ein solides
+Verständnis dieser Software soll es selbstverständlich eine Dokumentation mit Benutzerhandbuch
+geben. Zudem wird großer Wert auf die Qualitätssicherung gelegt, weshalb eine Reihe
+von Unit-Tests (Tests für einzelne Programmeinheiten) vorgesehen ist. Um die
+Anforderungen an die Software besser zu verstehen und zu strukturieren, ist neben
+der Sammlung technischer Spezifikationen auch ein solides Verständnis für die zugrunde
+liegende Domäne essenziell. Die Abbildung \ref{fig:3d_slicer_domäne}
 veranschaulicht dies durch ein UML-Domänenmodell (Unified Modeling Language), das
 einen visuellen Überblick über die verschiedenen Teile der Software bietet. Dazu
-sind auch einige der Anforderungen erkennbar.
+sind auch einige der Anforderungen erkennbar \citep[vgl.][]{walter2025}.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{img/domaenenmodell.jpg}
+	\includegraphics[width=0.75\textwidth]{img/domaenenmodell.jpg}
 	\caption{UML-Domänenmodell des gesamten Softwaresystems}
 	\label{fig:3d_slicer_domäne}
 \end{figure}
 
-Diese doch breite Palette an Anforderungen lässt sich unmöglich auf einmal bearbeiten.
-Auch durch eine visuelle Darstellung kann dies nicht vereinfacht werden. Hierzu sieht
-diese Arbeit eine Aufteilung in Teilprobleme vor. Der nächste Abschnitt blickt
-auf die herausgearbeiteten Anforderungen in diesem Kapitel und leitet daraus
+Diese doch breite Palette an Anforderungen lässt sich unmöglich auf einmal
+bearbeiten. Auch durch eine visuelle Darstellung kann dies nicht vereinfacht werden.
+Hierzu sieht diese Arbeit eine Aufteilung in Teilprobleme vor. Der nächste Abschnitt
+blickt auf die herausgearbeiteten Anforderungen in diesem Kapitel und leitet daraus
 Teilprobleme ab.
 % ---------------------------------------------------------------------------------------
 
-Hier das Herrangehen an die Anforderungen beschreiben und noch in der
-Anforderungsanalyse erwähnen, dass es zu anforderungen an die software kommt,
-ganz am anfang.
+\section{Recherche zum Stand der Kunst}
+Es ist sehr ungünstig, wenn sich zu Ende eines Projektes herausstellt, dass Lösungen,
+in die erhebliche Ressourcen investiert wurden, bereits veröffentlicht sind. Um
+dies zu vermeiden, ist eine Umfassende Literaturrecherche nötig, welche den
+aktuellen Stand der Technik repräsentiert. Bei der Recherche soll auf Literatur zurückgegriffen
+werden, die alle Bereiche abdeckt. Hierbei ist die Rede von Fachliteratur und domänenspezifischen
+Literatur. Für dies Arbeit gibt es eine Quelle die von ganz besondere
+wichtigkeit ist. die offizielle Dokumentation von \citet{slicer2024}. Diese beinhaltete
+gute Anhaltspunkte für die Implementierung. Auch das 3D Slicer Extension Index
+ist ein sehr wichtiger Anhaltspunkt, hier bereits erstellte Erweiterungen einsehbar
+sind. So kann durch näheres Betrachten andere Module eine Konvention für die
+Erstellung einer eigenen Erweiterung abgeleitet werden.
+% ---------------------------------------------------------------------------------------
 
 \section{Zerlegung in Teilprobleme}
 \label{sec_zerlegung_in_teilprobleme} Durch die Aufteilung des Gesamtsystems in
@@ -148,20 +163,25 @@ Arbeit sieht folgenden Teilaufgaben für das Gesamtsystem vor:
 \end{itemize}
 
 Die Ordnung dieser Punkte gibt eine grobe Orientierung bezüglich der Reihenfolge
-während der Umsetzung an. Bei der Bearbeitung der einzelnen Teilaufgaben ist es
-auch wichtig eine gute Recherche zum aktuellen Stand der Technik durchzuführen.
+während der Umsetzung an. Die wichtigste Aufgabe bei der Umsetzung von
+Softwareprojekten ist die ausführliche Recherche zur Findung unterschiedlichster
+Lösungsansätze. Nachdem also die Teilaufgaben veststehen, soll der nächste
+Abschnitte diese Rechere einleiten und näher beleuchten.
 % ---------------------------------------------------------------------------------------
 
 \section{Recherche zum Stand der Kunst}
 Es ist sehr ungünstig, wenn sich zu Ende eines Projektes herausstellt, dass
 Lösungen, in die erhebliche Ressourcen investiert wurden, bereits veröffentlicht
-sind. Um dies zu vermeiden, ist eine Umfassende Literaturrechre nötig, welche den
-aktuellen Stand der Technik repräsentieren soll. Hierbei wurde auf diverse
-Literatur zurückgegriffen. Eine ganz wesentliche Quelle liefert die offizielle Dokumentation
-von 3D Slicer. Diese beinhaltete gute Anhaltspunkte und bewährte
-Implementierungsbeispiele. Des Weiteren werden bereits existierende Erweiterungen
-heruntergeladen und näher betrachtet. Für jeden Teilproblem, was im vorherigen
-Kapitel definiert wurde, wird dann ein potentieller Lösungsansatz recherchiert.
+sind. Um dies zu vermeiden, ist eine Umfassende Literaturrecherche nötig, welche
+den aktuellen Stand der Technik repräsentiert. Bei der Recherche soll auf
+Literatur zurückgegriffen werden, die alle Bereiche abdeckt. Hierbei ist die
+Rede von Fachliteratur und domänenspezifischen Literatur. Für dies Arbeit gibt es
+eine Quelle die von ganz besondere wichtigkeit ist. die offizielle Dokumentation
+von \citet{slicer2024}. Diese beinhaltete gute Anhaltspunkte für die
+Implementierung. Auch das 3D Slicer Extension Index ist ein sehr wichtiger Anhaltspunkt,
+hier bereits erstellte Erweiterungen einsehbar sind. So kann durch näheres Betrachten
+andere Module eine Konvention für die Erstellung einer eigenen Erweiterung abgeleitet
+werden.
 
 \section{Werkzeuge}
 TODO
