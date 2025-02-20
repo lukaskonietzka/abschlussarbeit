@@ -28,13 +28,15 @@ und zu welchem Grund ist in den folgenden Abschnitten beschrieben.
 \label{sec:ziel_der_arbeit} Diese Arbeit beschreibt eine Technik, mit der
 dreidimensionale Micro-CT Bilder zur Untersuchung zahnmedizinischen Strukturen
 automatisch mittels der Software \textit{3D Slicer} segmentiert und analysiert werden
-können. Die algorithmische Formulierung einer konkreten Segmentierung ist
-bereits vorhanden und prototypisch implementiert. Dieser Algorithmus muss jedoch
-umständlich über ein Kommando im Terminal ausgeführt werden, was die
-Benutzerfreundlichkeit deutlich beeinträchtigt. Ziel dieser Arbeit ist es nun das
-bereits implementiert Verfahren automatisiert über ein interaktives User Interface
-(UI) zur Verfügung zu stellen. Dabei soll auf etablierte und vertraute Lösungen
-zurückgegriffen werden.
+können Was genau unter eine Segmentierung verstanden wird, darüber informiert
+das Kapitel \ref{subsec:segmentierung} Segmentierung. Die algorithmische Formulierung
+einer konkreten Segmentierung ist bereits vorhanden und prototypisch implementiert.
+Dieser Algorithmus hat jedoch Schwachstellen. So muss beispielsweise das Verfahren
+umständlich über ein ipython Notebook im Terminal ausgeführt werden, was die
+Benutzerfreundlichkeit deutlich beeinträchtigt. Ziel dieser Arbeit ist es in erster
+Linie das bereits existierende Verfahren in der Klinik für Zahnerhaltung zu analysieren
+und für die Mitarbeiter der Klinik benutzbar zu machen. Dabei soll auf
+etablierte und vertraute Lösungen zurückgegriffen werden.
 
 Es stellt sich nun die Frage, zu welchem Zweck eine automatische und interaktive
 Segmentierung überhaupt notwendig ist. Für die Zahnklinik an der LMU in München
@@ -42,53 +44,56 @@ gibt es hierfür viele Gründe. Über den wichtigsten gibt das nächste Kapitel 
 % ---------------------------------------------------------------------------------------
 
 \section{Relevanz der Arbeit}
-\label{sec:relevanz_der_arbeit} Der wohl relevanteste Punkt dieser Arbeit ist,
-dass Ärzte reine Anwender und keine Entwickler von Software sind. Darüber hinaus
-verfolgt die Parodontologie der LMU in München einen sehr interessanten Forschungsansatz,
-welche eine Segmentbetrachtung der CTs unumgänglich macht.
+\label{sec:relevanz_der_arbeit} Der wohl relevanteste Punkt wurde bereits im vorherigen
+Kapitel \ref{sec:ziel_der_arbeit} diskutiert, Zahnärte sind keine
+Softwareentwickler sonder reine Anwender von Software. Darüber hinaus verfolgt die
+Klinik für Zahnerhaltung und Parodontologie der LMU in München einen sehr interessanten
+Forschungsansatz, welche eine Segmentbetrachtung der CTs rechtfertigt.
 
 Über viele Jahre hinweg wurden in der Zahnklinik sehr viel Bilddaten von Zähnen
-gesammelt, die aufgrund von Zahnkaries entfernt wurden. Hierbei wurden Aufnahmen
-der unterschiedlichsten Arten gemacht. Darunter fallen zum Beispiel einfache Bilddateien,
-Infrarotbilder und die für diese Arbeit so relevanten dreidimensionalen (3D)
-Micro-CT Aufnahmen. Dieser große Schatz an Bildmaterial soll verwendet werden,
-um in ferner Zukunft ein neuronales Netzwerk zu trainieren, welches statistische
-Aussagen über das Verhalten von Karies treffen kann. Jedoch gibt es hier ein
-Problem, bei dem das Ergebnis dieser Arbeit Unterstützen kann. Karies auf CT-Bildern
-zu lokalisieren ist nicht trivial. Er ist ohne weitere Bearbeitung des Bildes nur
-sehr schwer auf eine Stelle einzugrenzen. So kommt es vor, dass drei verschiedene
-Ärzte auf dem selben Micro-CT Bild drei unterschiedliche Stellen mit Karies identifizieren.
-Eine Segmentierung des dreidimensionalen CTs kann hier Wunder wirken lassen. Durch
-die Aufteilung des Micro-CTs in seine zwei Zahnhauptsubstanzen, kann in das
-innere der Zähne geblickt werden, was die Lokalisierung kariöser Stellen deutlich
-vereinfacht.
+gesammelt. Hierbei wurden Aufnahmen der unterschiedlichsten Arten gemacht.
+Darunter fallen zum Beispiel einfache Bilddateien, Infrarotbilder und die für diese
+Arbeit so relevanten dreidimensionalen (3D) Micro-CT Aufnahmen. Dieser große
+Schatz an Bildmaterial soll verwendet werden, um in ferner Zukunft ein neuronales
+Netzwerk zu trainieren, welches statistische Aussagen über das Verhalten von
+Karies treffen kann. Jedoch gibt es hier ein Problem, bei dem das Ergebnis
+dieser Arbeit Unterstützen kann. Karies auf CT-Bildern zu lokalisieren ist nicht
+trivial. Er ist ohne weitere Bearbeitung des Bildes nur sehr schwer auf eine
+Stelle einzugrenzen. So kommt es vor, dass drei verschiedene Ärzte auf dem
+selben Micro-CT Bild drei unterschiedliche Stellen mit Karies identifizieren. Eine
+Segmentierung des dreidimensionalen CTs kann hier Wunder wirken lassen. Durch
+die Aufteilung des Micro-CTs in seine zwei Zahnhauptsubstanzen, kann eine sehr gute
+visuelle Darstellung des Zahnes gewährleistet werden. Für Ärztes bietet diese
+Darstellung einen sehr großen Mehrwert. QUELLE WALTER
 
-Mit dieser klaren und einduetigen identifizierung von Karies, sind die
-Ergebnisse, die ein neuronales Netzer generieren würde viel genauer und brauchbarer.
-Konkret wird mit einer automatischen Segmentierung ein \textit{Ground Trueth} gewonnen,
-der eine eindeutige Basiswahrheit liefert. Hierbe sei gesagt das diese Anwendung
-nur ein von vielen Möglichkeiten ist. Konkrete Daten über die Ausbreitung einer
-Krankheit im Menschlichen Körper zu besitzten kann in den verschiedensten Fällen
-und Institutionen von größtem Nutzen sein. So zeigen es auch \citet{de20083d} in
-ihrem Paper.
+Mit dieser klaren und einduetigen identifizierung von Karies, sind die Ergebnisse,
+die ein neuronales Netzer generieren würde viel genauer und brauchbarer. Konkret
+wird mit einer automatischen Segmentierung ein \textit{Ground Trueth} gewonnen, der
+eine eindeutige Basiswahrheit liefert. Hierbe sei gesagt das diese Anwendung nur
+ein von vielen Möglichkeiten ist. Konkrete Daten über die Ausbreitung einer Krankheit
+im Menschlichen Körper zu besitzten kann in den verschiedensten Fällen und Institutionen
+von größtem Nutzen sein. So zeigen es auch \citet{de20083d} in ihrem Paper.
 
-Anhand dieser Argumente wird deutlich, dass eine automatische Segmentierung durchaus
-einen mehrwert für Ärzte bilden kann. Für eine automatische Segmentierung von
-Micro-CT Bildern gibt es einige Softwarelösungen am Markt, die alle eine gut optionen
-sind. Aus diesem Gurnd wird soll folgenden Kapitel ein mögliches Framework
-diskoutiert werden.
+Anhand dieser Argumente wird deutlich, dass eine automatische Segmentierung
+durchaus einen mehrwert für Ärzte bilden kann. Nicht zuletzt auch durch die enorme
+Zeitersparung. Für eine automatische Segmentierung von Micro-CT Bildern gibt es
+einige Softwarelösungen am Markt, die alle eine gut optionen sind. Aus diesem
+Gurnd wird soll folgenden Kapitel ein mögliches Framework diskutiert werden.
 % ---------------------------------------------------------------------------------------
 
 \section{Fokus der Arbeit}
 \label{sec:fokus_der-arbeit} Dieser Arbeit setzt den Fokus auf die Open Sorce
 Plattform \textit{3D Slicer}, da diese ohnehin bereits eine breite Anwendung in
-der Zahnklinik in München findet. Durch die Modul und Plugin Infrastruktur dieser
+der Zahnklinik in München findet. Durch die Modul und Plug-In Infrastruktur dieser
 Plattform kann die Softwar auch anderen Institutionen bereitgestellt werden.
 Hierzu muss diese einfach als \textit{3D Slicer Extetion} bereitgestellt werden.
 \textit{3DSlicer} bietet einen Extension Manager, der ähnlich wie ein App Store
 betrachtet werden kann. So bleibt die vorerst konkret entwickelte Software nicht
-nur einer Einrichtung vorbehalten. Die Optimierung des bereits bestehenden, prototypischen
-Verfahrens wird nicht thematisiert.
+nur einer Einrichtung vorbehalten. Eine tiefere Einfürhung in die Open Sorce
+Plattform bietet der Abschnitt \ref{sec:3d_slicer}. Das weitere Optimieren des bereits
+bestehenden Verfahrens wird in dieser Arbeit nicht weiter thematisiert. Es
+werden lediglich Anpassungen vorgenommen, sodass eine Benutzerschnittstelle verwendet
+werden kann.
 
 Mit diesem Umfang, der Motiavtion und dem gesetzten Fokus, ergibt sich für dies Arbeit
 eine konkrete Struktur, die einen hohen detailgrad aufweisen wird. Um einen Überblich

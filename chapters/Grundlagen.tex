@@ -5,17 +5,16 @@ Grundlagen \ref{sec:domänenspezifisch}, welche genauer darauf eingehen, welchen
 die zu bearbeitenden Bilder bieten und wie dieser zu verstehen ist. Abschnitt
 \ref{sec:technologisch} geht anschließend genauer auf die Bildgebung ein, die eine
 wichtige Rolle spielen. Der Abschnitt \ref{sec:verwwandte_arbeit} geht auf die
-Arbeit von \citet{hoffmann2020} ein und legte damit den Grundstein dieser Arbeit.
+Arbeit von \citet{hoffmann2020} welche das zugrundeligende Verfahren beschreibt.
 Die Abschnitt \ref{sec:3d_slicer} führt in Softwareentwicklungsthemen ein, die zum
 Erstellen einer \textit{3D Slicer Extention} wichtig sind.
 % ---------------------------------------------------------------------------------------
 
 \section{Domänenspezifisch}
 \label{sec:domänenspezifisch} Wie bereits aus dem Kapitel \ref{chap:einleitung}
-Einleitung klar wurde, handelt es sich bei den Micro-CT Bilder um Zahnbilder,
-die aufgrund von Zahnkaries entfernt wurden. Um zu verstehen, wie eine CT-Aufnahme
-eines Zahns aufgeteilt werden soll, ist es hilfreich zu verstehen, wie ein Zahn
-aufgebaut ist.
+Einleitung klar wurde, handelt es sich bei den Micro-CT Bilder um Zahnbilder. Um
+zu verstehen, wie eine CT-Aufnahme technisch segmentiert und damit zerlegt werden
+kann, muss zunächst die Zanstruktur selbst verstanden werden.
 
 \begin{minipage}{0.40\textwidth}
 	Die Abbildung \ref{fig:aufbau_eines_zahnes} zeigt den groben Aufbau eines Zahnes
@@ -39,81 +38,82 @@ Abbildung \ref{fig:ct_aufnahme_eines_zahns} gezeigt wurde, so bilden diese 3 Gew
 die unterschiedlichen Grauwerte in einem CT-Bild. \\ \textbf{Die Pulpa} unterscheidet
 sich hierbei nur wenig vom Hintergrund, da sie als einzige der drei Hauptteile
 eines Zahnes ein Weichgewebe ist und bei einer Röntgenaufnahme nicht absorbiert.
-Dieser Teil ist für demanch für die spätere Verarbeitung weniger interessant.
-Geht man weiter von innen nach außen, so ist der nächste Zahnteil auf einem CT das
+Dieser Teil ist in deser Arbeit wenige relevant und auch nicht Teil des Verfahrens,
+was das Segmentierungsverfahren eher zu einer Zahnkronensegmentierung macht. Geht
+man weiter von innen nach außen, so ist der nächste Zahnteil auf einem CT das
 Zahnbein. \\ \textbf{Das Dentin} ist laut \citet[Seite 41]{lehmann2012Zahnheilkunde}
-eine Hartsubstanz, die dem Kieferknochen sehr nah steht. So kommt es, dass
-dieser Teil schon deutlich besser auf einem CT zu erkennen ist. Den äußersten Teil
-in der Mundhöhle bildet das Zahnschmelz. \\ \textbf{Der Schmelz} ist wie bereits
-erwähnt, der härteste Teil im menschlichen Körper und aus diesem Grund auch am
-hellsten auf dem CT zu erkennen. Die folgende Abbildung \ref{fig:pulpa_dentin_schmelz}
-sollen durch Gegenüberstellung den Zusammenhang zwischen einem CT-Bild und einer
-Zahnzeichnung verdeutlichen.
+eine Hartsubstanz, die dem Kieferknochen sehr nah steht. So kommt es, dass dieser
+Teil schon deutlich besser auf einem CT zu erkennen ist. Den äußersten Teil in
+der Mundhöhle bildet das Zahnschmelz. \\ \textbf{Der Schmelz} ist der härteste
+Teil im menschlichen Körper und aus diesem Grund auch am hellsten auf dem CT zu
+erkennen.
+
+Die folgende Abbildung \ref{fig:pulpa_dentin_schmelz} sollen durch
+Gegenüberstellung die einzelnen Zahnsubstanzen auf einer CT Aufnahme
+lokalisieren.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{
-		img/Bildschirmfoto 2024-11-22 um 15.13.24.jpg
-	}
-	\caption{Darstellung von Pulpa, Dentin und Schmelz auf einer CT-Aufnahme (link)
-	und einer Zeichnung (rechts) nach \citet[Seite 29]{lehmann2012Zahnheilkunde}. }
+	\includegraphics[width=0.9\textwidth]{img/dentin_schmelz_pulpa.png}
+	\caption{Darstellung von Pulpa, Dentin und Schmelz auf einer CT-Aufnahme.
+	QUELLE CT BILDER}
 	\label{fig:pulpa_dentin_schmelz}
 \end{figure}
 
-Mit diesem Domänenwissen kann ein Schritt weiter gegangen werden, sodass der Fokus
-nun auf die CT-Bilder gesetzt wird. Das Kapitel \ref{sec:technologisch}
-Bildgebung führt die Technologie der Computertomografie tiefer ein. Darüber hinaus
-werden die verschiedenen Formate und statistische Modelle der CT-Aufnahmen vorgestellt.
+Mit diesem Domänenwissen kann ein Schritt weiter gegangen werden, sodass der
+Fokus nun auf die CT-Bilder gesetzt wird. Das Kapitel \ref{sec:technologisch} Bildgebung
+führt die Technologie der Computertomografie tiefer ein. Darüber hinaus werden
+die verschiedenen Formate und statistische Modelle der CT-Aufnahmen vorgestellt.
 % ---------------------------------------------------------------------------------------
 
 \section{Bildgebung}
-\label{sec:technologisch} Es gibt die unterschiedlichsten Arten zur Erzeugung dreidimensonaler
-Bilddaten. Dieser Abschnitt erläutert federführend die Technologie der Micro-CT
-Aufnahmen und deren Erstellung. Diese sind für eine medizinischen Einsatz besonders
-interessant. Des Weiteren erfolgt eine Einführung in die Speicherung und
-Komprimierung von CT-Aufnahmen. Dies sorgt dafür, dass die digitalen Bilddaten
+\label{sec:technologisch} Es gibt die unterschiedlichsten Arten zur Erzeugung
+dreidimensonaler Bilddaten. Dieser Abschnitt erläutert federführend die Technologie
+der Micro-CT Aufnahmen und deren Erstellung. Diese sind für eine medizinischen
+Einsatz besonders interessant. Des Weiteren erfolgt eine Einführung in die Speicherung
+und Komprimierung von CT-Aufnahmen. Dies sorgt dafür, dass die digitalen Bilddaten
 deutlich handlicher werden.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Computertomografie}
-\label{subsec:computertomografie} Die Erfindung der Computertomografie (CT) war
-ein Quantensprung in der Geschichte der Medizin. Sie ist aus heutigen Diagnosen nicht
-mehr wegzudenken. Ein Micro-CT Bild ist laut \citet[Abstract]{baird2017} ein
-Menge hochauflösender Bilder, die wie ein Stapel zusammengelegt werden. Der
-Aspekt Micro deutet dabei darauf hin, dass es eine miniaturisierte Ausführung eines
-üblichen Kegelstrahl-CTs ist so \citet[Seite 340]{buzug2011}. Eine andere
+\label{subsec:computertomografie} Die Erfindung der Computertomografie (CT) war ein
+Quantensprung in der Geschichte der Medizin. Sie ist aus heutigen Diagnosen
+nicht mehr wegzudenken. Ein Micro-CT Bild ist laut \citet[Abstract]{baird2017} ein
+Menge hochauflösender Bilder, die wie ein Stapel zusammengelegt werden. Der Aspekt
+Micro deutet dabei darauf hin, dass es eine miniaturisierte Ausführung eines
+üblichen Kegelstrahl-CTs ist, so \citet[Seite 340]{buzug2011}. Eine andere
 Definition erläutert \citet{lehmann2013bildverarbeitung}. Er beschreibt die
 Computertomografie als Projektionen einzelner Ebenen im Untersuchungsobjekt. Die
 Technologie, mit der diese Bilderstapel aufgenommen werden, ist unter der Röntgentechnik
 oder auch X-Ray bekannt. Die Röntgenstrahlung ist eine Form der
-elektromagnetischen Strahlung, ähnlich wie das sichtbare Licht so das \citet{nib2024}.
-Anders als das Licht haben die Röntgenstrahlen eine viel höhere Energie. Das
-führt dazu, dass man mit dieser elektromagnetischen Strahlung viele Objekte durchdringen
-kann. So auch Gewebeteile eines Zahnes vgl. \citep{nib2024}. Die Abbildung \ref{fig:spectrum}
-zeigt diese elektromagnetische Spektrum.
+elektromagnetischen Strahlung, ähnlich wie das sichtbare Licht, so das \citet{nib2024}.
+Anders als das Licht haben die Röntgenstrahlen eine viel höhere Energie. Das führt
+dazu, dass man mit dieser elektromagnetischen Strahlung viele Objekte
+durchdringen kann. So auch Gewebeteile eines Zahnes vgl. \citep{nib2024}. Die
+Abbildung \ref{fig:spectrum} zeigt diese elektromagnetische Spektrum.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\textwidth]{img/x_ray.jpg}
-	\caption{Einordnung der Röntgenstrahlung (X-Ray) nach dem \citet{zwinkels2015}}
+	\caption{Einordnung der Röntgenstrahlung (X-Ray) nach \citet{zwinkels2015}}
 	\label{fig:spectrum}
 \end{figure}
 
-Durchdringt ein solcher Röntgenstrahl ein Untersuchungsobjekt, werden die Details
-aufgrund der Wechselwirkung mit Materie auf einer CT-Probe sichtbar. Die
-bekannteste Wechselwirkung ist die Absorption. Mit der Steigerung der Atomzahl in
-einem Material nimmt auch die Absorption eines Materials zu, sodass es leicht
+Durchdringt ein solcher Röntgenstrahl ein Untersuchungsobjekt, werden die
+Details aufgrund der Wechselwirkung mit Materie auf einer CT-Probe sichtbar. Die
+bekannteste Wechselwirkung ist die Absorption. Mit der Steigerung der Atomzahl
+in einem Material nimmt auch die Absorption eines Materials zu, sodass es leicht
 ist verschiedenen Materialien in einer CT-Aufnahme zu unterscheiden \citep[vgl.][]{nib2024}.
 
-Für eine Micro-CT Aufnahme bedarf es spezieller Technik. Es gibt
-unterschiedliche Firmen, welche die unterschiedlichsten Modelle anbieten. Im
-Falle der Zahnklinik an der LMU in München handelt es sich um ein Micro-CT 40
-der Firma \citet{scanco2024}. Dieses Gerät erstellt Aufnahmen mittels
-Röntgenstrahlung und generiert mithilfe der Computertomografie ein
-dreidimensionales Bild, welches im Format \texttt{.ISQ} abgelegt wird. Wie das nächste
-Kapitel beschreiben wird, ist der Speicherumfang den solch ein Bild benötigt, deutlich
-zu groß. Es bedarf einer Technik, mit der die Aufnahmen auf eine handhabbare Größe
-schrumpfen.
+Für eine Micro-CT Aufnahme bedarf es spezieller Technik. Es gibt unterschiedliche
+Firmen, welche die unterschiedlichsten Modelle anbieten. Im Falle der Zahnklinik
+an der LMU in München handelt es sich um ein Micro-CT 40 der Firma \citet{scanco2024}.
+Dieses Gerät erstellt Aufnahmen mittels Röntgenstrahlung und generiert mithilfe der
+Computertomografie ein dreidimensionales Bild, welches im Format \texttt{.ISQ} abgelegt
+wird. Wie das nächste Kapitel beschreiben wird, ist der Speicherumfang den solch
+ein Bild benötigt sehr groß, jedoch dafür auch sehr detaliert. Um ein einfacheres
+Arbeiten mit den CT Bildern zu ermöglichen, kann eine simple Technik angewendet
+werden, die hier beschrieben werden soll.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Datenformate}
@@ -456,9 +456,10 @@ die Verarbeitung dieser Bilddaten mit Methoden der 3D-Bildverarbeitung. Konkret
 sollte die Arbeit die Kariesklassifizierung unterstützen. Hierzu entwickelte er ein
 Verfahren, das auf Basis adaptiver Schwellwertverfahren die Zahnsubstanzen
 Schmelz und Dentin aus dem Orginalbild herrauslöst. Konkret kann diese Segmentierung
-mir zwei verschiedenen Verfahren durchgeführt werden.
+mit verschiedenen Verfahren durchgeführt werden. Man spricht hier von einer
+anatomsichen Segmentierung der Zahnkrone.
 
-\begin{minipage}{0.30\textwidth}
+\begin{minipage}{0.45\textwidth}
 	Durch die Segmentbetrachtung der Beiden Zahnhauptteile Schmelz und Dentin konnte
 	\citet{hoffmann2020} eine gute Hilfe für die Befundung kariöse Stellen liefern.
 	Ein Ergebnis aus der Arbeit von Hoffman sei in Abbildung \ref{fig:ergebnis_hoffmann}
@@ -466,27 +467,37 @@ mir zwei verschiedenen Verfahren durchgeführt werden.
 	mit dem es gelang ca. 250 Datensätze der Zahnklinik automatisch aufzubereiten.
 \end{minipage}
 \hfill
-\begin{minipage}{0.60\textwidth}
+\begin{minipage}{0.45\textwidth}
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/ergebnis_hoffmann_2.jpg}
-	\captionof{figure}{Reproduzierte Ergebnisansicht eines CTs nach Bearbeitung mit dem Verfahren nach \citet[Seite 56]{hoffmann2020}}
+	\captionof{figure}{Reproduzierte Ergebnisansicht der anatomischen Segmentierung}
 	\label{fig:ergebnis_hoffmann}
 \end{minipage}
 
-\citet{hoffmann2020} entwickelte hierfür ein Prototypisches Verfahren, mit dem
-es gelang ca. 250 Datensätze der Zahnklinik automatisch aufzubereiten. \citet{hoffmann2020}
-beschreibt weiter, dass dieses Verfahren bis zu einem gewissen Vortschritt des
-Karies durchgeführt werden konnte, da der Algorithmus diesbezüglich seine Grenzen
-hat. Außerdem ist das Verfahen für die orginalen ISQ-Bilder erstellt worden, deren
-Daten im Format \texttt{16Int} vorliegen. Für die Spätere Darstellung der Ergebnisse
-kann eine überlappende Ansicht in einer Visualisierungssoftware verwendet werden.
+Die anatomischeSegmentierung des Zahns umfasst ein ganze Reihe algorithmischer Schritte,
+sodass sich eine Pipeline an Verarbeitungsschritten ergibt. Die Abbildung \ref{fig:anatomische_segmentierung}
+zeigt den groben Ablauf des Verfahrens. Kleinere Zwischenschritte wurden nicht
+berücksichtig.
 
-So ergibt sich die Situation, dass der Algorithmus ein gutes Ergebnis liefert, jedoch
-nicht benutzerfreundlich zu bedienen ist. Für das Starten und Visualisueren des
-Verfahrens sind aufwendige Befehle über das Terminal zu tippen \citep[vgl.][Seite
-53]{hoffmann2020}. Genau an dieser Stelle soll die vorliegende Arbeit anknüpfen und
-das Verfahren nach \citet{hoffmann2020} so interaktiv und benutzerfreundlich
-gestallten.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/anatomischeSegmentierung.png}
+	\caption{Algorithmische formulierung der anatomischen Segmentierung nach
+	\citet{hoffmann2020}}
+	\label{fig:anatomische_segmentierung}
+\end{figure}
+
+\citet{hoffmann2020} beschreibt, dass dieses Verfahren bis zu einem gewissen Vortschritt
+des Karies durchgeführt werden konnte, da der Algorithmus diesbezüglich seine
+Grenzen hat. Außerdem ist das Verfahen für die orginalen ISQ-Bilder erstellt worden,
+deren Daten im Format \texttt{16Int} vorliegen. Für die Spätere Darstellung der
+Ergebnisse kann eine überlappende Ansicht in einer Visualisierungssoftware
+verwendet werden. So ergibt sich die Situation, dass der Algorithmus ein gutes
+Ergebnis liefert, jedoch nicht benutzerfreundlich zu bedienen ist. Für das
+Starten und Visualisueren des Verfahrens sind aufwendige Befehle über das
+Terminal zu tippen \citep[vgl.][Seite 53]{hoffmann2020}. Genau an dieser Stelle soll
+die vorliegende Arbeit anknüpfen und das Verfahren nach \citet{hoffmann2020} so
+interaktiv und benutzerfreundlich gestallten.
 
 Für eine interaktive Verarbeitung von 3D Bilddaten bieten sich einige
 Möglichkeiten. Die wohl beste Lösung liefer 3D Slicer. Warum die Wahl auf diese
@@ -529,7 +540,7 @@ Die wohl wichtigsten seien hier Stichpunktartig genannt \citep[vgl.][]{slicer202
 \begin{itemize}
 	\item Kostenfreie Software
 
-	\item Plugin Infrastruktur durch den Extention Manager
+	\item Plug-In Infrastruktur durch den Extention Manager
 
 	\item Ausführen von Skripten in der integriertetn Python Konsole
 
@@ -545,8 +556,8 @@ Entwicklung mit 3D Slicer\citep[vgl.][]{slicer2024}, \citep[vgl.][]{fedorov2012s
 % ---------------------------------------------------------------------------------------
 
 \subsection{Extension Manager und Plugin Infrastruktur}
-Der wohl bedeutenste Punkt ist die Plugin Infrastruktur, welche Slicer von sich aus
-mitbringt. Um dieses Konzept genauer zu beläuchten Teilt man die Platform am
+Der wohl bedeutenste Punkt ist die Plug-In Infrastruktur, welche Slicer von sich
+aus mitbringt. Um dieses Konzept genauer zu beläuchten Teilt man die Platform am
 besten in zwei Teile auf. Die Kernanwendung und die Module, welcher jeder User
 personalisiert installieren oder deinstallieren kann. Diese Module werden als \textit{Slicer
 lodabel module} bezeichnet \citep[vgl.][Seite 1332]{fedorov2012slicer}. Slicer realisiert
@@ -577,7 +588,7 @@ nennt. Dieses öffentliche Repository ist eine Auflistung aller Slicer Extention
 Die Auflistung erfolgt durch eine Reihe an \textit{JSON}-Files, die auf die
 Repositories der einzelnen Entwickler verweisen. Dieser \href{https://github.com/Slicer/ExtensionsIndex?tab=readme-ov-file}{\textit{ExtensionIndex}}
 ist über die Slicer Factory an den Extention Server und damit auch an den Extention
-Managerx angebunden. Die Slicer Factory ist ein System, das aus einem Slicer Extention
+Manager angebunden. Die Slicer Factory ist ein System, das aus einem Slicer Extention
 Repository ein lauffähiges Build erstellt, welches in den Extention Katalog
 eingebunden werden kann. Ist eine Extention in dem Extention Katalog gelistet,
 so sorgt der Extention Manger dafür, dass die von der Slicer Factory erstellt build-Datei
