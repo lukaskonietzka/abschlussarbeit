@@ -32,7 +32,7 @@ bezüglich der Reihenfolge während der Bearbeitung geben.
 
 \begin{description}
 	\item[\textbf{Analysephase}] Diese erste Phase ist bei fast allen Softwareprojekten
-		die wichtigste Phase und gleichzeitig aber die, die meist zu kurz kommt. Innerhalb
+		die wichtigste Phase und gleichzeitig die, die meist zu kurz kommt. Innerhalb
 		der Analysephase werden also alle Anforderungen an die Software gesammelt.
 		Diese basieren zum großen Teil auf der Literaturrecherche. Außerdem werden bestehende
 		Lösungen analysiert und so die Kernfunktionalität herausgefiltert.
@@ -72,7 +72,7 @@ aus der Einleitung \ref{sec:ziel_der_arbeit} nochmals auf, dann kann hierdurch
 die nächste wichtige Anforderung abgeleitet werden. Die Erweiterung soll gut und
 einfach über ein User Interface (UI) bedient werden können. Außerdem ist eine
 stabile Anwendung gefragt, die sich gut in die Kernanwendung von 3D Slicer einfügt.
-\citet[]{walter2025} machte im Interview deutlich, das ie Extension neben einer
+\citet[]{walter2025} machte im Interview deutlich, das die Extension neben einer
 Einzelbildbearbeitung auch einen Batch-Prozess ermöglichen so. So können Beispielsweise
 Parameter an einem Bild erprobt werden und diese anschließend in einen Batch-Prozess
 für viele Bilder überführt werden. Außerdem soll es möglich sein, verschiedenen Schwellwertverfahren,
@@ -115,14 +115,15 @@ domänenspezifische Quellen zurückgegriffen, um alle relevanten Aspekte abzudec
 Für diese Arbeit spielt eine Quelle eine besonders wichtige Rolle: die
 offizielle Dokumentation von \citet{slicer2024}. Sie bietet wertvolle
 Anhaltspunkte für die Implementierung und hilft dabei, die technischen Gegebenheiten
-von 3D Slicer zu verstehen. Zudem enthält sie Best-Practice-Ansätze, die bei der
-Entwicklung berücksichtigt wurden. 3D Slicer stellt außerdem einen Developer
+von 3D Slicer zu verstehen. Zudem enthält sie \textit{Best-Practice-Ansätze},
+die bei der Entwicklung berücksichtigt wurden. 3D Slicer stellt außerdem einen Developer
 Guide zur Verfügung, der Teil der offiziellen Dokumentation ist und den Einstieg
-in das Framework erleichtert. Ein weiterer zentraler Referenzpunkt ist der 3D
-Slicer Extension Index, in dem bereits entwickelte Erweiterungen einsehbar sind.
-Ein konkretes Beispiel ist das Modul \textit{Airway Segmentation}, dessen
-Analyse dazu beiträgt, bewährte Konventionen für die Entwicklung der eigenen Erweiterung
-abzuleiten.
+in das Framework erleichtert. Ein weiterer zentraler Referenzpunkt ist der 3D Slicer
+Extension Index, in dem bereits entwickelte Erweiterungen einsehbar sind. Ein konkretes
+Beispiel ist das Modul \textit{Airway Segmentation}, dessen Analyse dazu beiträgt,
+bewährte Konventionen für die Entwicklung der eigenen Erweiterung abzuleiten. So
+kommt es, das beispielsweise für die Gestalltung einer Bnutzerschnittstellle es
+bereits Lösungen gibt, die sich bewährten und so übernommen werden können.
 
 Neben einer konkreten Implementierungshilfe dient die Literaturrecherche auch dazu,
 ein fundiertes Verständnis für die Domäne der medizinischen Bildverarbeitung und
@@ -152,41 +153,29 @@ aufzuteilen, sodass es am Ende auf den konkreten Anwendungsfall ankommt. Diese
 Arbeit sieht folgenden Teilaufgaben für das Gesamtsystem vor:
 
 \begin{description}
-	\item[\textbf{Architekturdesign:}] Mithilfe von UML Diagrammen soll die Architektur
-		dieses Systems abgebildet werden und sukzessive immer detaillierter beschrieben
-		werden. Es soll dann verglichen werden, welche Entwurfsmuster für dieses System
-		infrage kommen. Durch die Bearbeitung dieses Teilproblems kann die
-		Anforderung an eine flexible Architektur erfüllt werden. Anschließend kann mit
-		der Entwicklung des UI-Designs begonnen werden.
+	\item[\textbf{Architektur- und UI-Design:}] Mithilfe von UML Diagrammen soll die
+		Architektur dieses Systems abgebildet werden und sukzessive immer detaillierter
+		beschrieben werden. Es soll dann verglichen werden, welche Entwurfsmuster für
+		dieses System infrage kommen. Durch die Bearbeitung dieses Teilproblems kann
+		die Anforderung an eine flexible Architektur erfüllt werden. Für einen UI entwurf
+		bedient sich diese Arbeite der Wireframes
 
-	\item[\textbf{UI Design:}] Es soll ein Design erstellt werden, dass sich an
-		erfolgreichen und etablierten 3D Slicer Extensions orientiert. Jedoch sollen
-		die Wünsche des Endnutzers auch nicht zu kurz kommen. Für eine
-		Visualisierung des Designs bedient sich diese Arbeit der Wireframes.
+	\item[\textbf{Kappselung anatomische Segmnetierung:}] Das bereits bestehende Segmentierungsverfahren
+		muss in das Modul integiert werden. Hier soll das Verfahren von einem Python
+		Notebook in eine Bibliothek überführt werden, sodass dieses Verfahren in der
+		Extention ausführbar ist.
 
-	\item[\textbf{Pseudo-Extension:}] Befor der tatsächliche Algorithmus eingebunden
-		werden kann, ist es wichtig eine funktionierende Erweiterung zu haben, die noch
-		keine konkrete Aufgabe hat, aber funktioniert und in Slicer eingebunden
-		werden kann.
-
-	\item[\textbf{Kappselung Hoffmann:}] Nachdem die leere Extension lauffähig ist
-		und auch einige Hilfsfunktionen bereitstehen, kann mit der Paketerstellung
-		des Hoffmann begonnen werden. Hier soll das Verfahren von einem Python Notebook
-		in eine Bibliothek überführt werden, sodass dieses Verfahren in der
-		Extention ausführbar ist. Die konkrete Art des Paketes ist noch nicht festgelegt.
-
-	\item[\textbf{Parameter:}] Der Benutzer steuert das Verfahren über die Parameter
+	\item[\textbf{Parameter Node:}] Der Benutzer steuert das Verfahren über die Parameter
 		in der UI. Für die Speicherung der Parametereinstellungen hat Slicer den
 		Mechanismus ParameterNode entworfen. Diese wurde bereits in Abschnitt \ref{subsec:benutzerschnitstelle}
 		erwähnt. Dieser Mechanismus ist nicht trivial, erhöht die Benutzerfreundlichkeit
-		des Systems aber erheblich und soll demnach auch in diese Extention Anwendung
-		finden.
+		des Systems erheblich und soll demnach auch in diese Extention Anwendung finden.
 
 	\item[\textbf{Single Prozess:}] Sobald alle notwendigen Vorbereitungen getroffen
 		sind, kann der Algorithmus nun eingebettet werden. Hierzu betrachtet man isoliert
 		den Single Prozess. Auch die UI wird erst nur so weit entwickel, wie es für den
-		einfachen Prozess nötig ist. Hierbei wird auf das erstellte Paket für das
-		Hoffmann Verfahren und die zuvor erstellen Hilfsfunktionen zurückgegriffen.
+		einfachen Prozess nötig ist. Hierbei wird auf das erstellte Paket der
+		anatomischen Segmenteirung zurückgegriffen.
 
 	\item[\textbf{Batch Prozess:}] Ist das einfache Verfahren fertig implementiert
 		und funktioniert, so kann der Batch Prozess hinzukommen. Hier bedarf es einer
@@ -195,16 +184,17 @@ Arbeit sieht folgenden Teilaufgaben für das Gesamtsystem vor:
 		Hinzukommt die Implementierung einer Fortschrittsanzeige, sodass zu erkennen
 		ist, dass ein Hintergrundprozess läuft.
 
-	\item[\textbf{Dokumentation und Benutzerhandbuch:}] Abschließend ist eine ausführliche
-		Dokumentation der Architektur erwünscht, sodass zukünftige Entwickler wissen,
-		wo sie ansetzten müssen. Hinzu kommt ein Benutzerhandbuch für eine
-		Verwendung der Erweiterung. Das Benutzerhandbuch und die Architekturdokumentation
-		erfolgen in einer README.md innerhalb der Extension.
+	\item[\textbf{Ausführungsmodus:}] Während der Ausführung des Algorithmus soll das
+		Modul in einem Aufsührungszustand wechseln. Hierbei ist wichtig, dass die UI
+		in dieser zeit gesperrt bleibt.
 
-	\item[\textbf{Tests:}] An letzter Stelle sollen noch Softwaretests implementiert
-		werde, um die Richtigkeit der Extension sicherzustellen. 3D Slicer sieht hier
-		Unittests vor, die über den Developer Modus in Slicer direkt in der
-		jeweiligen Extension ausgeführt werden können.
+	\item[\textbf{Dokumentation und Test:}] Abschließend ist eine ausführliche Dokumentation
+		der Architektur erwünscht, sodass zukünftige Entwickler wissen, wo sie ansetzten
+		müssen. Hinzu kommt ein Benutzerhandbuch für eine Verwendung der Erweiterung.
+		Das Benutzerhandbuch und die Architekturdokumentation erfolgen in einer README.md
+		innerhalb der Extension. An letzter Stelle sollen noch Softwaretests
+		implementiert werde, um die Richtigkeit der Extension sicherzustellen. 3D
+		Slicer sieht hier Unittests vor
 \end{description}
 
 Die Ordnung dieser Punkte gibt eine grobe Orientierung bezüglich der Reihenfolge
@@ -244,21 +234,41 @@ Erstellen von Python Quellcode. Dieses Tool bietet eine breite Palette an Funkti
 die das Erstellen von Software vereinfachen und kann als \textit{State of the
 Art} bezeichnet werden.
 
-Neben der eigentlichen Umgebung und den Entwicklerwerkzeugen steht zur Entwicklung
-auch ein bereits erstelltes Python Paket zur Verfügung, das von Herrn Prof. Rösch
-speziell für die Klinik für Zahnerhaltung an der LMU in München erstellt wurde.
-Dieses Tool beinhaltet diverse Funktionalität für das Verarbeiten von
-medizinischen Bilddaten. Speziell für die Micro CT Aufnahmen der Klinik.
+Damit während der Entwicklung auch Teilbereiche der Software bereits geteste werden
+können, werden Testdaten benötigt. Bei diesen Testdaten handelt es sich um orginale
+Micro CT Aufnahmen von Zahnstrukturen. Diese wurde auf einem Server an der LMU
+in München bereitgestellt und konnten über den \textit{x2goclient} heruntergeladen
+werden. Mit dem Zugriff aufen Galadrielrechhner in München konnten auch diverse
+Pythonumgebungen zum verarbeiten von Daten genutzt werden. Dies war in erster Line
+für ein Nachfolziehen der anatomischen Segmentierung hilfreich.
 
-Nachdem die Anforderungen, die Recherche, die konkreten Aufgaben und die verfügbaren
-Werkzeuge erläutert wurden, bleibt noch die Evaluation der Arbeite. Das Kapitel Forschungsevaluation
-erläutert die Methodik, mit dem das Erreichen des Forschungsziels messbar
-gemacht werden kann.
+Neben der eigentlichen Umgebung und den Entwicklerwerkzeugen steht zur Entwicklung
+auch ein Python Paket zur Verfügung, das von Herrn Prof. Rösch speziell für die Klinik
+für Zahnerhaltung an der LMU in München erstellt wurde. Dieses Tool beinhaltet
+diverse Funktionalität für das Verarbeiten von medizinischen Bilddaten. Speziell
+für die Micro CT Aufnahmen der Klinik. Das Paket ist ebenfalls über den Server
+in München erreichbar.
+
+Nachdem die Anforderungen, die Recherche, die konkreten Aufgaben und die
+verfügbaren Werkzeuge erläutert wurden, bleibt noch die Evaluation der Arbeite.
+Das Kapitel Forschungsevaluation erläutert die Methodik, mit dem das Erreichen des
+Forschungsziels messbar gemacht werden kann.
 
 % ---------------------------------------------------------------------------------------
 
 \section{Forschungsevaluation}
 Die Evaluation kann grob in zwei Teile unterteilt werden. Der erste Teil ist der
-wohl wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die
-Benutzer.
+wohl wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die Benutzer.
+Hier kann also die Benutzerfreundlichkeit und die UI der Erweiterung gut
+analysiert werden. Dabei werden Verbesserungen gesammelt und als möglicher Ausblick
+zur Verfügung gestellt. Wichtig für die Benutzbarkeit der Software ist auch das
+Benutzerhandbuch. Dies ist auch Teil der Ergebnisse und muss mittels Benutzertest
+evaluiert werden.
+
+Der zweite Teil der Evaluation soll prüfen ob der Softwaretechnische Ansatz erfolgreich
+umgesetzt wurde. Um dies gewährleisten zu können, müssen zusätzlich zur Funktionalität
+auch Softwaretests bereitgestellt werden. Wie eine der Teilaufgaben aus Kapitel
+\ref{sec_zerlegung_in_teilprobleme} bereits zeigt, handelt es sich hierbei um Unittests.
+Außerdem ist für diesen Teil auch die technische Dokumentation notwendig. Abschießend
+soll die Performance des Systems noch gemessen und analysiert werden.
 % ---------------------------------------------------------------------------------------
