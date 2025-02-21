@@ -12,3 +12,8 @@ Transforms
 ParameterNodeWrapper
 Collapsible
 ParameterNode
+Scripted
+Pycharm
+Jetbrains
+ITK-SNAP
+Rösch
