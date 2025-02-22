@@ -212,11 +212,11 @@ werden und die Scripted Moduls, die eine Python Implementierung verlangen. Da di
 anatomische Segmentierung ohnehin in einem Python Notebook bereitliegt, fiel die
 Wahl hier auf die Scripted Moduls. So kann auch die breite Palette der Python Pakete
 genutzte werden. Für eine detalierte Beschreibung des Frameworks selber sei an
-dieser Stelle auf das Kapitel \ref{sec:bildbearbeitung} verwiesen, indem das Framework
-und alle zugehörigen Eigenheiten noch genauer beschrieben wurden. Um den
+dieser Stelle auf das Kapitel \ref{sec:bildbearbeitung}f verwiesen, indem das
+Framework und alle zugehörigen Eigenheiten noch genauer beschrieben wurden. Um den
 Entwicklungsprozess etwas zu vereinfachen, wurde während der Entwicklung auf ein
-Modul von Slicer zurückgegriffen, das speziell für Entwickler entworfen wurde. Die
-Abbildung \ref{fig:entwicklungsumgebung} verdeutlicht dieses Tool.
+Modul von Slicer zurückgegriffen, das speziell für Entwickler entworfen wurde.
+Die Abbildung \ref{fig:entwicklungsumgebung} verdeutlicht dieses Tool.
 
 \begin{figure}[h]
 	\centering
@@ -225,50 +225,56 @@ Abbildung \ref{fig:entwicklungsumgebung} verdeutlicht dieses Tool.
 	\label{fig:entwicklungsumgebung}
 \end{figure}
 
-Mit den Debugging Tools lässt sich eine gewohnte Umgebung reproduzieren, in der der
-Quellcode Schritt für Schritt analysiert werden kann. Speziell bei der
-Fehlersuche ist dieses Toll eine sehr gute Unterstützung. Die Abbildung beschreibt
-weiter, das als Umgebung für das Erstellen des Programmcodes die Software
-Pycharm verwendet wird. Pycharm ist eine Lösung der Firma Jetbrains, für das
-Erstellen von Python Quellcode. Dieses Tool bietet eine breite Palette an Funktionalitäten,
-die das Erstellen von Software vereinfachen und kann als \textit{State of the
-Art} bezeichnet werden.
+Mit den Debugging Tools lässt sich eine gewohnte Umgebung reproduzieren, in der
+der Quellcode Schritt für Schritt analysiert werden kann. Speziell bei der Fehlersuche
+ist dieses Toll eine sehr gute Unterstützung. Die Abbildung beschreibt weiter, das
+als Umgebung für das Erstellen des Programmcodes die Software Pycharm verwendet wird.
+Pycharm ist eine Lösung der Firma Jetbrains, für das Erstellen von Python Quellcode.
+Dieses Tool bietet eine breite Palette an Funktionalitäten, die das Erstellen von
+Software vereinfachen und kann als \textit{State of the Art} bezeichnet werden.
 
-Damit während der Entwicklung auch Teilbereiche der Software bereits geteste werden
-können, werden Testdaten benötigt. Bei diesen Testdaten handelt es sich um orginale
-Micro CT Aufnahmen von Zahnstrukturen. Diese wurde auf einem Server an der LMU
-in München bereitgestellt und konnten über den \textit{x2goclient} heruntergeladen
-werden. Mit dem Zugriff aufen Galadrielrechhner in München konnten auch diverse
-Pythonumgebungen zum verarbeiten von Daten genutzt werden. Dies war in erster Line
-für ein Nachfolziehen der anatomischen Segmentierung hilfreich.
+Damit während der Entwicklung auch Teilbereiche der Software bereits geteste
+werden können, werden Testdaten benötigt. Bei diesen Testdaten handelt es sich
+um orginale Micro CT Aufnahmen von Zahnstrukturen. Diese wurde auf einem Server an
+der LMU in München bereitgestellt und konnten über den \textit{x2goclient}
+heruntergeladen werden. Mit dem Zugriff aufen Galadrielrechhner in München konnten
+auch diverse Pythonumgebungen zum verarbeiten von Daten genutzt werden. Dies war
+in erster Line für ein Nachfolziehen der anatomischen Segmentierung hilfreich.
 
-Neben der eigentlichen Umgebung und den Entwicklerwerkzeugen steht zur Entwicklung
-auch ein Python Paket zur Verfügung, das von Herrn Prof. Rösch speziell für die Klinik
-für Zahnerhaltung an der LMU in München erstellt wurde. Dieses Tool beinhaltet
-diverse Funktionalität für das Verarbeiten von medizinischen Bilddaten. Speziell
-für die Micro CT Aufnahmen der Klinik. Das Paket ist ebenfalls über den Server
-in München erreichbar.
+Neben der eigentlichen Umgebung und den Entwicklerwerkzeugen steht zur
+Entwicklung auch ein Python Paket zur Verfügung, das von Herrn Prof. Rösch
+speziell für die Klinik für Zahnerhaltung an der LMU in München erstellt wurde. Dieses
+Tool beinhaltet diverse Funktionalität für das Verarbeiten von medizinischen Bilddaten.
+Speziell für die Micro CT Aufnahmen der Klinik. Das Paket ist ebenfalls über den
+Server in München erreichbar.
 
-Nachdem die Anforderungen, die Recherche, die konkreten Aufgaben und die
-verfügbaren Werkzeuge erläutert wurden, bleibt noch die Evaluation der Arbeite.
-Das Kapitel Forschungsevaluation erläutert die Methodik, mit dem das Erreichen des
-Forschungsziels messbar gemacht werden kann.
+Nachdem die Anforderungen, die Recherche, die konkreten Aufgaben und die verfügbaren
+Werkzeuge erläutert wurden, bleibt noch die Evaluation der Arbeite. Das Kapitel Forschungsevaluation
+erläutert die Methodik, mit dem das Erreichen des Forschungsziels messbar
+gemacht werden kann.
 
 % ---------------------------------------------------------------------------------------
 
 \section{Forschungsevaluation}
 Die Evaluation kann grob in zwei Teile unterteilt werden. Der erste Teil ist der
-wohl wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die Benutzer.
-Hier kann also die Benutzerfreundlichkeit und die UI der Erweiterung gut
-analysiert werden. Dabei werden Verbesserungen gesammelt und als möglicher Ausblick
-zur Verfügung gestellt. Wichtig für die Benutzbarkeit der Software ist auch das
-Benutzerhandbuch. Dies ist auch Teil der Ergebnisse und muss mittels Benutzertest
-evaluiert werden.
+wohl wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die
+Benutzer. Hier kann also die Benutzerfreundlichkeit und die UI der Erweiterung gut
+analysiert werden. Dabei werden Verbesserungen gesammelt und als möglicher
+Ausblick zur Verfügung gestellt. Wichtig für die Benutzbarkeit der Software ist auch
+das Benutzerhandbuch. Dies ist auch Teil der Ergebnisse und muss mittels
+Benutzertest evaluiert werden.
 
-Der zweite Teil der Evaluation soll prüfen ob der Softwaretechnische Ansatz erfolgreich
-umgesetzt wurde. Um dies gewährleisten zu können, müssen zusätzlich zur Funktionalität
-auch Softwaretests bereitgestellt werden. Wie eine der Teilaufgaben aus Kapitel
-\ref{sec_zerlegung_in_teilprobleme} bereits zeigt, handelt es sich hierbei um Unittests.
-Außerdem ist für diesen Teil auch die technische Dokumentation notwendig. Abschießend
-soll die Performance des Systems noch gemessen und analysiert werden.
+Der zweite Teil der Evaluation soll prüfen ob der Softwaretechnische Ansatz
+erfolgreich umgesetzt wurde. Um dies gewährleisten zu können, müssen zusätzlich
+zur Funktionalität auch Softwaretests bereitgestellt werden. Wie eine der Teilaufgaben
+aus Kapitel \ref{sec_zerlegung_in_teilprobleme} bereits zeigt, handelt es sich
+hierbei um Unittests. Außerdem ist für diesen Teil auch die technische Dokumentation
+notwendig. Abschießend soll die Performance des Systems noch gemessen und
+analysiert werden.
+
+Die in diesem Kapitel beschriebenen methodischen Schritte bildeten die Grundlage
+für die Entwicklung der Erweiterung. Nach der Konzeption und Umsetzung folgt nun
+die Präsentation der erzielten Ergebnisse. Im nächsten Kapitel wird das Plugin
+detailliert vorgestellt, seine Funktionen erläutert und anhand von Anwendungsszenarien
+sowie Tests bewertet.
 % ---------------------------------------------------------------------------------------
