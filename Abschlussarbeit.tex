@@ -28,6 +28,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
+\usepackage[printonlyused]{acronym}
 
 \usepackage[
 	authorName={Lukas Konietzka},
@@ -80,13 +81,17 @@
 	\cleardoublepage
 	\relax
 
+	%%% --------------------------------------------------
+	%%% Kurzfassung
+	%%% --------------------------------------------------
 	\begin{abstract}
 		\section*{Kurzfassung}
 		Hier entsteht später einmal die Kurzfassung dieser Arbeit, TODO
 	\end{abstract}
 
 	%%% --------------------------------------------------
-
+	%%% Logo ToothAnalyser
+	%%% --------------------------------------------------
 	\clearpage
 	\vfill
 	\begin{figure}
@@ -97,13 +102,13 @@
 	\clearpage
 
 	%%% --------------------------------------------------
-
+	%%% Inhaltsverzeichnis
+	%%% --------------------------------------------------
 	\tableofcontents
 
 	%%% --------------------------------------------------
 	%%% Ab hier: Inhalt
 	%%% --------------------------------------------------
-
 	\setcounter{page}{1}
 	\pagenumbering{arabic}
 
@@ -115,13 +120,29 @@
 	\include{chapters/Diskussion}
 	\include{chapters/Schlussfolgerung}
 
-	\appendix % Ab hier Anhang
-	\AuthorDeclaration % Selbständigkeitserklärung
+	%%% --------------------------------------------------
+	%%% Verzeichnisse
+	%%% --------------------------------------------------
 	\listoffigures % Abbildungsverzeichnis
+	\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 	\listoftables % Tabellenverzeichnis
+	\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+	\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
 	\lstlistoflistings % Listings
+	\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 
-	\include{chapters/Anhang}
+	%%% --------------------------------------------------
+	%%% Abkürzungsverzeichnis
+	%%% --------------------------------------------------
+
+	\chapter*{Abkürzungsverzeichnis}
+	\begin{acronym}[SQL]
+	\acro{UI}{User Interface}
+	\acro{CT}{Computer Tomografie}
+	\acro{MVC}{Model View Controller}
+	\acro{MRML}{Medical Reality Modeling Language}
+	\end{acronym}
+	\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
 
 	% --------------------------------------------------
 	% Bibliographie
@@ -129,6 +150,13 @@
 	\renewcommand{\bibfont}{\footnotesize}
 	\printbibliography
 	[title={Literaturverzeichnis}, heading=bibintoc]
+
+	% --------------------------------------------------
+	% Anhang
+	% --------------------------------------------------
+	\appendix
+	\include{chapters/Anhang}
+	\AuthorDeclaration % Selbständigkeitserklärung
 
 	% --------------------------------------------------
 	% Index
