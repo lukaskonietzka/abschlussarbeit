@@ -19,3 +19,11 @@ ITK-SNAP
 Rösch
 Tooth
 Analyser
+Help
+and
+Acknowledgement
+Plot-Node
+vtkMRMLScalarVolumeNode
+Segmentierungsdaten
+ToothAnalyserWidget
+QT-Designer

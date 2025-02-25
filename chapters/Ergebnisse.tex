@@ -55,134 +55,168 @@ Analyser. Das manuelle Laden eines Bildes in die Szene ist Teil der Slicer
 Kernanwendung und nicht teil der Modullogik. Das bereits geladene Bild ist demnach
 unabhängig von der Slicer Erweiterung entstanden. Betrachtet man die
 Benutzerschnittstelle genauer, so fällt sofort auf, dass diese in vier Bereiche
-unterteilt ist Diese Aufteilung in Bereiche ist ein Ergebnis der
-Literaturrecherche und eine gute Konvention ind er Welt von 3D Slicer. Der Bereich
-\textit{Help and Acknowledgement} stellt Hilfen und Informationen über das Modul
-bereit. Über diesen Abschnitt ist auch die offizielle Dokumentation über dieses Modul
-erreichbar. Zu Beachten ist, dass dieser Bereich nicht eigens für den Tooth Analyser
-entwickelt wurde. Es handelt sich hier um eine Funktionalität, die automatisch allen
-\ac{SEM} zur Verfügung steht. Bei den übrigen Abschnitten handelt es sich im Features
-die spezifische für den Tooth Analyser entwickelt wurden. Bevor genauer auf die
-Funktionalitäten des Tooth Analyser eingegangen wird, sei zunächst auf die Abbildung
-\ref{fig:tooth_analyser_full_view} verwiesen, welche die Ergebnisansicht zeigt.
+unterteilt ist. Diese Aufteilung in Bereiche ist ein Ergebnis der Literaturrecherche
+und eine gute Konvention in der Welt von 3D Slicer. Der Bereich \textit{Help and
+Acknowledgement} stellt Hilfen und Informationen über das Modul bereit. Über
+diesen Abschnitt ist auch die offizielle Dokumentation über dieses Modul
+erreichbar. Zu Beachten ist, dass dieser Bereich nicht eigens für den Tooth
+Analyser entwickelt wurde. Es handelt sich hier um eine Funktionalität, die
+automatisch allen \ac{SEM} zur Verfügung steht. Bei den übrigen Abschnitten
+handelt es sich im Features die spezifische für den Tooth Analyser entwickelt
+wurden. Bevor genauer auf die Funktionalitäten des Tooth Analyser eingegangen wird,
+sei zunächst auf die Abbildung \ref{fig:tooth_analyser_full_view} verwiesen, welche
+die Ergebnisansicht zeigt.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.2, width=\textwidth]{img/toothAnalyserFullView.png}
-	\caption{Ergebnisansicht der Erweiterung Tooth Analyser nachdem die Analysen
-	und die anatomische Segmentierung erstellt wurden.}
+	\caption{Ergebnisansicht der Erweiterung Tooth Analyser, nachdem die Analysen und
+	die anatomische Segmentierung erstellt wurden.}
 	\label{fig:tooth_analyser_full_view}
 \end{figure}
 
-Der Analysebereich des Tooth Analyser ermöglicht es das Histogramm eines gegebenen
-Bildes zu erstellen. Dies ist besonders interessant, wenn ein Algorithmus für die
-anatomische Segmentierung ausgewählt werden muss. Diese Algorithmen sind
-Schwellwertverfahren, die auf das Histogramm eines Bildes basieren, um es zu
-segmentieren. Das erstellte Histogramm ist rechts oben in der Abbildung \ref{fig:tooth_analyser_full_view}
-zu erkennen. Es wird in einem Plot-Node dargestellt und kann über diesen auch
-verändert werden. Hierzu ist die Pinnnadel im Fenster des Plot-Node zu wählen.
-Durch die Speicherfunktion der Kernanwendung kann der Plot auch problemlos
-gespeichert werden. Bevor die Analysen erstellt werden können, müssen
+Der Analysebereich des Tooth Analyser ermöglicht es das Histogramm eines
+gegebenen Bildes zu erstellen. Dies ist besonders interessant, wenn ein
+Algorithmus für die anatomische Segmentierung ausgewählt werden muss. Diese Algorithmen
+sind Schwellwertverfahren, die auf das Histogramm eines Bildes basieren, um es zu
+segmentieren. Das erstellte Histogramm ist rechts oben in der Abbildung
+\ref{fig:tooth_analyser_full_view} zu erkennen. Es wird in einem Plot-Node dargestellt
+und kann über diesen auch verändert werden. Hierzu ist die Pinnnadel im Fenster
+des Plot-Node zu wählen. Durch die Speicherfunktion der Kernanwendung kann der Plot
+auch problemlos gespeichert werden. Bevor die Analysen erstellt werden können, müssen
 Parametereinstellungen gewählt werden. Hierbei ist der wichtigste Parameter der,
 indem das konkrete Bild ausgewählt wird. Bei diesem Parameter handelt es sich um
-ein Dropdown, indem nur Bilder mit dem Typ \texttt{vtkMRMLScalarVolumeNode} ausgewählt
-werden können. Dies trägt zur Stabilität und Ausfallsicherheit des Systems bei
-und sorgt dafür, dass nicht jedes beliebige Bild geladen werden kann. Ist keine
-\ac{CT} Aufnahme ausgewählt, so bleibt der Button zum Starten der Analysen
-deaktiviert. Wird ein Bild in die Szene geladen, während der Parameter für das
-zu analysierende Bild leer ist, wählt der Tooth Analyser automatisch das Bild aus,
-dass als Erstes in die Szene geladen wurde. So spart der Benutzer einige Klicks.
-Durch die Checkbox \textit{Show Histogram} wird der Erweiterung signalisiert das
-beim Starten der Analysen ein Histogramm des übergebenen Bildes erstellt weden soll.
+ein Dropdown, indem nur Bilder mit dem Typ \texttt{vtkMRMLScalarVolumeNode}
+ausgewählt werden können. Dies trägt zur Stabilität und Ausfallsicherheit des Systems
+bei und sorgt dafür, dass nicht jedes beliebige Bild geladen werden kann. Ist keine
+\ac{CT} Aufnahme ausgewählt, so bleibt der Button zum Starten der Analysen deaktiviert.
+Wird ein Bild in die Szene geladen, während der Parameter für das zu analysierende
+Bild leer ist, wählt der Tooth Analyser automatisch das Bild aus, dass als Erstes
+in die Szene geladen wurde. So spart der Benutzer einige Klicks. Durch die Checkbox
+\textit{Show Histogram} wird der Erweiterung signalisiert das beim Starten der
+Analysen ein Histogramm des übergebenen Bildes erstellt werden soll.
 
-Die Hauptfunktionalität des Tooth Analyser ist die anatomische Segmentierung welche
-in Kapitel \ref{sec:verwwandte_arbeit} detaliert erläutert wurde. Die konkreten
-Ergebnisse dieser Segmentierung sind in der Abbildung
-\ref{fig:tooth_analyser_full_view} in den Fenstern (blau, rot, grün, gelb) zu sehen.
-Neben der eigentlichen Segmentierung sind auch hier die medialen Flächen für die
-Segmente Dentin (rot) und Schmelz (grün) gut sichtbar. Hinzu kommt ein \ac{3D}
-Modell das auf basis der erstellten Segmentierung generiert wurde und nur der
-Visualisierung dient. Ein Abspeichern dieses 3D Modells als Netz ist nicht möglich.
-Um überhaupt eine anatomische Segmentierung eines Zahnes erstellen zu können, sieht
-der Algorithmus zunächst drei Parameter vor, die eingestellt werden müssen. Um die
-Komplexität gering zu halten, wurde bewusst auf viele Parameter verzichtet. Ähnlich
-wie bei den Analysen ist auch hier die Wahl des zu segmentierenden Volumens der entscheidende
-Parameter. Dessen Bedeutung gleicht der der Analysen, insbesondere in Bezug auf das
-Verhalten. Damit schnell ein Ergebnis genneriert werden kann, wurde für die übrigen
-zwei Parameter ein Vorauswhal definiert, die zum vollen Ergebnisumfang des Tools
-führt. So ergibt sich die Situation, das nach dem Laden eines \ac{CT}s in die
-Szene nur auf den Button für das Ausführen gedrückt werden muss, damit eine anatomische
-Segmentierung erstellt wird. Dies nimmt dem Benutzer viel Arbeit ab und sorgt
-für eine gut \ac{UX}. Sind jedoch Einstellungen in de Parametern gewünscht, so können
-diese natürlich getätigt werden. Über den Parameter \textit{Segmentation
-algorithm} kann das entsprechenden Schwellwertverfahren gewählt werden, mit dem
-der Zahn segmentiert werden soll. Dies mag nur geringfügig eine Änderung auf die
-Ergebnismenge ausmachen, kann aber dennoch wichtig sein. Die Checkboc \textit{calculate
-medial surface} ermöglicht eine optinale Erstellung der medialen Flächen. Wird diese
-Funktion ohnehin nicht gebraucht, so kann diese hier ausgelassen werden und
-damit Laufzeit eingespart werden.
+Die Hauptfunktionalität des Tooth Analyser ist die anatomische Segmentierung
+welche in Kapitel \ref{sec:verwwandte_arbeit} detailliert erläutert wurde. Die konkreten
+Ergebnisse dieser Segmentierung sind in der Abbildung \ref{fig:tooth_analyser_full_view}
+in den Fenstern (blau, rot, grün, gelb) zu sehen. Neben der eigentlichen Segmentierung
+sind auch hier die medialen Flächen für die Segmente Dentin (rot) und Schmelz (grün)
+gut sichtbar. Hinzu kommt ein \ac{3D} Modell, das auf Basis der erstellten
+Segmentierung generiert wurde und nur der Visualisierung dient. Ein Abspeichern dieses
+3D Modells als Netz ist nicht möglich. Um überhaupt eine anatomische
+Segmentierung eines Zahnes erstellen zu können, sieht der Algorithmus zunächst drei
+Parameter vor, die eingestellt werden müssen. Um die Komplexität gering zu halten,
+wurde bewusst auf viele Parameter verzichtet. Ähnlich wie bei den Analysen ist auch
+hier die Wahl des zu segmentierenden Volumens der entscheidende Parameter.
+Dessen Bedeutung gleicht der Analysen, insbesondere in Bezug auf das Verhalten.
+Damit schnell ein Ergebnis generiert werden kann, wurde für die übrigen zwei Parameter
+eine Vorauswahl definiert, die zum vollen Ergebnisumfang des Tools führt. So ergibt
+sich die Situation, das nach dem Laden eines \ac{CT}s in die Szene nur auf den
+Button für das Ausführen gedrückt werden muss, damit eine anatomische Segmentierung
+erstellt wird. Dies nimmt dem Benutzer viel Arbeit ab und sorgt für eine gut \ac{UX}.
+Sind jedoch Einstellungen in den Parametern gewünscht, so können diese natürlich
+getätigt werden. Über den Parameter \textit{Segmentation algorithm} kann das entsprechenden
+Schwellwertverfahren gewählt werden, mit dem der Zahn segmentiert werden soll. Dies
+mag nur geringfügig eine Änderung auf die Ergebnismenge ausmachen, kann aber
+dennoch wichtig sein. Die Checkbox \textit{calculate medial surface} ermöglicht
+eine optionale Erstellung der medialen Flächen. Wird diese Funktion ohnehin nicht
+gebraucht, so kann diese hier ausgelassen werden und damit Laufzeit eingespart
+werden.
 
-Die letzte Funktionalität, die geboten wird stellt kein neues Verfahren da,
-sondern nur eine andere Art der Ausführung. Die Rede ist hier von einem Batch Modus,
-der nicht nur ein Bild segmentiert, sondern das Verfahren der anatomischen Segmentierung
-auf eine ganze Reihe an Bildern anwendet. Um diesen Modus aktiv zu schalten
-müssen neben den Parametern im Abschnitt \textit{batch} auch die checkbox \textit{use
-parameters for batch} aktiviert werden. Der Tooth Analyser überträgt dann die aktuellen
-Paremtereintellung der anatomischen Segmentierung an den Batch Modus. Um dann
-den Batch Modus ausführen zu können, müssen noch zwei Pfade angegeben wereden,
-die jeweils zu einem Ordner führen. Dies beiden Pfade teilen sich auf in \textit{source}
-und \textit{target} und geben an, wo die Daten liegen, die segmentiert werden soll
-und wo die segmentierten Daten auf der Festplatte gepseichert werden.
+Die letzte Funktionalität, die geboten wird, stellt kein neues Verfahren dar, sondern
+nur eine andere Art der Ausführung. Die Rede ist hier von einem Batch Modus, der
+nicht nur ein Bild segmentiert, sondern das Verfahren der anatomischen
+Segmentierung auf eine ganze Reihe an Bildern anwendet. Um diesen Modus aktiv zu
+schalten, muss neben den Parametern im Abschnitt \textit{batch} auch die Checkbox
+\textit{use parameters for batch} aktiviert werden. Der Tooth Analyser überträgt
+dann die aktuellen Parametereinstellungen der anatomischen Segmentierung an den Batch
+Modus. Um dann den Batch Modus ausführen zu können, müssen noch zwei Pfade angegeben
+werden, die jeweils zu einem Ordner führen. Diese beiden Pfade teilen sich auf in
+\textit{source} und \textit{target} und geben an, wo die Daten liegen, die segmentiert
+werden soll und wo die segmentierten Daten auf der Festplatte gespeichert werden.
 Abschließend ist hier noch zu wählen in welchem Format die erstellten Daten
 abgespeichert werden sollen. Bei diesem Feature ist zu beachten, dass nach
 Erfolgreichem ausführen keine Daten in der Slicer Szene geladen werden. Der Prozess
-läuft im Hintergrund und ist bist auf die Parametereinstellung über die UI komplett
-getrennt von Slicer. Nach Ende des Batch Modues wird in dem angegebenen
-Zielordner ein Unterordner erstellt, der alle Datein der Segmentierten Bilder enthält.
-Hierführ sieht der Tooth Analyser weitere Unterordner für jedes segmentierte
-Bild vor. Ein automatisches laden aller Segmentierten Bilder nach dem Batch Prozess
-ist nicht implementiert, sodass der erstellte Ordner mit allen
-Segmenteirungsdaten manuell über den Import geladen werden muss.
+läuft im Hintergrund und ist bis auf die Parametereinstellung über die UI komplett
+getrennt von Slicer. Nach Ende des Batch Modus wird in dem angegebenen
+Zielordner ein Unterordner erstellt, der alle Dateien der segmentierten Bilder enthält.
+Hierfür sieht der Tooth Analyser weitere Unterordner für jedes segmentierte Bild
+vor. Ein automatisches Laden aller segmentierten Bilder nach dem Batch Prozess ist
+nicht implementiert, sodass der erstellte Ordner mit allen Segmentierungsdaten
+manuell über den Import geladen werden muss.
 
 Da neben der reinen Erstellung noch weitere Anforderungen an die Erweiterung
-gegeben waren, beschäfftigen sich die nächsten Kapitel tiefer mit den softwaretechnischen
-Aspekten des Tooth Analser. Hierzu sollen auch die einzelnen Teilaufgaben, die zu
-Beginn definiert wurden wieder aufgeriffen werden.
+gegeben waren, beschäftigt sich die nächsten Kapitel tiefer mit den softwaretechnischen
+Aspekten des Tooth Analyser. Hierzu sollen auch die einzelnen Teilaufgaben, die zu
+Beginn definiert wurden, wieder aufgegriffen werden.
 % ---------------------------------------------------------------------------------------
 
 \section{Konzeptionen}
 \label{sec:konzeptionen} Die ausgearbeiteten Konzeptionen bilden überwiegend die
 Ergebnisse der in \ref{sec_zerlegung_in_teilprobleme} beschriebenen Teilaufgaben.
-Konkret soll das bedeuten, dass hier konzeptionell gezeigt wird, wie die
-softwaretechnischen Aspekte aus den Anforderungen umgesetzt wurden. Hierzu soll zunächst
-das Design-Klassendiagram betrachtet werden, das sich aus dem Domänenmodell in
-Abbildung \ref{fig:3d_slicer_domäne} ableiten lässt.
+Konkret soll das bedeuten, dass hier konzeptionell gezeigt wird, wie die softwaretechnischen
+Aspekte aus den Anforderungen umgesetzt wurden. Hierzu soll zunächst das Design-Klassendiagramm
+betrachtet werden, das sich aus dem Domänenmodell in Abbildung \ref{fig:3d_slicer_domäne}
+ableiten lässt.
 
 KLASSENDIAGRAMM - BILD
 
-Wie das Diagramm zeigt ist die Anwendung über die Klasse \texttt{ToothAnalyserWidget}
+Wie das Diagramm zeigt, ist die Anwendung über die Klasse \texttt{ToothAnalyserWidget}
 in das Kernsystem eingebunden. Sie hält auf der einen Seite alle Parameter der verschiedenen
-Funktionen und auf der Aderen Seite die dazugehörigen Logiken. Des Weiteren
-bildet diese Klasse die gesamt UI des Tooth Analyser ab, was unter Anderem das Laden
-der \ac{UI} mit einschließt. Die UI des Tooth Analysers wurde mit der Software QT-Designer
-erstellt und dann mitels einer Methode in die Awendung geladen. Nachfolgend sei
-der Designetnwurf für die \ac{UI} gezeigt.
+Funktionen und auf der anderen Seite die dazugehörigen Logiken. Des Weiteren
+bildet diese Klasse die gesamt UI des Tooth Analyser ab, was unter anderem das Laden
+der \ac{UI} mit einschließt. Die UI des Tooth Analyser wurde mit der Software QT-Designer
+erstellt und dann mittels einer Methode in die Anwendung geladen. Nachfolgend
+sei der Designentwurf für die \ac{UI} gezeigt.
 
-QT DESIGNER - BILD
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{img/toothAnalyserQT.png}
+	\caption{Bearbeitungsansicht der \ac{UI} des Tooth Analyser im QT-Designer}
+	\label{fig:tooth_analyser_qt}
+\end{figure}
 
-Wie auch schon im Kaiptel \ref{sec:tooth_analyser} beschrieben Teilt sich die
+Wie auch schon im Kapitel \ref{sec:tooth_analyser} beschrieben teilt sich die
 \ac{UI} auch hier sichtbar in unterschiedliche Teile auf. Vergleicht man nun
 Abbildung ... mit dem Klassendiagramm aus Abbildung ... so fällt auf, das Für jeden
-Funktionsbereich eine eigenen Parameterklasse erstellt wurde, die dann wiederum
+Funktionsbereich eine eigene Parameterklasse erstellt wurde, die dann wiederum
 in der Klasse ParameterNode zusammengefasst werden. Dies stellt eine gute Erweiterbarkeit
-der \ac{UI} um zusätzliche Parameter sicher. TODO HERE ....
+der \ac{UI} um zusätzliche Parameter sicher. Es wurde an dieser Stelle bewusst keine
+Generalisierung verwendet, da Slicer genau diesen konzeptionierten Mechanismus
+vorsieht. Auf der Anderen Seite der Stuktur finden sich die Logikklassen. Die
+verschiedenen Logiken die aktuell und zukünftig den Tooth Analyser ausstatten, verwenden
+alle die selbe Schnittstelle, die über die Klasse \texttt{ToothAnalyserLogic} bereitgestellt
+wird. Soll also in Zukunft weitere Funktionen hinzukommen, so kann hier einfach eine
+weitere Klasse an die Schnittstelle angehängt werden. So entsteht etwas was man
+in der Fachliteratur als \textit{Strategy Pattern} bezeichnet. QUELLE Der
+Bentuzer der Software wählt also über die verschiedenen Buttons aus, welche Strategie
+er gerade nutzen will. Der Tooth Analyser sorgt dann dafür, dass auch die richtige
+Funktion geladen wird. Das Feature für den Batch Modus funktioniert nach einem
+anderen Schema. Da dieser Modus auch für alle zukünftigen Funktionen gelten soll,
+wird dieser nicht als eigene Strategie, sondern direkt in der Schnittstelle bereitgestellt.
+So ist sichergestellt, dass eine Implementierung erfolgen muss, sie jedoch für
+alle Strategien unterschiedlich sein kann. Um noch etwas genauer zu zeigen,
+welche Schritte notwendig sind um den Tooth Analyser mit weiteren Funktionen
+auszustatten sei auf Abbildung ... verwiesen. Hier wird deutlich, welche Klassen
+und Methoden erstellt werden müssen
+
+KLASSENDIAGRAMM NEUE FUNKTION - BILD
+
+Wie bereits zu erkennen ist, signalisieren die roten Elemente die Punkte, an
+denen die Funktionalität erweitert werden kann. die gestrichelte, rote Line
+verdeutlicht nur den Zusammenhang dieser Komponenten und hat keine Auswirkung
+auf die Konzeption. Um einen noch genauren Einblick in die Strukturen zu geben,
+geht das nachfolgenbde Kapitel noch einen Schritt weiter und geht auf die
+konkrete Implementierungsdeteils ein.
+
 % ---------------------------------------------------------------------------------------
 
 \section{Technische Umsetzung}
-\label{sec:technische_umsetzung} Nachdem die Erweiterung konzeptionell ausgearbeitet
-wurde soll es hier nun konkrete Implementierungsdetails gehen. Zu Beginn sei
-gesagt, dass dieses Kapitel nicht alle Funktionen detaliert bescheibt, sondern
-sich auf die wichtigsten Funktionen und Methode des Tooth Analyser beschränlt.
+\label{sec:technische_umsetzung} TODO
+
+Zu Beginn sei gesagt, dass dieses Kapitel nicht alle Funktionen detailliert beschreibt,
+sondern sich auf die wichtigsten Funktionen und Methode des Tooth Analyser
+beschränkt.
 
 - wichtige Codeausschnitte
 
@@ -194,6 +228,8 @@ sich auf die wichtigsten Funktionen und Methode des Tooth Analyser beschränlt.
 % ---------------------------------------------------------------------------------------
 
 \section{Performance}
+TODO
+
 - Die Laufzeitanalyse des Systems.
 
 - wie lange dauert was
@@ -202,11 +238,13 @@ sich auf die wichtigsten Funktionen und Methode des Tooth Analyser beschränlt.
 
 - wie könnte man die Berchnung theoretisch noch schnelller machen?
 
-- eine methode wurde schon implementiert, indem das verfahren erkennt ob ein bild
-segmentiert ist. dann, segmentierung übersprignen
+- eine methode wurde schon implementiert, indem das verfahren erkennt ob ein
+bild segmentiert ist. dann, segmentierung übersprignen
 % ---------------------------------------------------------------------------------------
 
 \section{Anwendungsszenarien}
+TODO
+
 - Wie wird das tool eingesetzt
 
 - wer setzt es ein
@@ -221,11 +259,14 @@ der Fokus auf einzelne Teile lenken
 
 - überlappen der anzeige mit Medialflächen
 
+- hier auch die Ergebnisse der vorläufigen User-Tests aufzeigen
+
 % ---------------------------------------------------------------------------------------
 
 \section{Limitierungen}
+TODO
 
-- kleine bilder
+- nur bilder im format 16 bit sigend integer
 
 - preprocessing
 
