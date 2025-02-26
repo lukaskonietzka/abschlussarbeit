@@ -238,8 +238,8 @@ Die Reihenfolge gibt eine grobe Orientierung bezüglich der Wichtigkeit.
 Die drei Klassen aus der eben gezeigten Tabelle werden von der Slicer Dokumentation
 grob vorgeschrieben, und bilden somit den Kern der Erweiterung. Die Klasse ToothAnalyser
 bildet hierbei den Abschnitt \textit{Help and Acknowledgemt}, den jedes Modul mitbringen
-muss. Dort stehen alle wichtigen Meta.Informationen über das konkrete Modul. Der
-nachfolgenden Ausschnitt eines Quelltextes zeigt grob den Aufbau dieser Klasse.
+muss. Dort stehen alle wichtigen Meta-Informationen über das konkrete Modul. Der
+nachfolgende Ausschnitt eines Quelltextes zeigt grob den Aufbau dieser Klasse.
 
 \begin{lstlisting}[
     language={python},
@@ -257,19 +257,19 @@ class ToothAnalyser(ScriptedLoadableModule):
 \end{lstlisting}
 
 Direkt in Zeile eins ist zu sehen, dass die Klasse eine Generalisierung der Klasse
-\texttt{ScriptedLoadableModule} ist. Über diese Elternklasse wird die integration
+\texttt{ScriptedLoadableModule} ist. Über diese Elternklasse wird die Integration
 in die Slicer Kernanwendung sichergestellt. Innerhalb des Konstruktors der
-Klasse werden unterschiedliche Felder angelegt, welche die verschiedenen Texte wiederspiegeln
-sollen. Zu Beachten ist noch, dass die felder die einen einfachen String erwarten,
-in einer unscheinbaren methoden \texttt{\_()} gekappselt sind. Diese Methode ist
+Klasse werden unterschiedliche Felder angelegt, welche die verschiedenen Texte widerspiegeln
+sollen. Zu Beachten ist noch, dass die Felder die einen einfachen String erwarten,
+in einer unscheinbaren Methode \texttt{\_()} gekapselt sind. Diese Methode ist
 Teil des Slicer Python Framework und sorgt dafür, dass automatisch der Kontextname
-gewechselt wird. Über bekannte html-Tags können auch Bilder oder HyperLinks
-eingebaut werden, welche auf Screenshots oder Documentationen verweisen.
+gewechselt wird. Über bekannte Html-Tags können auch Bilder oder Hyperlinks
+eingebaut werden, welche auf Screenshots oder Dokumentationen verweisen.
 
 Die Klasse \texttt{ToothAnalyserWidget} bildet die gesamte Benutzerschnittstelle
-der Erweitung ab und kümmert sich gleichzeitig um das zusammenspiel zwischen
-Logik und Parameter. Hierfür hat die Widget-Klasse zugriff auf alle Parameter und
-auf das Logik Interface. Das nachfolgenden Listing zeigt en gorben aufbau der
+der Erweiterung ab und kümmert sich gleichzeitig um das Zusammenspiel zwischen
+Logik und Parameter. Hierfür hat die Widget-Klasse Zugriff auf alle Parameter und
+auf die Logik-Schnittstelle. Das nachfolgende Listing zeigt einen groben Aufbau der
 Klasse \texttt{ToothAnalyserWidget} und deren Felder.
 
 \begin{lstlisting}[
@@ -284,8 +284,8 @@ class ToothAnalyserWidget(ScriptedLoadableModuleWidget):
 \end{lstlisting}
 
 Wie auch schon die Klasse \texttt{ToothAnalyser} ist auch die Widget-Klasse eine
-Kindklasse. der Konstruktor dieser Klasse wird jedesmal aufgerufen, wenn der Benutzer
-zum ersten mal nach dem Slicer start das Modul aufruft. Neben dem
+Kindklasse. Der Konstruktor dieser Klasse wird jedes Mal aufgerufen, wenn der Benutzer
+zum ersten Mal nach dem Start von Slicer das Modul aufruft. Neben dem
 Konstruktoraufruf der Elternklasse, werden auch die Parameter und die Logik-Schnittstelle
 initialisiert. So ergibt sich die Situation, dass die UI die aktuellen Parametereinstellungen
 abfragt und sie and die Logik weiterleitet.
@@ -309,15 +309,15 @@ Mittels der Bibliothek \texttt{slicer} lässt sich hier die Datei für die \ac{U
 laden. Diese Datei liegt im Ordner \textit{Resources} sodass der Pfad zu diesem
 Ordner mit der Methode \texttt{self.resourcePath()} ausgelesen werden kann. Als
 Argument kann dann der Name der Datei angegeben werden. In diesem Fall existiert
-noch ein Unterordner mit der entsrechenden Datei (\texttt{"UI/W.ui"}).
+noch ein Unterordner mit der entsprechenden Datei (\texttt{"UI/W.ui"}).
 
 Ein weiterer nennenswerter Punkt in der Klasse \texttt{ToothAnalyserWidget} sind
-die eventbasierten Methoden. Diese sorgen dafür, das auf bestimmte aktionen in der
+die eventbasierten Methoden. Diese sorgen dafür, dass auf bestimmte Aktionen in der
 Anwendung reagiert werden kann. Der Tooth Analyser hat in der Widget-Klasse
-mehrere solcher Eventmethode, die hier genannt werden.
+mehrere solcher Event-Methoden, die hier genannt werden.
 
 \begin{description}
-	\item[enter()] Wird immer ausgeüführt, wenn der Benutzer das Modul öffnet
+	\item[enter()] Wird immer ausgeführt, wenn der Benutzer das Modul öffnet
 
 	\item[exit()] Wird immer ausgeführt, wenn der Benutzer ein anderes Modul
 		öffnet
@@ -327,7 +327,7 @@ mehrere solcher Eventmethode, die hier genannt werden.
 
 	\item[onSceneEndClose()] Wird ausgeführt, nachdem das Modul geschlossen wurde
 
-	\item[observeParameter()] Wird ausgeüfhrt, wenn der Benutzer Ändeurngne an der
+	\item[observeParameter()] Wird ausgeführt, wenn der Benutzer Änderungen an der
 		\ac{UI} macht
 \end{description}
 
@@ -335,7 +335,7 @@ Die Methode \texttt{observerParameter()} ist hierbei sehr interessant und verdie
 besondere Beachtung. Die Methode ist eine Beobachtungsmethode, die an ein Event gekoppelt
 ist, dass sich \textit{ModifiedEvent} nennt. Dieses Event wird immer ausgelöst, wenn
 der Benutzer Änderungen in der Slicer \ac{UI} macht. Dies umschließt nicht nur das
-Modul. Wird also sloch ein Event gefeuert, so wird die Methode observeParamteters
+Modul. Wird also solch ein Event gefeuert, so wird die Methode \texttt{observeParameter()}
 aufgerufen. Das Listing \ref{lst:observe_parameter} zeigt diese Methode:
 
 \begin{lstlisting}[
@@ -349,13 +349,16 @@ def observerParameters(self, caller=None, event=None)->None:
 \end{lstlisting}
 
 Die Methode verfügt über die Parameter \texttt{caller} und \texttt{event}.
-Mittels diesen Parametern kann der Auslöser des Events und die Art des Eventes
-bestimmt werden. So könnte man verschiedenen Aktionen auf verschiednene Events ausführen.
+Mittels diesen Parametern kann der Auslöser des Events und die Art des Events
+bestimmt werden. So könnte man verschiedenen Aktionen auf verschiedene Events ausführen.
 Innerhalb des Tooth Analyser wird diese Methode genutzt, um die Klick-Logik der Buttons
 abzubilden. Die Methoden \texttt{handleApply<...>Button()} steuern jeweils die Sichtbarkeit
 der einzelnen Buttons. Immer wenn der Benutzer dann Änderungen an der UI
 durchführt, wird die Logik innerhalb dieser Methode aus Listing \ref{lst:observe_parameter}
-aktuallisiert.
+aktualisiert.
+
+
+
 
 - wichtige Codeausschnitte
 

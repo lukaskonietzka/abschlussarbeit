@@ -28,3 +28,6 @@ Segmentierungsdaten
 ToothAnalyserWidget
 QT-Designer
 ToothAnalyserLogic
+Html-Tags
+observeParameter
+eventbasierten
