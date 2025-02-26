@@ -15,9 +15,10 @@ eine Aussage bezogen auf die Forschungsfrage gestellt werden.
 Slicer Extension entstanden, die den Namen Tooth Analyser trägt und für die Forschung
 im Dentalbereich eingesetzt wird. In erster Linie können mit diesem Plugin Micro
 CT Aufnahmen anatomisch segmentiert werden. Das Modul schmiegt sich wie alle anderen
-Module gut in die Kernanwendung ein und bietet eine \ac{UI}. Neben der eigentlichen
-Implementierung ist auch ein Logo für das Plugin entstanden, das es nach außen
-repräsentiert. Die Abbildung \ref{fig:logo_tooth_analyser} zeigt dies.
+Module gut in die Kernanwendung ein und ist auch für die aktuelle stabile Version
+von Slicer (v5.8.0) verfügbar. Neben der eigentlichen Implementierung ist auch
+ein Logo für das Plugin entstanden, das es nach außen repräsentiert. Die
+Abbildung \ref{fig:logo_tooth_analyser} zeigt dies.
 
 \begin{figure}[h]
 	\centering
@@ -28,16 +29,16 @@ repräsentiert. Die Abbildung \ref{fig:logo_tooth_analyser} zeigt dies.
 \end{figure}
 
 Des Emblem des Tooth Analyser bildet einen Zahn ab, dessen Hauptsegmenten (Schmelz,
-Dentin, Pulpa) mit den unterschiedlichen Farben (grün, gelb, orange) visualisiert
-werden. Dies verdeutlicht die Analogie zur anatomischen Segmentierung und lässt
-gleich vermuten, dass sich dieses Modul mit einer Segmentierung beschäftigt. Der
-Untertitel des Logos lässt darauf deuten, dass es um die Segmentierung von Micro
-\ac{CT} Aufnahmen geht. Wurde der Tooth Analyser installiert, so ist er über den
-Menüpunkt Module in Slicer auswählbar. Hier wird er in dem Unterpunkt \textit{Segmentierung}
-eingruppiert, was ein weiteres Indiz auf die grobe Funktionalität liefert. Wird
-also der Tooth Analyser gestartet so erhält man die Ansicht der Kernanwendung
-mit der Entsprechenden \ac{UI}. Die Abbildung \ref{fig:tooth_analyser_start_up}
-soll genau diese Ansicht verdeutlichen
+Dentin, Pulpa) mit den unterschiedlichen Farben (grün, gelb, orange)
+visualisiert werden. Dies verdeutlicht die Analogie zur anatomischen Segmentierung
+und lässt gleich vermuten, dass sich dieses Modul mit einer Segmentierung
+beschäftigt. Der Untertitel deutet konkret auf Micro \ac{CT} Aufnahmen geht. Wurde
+der Tooth Analyser installiert, so ist er über den Menüpunkt Module in Slicer
+auswählbar. Hier wird er in dem Unterpunkt \textit{Segmentierung} eingruppiert, was
+ein weiteres Indiz auf die grobe Funktionalität liefert. Wird also der Tooth
+Analyser gestartet so erhält man die Ansicht der Kernanwendung mit der
+Entsprechenden \ac{UI}. Die Abbildung \ref{fig:tooth_analyser_start_up} soll
+genau diese Ansicht verdeutlichen
 
 \begin{figure}[h]
 	\centering
@@ -183,40 +184,178 @@ Funktionsbereich eine eigene Parameterklasse erstellt wurde, die dann wiederum
 in der Klasse ParameterNode zusammengefasst werden. Dies stellt eine gute Erweiterbarkeit
 der \ac{UI} um zusätzliche Parameter sicher. Es wurde an dieser Stelle bewusst keine
 Generalisierung verwendet, da Slicer genau diesen konzeptionierten Mechanismus
-vorsieht. Auf der Anderen Seite der Stuktur finden sich die Logikklassen. Die
+vorsieht. Auf der anderen Seite der Struktur finden sich die Logikklassen. Die
 verschiedenen Logiken die aktuell und zukünftig den Tooth Analyser ausstatten, verwenden
-alle die selbe Schnittstelle, die über die Klasse \texttt{ToothAnalyserLogic} bereitgestellt
+alle dieselbe Schnittstelle, die über die Klasse \texttt{ToothAnalyserLogic} bereitgestellt
 wird. Soll also in Zukunft weitere Funktionen hinzukommen, so kann hier einfach eine
 weitere Klasse an die Schnittstelle angehängt werden. So entsteht etwas was man
-in der Fachliteratur als \textit{Strategy Pattern} bezeichnet. QUELLE Der
-Bentuzer der Software wählt also über die verschiedenen Buttons aus, welche Strategie
-er gerade nutzen will. Der Tooth Analyser sorgt dann dafür, dass auch die richtige
-Funktion geladen wird. Das Feature für den Batch Modus funktioniert nach einem
-anderen Schema. Da dieser Modus auch für alle zukünftigen Funktionen gelten soll,
-wird dieser nicht als eigene Strategie, sondern direkt in der Schnittstelle bereitgestellt.
-So ist sichergestellt, dass eine Implementierung erfolgen muss, sie jedoch für
-alle Strategien unterschiedlich sein kann. Um noch etwas genauer zu zeigen,
-welche Schritte notwendig sind um den Tooth Analyser mit weiteren Funktionen
-auszustatten sei auf Abbildung ... verwiesen. Hier wird deutlich, welche Klassen
-und Methoden erstellt werden müssen
+in der Fachliteratur als \textit{Strategy Pattern} bezeichnet \citep[vgl.][S. ...]{siebler2014}.
+Der Bentuzer der Software wählt also über die verschiedenen Buttons aus, welche
+Strategie er gerade nutzen will. Der Tooth Analyser sorgt dann dafür, dass auch
+die richtige Funktion geladen wird. Das Feature für den Batch Modus funktioniert
+nach einem anderen Schema. Da dieser Modus auch für alle zukünftigen Funktionen
+gelten soll, wird dieser nicht als eigene Strategie, sondern direkt in der
+Schnittstelle bereitgestellt. So ist sichergestellt, dass eine Implementierung
+erfolgen muss, sie jedoch für alle Strategien unterschiedlich sein kann. Um noch
+etwas genauer zu zeigen, welche Schritte notwendig sind um den Tooth Analyser mit
+weiteren Funktionen auszustatten sei auf Abbildung ... verwiesen. Hier wird
+deutlich, welche Klassen und Methoden erstellt werden müssen
 
 KLASSENDIAGRAMM NEUE FUNKTION - BILD
 
-Wie bereits zu erkennen ist, signalisieren die roten Elemente die Punkte, an
-denen die Funktionalität erweitert werden kann. die gestrichelte, rote Line
-verdeutlicht nur den Zusammenhang dieser Komponenten und hat keine Auswirkung
-auf die Konzeption. Um einen noch genauren Einblick in die Strukturen zu geben,
-geht das nachfolgenbde Kapitel noch einen Schritt weiter und geht auf die
-konkrete Implementierungsdeteils ein.
+Wie bereits zu erkennen ist, signalisieren die roten Elemente die Punkte, an denen
+die Funktionalität erweitert werden kann. Die gestrichelte, rote Linie verdeutlicht
+nur den Zusammenhang dieser Komponenten und hat keine Auswirkung auf die Konzeption.
+Um einen noch genaueren Einblick in die Strukturen zu geben, geht das nachfolgende
+Kapitel noch einen Schritt weiter und geht auf konkrete Implementierungsdetails ein.
 
 % ---------------------------------------------------------------------------------------
 
 \section{Technische Umsetzung}
-\label{sec:technische_umsetzung} TODO
+\label{sec:technische_umsetzung} Zu Beginn sei gesagt, dass dieses Kapitel nicht
+alle Funktionen detailliert beschreibt, sondern sich auf die wichtigsten
+Funktionen und Methode des Tooth Analyser beschränkt. Eine Grobe Übersicht über die
+Wichtigsten Klassen soll zu Begin die Tabelle \ref{tab:methoden_klassen} liefern.
+Die Reihenfolge gibt eine grobe Orientierung bezüglich der Wichtigkeit.
 
-Zu Beginn sei gesagt, dass dieses Kapitel nicht alle Funktionen detailliert beschreibt,
-sondern sich auf die wichtigsten Funktionen und Methode des Tooth Analyser
-beschränkt.
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Klassen}             & \textbf{Beschreibung}                              \\
+		\hline
+		\texttt{ToothAnalyser}       & Klasse für den Abschnitt Hilfe                     \\
+		\hline
+		\texttt{ToothAnalyserWidget} & Die \ac{UI}-Klasse mit Anbindung an das Kernsystem \\
+		\hline
+		\texttt{ToothAnalyserLogic}  & Die Logic-Schnittstelle                            \\
+		\hline
+	\end{tabular}
+	\caption{Wichtige Klassen und Methoden im Tooth Analyser}
+	\label{tab:methoden_klassen}
+\end{table}
+
+Die drei Klassen aus der eben gezeigten Tabelle werden von der Slicer Dokumentation
+grob vorgeschrieben, und bilden somit den Kern der Erweiterung. Die Klasse ToothAnalyser
+bildet hierbei den Abschnitt \textit{Help and Acknowledgemt}, den jedes Modul mitbringen
+muss. Dort stehen alle wichtigen Meta.Informationen über das konkrete Modul. Der
+nachfolgenden Ausschnitt eines Quelltextes zeigt grob den Aufbau dieser Klasse.
+
+\begin{lstlisting}[
+    language={python},
+    caption={Grober Aufbau der Klasse ToothAnalyser nach der Slicer Dokumentation},
+    label={lst:3d_slicer_test_class}]
+class ToothAnalyser(ScriptedLoadableModule):
+    def __init__(self, parent):
+	    ScriptedLoadableModule.__init__(self, parent)
+	    self.parent.title = _("ExtensionName")
+	    self.parent.categories = ["categories"]
+	    self.parent.dependencies = ["moduels"]
+	    self.parent.contributors = ["author"]
+	    self.parent.helpText = _("help")
+	    self.parent.acknowledgementText = _("ackn.")
+\end{lstlisting}
+
+Direkt in Zeile eins ist zu sehen, dass die Klasse eine Generalisierung der Klasse
+\texttt{ScriptedLoadableModule} ist. Über diese Elternklasse wird die integration
+in die Slicer Kernanwendung sichergestellt. Innerhalb des Konstruktors der
+Klasse werden unterschiedliche Felder angelegt, welche die verschiedenen Texte wiederspiegeln
+sollen. Zu Beachten ist noch, dass die felder die einen einfachen String erwarten,
+in einer unscheinbaren methoden \texttt{\_()} gekappselt sind. Diese Methode ist
+Teil des Slicer Python Framework und sorgt dafür, dass automatisch der Kontextname
+gewechselt wird. Über bekannte html-Tags können auch Bilder oder HyperLinks
+eingebaut werden, welche auf Screenshots oder Documentationen verweisen.
+
+Die Klasse \texttt{ToothAnalyserWidget} bildet die gesamte Benutzerschnittstelle
+der Erweitung ab und kümmert sich gleichzeitig um das zusammenspiel zwischen
+Logik und Parameter. Hierfür hat die Widget-Klasse zugriff auf alle Parameter und
+auf das Logik Interface. Das nachfolgenden Listing zeigt en gorben aufbau der
+Klasse \texttt{ToothAnalyserWidget} und deren Felder.
+
+\begin{lstlisting}[
+    language={python},
+    caption={Grober Aufbau der Widget-Klasse und deren Felder},
+    label={lst:create_ui}]
+class ToothAnalyserWidget(ScriptedLoadableModuleWidget):
+  def __init__(self, parent=None) -> None:
+    ScriptedLoadableModuleWidget.__init__(self, parent)
+    self.logic = None
+    self._param = None
+\end{lstlisting}
+
+Wie auch schon die Klasse \texttt{ToothAnalyser} ist auch die Widget-Klasse eine
+Kindklasse. der Konstruktor dieser Klasse wird jedesmal aufgerufen, wenn der Benutzer
+zum ersten mal nach dem Slicer start das Modul aufruft. Neben dem
+Konstruktoraufruf der Elternklasse, werden auch die Parameter und die Logik-Schnittstelle
+initialisiert. So ergibt sich die Situation, dass die UI die aktuellen Parametereinstellungen
+abfragt und sie and die Logik weiterleitet.
+
+Neben der Steuerungsaufgabe erstellt die Widget-Klasse auch die UI aus der .ui
+Datei. Da diese unter der Haube ein XML Format aufweist, kann diese einfach in
+das Modul hineingeladen werden. Der Quellcode aus ... zeigt dies.
+
+\begin{lstlisting}[
+    language={python},
+    caption={Laden der \ac{UI} in das Modul ToothAnalyser},
+    label={lst:create_ui}]
+def createUI(self) -> any:
+  uiWidget = slicer.util.loadUI(self.resourcePath("UI/W.ui"))
+  self.layout.addWidget(uiWidget)
+  self.ui = slicer.util.childWidgetVariables(uiWidget)
+  return uiWidget
+\end{lstlisting}
+
+Mittels der Bibliothek \texttt{slicer} lässt sich hier die Datei für die \ac{UI}
+laden. Diese Datei liegt im Ordner \textit{Resources} sodass der Pfad zu diesem
+Ordner mit der Methode \texttt{self.resourcePath()} ausgelesen werden kann. Als
+Argument kann dann der Name der Datei angegeben werden. In diesem Fall existiert
+noch ein Unterordner mit der entsrechenden Datei (\texttt{"UI/W.ui"}).
+
+Ein weiterer nennenswerter Punkt in der Klasse \texttt{ToothAnalyserWidget} sind
+die eventbasierten Methoden. Diese sorgen dafür, das auf bestimmte aktionen in der
+Anwendung reagiert werden kann. Der Tooth Analyser hat in der Widget-Klasse
+mehrere solcher Eventmethode, die hier genannt werden.
+
+\begin{description}
+	\item[enter()] Wird immer ausgeüführt, wenn der Benutzer das Modul öffnet
+
+	\item[exit()] Wird immer ausgeführt, wenn der Benutzer ein anderes Modul
+		öffnet
+
+	\item[onSceneStartCloes()] Wird immer ausgeführt, kurz bevor das Modul
+		geschlosssen wird
+
+	\item[onSceneEndClose()] Wird ausgeführt, nachdem das Modul geschlossen wurde
+
+	\item[observeParameter()] Wird ausgeüfhrt, wenn der Benutzer Ändeurngne an der
+		\ac{UI} macht
+\end{description}
+
+Die Methode \texttt{observerParameter()} ist hierbei sehr interessant und verdient
+besondere Beachtung. Die Methode ist eine Beobachtungsmethode, die an ein Event gekoppelt
+ist, dass sich \textit{ModifiedEvent} nennt. Dieses Event wird immer ausgelöst, wenn
+der Benutzer Änderungen in der Slicer \ac{UI} macht. Dies umschließt nicht nur das
+Modul. Wird also sloch ein Event gefeuert, so wird die Methode observeParamteters
+aufgerufen. Das Listing \ref{lst:observe_parameter} zeigt diese Methode:
+
+\begin{lstlisting}[
+    language={python},
+    caption={Methode zum Beobachten von Änderungen in der Benutzerschnittstelle},
+    label={lst:observe_parameter}]
+def observerParameters(self, caller=None, event=None)->None:
+  self.handleApplyBatchButton()
+  self.handleApplyAnalyticsButton()
+  self.handleApplyAnatomicalButton()
+\end{lstlisting}
+
+Die Methode verfügt über die Parameter \texttt{caller} und \texttt{event}.
+Mittels diesen Parametern kann der Auslöser des Events und die Art des Eventes
+bestimmt werden. So könnte man verschiedenen Aktionen auf verschiednene Events ausführen.
+Innerhalb des Tooth Analyser wird diese Methode genutzt, um die Klick-Logik der Buttons
+abzubilden. Die Methoden \texttt{handleApply<...>Button()} steuern jeweils die Sichtbarkeit
+der einzelnen Buttons. Immer wenn der Benutzer dann Änderungen an der UI
+durchführt, wird die Logik innerhalb dieser Methode aus Listing \ref{lst:observe_parameter}
+aktuallisiert.
 
 - wichtige Codeausschnitte
 
@@ -238,8 +377,8 @@ TODO
 
 - wie könnte man die Berchnung theoretisch noch schnelller machen?
 
-- eine methode wurde schon implementiert, indem das verfahren erkennt ob ein
-bild segmentiert ist. dann, segmentierung übersprignen
+- eine methode wurde schon implementiert, indem das verfahren erkennt ob ein bild
+segmentiert ist. dann, segmentierung übersprignen
 % ---------------------------------------------------------------------------------------
 
 \section{Anwendungsszenarien}
@@ -251,9 +390,9 @@ TODO
 
 - Segmentierung des gazen Zahnes ist auch möglich.
 
-- Um den Nutzen dieser Erweiterung noch weiter zu erhöhen, können die unterschiedlichen
-Segmente über das Modul \textit{Data} unsichtbar geschalten werden. So lässt sich
-der Fokus auf einzelne Teile lenken
+- Um den Nutzen dieser Erweiterung noch weiter zu erhöhen, können die
+unterschiedlichen Segmente über das Modul \textit{Data} unsichtbar geschalten werden.
+So lässt sich der Fokus auf einzelne Teile lenken
 
 - Segmentieren
 

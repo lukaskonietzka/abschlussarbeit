@@ -40,10 +40,11 @@ die unterschiedlichen Grauwerte in einem CT-Bild.
 \begin{description}
 	\item[\textbf{Die Pulpa}] unterscheidet sich hierbei nur wenig vom Hintergrund,
 		da sie als einzige der drei Hauptteile eines Zahnes ein Weichgewebe ist und
-		bei einer Röntgenaufnahme nicht absorbiert. Dieser Teil ist in dieser Arbeit wenige
-		relevant und auch nicht Teil des Verfahrens, was das Segmentierungsverfahren
-		eher zu einer Zahnkronensegmentierung macht. Geht man weiter von innen nach außen,
-		so ist der nächste Zahnteil auf einem CT das Zahnbein.
+		bei einer Röntgenaufnahme nicht absorbiert. Dieser Teil ist in dieser Arbeit
+		wenige relevant und auch nicht Teil des Verfahrens, was das
+		Segmentierungsverfahren eher zu einer Zahnkronensegmentierung macht. Geht man
+		weiter von innen nach außen, so ist der nächste Zahnteil auf einem CT das
+		Zahnbein.
 
 	\item[\textbf{Das Dentin}] ist laut \citet[Seite 41]{lehmann2012Zahnheilkunde}
 		eine Hartsubstanz, die dem Kieferknochen sehr nah steht. So kommt es, dass
@@ -61,8 +62,7 @@ lokalisieren.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/dentin_schmelz_pulpa.png}
-	\caption{Darstellung von Pulpa, Dentin und Schmelz auf einer CT-Aufnahme.
-	QUELLE CT BILDER}
+	\caption{Darstellung von Pulpa, Dentin und Schmelz auf einer CT-Aufnahme nach \citet{heck2024}.}
 	\label{fig:pulpa_dentin_schmelz}
 \end{figure}
 
@@ -127,11 +127,11 @@ werden, die hier beschrieben werden soll.
 Gerät kommen, haben nach \citet{scanco2024} das Format \ac{ISQ}. Dieses Format
 fällt speziell auf die Geräte der Firma SCANCO zurück. Wie das vorherige Kapitel
 \ref{subsec:computertomografie} bereits eingeführt hat, ist dieser Dateityp für
-eine weitere Bearbeitung nur bedingt geeignet. Unter anderem wegen ihrer Größe. \citet{RoeschKunzelmann2018}
-haben hierfür ein Paket entwickelt. Dieses konvertiert ein \ac{ISQ} Format in ein
-\ac{mhd} Format. Bei einer \ac{mhd} Datei handelt es sich um ein Metafile, dass auf
-die eigentliche Datei verweist. Folgender Ausschnitt zeigt die Verwendung des
-Pakets.
+eine weitere Bearbeitung nur bedingt geeignet. Unter anderem wegen ihrer Größe.
+\citet{RoeschKunzelmann2018} haben hierfür ein Paket entwickelt. Dieses
+konvertiert ein \ac{ISQ} Format in ein \ac{mhd} Format. Bei einer \ac{mhd} Datei
+handelt es sich um ein Metafile, dass auf die eigentliche Datei verweist.
+Folgender Ausschnitt zeigt die Verwendung des Pakets.
 
 \texttt{python3 isq\_to\_mhd.py <quelle> <ziel>}
 

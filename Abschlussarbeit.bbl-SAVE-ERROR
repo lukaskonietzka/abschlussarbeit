@@ -19,391 +19,1045 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
-    \entry{cao2012optimization}{article}{}
-      \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=4f36d97caa9413d6520f78bfac4f5ab6}{%
-           family={Cao},
-           familyi={C\bibinitperiod},
-           given={Yu},
-           giveni={Y\bibinitperiod},
+    \entry{slicer2024}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ce3f66733f8020adf3ecfd1c5ef3c404}{%
+           family={{3D Slicer Community}},
+           familyi={3\bibinitperiod}}}%
+      }
+      \strng{namehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
+      \strng{fullhash}{ce3f66733f8020adf3ecfd1c5ef3c404}
+      \strng{bibnamehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
+      \strng{authorbibnamehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
+      \strng{authornamehash}{ce3f66733f8020adf3ecfd1c5ef3c404}
+      \strng{authorfullhash}{ce3f66733f8020adf3ecfd1c5ef3c404}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.slicer.org}}
+      \field{note}{Zugriff am 21. November 2024}
+      \field{title}{3D Slicer: A multi-platform, free and open source software package for visualization and image analysis}
+      \field{year}{2024}
+    \endentry
+    \entry{extensionsIndex2024}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9dd12323302c383fb0fedb34e8ba6ba3}{%
+           family={{3D Slicer Index}},
+           familyi={3\bibinitperiod}}}%
+      }
+      \strng{namehash}{9dd12323302c383fb0fedb34e8ba6ba3}
+      \strng{fullhash}{9dd12323302c383fb0fedb34e8ba6ba3}
+      \strng{bibnamehash}{9dd12323302c383fb0fedb34e8ba6ba3}
+      \strng{authorbibnamehash}{9dd12323302c383fb0fedb34e8ba6ba3}
+      \strng{authornamehash}{9dd12323302c383fb0fedb34e8ba6ba3}
+      \strng{authorfullhash}{9dd12323302c383fb0fedb34e8ba6ba3}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/Slicer/ExtensionsIndex}}
+      \field{note}{GitHub repository}
+      \field{title}{Slicer Extensions Index}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://github.com/Slicer/ExtensionsIndex
+      \endverb
+      \verb{url}
+      \verb https://github.com/Slicer/ExtensionsIndex
+      \endverb
+    \endentry
+    \entry{baird2017}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e47de1c60f9b26313fe1f2ae81485f0c}{%
+           family={Baird},
+           familyi={B\bibinitperiod},
+           given={Emily},
+           giveni={E\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=89b7b6d0158ff53de628ec498180c724}{%
-           family={Chan},
-           familyi={C\bibinitperiod},
-           given={Chee-Yong},
-           giveni={C\bibinithyphendelim Y\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=5f61775c2fbdd179d018bb797bd0ce1d}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Jie},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3093eb0fcf6e7800f2b8a5f811df11ac}{%
-           family={Tan},
+        {{un=0,uniquepart=base,hash=3a2adb4bdc707f5f21becb12b393db90}{%
+           family={Taylor},
            familyi={T\bibinitperiod},
-           given={Kian-Lee},
-           giveni={K\bibinithyphendelim L\bibinitperiod},
+           given={Gavin},
+           giveni={G\bibinitperiod},
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {VLDB Endowment}%
+        {Elsevier}%
       }
-      \strng{namehash}{aba5e42d07ef729b188a71d6aaa418ab}
-      \strng{fullhash}{d511ecd1ee8278c92e4999a92907cb09}
-      \strng{bibnamehash}{d511ecd1ee8278c92e4999a92907cb09}
-      \strng{authorbibnamehash}{d511ecd1ee8278c92e4999a92907cb09}
-      \strng{authornamehash}{aba5e42d07ef729b188a71d6aaa418ab}
-      \strng{authorfullhash}{d511ecd1ee8278c92e4999a92907cb09}
+      \strng{namehash}{5df378c9c55d94d101c5f5f86bd2bf40}
+      \strng{fullhash}{5df378c9c55d94d101c5f5f86bd2bf40}
+      \strng{bibnamehash}{5df378c9c55d94d101c5f5f86bd2bf40}
+      \strng{authorbibnamehash}{5df378c9c55d94d101c5f5f86bd2bf40}
+      \strng{authornamehash}{5df378c9c55d94d101c5f5f86bd2bf40}
+      \strng{authorfullhash}{5df378c9c55d94d101c5f5f86bd2bf40}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Current Biology}
+      \field{number}{8}
+      \field{title}{X-ray micro computed-tomography}
+      \field{volume}{27}
+      \field{year}{2017}
+      \field{pages}{R289\bibrangedash R291}
+      \range{pages}{-1}
+    \endentry
+    \entry{bein2006}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=356c72b4a7b56e71c1c3e61fe2fc3d5a}{%
+           family={Bein},
+           familyi={B\bibinitperiod},
+           given={Berthold},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{356c72b4a7b56e71c1c3e61fe2fc3d5a}
+      \strng{fullhash}{356c72b4a7b56e71c1c3e61fe2fc3d5a}
+      \strng{bibnamehash}{356c72b4a7b56e71c1c3e61fe2fc3d5a}
+      \strng{authorbibnamehash}{356c72b4a7b56e71c1c3e61fe2fc3d5a}
+      \strng{authornamehash}{356c72b4a7b56e71c1c3e61fe2fc3d5a}
+      \strng{authorfullhash}{356c72b4a7b56e71c1c3e61fe2fc3d5a}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Best Practice \& Research Clinical Anaesthesiology}
+      \field{number}{1}
+      \field{title}{Entropy}
+      \field{volume}{20}
+      \field{year}{2006}
+      \field{pages}{101\bibrangedash 109}
+      \range{pages}{9}
+    \endentry
+    \entry{bromiley2004}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=568736e86a08f9f03acf39ef250f833f}{%
+           family={Bromiley},
+           familyi={B\bibinitperiod},
+           given={PA},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=42e99af30cead7225c40534e5e7afc72}{%
+           family={Thacker},
+           familyi={T\bibinitperiod},
+           given={NA},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=942880f0dc3ae30c30cc935f529fcf3f}{%
+           family={Bouhova-Thacker},
+           familyi={B\bibinithyphendelim T\bibinitperiod},
+           given={E},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d6ce652cef51b02df94a142ff77cb80f}
+      \strng{fullhash}{228222019c883d9a7d8f7834f37d56a0}
+      \strng{bibnamehash}{228222019c883d9a7d8f7834f37d56a0}
+      \strng{authorbibnamehash}{228222019c883d9a7d8f7834f37d56a0}
+      \strng{authornamehash}{d6ce652cef51b02df94a142ff77cb80f}
+      \strng{authorfullhash}{228222019c883d9a7d8f7834f37d56a0}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Statistics and Inf. Series (2004-004)}
+      \field{number}{2004}
+      \field{title}{Shannon entropy, Renyi entropy, and information}
+      \field{volume}{9}
+      \field{year}{2004}
+      \field{pages}{2\bibrangedash 8}
+      \range{pages}{7}
+    \endentry
+    \entry{burger2009}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9ad59080ba03ad1d0e62ab1765d41109}{%
+           family={Burger},
+           familyi={B\bibinitperiod},
+           given={Wilhelm},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=19c08e31d97d6b90063b5872fdb30dfb}{%
+           family={Burge},
+           familyi={B\bibinitperiod},
+           given={Mark\bibnamedelima James},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{8ce60a5cf5fe03167855ae83217ac85b}
+      \strng{fullhash}{8ce60a5cf5fe03167855ae83217ac85b}
+      \strng{bibnamehash}{8ce60a5cf5fe03167855ae83217ac85b}
+      \strng{authorbibnamehash}{8ce60a5cf5fe03167855ae83217ac85b}
+      \strng{authornamehash}{8ce60a5cf5fe03167855ae83217ac85b}
+      \strng{authorfullhash}{8ce60a5cf5fe03167855ae83217ac85b}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Digitale Bildverarbeitung: Eine Algorithmische Einf\"{u}hrung Mit Java}
+      \field{year}{2009}
+    \endentry
+    \entry{buzug2011}{incollection}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e53c4b67fcebce78258f1cf930b9075c}{%
+           family={Buzug},
+           familyi={B\bibinitperiod},
+           given={Thorsten\bibnamedelima M},
+           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{e53c4b67fcebce78258f1cf930b9075c}
+      \strng{fullhash}{e53c4b67fcebce78258f1cf930b9075c}
+      \strng{bibnamehash}{e53c4b67fcebce78258f1cf930b9075c}
+      \strng{authorbibnamehash}{e53c4b67fcebce78258f1cf930b9075c}
+      \strng{authornamehash}{e53c4b67fcebce78258f1cf930b9075c}
+      \strng{authorfullhash}{e53c4b67fcebce78258f1cf930b9075c}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Springer handbook of medical technology}
+      \field{title}{Computed tomography}
+      \field{year}{2011}
+      \field{pages}{311\bibrangedash 342}
+      \range{pages}{32}
+    \endentry
+    \entry{de20083d}{article}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=771a93e8520806375b786b66b2540e3e}{%
+           family={Crespigny},
+           familyi={C\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0,
+           prefix={de},
+           prefixi={d\bibinitperiod},
+           prefixun=0}}%
+        {{un=0,uniquepart=base,hash=ed78c3375e252266da94cd726f5e51ce}{%
+           family={Bou-Reslan},
+           familyi={B\bibinithyphendelim R\bibinitperiod},
+           given={Hani},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e81105bf20bb2a76dff25de3d2cc354c}{%
+           family={Nishimura},
+           familyi={N\bibinitperiod},
+           given={Merry\bibnamedelima C},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=29ed979c0db5e23c16a299ec7c155def}{%
+           family={Phillips},
+           familyi={P\bibinitperiod},
+           given={Heidi},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9d5470d2b527b3765d3ba8ebb43e345c}{%
+           family={Carano},
+           familyi={C\bibinitperiod},
+           given={Richard\bibnamedelima AD},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9210e0ccbfd92aa0d307714f10ee1a4f}{%
+           family={D\textquoteright{}Arceuil},
+           familyi={D\bibinitperiod},
+           given={Helen\bibnamedelima E},
+           giveni={H\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{9a57e88e1d024501f5ae4d79be35b915}
+      \strng{fullhash}{becc51a8fc9a4a9b47810fa6be664f45}
+      \strng{bibnamehash}{becc51a8fc9a4a9b47810fa6be664f45}
+      \strng{authorbibnamehash}{becc51a8fc9a4a9b47810fa6be664f45}
+      \strng{authornamehash}{9a57e88e1d024501f5ae4d79be35b915}
+      \strng{authorfullhash}{becc51a8fc9a4a9b47810fa6be664f45}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Proceedings of the VLDB Endowment}
-      \field{number}{11}
-      \field{title}{Optimization of analytic window functions}
-      \field{volume}{5}
-      \field{year}{2012}
-      \field{pages}{1244\bibrangedash 1255}
-      \range{pages}{12}
+      \field{journaltitle}{Journal of neuroscience methods}
+      \field{number}{2}
+      \field{title}{3D micro-CT imaging of the postmortem brain}
+      \field{volume}{171}
+      \field{year}{2008}
+      \field{pages}{207\bibrangedash 213}
+      \range{pages}{7}
     \endentry
-    \entry{FOTACHE2015243}{article}{}
+    \entry{diwakar2018}{article}{}
       \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=f36252302072c2900a3ad2c06730dd7c}{%
-           family={Fotache},
-           familyi={F\bibinitperiod},
-           given={Marin},
+        {{un=0,uniquepart=base,hash=a27fac5ece6ebd5b41875f3b0de99bdf}{%
+           family={Diwakar},
+           familyi={D\bibinitperiod},
+           given={Manoj},
            giveni={M\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=2b2116124ce2088bb87a1abf3d412c9c}{%
-           family={Strimbei},
-           familyi={S\bibinitperiod},
-           given={Catalin},
-           giveni={C\bibinitperiod},
+        {{un=0,uniquepart=base,hash=939a07ef95f263a77489acec648a3070}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Manoj},
+           giveni={M\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{70845cf830af5a1503e4db91b39dd238}
-      \strng{fullhash}{70845cf830af5a1503e4db91b39dd238}
-      \strng{bibnamehash}{70845cf830af5a1503e4db91b39dd238}
-      \strng{authorbibnamehash}{70845cf830af5a1503e4db91b39dd238}
-      \strng{authornamehash}{70845cf830af5a1503e4db91b39dd238}
-      \strng{authorfullhash}{70845cf830af5a1503e4db91b39dd238}
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{3d116ad0a64e8f9e4eaf16a9cc7f9f0e}
+      \strng{fullhash}{3d116ad0a64e8f9e4eaf16a9cc7f9f0e}
+      \strng{bibnamehash}{3d116ad0a64e8f9e4eaf16a9cc7f9f0e}
+      \strng{authorbibnamehash}{3d116ad0a64e8f9e4eaf16a9cc7f9f0e}
+      \strng{authornamehash}{3d116ad0a64e8f9e4eaf16a9cc7f9f0e}
+      \strng{authorfullhash}{3d116ad0a64e8f9e4eaf16a9cc7f9f0e}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Biomedical Signal Processing and Control}
+      \field{title}{A review on CT image noise and its denoising}
+      \field{volume}{42}
+      \field{year}{2018}
+      \field{pages}{73\bibrangedash 88}
+      \range{pages}{16}
+    \endentry
+    \entry{fedorov2012slicer}{article}{}
+      \name{author}{15}{}{%
+        {{un=0,uniquepart=base,hash=d33ae5bf74987de04225fa2b961cff6f}{%
+           family={Fedorov},
+           familyi={F\bibinitperiod},
+           given={Andrey},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d1c63f9ed5f2a01cb63be2dc89824a1}{%
+           family={Beichel},
+           familyi={B\bibinitperiod},
+           given={Reinhard},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b342b8d22d373edc0ef9b257397d5896}{%
+           family={Kalpathy-Cramer},
+           familyi={K\bibinithyphendelim C\bibinitperiod},
+           given={Jayashree},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f37446486db22f127083985c07a2eb68}{%
+           family={Finet},
+           familyi={F\bibinitperiod},
+           given={Julien},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1d9541a2a6bbc314a46c87545c9010b8}{%
+           family={Fillion-Robin},
+           familyi={F\bibinithyphendelim R\bibinitperiod},
+           given={Jean-Christophe},
+           giveni={J\bibinithyphendelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2db4a0dd055335ed301dfce2dcc9712b}{%
+           family={Pujol},
+           familyi={P\bibinitperiod},
+           given={Sonia},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=234d0b665a579fd58da1ab166deee840}{%
+           family={Bauer},
+           familyi={B\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c626c0e37081056eb9ff4c4f1b266e7c}{%
+           family={Jennings},
+           familyi={J\bibinitperiod},
+           given={Dylan},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2b32a0a63ba2ca1cbe8a91002fe94204}{%
+           family={Fennessy},
+           familyi={F\bibinitperiod},
+           given={Fiona\bibnamedelima M.},
+           giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6556f80ba935e9e3980178d889753f1e}{%
+           family={Sonka},
+           familyi={S\bibinitperiod},
+           given={Milan},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da94b97767e9a5aa669fa74e412ca3bd}{%
+           family={Buatti},
+           familyi={B\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4c17625e55d68aa2ef480fa9c9849c1d}{%
+           family={Aylward},
+           familyi={A\bibinitperiod},
+           given={Stephen\bibnamedelima R.},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=94cd4bab7e359ceb90abb7de0317bc4c}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={James\bibnamedelima V.},
+           giveni={J\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f8350668ee2a9c0c26da09aa05de651e}{%
+           family={Pieper},
+           familyi={P\bibinitperiod},
+           given={Steve},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a9633d3f19515a94aceca647e1e70bdb}{%
+           family={Kikinis},
+           familyi={K\bibinitperiod},
+           given={Ron},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{797ba34b7b353701a70e68df10f37671}
+      \strng{fullhash}{2ac7a756baf261ad07ce5bdcf2fe2fa9}
+      \strng{bibnamehash}{2ac7a756baf261ad07ce5bdcf2fe2fa9}
+      \strng{authorbibnamehash}{2ac7a756baf261ad07ce5bdcf2fe2fa9}
+      \strng{authornamehash}{797ba34b7b353701a70e68df10f37671}
+      \strng{authorfullhash}{2ac7a756baf261ad07ce5bdcf2fe2fa9}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Hypes or not, Big Data, NoSQL, Analytics, Business Intelligence, Data Science require processing huge amounts of data in various and complex ways using a vast array of statistical methods and tools. Market increasingly needs graduates with both databases and data warehouses technological skills and also statistical competencies in order to decipher the business patterns and trends hidden in the mountains of data. This paper presents the main coordinates of data processing today and some implications for academic curricula. It argues that data analysis and business intelligence professionals could benefit if trained to acquire a proper level of SQL and data warehouses knowledge.}
-      \field{issn}{2212-5671}
-      \field{journaltitle}{Procedia Economics and Finance}
-      \field{note}{Globalization and Higher Education in Economics and Business Administration - GEBA 2013}
-      \field{title}{SQL and Data Analysis. Some Implications for Data Analysits and Higher Education}
-      \field{volume}{20}
-      \field{year}{2015}
-      \field{pages}{243\bibrangedash 251}
-      \range{pages}{9}
-      \verb{doi}
-      \verb https://doi.org/10.1016/S2212-5671(15)00071-4
-      \endverb
-      \verb{urlraw}
-      \verb https://www.sciencedirect.com/science/article/pii/S2212567115000714
-      \endverb
-      \verb{url}
-      \verb https://www.sciencedirect.com/science/article/pii/S2212567115000714
-      \endverb
-      \keyw{Big Data,Statistics,Data Analysis,SQL,OLAP}
-    \endentry
-    \entry{grust2017advanced}{misc}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=d7dfbfeb7524ef2a3887294bfc5b9df3}{%
-           family={Grust},
-           familyi={G\bibinitperiod},
-           given={Torsten},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{d7dfbfeb7524ef2a3887294bfc5b9df3}
-      \strng{fullhash}{d7dfbfeb7524ef2a3887294bfc5b9df3}
-      \strng{bibnamehash}{d7dfbfeb7524ef2a3887294bfc5b9df3}
-      \strng{authorbibnamehash}{d7dfbfeb7524ef2a3887294bfc5b9df3}
-      \strng{authornamehash}{d7dfbfeb7524ef2a3887294bfc5b9df3}
-      \strng{authorfullhash}{d7dfbfeb7524ef2a3887294bfc5b9df3}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Advanced SQL}
-      \field{year}{2017}
-    \endentry
-    \entry{Maue2022}{online}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=f2a364acd45b653c6a06262404e5241a}{%
-           family={Maue},
-           familyi={M\bibinitperiod},
-           given={Laurent},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{f2a364acd45b653c6a06262404e5241a}
-      \strng{fullhash}{f2a364acd45b653c6a06262404e5241a}
-      \strng{bibnamehash}{f2a364acd45b653c6a06262404e5241a}
-      \strng{authorbibnamehash}{f2a364acd45b653c6a06262404e5241a}
-      \strng{authornamehash}{f2a364acd45b653c6a06262404e5241a}
-      \strng{authorfullhash}{f2a364acd45b653c6a06262404e5241a}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
+      \field{journaltitle}{Magnetic Resonance Imaging}
       \field{month}{11}
-      \field{title}{SQL Analytical Functions: A Comprehensive Guide}
-      \field{urlday}{17}
-      \field{urlmonth}{10}
-      \field{urlyear}{2024}
-      \field{year}{2022}
-      \field{urldateera}{ce}
+      \field{number}{9}
+      \field{title}{3D Slicer as an Image Computing Platform for the Quantitative Imaging Network}
+      \field{volume}{30}
+      \field{year}{2012}
+      \field{pages}{1323\bibrangedash 1341}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1016/j.mri.2012.05.001
+      \endverb
+    \endentry
+    \entry{handels2000}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=90df404e4b5c3d2e93a145a048f7f966}{%
+           family={Handels},
+           familyi={H\bibinitperiod},
+           given={Heinz},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{90df404e4b5c3d2e93a145a048f7f966}
+      \strng{fullhash}{90df404e4b5c3d2e93a145a048f7f966}
+      \strng{bibnamehash}{90df404e4b5c3d2e93a145a048f7f966}
+      \strng{authorbibnamehash}{90df404e4b5c3d2e93a145a048f7f966}
+      \strng{authornamehash}{90df404e4b5c3d2e93a145a048f7f966}
+      \strng{authorfullhash}{90df404e4b5c3d2e93a145a048f7f966}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Medizinische Bildverarbeitung}
+      \field{year}{2000}
+    \endentry
+    \entry{heck2024}{misc}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=7d71eb6193134976edb8d9ec18d8b8d0}{%
+           family={Heck},
+           familyi={H\bibinitperiod},
+           given={Katrin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7a98166e105e0e6e70380f2ec916db70}{%
+           family={Litzenburger},
+           familyi={L\bibinitperiod},
+           given={Friederike},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f83357f461221f9ba7442f7189c298c0}{%
+           family={Kunzelmann},
+           familyi={K\bibinitperiod},
+           given={Karl-Heinz},
+           giveni={K\bibinithyphendelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Open Data LMU}%
+      }
+      \strng{namehash}{78e4e048266dd63dfa831708247b0977}
+      \strng{fullhash}{1620fcee893e5ca2d49b5d8dc8d591fc}
+      \strng{bibnamehash}{1620fcee893e5ca2d49b5d8dc8d591fc}
+      \strng{authorbibnamehash}{1620fcee893e5ca2d49b5d8dc8d591fc}
+      \strng{authornamehash}{78e4e048266dd63dfa831708247b0977}
+      \strng{authorfullhash}{1620fcee893e5ca2d49b5d8dc8d591fc}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{note}{Zugriff am: 2024-11-15}
+      \field{title}{In-vitro caries diagnostic study - 375 microtomographic images of the coronal part of extracted human teeth}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.5282/ubm/data.445
+      \endverb
       \verb{urlraw}
-      \verb https://restapp.io/blog/sql-analytical-functions/
+      \verb https://data.ub.uni-muenchen.de/445/
       \endverb
       \verb{url}
-      \verb https://restapp.io/blog/sql-analytical-functions/
+      \verb https://data.ub.uni-muenchen.de/445/
       \endverb
     \endentry
-    \entry{melton2002advanced}{book}{}
+    \entry{hoffmann2020}{thesis}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=1fc8246fdeea92d246cbf22d8fc996b0}{%
-           family={Melton},
-           familyi={M\bibinitperiod},
-           given={Jim},
-           giveni={J\bibinitperiod},
+        {{un=0,uniquepart=base,hash=a98a797fe79e8e66ea53e48a9acc126c}{%
+           family={Hofmann},
+           familyi={H\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod},
            givenun=0}}%
       }
-      \list{publisher}{1}{%
-        {Elsevier}%
+      \list{institution}{1}{%
+        {Technische Hochschule Augsburg}%
       }
-      \strng{namehash}{1fc8246fdeea92d246cbf22d8fc996b0}
-      \strng{fullhash}{1fc8246fdeea92d246cbf22d8fc996b0}
-      \strng{bibnamehash}{1fc8246fdeea92d246cbf22d8fc996b0}
-      \strng{authorbibnamehash}{1fc8246fdeea92d246cbf22d8fc996b0}
-      \strng{authornamehash}{1fc8246fdeea92d246cbf22d8fc996b0}
-      \strng{authorfullhash}{1fc8246fdeea92d246cbf22d8fc996b0}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \strng{namehash}{a98a797fe79e8e66ea53e48a9acc126c}
+      \strng{fullhash}{a98a797fe79e8e66ea53e48a9acc126c}
+      \strng{bibnamehash}{a98a797fe79e8e66ea53e48a9acc126c}
+      \strng{authorbibnamehash}{a98a797fe79e8e66ea53e48a9acc126c}
+      \strng{authornamehash}{a98a797fe79e8e66ea53e48a9acc126c}
+      \strng{authorfullhash}{a98a797fe79e8e66ea53e48a9acc126c}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Advanced SQL: 1999: Understanding object-relational and other advanced features}
-      \field{year}{2002}
+      \field{month}{1}
+      \field{title}{Unterst\"{u}tzung der Karies-Klassifizierung in Mikro-CT-Aufnahmen durch 3D-Bildverarbeitung}
+      \field{type}{Bachelorarbeit}
+      \field{year}{2020}
     \endentry
-    \entry{melton2001sql}{book}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=1fc8246fdeea92d246cbf22d8fc996b0}{%
-           family={Melton},
-           familyi={M\bibinitperiod},
-           given={Jim},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=5119673e00ccfe9fbbb61ca5dcc1ab35}{%
-           family={Simon},
-           familyi={S\bibinitperiod},
-           given={Alan\bibnamedelima R},
-           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
+    \entry{itk2024}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cb6d675190b04c7e0eadabe06e81e776}{%
+           family={{ITK Development Team}},
+           familyi={I\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{153e69d1abb640952c4cfdf60ef43e87}
-      \strng{fullhash}{153e69d1abb640952c4cfdf60ef43e87}
-      \strng{bibnamehash}{153e69d1abb640952c4cfdf60ef43e87}
-      \strng{authorbibnamehash}{153e69d1abb640952c4cfdf60ef43e87}
-      \strng{authornamehash}{153e69d1abb640952c4cfdf60ef43e87}
-      \strng{authorfullhash}{153e69d1abb640952c4cfdf60ef43e87}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \strng{namehash}{cb6d675190b04c7e0eadabe06e81e776}
+      \strng{fullhash}{cb6d675190b04c7e0eadabe06e81e776}
+      \strng{bibnamehash}{cb6d675190b04c7e0eadabe06e81e776}
+      \strng{authorbibnamehash}{cb6d675190b04c7e0eadabe06e81e776}
+      \strng{authornamehash}{cb6d675190b04c7e0eadabe06e81e776}
+      \strng{authorfullhash}{cb6d675190b04c7e0eadabe06e81e776}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{SQL: 1999: understanding relational language components}
-      \field{year}{2001}
+      \field{howpublished}{\url{https://itk.org}}
+      \field{note}{Entwickelt und gepflegt von Kitware, Zugriff am 21. November 2024}
+      \field{title}{ITK: Insight Segmentation and Registration Toolkit}
+      \field{year}{2024}
     \endentry
-    \entry{Nuijten2023}{inbook}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=f0e784a4c637ebeb2ececb74a8a28716}{%
-           family={Nuijten},
-           familyi={N\bibinitperiod},
-           given={Alex},
-           giveni={A\bibinitperiod},
+    \entry{jahne2024}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2af9a87ab3a028f0648eedb98f353969}{%
+           family={J\"{a}hne},
+           familyi={J\bibinitperiod},
+           given={Bernd},
+           giveni={B\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=4f7a6b558c3290d1fef029d074b72205}{%
-           family={Barel},
-           familyi={B\bibinitperiod},
-           given={Patrick},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{location}{1}{%
-        {Berkeley, CA}%
       }
       \list{publisher}{1}{%
-        {Apress}%
+        {Springer-Verlag}%
       }
-      \strng{namehash}{0c3d86465a1439e389ea1c68c8e0b427}
-      \strng{fullhash}{0c3d86465a1439e389ea1c68c8e0b427}
-      \strng{bibnamehash}{0c3d86465a1439e389ea1c68c8e0b427}
-      \strng{authorbibnamehash}{0c3d86465a1439e389ea1c68c8e0b427}
-      \strng{authornamehash}{0c3d86465a1439e389ea1c68c8e0b427}
-      \strng{authorfullhash}{0c3d86465a1439e389ea1c68c8e0b427}
+      \strng{namehash}{2af9a87ab3a028f0648eedb98f353969}
+      \strng{fullhash}{2af9a87ab3a028f0648eedb98f353969}
+      \strng{bibnamehash}{2af9a87ab3a028f0648eedb98f353969}
+      \strng{authorbibnamehash}{2af9a87ab3a028f0648eedb98f353969}
+      \strng{authornamehash}{2af9a87ab3a028f0648eedb98f353969}
+      \strng{authorfullhash}{2af9a87ab3a028f0648eedb98f353969}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Digitale bildverarbeitung: und bildgewinnung}
+      \field{year}{2024}
+    \endentry
+    \entry{lehmann2012Zahnheilkunde}{book}{}
+      \name{author}{3}{}{%
+        {{un=1,uniquepart=given,hash=0b136e25734f22bc647e9d3601ab9407}{%
+           family={Lehmann},
+           familyi={L\bibinitperiod},
+           given={Klaus\bibnamedelima M},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=37ec75325127e5c41f53b2e45f671d39}{%
+           family={Hellwig},
+           familyi={H\bibinitperiod},
+           given={Elmar},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7bb2f5b6bef5b914fffff674e254a521}{%
+           family={Wenz},
+           familyi={W\bibinitperiod},
+           given={Hans-J\"{u}rgen},
+           giveni={H\bibinithyphendelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Deutscher \"{A}rzteverlag}%
+      }
+      \strng{namehash}{eb14477ae932db40274c1cd7f8c6c2cb}
+      \strng{fullhash}{45b281f3d2ef114a663e0bae967786c5}
+      \strng{bibnamehash}{45b281f3d2ef114a663e0bae967786c5}
+      \strng{authorbibnamehash}{45b281f3d2ef114a663e0bae967786c5}
+      \strng{authornamehash}{eb14477ae932db40274c1cd7f8c6c2cb}
+      \strng{authorfullhash}{45b281f3d2ef114a663e0bae967786c5}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Zahn\"{a}rztliche Prop\"{a}deutik: Einf\"{u}hrung in die Zahnheilkunde; mit 32 Tabellen}
+      \field{year}{2012}
+    \endentry
+    \entry{lehmann2013bildverarbeitung}{book}{}
+      \name{author}{4}{}{%
+        {{un=1,uniquepart=given,hash=817ec26d9e01fd6d8586ceccbda31c90}{%
+           family={Lehmann},
+           familyi={L\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=9c566b48608b3c7d16b4a181736d01ce}{%
+           family={Oberschelp},
+           familyi={O\bibinitperiod},
+           given={Walter},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c685d9c090d2b0aee696825b7ba832d2}{%
+           family={Pelikan},
+           familyi={P\bibinitperiod},
+           given={Erich},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8352d8569faf2ae47c2e8b86a4d50b41}{%
+           family={Repges},
+           familyi={R\bibinitperiod},
+           given={Rudolf},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{15b28590eac1d82e1c8f19e4f45dbdc5}
+      \strng{fullhash}{5a24d8fcb452cf1302a2320d5bdf646d}
+      \strng{bibnamehash}{5a24d8fcb452cf1302a2320d5bdf646d}
+      \strng{authorbibnamehash}{5a24d8fcb452cf1302a2320d5bdf646d}
+      \strng{authornamehash}{15b28590eac1d82e1c8f19e4f45dbdc5}
+      \strng{authorfullhash}{5a24d8fcb452cf1302a2320d5bdf646d}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Bildverarbeitung f\"{u}r die Medizin: Grundlagen, Modelle, Methoden, Anwendungen}
+      \field{year}{2013}
+    \endentry
+    \entry{nib2024}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=97ea5f9a45b65ca57c9ef079bca1dbc5}{%
+           family={{National Institute of Biomedical Imaging and Bioengineering (NIBIB)}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{97ea5f9a45b65ca57c9ef079bca1dbc5}
+      \strng{fullhash}{97ea5f9a45b65ca57c9ef079bca1dbc5}
+      \strng{bibnamehash}{97ea5f9a45b65ca57c9ef079bca1dbc5}
+      \strng{authorbibnamehash}{97ea5f9a45b65ca57c9ef079bca1dbc5}
+      \strng{authornamehash}{97ea5f9a45b65ca57c9ef079bca1dbc5}
+      \strng{authorfullhash}{97ea5f9a45b65ca57c9ef079bca1dbc5}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{It happens all too often that end users of a database application ask for exports in Excel so that they can manipulate the data to get the information they need to make business decisions. Often the required information can be retrieved by using SQL in a format that the end users are looking for, thus eliminating the manual manipulation of data after export. The more extensive your knowledge of SQL, the more options you have to assist the end user in their needs. This chapter discusses two important techniques: analytic functions and pivoting.}
-      \field{booktitle}{Modern Oracle Database Programming: Level Up Your Skill Set to Oracle's Latest and Most Powerful Features in SQL, PL/SQL, and JSON}
-      \field{isbn}{978-1-4842-9166-5}
-      \field{title}{Analytic Functions and (un)Pivoting}
-      \field{year}{2023}
-      \field{pages}{35\bibrangedash 61}
-      \range{pages}{27}
-      \verb{doi}
-      \verb 10.1007/978-1-4842-9166-5_2
-      \endverb
+      \field{note}{Zugriff am: 2024-11-15}
+      \field{title}{X-Rays - Science Topic}
+      \field{year}{2024}
       \verb{urlraw}
-      \verb https://doi.org/10.1007/978-1-4842-9166-5_2
+      \verb https://www.nibib.nih.gov/science-education/science-topics/x-rays
       \endverb
       \verb{url}
-      \verb https://doi.org/10.1007/978-1-4842-9166-5_2
+      \verb https://www.nibib.nih.gov/science-education/science-topics/x-rays
       \endverb
     \endentry
-    \entry{ibrahaim23}{online}{}
+    \entry{poliklinikLMU}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c0ce300dd3333f4094f6dc0df3a6e1b7}{%
-           family={Ogunbiyi},
-           familyi={O\bibinitperiod},
-           given={Ibrahim\bibnamedelima Abayomi},
-           giveni={I\bibinitperiod\bibinitdelim A\bibinitperiod},
+        {{un=0,uniquepart=base,hash=98f28b1ba0c8a79f3b067f3e0c67f670}{%
+           family={Poliklinik},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{98f28b1ba0c8a79f3b067f3e0c67f670}
+      \strng{fullhash}{98f28b1ba0c8a79f3b067f3e0c67f670}
+      \strng{bibnamehash}{98f28b1ba0c8a79f3b067f3e0c67f670}
+      \strng{authorbibnamehash}{98f28b1ba0c8a79f3b067f3e0c67f670}
+      \strng{authornamehash}{98f28b1ba0c8a79f3b067f3e0c67f670}
+      \strng{authorfullhash}{98f28b1ba0c8a79f3b067f3e0c67f670}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.klinikum.uni-muenchen.de/Poliklinik-fuer-Zahnerhaltung-und-Parodontologie/}}
+      \field{note}{Zugriff am 22. November 2024}
+      \field{title}{Poliklinik f\"{u}r Zahnerhaltung und Parodontologie des LMU-Klinikums M\"{u}nchen}
+      \field{year}{2024}
+    \endentry
+    \entry{qt2024}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7770e09d25a992e7b3389dd6af3b8480}{%
+           family={{Qt Development Team}},
+           familyi={Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{7770e09d25a992e7b3389dd6af3b8480}
+      \strng{fullhash}{7770e09d25a992e7b3389dd6af3b8480}
+      \strng{bibnamehash}{7770e09d25a992e7b3389dd6af3b8480}
+      \strng{authorbibnamehash}{7770e09d25a992e7b3389dd6af3b8480}
+      \strng{authornamehash}{7770e09d25a992e7b3389dd6af3b8480}
+      \strng{authorfullhash}{7770e09d25a992e7b3389dd6af3b8480}
+      \field{sortinit}{Q}
+      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://doc.qt.io/qt-6/qt-intro.html}}
+      \field{note}{Entwickelt und gepflegt von The Qt Company, Zugriff am 21. November 2024}
+      \field{title}{Qt Documentation: Introduction to Qt}
+      \field{year}{2024}
+    \endentry
+    \entry{ramesh2021}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=1585158a953a14be5a33cae3fb203ee3}{%
+           family={Ramesh},
+           familyi={R\bibinitperiod},
+           given={KKD},
+           giveni={K\bibinitperiod},
            givenun=0}}%
-      }
-      \list{organization}{1}{%
-        {freeCodeCamp}%
-      }
-      \strng{namehash}{c0ce300dd3333f4094f6dc0df3a6e1b7}
-      \strng{fullhash}{c0ce300dd3333f4094f6dc0df3a6e1b7}
-      \strng{bibnamehash}{c0ce300dd3333f4094f6dc0df3a6e1b7}
-      \strng{authorbibnamehash}{c0ce300dd3333f4094f6dc0df3a6e1b7}
-      \strng{authornamehash}{c0ce300dd3333f4094f6dc0df3a6e1b7}
-      \strng{authorfullhash}{c0ce300dd3333f4094f6dc0df3a6e1b7}
-      \field{sortinit}{O}
-      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{2}
-      \field{note}{Zugriff am 3. November 2024}
-      \field{title}{Window Functions in SQL Explained with Examples}
-      \field{year}{2023}
-      \verb{urlraw}
-      \verb https://www.freecodecamp.org/news/window-functions-in-sql/
-      \endverb
-      \verb{url}
-      \verb https://www.freecodecamp.org/news/window-functions-in-sql/
-      \endverb
-    \endentry
-    \entry{oracle16}{manual}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=d51288dc67d9f5e0330d927a009e208b}{%
-           family={{Oracle Corporation}},
-           familyi={O\bibinitperiod}}}%
-      }
-      \strng{namehash}{d51288dc67d9f5e0330d927a009e208b}
-      \strng{fullhash}{d51288dc67d9f5e0330d927a009e208b}
-      \strng{bibnamehash}{d51288dc67d9f5e0330d927a009e208b}
-      \strng{authorbibnamehash}{d51288dc67d9f5e0330d927a009e208b}
-      \strng{authornamehash}{d51288dc67d9f5e0330d927a009e208b}
-      \strng{authorfullhash}{d51288dc67d9f5e0330d927a009e208b}
-      \field{extraname}{1}
-      \field{sortinit}{O}
-      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Zugriff am: 2024-11-05}
-      \field{title}{GROUPING SETS-Ausdruck im Oracle Endeca Server EQL-Handbuch}
-      \field{year}{2016}
-      \verb{urlraw}
-      \verb https://docs.oracle.com/cd/E49933_01/server.770/es_eql/src/reql_aggregation_grouping_sets.html
-      \endverb
-      \verb{url}
-      \verb https://docs.oracle.com/cd/E49933_01/server.770/es_eql/src/reql_aggregation_grouping_sets.html
-      \endverb
-    \endentry
-    \entry{oracle}{manual}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=d51288dc67d9f5e0330d927a009e208b}{%
-           family={{Oracle Corporation}},
-           familyi={O\bibinitperiod}}}%
-      }
-      \strng{namehash}{d51288dc67d9f5e0330d927a009e208b}
-      \strng{fullhash}{d51288dc67d9f5e0330d927a009e208b}
-      \strng{bibnamehash}{d51288dc67d9f5e0330d927a009e208b}
-      \strng{authorbibnamehash}{d51288dc67d9f5e0330d927a009e208b}
-      \strng{authornamehash}{d51288dc67d9f5e0330d927a009e208b}
-      \strng{authorfullhash}{d51288dc67d9f5e0330d927a009e208b}
-      \field{extraname}{2}
-      \field{sortinit}{O}
-      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Zugriff am 3. November 2024}
-      \field{title}{Oracle Database SQL Language Reference: Analytic Functions}
-      \field{year}{2021}
-      \verb{urlraw}
-      \verb https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Analytic-Functions.html#GUID-527832F7-63C0-4445-8C16-307FA5084056
-      \endverb
-      \verb{url}
-      \verb https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Analytic-Functions.html#GUID-527832F7-63C0-4445-8C16-307FA5084056
-      \endverb
-    \endentry
-    \entry{schicker2017datenbanken}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c841e7e42ff95a1aa227cf356938747c}{%
-           family={Schicker},
+        {{un=0,uniquepart=base,hash=ef2d91d82e5c93c7470363d352357310}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={G\bibnamedelima Kiran},
+           giveni={G\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=85a4c83984703a9677b7aa177c2a6d6b}{%
+           family={Swapna},
            familyi={S\bibinitperiod},
-           given={Edwin},
-           giveni={E\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ff2d8b857562dba14ec19e775a71ed33}{%
+           family={Datta},
+           familyi={D\bibinitperiod},
+           given={Debabrata},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=519d5ba1e4b8a0b860f684a9a928a3f5}{%
+           family={Rajest},
+           familyi={R\bibinitperiod},
+           given={S\bibnamedelima Suman},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod},
            givenun=0}}%
       }
-      \list{publisher}{1}{%
-        {Springer}%
+      \strng{namehash}{0e8fb59f28c05366e0a27291487a0ed4}
+      \strng{fullhash}{9afc92eef19af845225f6ecb1578e80a}
+      \strng{bibnamehash}{9afc92eef19af845225f6ecb1578e80a}
+      \strng{authorbibnamehash}{9afc92eef19af845225f6ecb1578e80a}
+      \strng{authornamehash}{0e8fb59f28c05366e0a27291487a0ed4}
+      \strng{authorfullhash}{9afc92eef19af845225f6ecb1578e80a}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{EAI Endorsed Transactions on Pervasive Health and Technology}
+      \field{number}{27}
+      \field{title}{A review of medical image segmentation algorithms}
+      \field{volume}{7}
+      \field{year}{2021}
+      \field{pages}{e6\bibrangedash e6}
+      \range{pages}{-1}
+    \endentry
+    \entry{RoeschKunzelmann2018}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b953931a8bd9ee85ec2ec01df054db18}{%
+           family={R\"{o}sch},
+           familyi={R\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f83357f461221f9ba7442f7189c298c0}{%
+           family={Kunzelmann},
+           familyi={K\bibinitperiod},
+           given={Karl-Heinz},
+           giveni={K\bibinithyphendelim H\bibinitperiod},
+           givenun=0}}%
       }
-      \strng{namehash}{c841e7e42ff95a1aa227cf356938747c}
-      \strng{fullhash}{c841e7e42ff95a1aa227cf356938747c}
-      \strng{bibnamehash}{c841e7e42ff95a1aa227cf356938747c}
-      \strng{authorbibnamehash}{c841e7e42ff95a1aa227cf356938747c}
-      \strng{authornamehash}{c841e7e42ff95a1aa227cf356938747c}
-      \strng{authorfullhash}{c841e7e42ff95a1aa227cf356938747c}
+      \strng{namehash}{f0fe516509c36454894f06fcd0ace5e9}
+      \strng{fullhash}{f0fe516509c36454894f06fcd0ace5e9}
+      \strng{bibnamehash}{f0fe516509c36454894f06fcd0ace5e9}
+      \strng{authorbibnamehash}{f0fe516509c36454894f06fcd0ace5e9}
+      \strng{authornamehash}{f0fe516509c36454894f06fcd0ace5e9}
+      \strng{authorfullhash}{f0fe516509c36454894f06fcd0ace5e9}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International Journal of Computer Assisted Radiology and Surgery;}
+      \field{number}{June 2018, issue 1 (supplement)}
+      \field{title}{Efficient 3D Rigid Registration of Large Micro CT Images}
+      \field{volume}{13}
+      \field{year}{2018}
+      \field{pages}{118\bibrangedash 119}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1007/s11548-018-1766-y
+      \endverb
+    \endentry
+    \entry{scanco2024}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5743b693d4ceb5489553a4f3a363a152}{%
+           family={{SCANCO Medical AG}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{5743b693d4ceb5489553a4f3a363a152}
+      \strng{fullhash}{5743b693d4ceb5489553a4f3a363a152}
+      \strng{bibnamehash}{5743b693d4ceb5489553a4f3a363a152}
+      \strng{authorbibnamehash}{5743b693d4ceb5489553a4f3a363a152}
+      \strng{authornamehash}{5743b693d4ceb5489553a4f3a363a152}
+      \strng{authorfullhash}{5743b693d4ceb5489553a4f3a363a152}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Datenbanken und SQL}
-      \field{year}{2017}
+      \field{note}{Zugriff am: 22. November 2024}
+      \field{title}{Brochures and Documentation}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.scanco.ch/brochures.html
+      \endverb
+      \verb{url}
+      \verb https://www.scanco.ch/brochures.html
+      \endverb
+    \endentry
+    \entry{siebler2014}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=01b35bf34b0b8550132347afd907e40b}{%
+           family={Siebler},
+           familyi={S\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Carl Hanser Verlag}%
+      }
+      \strng{namehash}{01b35bf34b0b8550132347afd907e40b}
+      \strng{fullhash}{01b35bf34b0b8550132347afd907e40b}
+      \strng{bibnamehash}{01b35bf34b0b8550132347afd907e40b}
+      \strng{authorbibnamehash}{01b35bf34b0b8550132347afd907e40b}
+      \strng{authornamehash}{01b35bf34b0b8550132347afd907e40b}
+      \strng{authorfullhash}{01b35bf34b0b8550132347afd907e40b}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783446436169}
+      \field{title}{Design Patterns Lernen M. Java:}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://books.google.de/books?id=9GkIoAEACAAJ
+      \endverb
+      \verb{url}
+      \verb https://books.google.de/books?id=9GkIoAEACAAJ
+      \endverb
+    \endentry
+    \entry{vtk2024}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3df4698da7088f98aeb1e5967a743306}{%
+           family={{VTK Development Team}},
+           familyi={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{3df4698da7088f98aeb1e5967a743306}
+      \strng{fullhash}{3df4698da7088f98aeb1e5967a743306}
+      \strng{bibnamehash}{3df4698da7088f98aeb1e5967a743306}
+      \strng{authorbibnamehash}{3df4698da7088f98aeb1e5967a743306}
+      \strng{authornamehash}{3df4698da7088f98aeb1e5967a743306}
+      \strng{authorfullhash}{3df4698da7088f98aeb1e5967a743306}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://vtk.org}}
+      \field{note}{Entwickelt und gepflegt von Kitware, Zugriff am 21. November 2024}
+      \field{title}{VTK: The Visualization Toolkit}
+      \field{year}{2024}
+    \endentry
+    \entry{walter2025}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=da090f622da4cd881a3ad055228ca434}{%
+           family={Walter},
+           familyi={W\bibinitperiod},
+           given={Elias},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{da090f622da4cd881a3ad055228ca434}
+      \strng{fullhash}{da090f622da4cd881a3ad055228ca434}
+      \strng{bibnamehash}{da090f622da4cd881a3ad055228ca434}
+      \strng{authorbibnamehash}{da090f622da4cd881a3ad055228ca434}
+      \strng{authornamehash}{da090f622da4cd881a3ad055228ca434}
+      \strng{authorfullhash}{da090f622da4cd881a3ad055228ca434}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Pers\"{o}nliches Interview}
+      \field{month}{2}
+      \field{note}{Gef\"{u}hrt von Lukas Konietzka.}
+      \field{title}{Interview zur Anforderungsanalyse f\"{u}r die Slicer Erweiterung}
+      \field{year}{2025}
+    \endentry
+    \entry{walter2025projekt}{misc}{}
+      \name{author}{4}{ul=1}{%
+        {{un=0,uniquepart=base,hash=da090f622da4cd881a3ad055228ca434}{%
+           family={Walter},
+           familyi={W\bibinitperiod},
+           given={Elias},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ca16479bc6a53a792aaee749ab55c7a8}{%
+           family={Wolf},
+           familyi={W\bibinitperiod},
+           given={Agnes},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6223d077ac8fb09fa957d5f0442c857d}{%
+           family={Schwendicke},
+           familyi={S\bibinitperiod},
+           given={Falk},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7d71eb6193134976edb8d9ec18d8b8d0}{%
+           family={Heck},
+           familyi={H\bibinitperiod},
+           given={Katrin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Poliklinik f\"{u}r Zahnerhaltung und Parodontologie, LMU Klinikum, LMU M\"{u}nchen}%
+      }
+      \strng{namehash}{588fc11e8b8b5960fd5a9787f2e84db9}
+      \strng{fullhash}{973acc19848b84d49712168e9b4fd4d1}
+      \strng{bibnamehash}{973acc19848b84d49712168e9b4fd4d1}
+      \strng{authorbibnamehash}{973acc19848b84d49712168e9b4fd4d1}
+      \strng{authornamehash}{588fc11e8b8b5960fd5a9787f2e84db9}
+      \strng{authorfullhash}{973acc19848b84d49712168e9b4fd4d1}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Projektbeschreibung}
+      \field{note}{Unver\"{o}ffentlichtes Dokument}
+      \field{title}{Automatic Detection and Analysis of Carious Lesions in Micro CTs}
+      \field{year}{2025}
+    \endentry
+    \entry{zwinkels2015}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a0258d6ca545c8bf4eca339af08b14c5}{%
+           family={Zwinkels},
+           familyi={Z\bibinitperiod},
+           given={Joanne},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin, Heidelberg}%
+      }
+      \strng{namehash}{a0258d6ca545c8bf4eca339af08b14c5}
+      \strng{fullhash}{a0258d6ca545c8bf4eca339af08b14c5}
+      \strng{bibnamehash}{a0258d6ca545c8bf4eca339af08b14c5}
+      \strng{authorbibnamehash}{a0258d6ca545c8bf4eca339af08b14c5}
+      \strng{authornamehash}{a0258d6ca545c8bf4eca339af08b14c5}
+      \strng{authorfullhash}{a0258d6ca545c8bf4eca339af08b14c5}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Encyclopedia of Color Science and Technology}
+      \field{title}{Light, electromagnetic spectrum}
+      \field{volume}{8071}
+      \field{year}{2015}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
     \endentry
   \enddatalist
 \endrefsection

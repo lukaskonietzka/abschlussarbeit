@@ -27,3 +27,4 @@ vtkMRMLScalarVolumeNode
 Segmentierungsdaten
 ToothAnalyserWidget
 QT-Designer
+ToothAnalyserLogic

@@ -7,6 +7,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {lstlisting}{\numberline {5.1}{\ignorespaces Grober Aufbau der Klasse ToothAnalyser nach der Slicer Dokumentation}}{38}{lstlisting.5.1}%
+\contentsline {lstlisting}{\numberline {5.2}{\ignorespaces Grober Aufbau der Widget-Klasse und deren Felder}}{39}{lstlisting.5.2}%
+\contentsline {lstlisting}{\numberline {5.3}{\ignorespaces Laden der \ac {UI} in das Modul ToothAnalyser}}{39}{lstlisting.5.3}%
+\contentsline {lstlisting}{\numberline {5.4}{\ignorespaces Methode zum Beobachten von Änderungen in der Benutzerschnittstelle}}{40}{lstlisting.5.4}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
