@@ -153,10 +153,56 @@ Beginn definiert wurden, wieder aufgegriffen werden.
 % ---------------------------------------------------------------------------------------
 
 \section{Tooth Analyser Bibliothek}
-TODO
+Eine dieser Teilaufgaben beschäftigte sich mit der Integration der anatomischen
+Segmentierung welches prototypisch als Python Notebook bereitgestellt wurde. Dieses
+Notebook funktioniert, war aber nicht gut strukturiert. So viel es schwer den Überblick
+darin zu bewahren und das Verfahren gut nachzuvollziehen. Die gute
+Quelltextdokumentation kompensiert dies etwas. Für das von Herrn Hofmann entwickelte
+Verfahren wurde demanch ein eigenen python Modul erstellt. Somit konnte der
+Algorithmus von Aktivitäten in Slicer gut getrennt werden. Das Verfahren selber wurde
+gut strukturiert in Funktionen gekappselt sodass schnell erkannt werden kann, in
+welchem Kontext gerade gearbeitet wird. Die einfache Quelltextkommentierung wurde
+als Dokumentationsblock an die jeweilige Funktion gehängt. Um die Einordnung des
+Moduls für die anatomische Segmentierung besser einordnen zu können, sei die Projektstruktur
+hier gezeigt.
 
-- hier berschreiben, wo der Hofmann gekappselt wurde - die Struktur des
-Projektes zeigen
+\begin{lstlisting}[
+    language={python},
+    caption={Projektstruktur des Moduls Tooth Analyser mit Fokus auf die ToothAnalyserLib},
+    label={lst:projektverzeichnis}]
+|-- ToothAnalyser
+|	|-- CMakeLists.txt
+|	|-- Testing
+|	|-- Resources
+|	|-- ToothAnalyser.py
+|	|-- ToothAnalyserLib
+|	|   |-- NewFunction
+|	|   |-- AnatomiclasSegmentation
+|	|   |   |-- __init__.py
+|	|   |   |-- Segmentation.py
+|	|   |   |-- isq_to_mhd.py
+\end{lstlisting}
+
+Zu sehen ist der Ordner \texttt{ToothAnalyser}, der alle Datei beinhaltet, die für
+das Modul relevant sind. Die Datei \texttt{TootAnalyser.py} ist das Hauptskript und
+stellt die hier die Anbindung an Slicer da. Außerdem ist Ordner \texttt{ToothAnalyserLib}
+zu finden, der den ganzen externen Quellcode für das Modul beinhaltet. So auch die
+anatomische Segmentierung. Kommen in Zukunft weitere Funktionen dazu, kann diese
+Bibliothek problemlso um neue Funktionen erweitert werden. Dies symbolisiert der
+Ordner \textsl{NewFunktion}. Soll eine Funktion aus dieser Bibliothek verwendet
+werden, so kann dies im Modul \texttt{ToothAnalyser.py} einfach über den
+folgenden Befehl erfolgen.
+
+\begin{lstlisting}[
+    language={python},
+    caption={Importieren von Funktionen aus der Bibliothek des Tooth Analyser},
+    label={lst:tooth_analyser_lib}]
+from ToothAnalyserLib.AnatomicalSegmentation.Segmentation
+	import (loadImage, isSmoothed)
+\end{lstlisting}
+
+Für die weiteren Teilaufgaben die in Kapitel \ref{sec_zerlegung_in_teilprobleme}
+definiert wurden bieten die beiden nachfolgenden Kapitel die Lösungen.
 % ---------------------------------------------------------------------------------------
 
 \section{Konzeptionen}
