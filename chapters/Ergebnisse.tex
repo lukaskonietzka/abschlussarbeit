@@ -32,7 +32,7 @@ Des Emblem des Tooth Analyser bildet einen Zahn ab, dessen Hauptsegmenten (Schme
 Dentin, Pulpa) mit den unterschiedlichen Farben (grün, gelb, orange)
 visualisiert werden. Dies verdeutlicht die Analogie zur anatomischen Segmentierung
 und lässt gleich vermuten, dass sich dieses Modul mit einer Segmentierung
-beschäftigt. Der Untertitel deutet konkret auf Micro \ac{CT} Aufnahmen geht. Wurde
+beschäftigt. Der Untertitel deutet konkret auf Micro \ac{CT} Aufnahmen hin. Wurde
 der Tooth Analyser installiert, so ist er über den Menüpunkt Module in Slicer
 auswählbar. Hier wird er in dem Unterpunkt \textit{Segmentierung} eingruppiert, was
 ein weiteres Indiz auf die grobe Funktionalität liefert. Wird also der Tooth
@@ -197,7 +197,7 @@ ausstatten, verwenden alle dieselbe Schnittstelle, die über die Klasse \texttt{
 bereitgestellt wird. Soll also in Zukunft weitere Funktionen hinzukommen, so
 kann hier einfach eine weitere Klasse an die Schnittstelle angehängt werden. So entsteht
 etwas was man in der Fachliteratur als \textit{Strategy Pattern} bezeichnet
-\citep[vgl.][S. ...]{siebler2014}. Der Bentuzer der Software wählt also über die
+\citep[vgl.][S. ...]{siebler2014}. Der Benutzer der Software wählt also über die
 verschiedenen Buttons aus, welche Strategie er gerade nutzen will. Der Tooth
 Analyser sorgt dann dafür, dass auch die richtige Funktion geladen wird. Das
 Feature für den Batch Modus funktioniert nach einem anderen Schema. Da dieser Modus
@@ -224,9 +224,9 @@ Implementierungsdetails ein.
 \section{Technische Umsetzung}
 \label{sec:technische_umsetzung} Zu Beginn sei gesagt, dass dieses Kapitel nicht
 alle Funktionen detailliert beschreibt, sondern sich auf die wichtigsten Funktionen
-und Methode des Tooth Analyser beschränkt. Eine Grobe Übersicht über die
-Wichtigsten Klassen soll zu Begin die Tabelle \ref{tab:methoden_klassen} liefern.
-Die Reihenfolge gibt eine grobe Orientierung bezüglich der Wichtigkeit.
+und Methode des Tooth Analyser beschränkt. Eine grobe Übersicht über die
+wichtigsten Klassen soll zu Beginn die Tabelle \ref{tab:methoden_klassen}
+liefern. Die Reihenfolge gibt eine grobe Orientierung bezüglich der Wichtigkeit.
 
 \begin{table}[h]
 	\centering
@@ -247,10 +247,10 @@ Die Reihenfolge gibt eine grobe Orientierung bezüglich der Wichtigkeit.
 
 Die drei Klassen aus der eben gezeigten Tabelle werden von der Slicer
 Dokumentation grob vorgeschrieben, und bilden somit den Kern der Erweiterung.
-Die Klasse ToothAnalyser bildet hierbei den Abschnitt \textit{Help and
+Die Klasse \texttt{ToothAnalyser} bildet hierbei den Abschnitt \textit{Help and
 Acknowledgemt}, den jedes Modul mitbringen muss. Dort stehen alle wichtigen Meta-Informationen
-über das konkrete Modul. Der nachfolgende Ausschnitt eines Quelltextes zeigt
-grob den Aufbau dieser Klasse.
+über das konkrete Modul. Der nachfolgende Ausschnitt eines Quelltextes zeigt grob
+den Aufbau dieser Klasse.
 
 \begin{lstlisting}[
     language={python},
@@ -267,22 +267,21 @@ class ToothAnalyser(ScriptedLoadableModule):
 	    self.parent.acknowledgementText = _("ackn.")
 \end{lstlisting}
 
-Direkt in Zeile eins ist zu sehen, dass die Klasse eine Generalisierung der
-Klasse \texttt{ScriptedLoadableModule} ist. Über diese Elternklasse wird die
-Integration in die Slicer Kernanwendung sichergestellt. Innerhalb des Konstruktors
-der Klasse werden unterschiedliche Felder angelegt, welche die verschiedenen
-Texte widerspiegeln sollen. Zu Beachten ist noch, dass die Felder die einen
-einfachen String erwarten, in einer unscheinbaren Methode \texttt{\_()}
-gekapselt sind. Diese Methode ist Teil des Slicer Python Framework und sorgt dafür,
-dass automatisch der Kontextname gewechselt wird. Über bekannte Html-Tags können
-auch Bilder oder Hyperlinks eingebaut werden, welche auf Screenshots oder
-Dokumentationen verweisen.
+Direkt in Zeile eins ist zu sehen, dass die Klasse eine Generalisierung der Klasse
+\texttt{ScriptedLoadableModule} ist. Über diese Elternklasse wird die Integration
+in die Slicer Kernanwendung sichergestellt. Innerhalb des Konstruktors der
+Klasse werden unterschiedliche Felder angelegt, welche die verschiedenen Texte widerspiegeln
+sollen. Zu Beachten ist noch, dass die Felder die einen einfachen String erwarten,
+in einer unscheinbaren Methode \texttt{\_()} gekapselt sind. Diese Methode ist
+Teil des Slicer Python Framework und sorgt dafür, dass automatisch der Kontextname
+gewechselt wird. Über bekannte Html-Tags können auch Bilder oder Hyperlinks
+eingebaut werden, welche auf Screenshots oder Dokumentationen verweisen.
 
 Die Klasse \texttt{ToothAnalyserWidget} bildet die gesamte Benutzerschnittstelle
-der Erweiterung ab und kümmert sich gleichzeitig um das Zusammenspiel zwischen Logik
-und Parameter. Hierfür hat die Widget-Klasse Zugriff auf alle Parameter und auf
-die Logik-Schnittstelle. Das nachfolgende Listing zeigt einen groben Aufbau der Klasse
-\texttt{ToothAnalyserWidget} und deren Felder.
+der Erweiterung ab und kümmert sich gleichzeitig um das Zusammenspiel zwischen
+Logik und Parameter. Hierfür hat die Widget-Klasse Zugriff auf alle Parameter und
+auf die Logik-Schnittstelle. Das nachfolgende Listing zeigt einen groben Aufbau
+der Klasse \texttt{ToothAnalyserWidget} und deren Felder.
 
 \begin{lstlisting}[
     language={python},
@@ -296,15 +295,15 @@ class ToothAnalyserWidget(ScriptedLoadableModuleWidget):
 \end{lstlisting}
 
 Wie auch schon die Klasse \texttt{ToothAnalyser} ist auch die Widget-Klasse eine
-Kindklasse. Der Konstruktor dieser Klasse wird jedes Mal aufgerufen, wenn der
-Benutzer zum ersten Mal nach dem Start von Slicer das Modul aufruft. Neben dem Konstruktoraufruf
-der Elternklasse, werden auch die Parameter und die Logik-Schnittstelle
-initialisiert. So ergibt sich die Situation, dass die UI die aktuellen
-Parametereinstellungen abfragt und sie and die Logik weiterleitet.
+Kindklasse. Der Konstruktor dieser Klasse wird jedes Mal aufgerufen, wenn der Benutzer
+zum ersten Mal nach dem Start von Slicer das Modul aufruft. Neben dem
+Konstruktoraufruf der Elternklasse, werden auch die Parameter und die Logik-Schnittstelle
+initialisiert. So ergibt sich die Situation, dass die UI die aktuellen Parametereinstellungen
+abfragt und sie and die Logik weiterleitet.
 
-Neben der Steuerungsaufgabe erstellt die Widget-Klasse auch die UI aus der .ui Datei.
-Da diese unter der Haube ein XML Format aufweist, kann diese einfach in das Modul
-hineingeladen werden. Der Quellcode aus ... zeigt dies.
+Neben der Steuerungsaufgabe erstellt die Widget-Klasse auch die UI aus der .ui
+Datei. Da diese unter der Haube ein XML Format aufweist, kann diese einfach in
+das Modul hineingeladen werden. Der Quellcode aus ... zeigt dies.
 
 \begin{lstlisting}[
     language={python},
@@ -318,15 +317,15 @@ def createUI(self) -> any:
 \end{lstlisting}
 
 Mittels der Bibliothek \texttt{slicer} lässt sich hier die Datei für die \ac{UI}
-laden. Diese Datei liegt im Ordner \textit{Resources} sodass der Pfad zu diesem Ordner
-mit der Methode \texttt{self.resourcePath()} ausgelesen werden kann. Als Argument
-kann dann der Name der Datei angegeben werden. In diesem Fall existiert noch ein
-Unterordner mit der entsprechenden Datei (\texttt{"UI/W.ui"}).
+laden. Diese Datei liegt im Ordner \textit{Resources} sodass der Pfad zu diesem
+Ordner mit der Methode \texttt{self.resourcePath()} ausgelesen werden kann. Als
+Argument kann dann der Name der Datei angegeben werden. In diesem Fall existiert
+noch ein Unterordner mit der entsprechenden Datei (\texttt{"UI/W.ui"}).
 
 Ein weiterer nennenswerter Punkt in der Klasse \texttt{ToothAnalyserWidget} sind
-die eventbasierten Methoden. Diese sorgen dafür, dass auf bestimmte Aktionen in
-der Anwendung reagiert werden kann. Der Tooth Analyser hat in der Widget-Klasse mehrere
-solcher Event-Methoden, die hier genannt werden.
+die eventbasierten Methoden. Diese sorgen dafür, dass auf bestimmte Aktionen in der
+Anwendung reagiert werden kann. Der Tooth Analyser hat in der Widget-Klasse
+mehrere solcher Event-Methoden, die hier genannt werden.
 
 \begin{description}
 	\item[enter()] Wird immer ausgeführt, wenn der Benutzer das Modul öffnet
@@ -343,13 +342,12 @@ solcher Event-Methoden, die hier genannt werden.
 		\ac{UI} macht
 \end{description}
 
-Die Methode \texttt{observerParameter()} ist hierbei sehr interessant und
-verdient besondere Beachtung. Die Methode ist eine Beobachtungsmethode, die an
-ein Event gekoppelt ist, dass sich \textit{ModifiedEvent} nennt. Dieses Event wird
-immer ausgelöst, wenn der Benutzer Änderungen in der Slicer \ac{UI} macht. Dies
-umschließt nicht nur das Modul. Wird also solch ein Event gefeuert, so wird die
-Methode \texttt{observeParameter()} aufgerufen. Das Listing
-\ref{lst:observe_parameter} zeigt diese Methode:
+Die Methode \texttt{observerParameter()} ist hierbei sehr interessant und verdient
+besondere Beachtung. Die Methode ist eine Beobachtungsmethode, die an ein Event gekoppelt
+ist, dass sich \textit{ModifiedEvent} nennt. Dieses Event wird immer ausgelöst, wenn
+der Benutzer Änderungen in der Slicer \ac{UI} macht. Dies umschließt nicht nur das
+Modul. Wird also solch ein Event gefeuert, so wird die Methode \texttt{observeParameter()}
+aufgerufen. Das Listing \ref{lst:observe_parameter} zeigt diese Methode:
 
 \begin{lstlisting}[
     language={python},
@@ -361,20 +359,20 @@ def observerParameters(self, caller=None, event=None)->None:
   self.handleApplyAnatomicalButton()
 \end{lstlisting}
 
-Die Methode verfügt über die Parameter \texttt{caller} und \texttt{event}.
-Mittels diesen Parametern kann der Auslöser des Events und die Art des Events
-bestimmt werden. So könnte man verschiedenen Aktionen auf verschiedene Events ausführen.
-Innerhalb des Tooth Analyser wird diese Methode genutzt, um die Klick-Logik der Buttons
-abzubilden. Die Methoden \texttt{handleApply<...>Button()} steuern jeweils die Sichtbarkeit
-der einzelnen Buttons. Immer wenn der Benutzer dann Änderungen an der UI
-durchführt, wird die Logik innerhalb dieser Methode aus Listing \ref{lst:observe_parameter}
-aktualisiert.
+Die Methode verfügt über die Parameter \texttt{caller} und \texttt{event}. Mittels
+diesen Parametern kann der Auslöser des Events und die Art des Events bestimmt werden.
+So könnte man verschiedenen Aktionen auf verschiedene Events ausführen. Innerhalb
+des Tooth Analyser wird diese Methode genutzt, um die Klick-Logik der Buttons
+abzubilden. Die Methoden \texttt{handleApply<...>Button()} steuern jeweils die
+Sichtbarkeit der einzelnen Buttons. Immer wenn der Benutzer dann Änderungen an der
+UI durchführt, wird die Logik innerhalb dieser Methode aus Listing
+\ref{lst:observe_parameter} aktualisiert.
 
-Die letzte der wichtigen Klassen bildet die Logik-Schnittstelle, wie sie in
-Tabelle \ref{tab:methoden_klassen} Zeile drei genannt wurde. Diese Schnittstelle
-ist der zentrale Punkt aller aktuellen und zukünftigen Logik-Klassen. Jede
-Klasse, die einen speziellen Algorithmus implementiert muss dieses Interface implementieren.
-So wird sichergestellt, dass alle Algortihmen nach dem gleichen Aufbau eingebaut
+Die letzte der wichtigen Klassen bildet die Logik-Schnittstelle, wie sie in Tabelle
+\ref{tab:methoden_klassen} Zeile drei genannt wurde. Diese Schnittstelle ist der
+zentrale Punkt aller aktuellen und zukünftigen Logik-Klassen. Jede Klasse, die
+einen speziellen Algorithmus implementiert, muss dieses Interface implementieren.
+So wird sichergestellt, dass alle Algorithmen nach dem gleichen Aufbau eingebaut
 wurden. Dies sorgt für ein einheitliches Vorgehen. Das Listing \ref{lst:logik_interface}
 zeigt diese eben beschriebenen Schnittstelle und soll diese so genauere beleuchten.
 
@@ -416,11 +414,11 @@ entsprechenden Bildes verantwortlich. Die Vorverarbeitung könnte beispielsweise
 Komprimierung des Bildes beinhalten, wohingegen die Nachbereitung Analysen auf
 dem Ergebnis anstoßen könnte. Im Rahmen dieser vorliegenden Arbeit wurden für die
 Methoden \texttt{preProcessing()} und \texttt{postProcessing()} keine Methodenrümpfe
-gebaut. Eine Mögliche zukünftige Implementierung ist im Kapitel
+gebaut. Eine mögliche zukünftige Implementierung ist im Kapitel
 \ref{chap:schlussfolgerung} zu finden. Die beiden noch übrigen Methoden \texttt{execute()}
 und \texttt{executeAsBatch()} sind abstrakte Methoden, die eine Implementierung
-in den jeweiligen Unterklassen erfordern. Dabei bilden Beide Methoden zentrale Punkte.
-Innerhalb dieser Methoden soll der entprechende Algorithmus der Klasse
+in den jeweiligen Unterklassen erfordern. Dabei bilden beide Methoden zentrale Punkte.
+Innerhalb dieser Methoden soll der entsprechende Algorithmus der Klasse
 ausgeführt und gestartet werden. Einmal mit nur einem Bild und anschließender Visualisierung
 in der Slicer Szene und einmal als Batch ohne Visualisierung.
 
@@ -428,7 +426,7 @@ in der Slicer Szene und einmal als Batch ohne Visualisierung.
 
 Um den Zusammenhang der Klassen im Tooth Analyser noch besser verstehen zu
 können sollen hier jeweils die nötigen Punkte aus den einzelnen Klassen
-herausgegriffen werden. Dies verdeutlciht das Zusammenspiel der Methoden um den zugrunde
+herausgegriffen werden. Dies verdeutlicht das Zusammenspiel der Methoden um den zugrunde
 liegenden Algorithmus zu starte.
 
 \begin{lstlisting}[
@@ -470,7 +468,7 @@ def execute(cls, param: ToothAnalyserParameterNode) -> None:
 \end{lstlisting}
 
 Die Parameter, die im Parameter Knoten gespeichert werden liegen wie bereits beschrieben
-als Attribut un der Klasse \texttt{ToothAnalyserWidget}. Wenn ein Button zum ausführen
+als Attribut und der Klasse \texttt{ToothAnalyserWidget}. Wenn ein Button zum Ausführen
 der entsprechenden Logik gedrückt wird, wird die Methode \texttt{execut()} ausgeführt
 und alle Parameter als Argument mit übergeben. So ist innerhalb der Ausführung
 ein voller Zugriff auf die Parameter möglich.
@@ -513,33 +511,32 @@ Abbildung \ref{fig:laufzeit} gezeigt wird.
 
 Zu sehen ist, dass unter diesen Bedingungen die Bearbeitung eines einzelnen
 Bildes ca. 17 Minuten beansprucht. Dabei fallen über drei Viertel der Zeit auf
-die Filterung zurück. Der Bereich Auffüllung binhaltete ebenfalls eine Filterung
-der einzelnen Segmente, weswegen dieser den zweit größten Teil ausmacht. Ein Weiterer
+die Filterung zurück. Der Bereich Auffüllung beinhaltet ebenfalls eine Filterung
+der einzelnen Segmente, weswegen dieser den zweitgrößten Teil ausmacht. Ein Weiterer
 wesentlichen Teil stellen die beiden medialen Flächen dar. Um dieser doch
 enormen Laufzeit etwas entgegen zu Wirken wurden zwei Mechanismen implementiert.
 Das Verfahren kann einerseits erkennen, ob ein Bild bereits gefiltert wurde und
 andererseits die medialen Flächen optional berechnen. So kommt es das sich ein \textit{Best
 Case} ergibt der grob nur noch ein Viertel der Zeit benötigt. Dieser \textit{Best
-Case} tritt ein wenn ein Bild in den Algorithmus gegeben wird, das bereits gefiltert
-wurde und keine medialen Flächen erfordert.
+Case} tritt ein, wenn ein Bild in den Algorithmus gegeben wird, das bereits
+gefiltert wurde und keine medialen Flächen erfordert.
 
-Nichtsdestotrotz bleibt die Anwendung trotz ihrer doch hohen Laufzeit ein enormes
-Zeitersparnis für die praktizierenden Ärzte. Laut Dr. Elias Walter würde eine händische
-Segmentierung ca. 20 Minuten aktive Arbeit bedeute. Diese Arbeit kann der Tooth Analyser
-deutlich reduzieren, indem kein aktives Arbeiten erfordert, sondern im Hintergrund
-läuft. Für welche Anwendungsfälle der Tooth Analyser genau eingesetzt werden
-kann, darüber berichtet das Kapitel Anwendungsszenarien
+Nichtsdestotrotz bleibt die Anwendung trotz ihrer doch hohen Laufzeit ein
+enormes Zeitersparnis für die praktizierenden Ärzte. Laut Dr. Elias Walter würde
+eine händische Segmentierung ca. 20 Minuten aktive Arbeit bedeute. Diese Arbeit
+kann der Tooth Analyser deutlich reduzieren, indem kein aktives Arbeiten erfordert,
+sondern im Hintergrund läuft. Für welche Anwendungsfälle der Tooth Analyser genau
+eingesetzt werden kann, darüber berichtet das Kapitel Anwendungsszenarien
 % ---------------------------------------------------------------------------------------
 
 \section{Anwendungsszenarien}
-In erster Linie bietet der Tooth Analyser eine Visualisierungshilfe, die für Ärzte
-unterstützend wirken soll. Wie auch von Slicer empfohlen wird dieses Modul von
-den Ärzten rein zur Forschung eingesetzt. Mit den Tooth Analyser lässt sich mittels
-einer micro CT-Aufnahme ein 3D Modell des Zahnes erstellen. Man spricht hier von
-einer Rekonstruktion des Zahnes. Durch die Segmentierung erlaubt dieser rekonstruierte
-Zahn auch eine Segmentbetrachtung von Dentin und Schmelz. Die Abbildungen
-\ref{fig:3d_view} und \ref{fig:3d_view_dentin} zeigt diese Rekonstruktion
-genauer.
+In erster Linie bietet der Tooth Analyser eine Visualisierungshilfe, die für
+Ärzte unterstützend wirken soll. Wie auch von Slicer empfohlen wird dieses Modul
+von den Ärzten rein zur Forschung eingesetzt. Mit den Tooth Analyser lässt sich
+mittels einer micro CT-Aufnahme ein 3D Modell des Zahnes erstellen. Man spricht hier
+von einer Rekonstruktion des Zahnes. Durch die Segmentierung erlaubt dieser
+rekonstruierte Zahn auch eine Segmentbetrachtung von Dentin und Schmelz. Die Abbildungen
+\ref{fig:3d_view} und \ref{fig:3d_view_dentin} zeigt diese Rekonstruktion genauer.
 
 \begin{minipage}{0.45\textwidth}
 	\centering
@@ -555,22 +552,22 @@ genauer.
 	\label{fig:3d_view_dentin}
 \end{minipage}
 
-Das Betrachten der einzelnen Segmente wie sie in Abbildung \ref{fig:3d_view_dentin}
-gezeigt wird, erfolgt nicht in der Erweiterung Tooth Analyser. Hierzu wird auf das
-Modul \textit{Data} verwiesen, das eine Herarchische Darstellung aller Daten in der
-Szene liefert. Über die Sichtbarkeitseinsetllung der einzelnen Datenelemente
-können dann die Segmenter sichtbar oder unsichtbar geschaltenw werden. Ein weitere
-Fall, indem die Anwendung unterstützen kann, ist die Klassifizierung von Karies.
-Die Abbildung \ref{fig:classification} zeigt diesen Anwendungsdall.
+Das Betrachten der einzelnen Segmente wie sie in Abbildung
+\ref{fig:3d_view_dentin} gezeigt wird, erfolgt nicht in der Erweiterung Tooth Analyser.
+Hierzu wird auf das Modul \textit{Data} verwiesen, das eine hierarchische
+Darstellung aller Daten in der Szene liefert. Über die Sichtbarkeitseinstellungen
+der einzelnen Datenelemente können dann die Segmente sichtbar oder unsichtbar geschaltet
+werden. Einen weiteren Fall, indem die Anwendung unterstützen kann, ist die
+Klassifizierung von Karies. Die Abbildung \ref{fig:classification} zeigt diesen Fall.
 
 \begin{minipage}{0.45\textwidth}
 	Hierfür sind die medialen Flächen der einzelnen Segmente nötig. Diese sind im
 	Bild als rote und grüne Linie sichtbar, verteilen sich aber über das ganze 3D Bild,
-	was daraus eine Fläche macht. Legt man nun diese Flächen über das orginale Bild,
+	was daraus eine Fläche macht. Legt man nun diese Flächen über das originale Bild,
 	so lässt sich mittels dieser Linie der Karies auf einem CT gut klassifizieren.
 	Diese besagten Linien bilden dann die Grenzen. Ragt der Karies über diese
-	mediale Fläche hinaus hat er bereits ein sehr ausgeprägten Zustand und wird
-	anders eingeordnet als ein karies, der die mediale Fläche noch nicht überschritten
+	mediale Fläche hinaus hat er bereits einen sehr ausgeprägten Zustand und wird
+	anders eingeordnet als ein Karies, der die mediale Fläche noch nicht überschritten
 	hat.
 \end{minipage}
 \hfill
@@ -580,26 +577,26 @@ Die Abbildung \ref{fig:classification} zeigt diesen Anwendungsdall.
 	\captionof{figure}{Klassifizierung von Karies mittels der medialen Flächen.} \label{fig:classification}
 \end{minipage}
 
-Da durch die Klinik für Zahnerhaltung nur CT-Bilder von Zahnkronen bereitgestellt
-wurden, wurde der Tooth Analyser auch nur mittels dieser Aufnahmen getestet. Durch
-einige Benutzertests in der Klinik zeigte sich aber, dass auch die Segmentiernug
-eines ganzen Zahns möglich ist. Selbsts bei einer komplexeren Wurzel. Jeodch
-bleibt es nicht aus, dass der Tooth Analyser auch Einschränkungen mirbringt und so
-auch die Verwendung dieses Moduls limitiert.
+Da durch die Klinik für Zahnerhaltung nur CT-Bilder von Zahnkronen
+bereitgestellt wurden, wurde der Tooth Analyser auch nur mittels dieser Aufnahmen
+getestet. Durch einige Benutzertests in der Klinik zeigte sich aber, dass auch die
+Segmentierung eines ganzen Zahns möglich ist. Selbst bei einer komplexeren
+Wurzel. Jedoch bleibt es nicht aus, dass der Tooth Analyser auch Einschränkungen
+mitbringt und so auch die Verwendung dieses Moduls limitiert.
 % ---------------------------------------------------------------------------------------
 
 \section{Limitierungen}
-Dieses Kapitel soll alle Punkte transparent aufdecken, die im Modul Tooth
-Analyser noch Probleme machen, oder garnicht erstz umgesetzt wurden. Der
-Limitierenste Faktor in der Erweiterung ist das eingeschränkte Format der Bilder.
-Es können innerhalb dieser Erweiterung nur Bilder verarbeitet werden, die das
-Format \ac{Int16} haben. Der Grund hierfür liegt in der Implementeirung des
-Algorithmus. Die anatomische Segmentierung wurde speziell für die CT-Aufnahmen im
-\ac{ISQ} Typ entwickelt. Aus diesem Grund wurden die Schwellwerte und Parameter für
-dieses Verahren fest Codiert. Fürht man dennoch die Segmentierung mit einem Bild
-im Format \ac{8UInt} durch, so stellt man fest, dass der ALgortihmus zwar ein Ergebnis
-genneriert, dieses aber nicht brauchbar ist. Die Abbildung \ref{fig:3d_error} zeigt
-ein solches Falsche Ergebis.
+Dieses Kapitel soll alle Punkte transparent aufdecken, die im Modul Tooth Analyser
+noch Probleme machen, oder gar nicht erst umgesetzt wurden. Der limitierende Faktor
+in der Erweiterung ist das eingeschränkte Format der Bilder. Es können innerhalb
+dieser Erweiterung nur Bilder verarbeitet werden, die das Format \ac{Int16}
+haben. Der Grund hierfür liegt in der Implementierung des Algorithmus. Die
+anatomische Segmentierung wurde speziell für die CT-Aufnahmen im \ac{ISQ} Typ entwickelt.
+Aus diesem Grund wurden die Schwellwerte und Parameter für dieses Verfahren fest
+codiert. Führt man dennoch die Segmentierung mit einem Bild im Format \ac{8UInt}
+durch, so stellt man fest, dass der Algorithmus zwar ein Ergebnis generiert, dieses
+aber nicht brauchbar ist. Die Abbildung \ref{fig:3d_error} zeigt ein solches
+falsche Ergebnis.
 
 \begin{figure}[h]
 	\centering
@@ -608,25 +605,26 @@ ein solches Falsche Ergebis.
 	\label{fig:3d_error}
 \end{figure}
 
-Zu sehen ist ein 3D Modell, das nur aus einem Segment besteht. In diesem Fall
-wurde der ggesamte Zahn mit Pulpa als Dentin makiert. Nach einer etwas detailierteren
-Analyse konnte festgestellt werden, dass das Problem wohl im Bereich der
-Auffülung liegt. Den Grund dafür liefern die einzelnen Datensätze während der Segmentierung.
-Betrachtet man diese genauer so fällt auf, das der Zahn zu Beginn richtig Segmentierut
-wird, auch ohne die Pulpa. Nachdem dann die Auffüllung über das Bild läuft, wird
-diese zuerst richtige Segmentierung wieder verworfen.
+Zu sehen ist ein 3D Modell, das nur aus einem Segment besteht. In diesem Fall wurde
+der gesamte Zahn mit Pulpa als Dentin markiert. Nach einer etwas detaillierteren
+Analyse konnte festgestellt werden, dass das Problem wohl im Bereich der Auffüllung
+liegt. Den Grund dafür liefern die einzelnen Datensätze während der
+Segmentierung. Betrachtet man diese genauer so fällt auf, das der Zahn zu Beginn
+richtig segmentiert wird, auch ohne die Pulpa. Nachdem dann die Auffüllung über
+das Bild läuft, wird diese zuerst richtige Segmentierung wieder verworfen.
 
-Durch diese Limitierung ergibt sich eine weitere. Zu Beginn in der Analysephase des
-Projektes, war ein Preprocessing der Bilder vorgesehen, dass die Komprimierung eines
-Bildes vornimmt und so die Bider deutlich handlicher macht. Das Verfahren hierzu
-wurde in Kapitel \ref{subsec:datensätze} erläutert. Da dieses Verfahren allerdings
-einen Formatwechsel von \ac{16Int} nach \ac{8UInt} bewirkt und diese Bilder nicht
-richtig Segmentiert werden können, scheidet die Vorverarbeitung von Bildern aus.
+Durch diese Limitierung ergibt sich eine weitere. Zu Beginn in der Analysephase
+des Projektes, war eine Vorverarbeitung der Bilder vorgesehen, dass die
+Komprimierung eines Bildes vornimmt und so die Bilder deutlich handlicher macht.
+Das Verfahren hierzu wurde in Kapitel \ref{subsec:datensätze} erläutert. Da
+dieses Verfahren allerdings einen Formatwechsel von \ac{16Int} nach \ac{8UInt}
+bewirkt und diese Bilder nicht richtig segmentiert werden können, scheidet die Vorverarbeitung
+von Bildern aus.
 
 Eine weitere Limitierung der Software liegt im Batch Modus. Wird ein Batch Modus
-ausgeführt, so werden im Anschluss die Bilder nicht in die Szene geladen. Dies muss
-manuell erfolgen über den Import des Kernsystems. Soll für die unterschiedlichen
-Bilder eine 3D Modell erzeugt werden müssen diese ebenfalls manuell als
+ausgeführt, so werden im Anschluss die Bilder nicht in die Szene geladen. Dies
+muss manuell erfolgen über den Import des Kernsystems. Soll für die unterschiedlichen
+Bilder ein \ac{3D} Modell erzeugt werden müssen diese ebenfalls manuell als
 Segmentierung geladen werden. Diesem Verhalten könnte man mit einer einfache Checkbox
 entgegenwirken, indem man die Checkbox setzt, wenn man nach dem Batch alle Bilder
 laden möchte.
@@ -636,10 +634,10 @@ Moduls dient. Soll die Erweiterung um zusätzliche Funktionen erweiter werden,
 dann sind kleine Änderungen in einer bestehenden Klasse notwendig. Konkret geht es
 hier um die Klasse \texttt{ToothAnalyserWidget}. Hier muss je nach Ausprägung der
 \ac{UI} der neuen Funktion, Methoden hinzugefügt werden. Diese Situation ist
-zwar entgegen vieler Konventionen, jedoch sorgt sie auch dafür die die Komplexität
-des Quellcodes nicht zu groß wird.
+zwar entgegen vieler Konventionen, jedoch sorgt sie auch dafür, dass die
+Komplexität des Quellcodes nicht zu groß wird.
 
-Mit der Beschreibung dieser limitierenden Faktoren wurden alle Ergebnisse, die
-in dieser Arbeit erzielt wurden präsentiert. Es bleibt zum Schluss noch eine Interpretation
-der Ergebnisse aus kritischer Sicht.
+Mit der Beschreibung dieser limitierenden Faktoren wurden alle Ergebnisse, die in
+dieser Arbeit erzielt wurden präsentiert. Es bleibt zum Schluss noch eine
+Interpretation der Ergebnisse aus kritischer Sicht.
 % ---------------------------------------------------------------------------------------
