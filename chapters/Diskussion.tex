@@ -1,8 +1,34 @@
-\chapter{Diskussion}
-\label{chap:diskussion}TODO
-
-- kritische betrachtung
-
-- es sind leider kleine Anpassungen in der Klasse ToothAnalyserWidget notwendig
-
-- diese haben aber den Vorteil, dass die Komplexität gering gehalten wird
+\chapter{Diskussion und Fazit}
+\label{chap:diskussion} Betrachtet man gegen Ende dieser vorliegenden Arbeit nochmals
+die Forschungsfrage aus Kapitel \ref{chap:fragestellung} so können noch weitere Punkte
+hinzugefügt werden. Grundsätzlich lässt sich sagen, dass die Integration der anatomischen
+Segmentierung aus Kapitel \ref{sec:verwwandte_arbeit} gut in das Ökosystem von Slicer
+integriert werden konnte. Somit ergibt sich die Situation, dass das zuvor aufwendig
+zu bedienenden Verfahren nach dieser Arbeit mit nur wenigen Klicks ein Ergebnis liefert.
+Bei der Integration dieses Verfahrens mussten keine Abstriche in Bezug auf die
+Qualität des Ergebnisses gemacht werden. Die Benutzerfreundlichkeit der Software konnte
+so um ein vielfaches verbessert werden. Es steigt auch der Benutzerkreis der
+Anwendung. Der Entwicklungsprozess selbst kann ebenfalls als durchwegs positiv betrachtet
+werden. Durch die sehr gute Dokumentation von 3D Slicer konnten schnell erste
+Ergebnisse erzielt werden, die noch nicht final wahren, jedoch in die richtige
+Richtung gingen. Es lässt sich so sagen, dass einfache Algorithmen ohne viel
+zusätzliche Abhängigkeiten, mit etwas Vorwissen schnell in einem Slicer Modul integriert
+werden können. Es ist auch nicht zwingend notwendig, ein Modul über den \textit{Extension
+Manager} zu veröffentlichen. Soll das Modul nur wenigen ausgewählten Personen zur
+Verfügung stehen, so kann es auch lokal in die Slicer Anwendung eingebunden
+werden. Betrachtet man die Erweiterbarkeit der Software, so kann auch diese als
+weites gehend erfolgreich angesehen werde. Durch die Kapselung des zugrunde liegenden
+Verfahrens lässt sich dieses einfach durch ein anderes austauschen. Auch das
+Hinzufügen neuer Funktionalität lässt sich problemlos realisieren. Es sei jedoch gesagt,
+das zu viele unterschiedliche Funktionen zur Überladung des Moduls führen könnte. Zu 
+empfehlen ist dann eine Aufteilung in Submodule. Bei der technischen
+Umsetzung dieser Ansprüche konnten jedoch nicht alle Prinzipien einer sauberen Softwareentwicklung
+gewährleistet werden. Diese Entscheidung war jedoch aktiv und hat auch positive
+Auswirkungen auf das Gesamtsystem. Abschließend lässt sich also sagen, dass
+diese vorliegende Arbeit der zu Beginn gestellten Forschungsfrage gerecht werden
+konnte und alle Anforderungen erfüllte. Betrachtet man jedoch die Ziele dieser Arbeit
+aus Kapitel \ref{sec:ziel_der_arbeit} so stellt man fest, dass der Tooth
+Analyser noch lange nicht den Reifegrad erreicht hat, der alle Anforderungen abdeckt.
+Um dies endgültig zu gewährleisten, sind unter anderem weitere Benutzertests und gegebenenfalls
+Fehlerbehebungen notwendig.
+% ---------------------------------------------------------------------------------------
