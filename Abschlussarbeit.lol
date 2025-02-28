@@ -17,6 +17,7 @@
 \contentsline {lstlisting}{\numberline {5.8}{\ignorespaces Die Parameter des Tooth Analyser, die als Attribut in der Widget-Klasse liegen.}}{44}{lstlisting.5.8}%
 \contentsline {lstlisting}{\numberline {5.9}{\ignorespaces Starten des Algorithmus durch den Aufruf der \texttt {execut()} Methode in der Widget-Klasse. Die Parameter werden mit übergeben.}}{44}{lstlisting.5.9}%
 \contentsline {lstlisting}{\numberline {5.10}{\ignorespaces Ein Ausschnitt der Methode \texttt {execute()}, welche die Pipeline für das Verfahren startet und in der Widget-Klasse durch den Apply-Button aufgerufen wird.}}{44}{lstlisting.5.10}%
+\contentsline {lstlisting}{\numberline {5.11}{\ignorespaces Ausschnitt der Testklasse zum ausführen der Unittests}}{45}{lstlisting.5.11}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

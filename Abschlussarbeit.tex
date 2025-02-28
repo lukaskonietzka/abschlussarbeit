@@ -117,31 +117,12 @@
 	%%% Inhaltsverzeichnis
 	%%% --------------------------------------------------
 	\tableofcontents
-
-	%%% --------------------------------------------------
-	%%% Ab hier: Inhalt
-	%%% --------------------------------------------------
-	\setcounter{page}{1}
-	\pagenumbering{arabic}
-
-	\include{chapters/Einleitung}
-	\include{chapters/Grundlagen}
-	\include{chapters/Fragestellung}
-	\include{chapters/Methodik}
-	\include{chapters/Ergebnisse}
-	\include{chapters/Diskussion}
-	\include{chapters/Schlussfolgerung}
-
+	
 	%%% --------------------------------------------------
 	%%% Verzeichnisse
 	%%% --------------------------------------------------
 	\listoffigures % Abbildungsverzeichnis
 	\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
-	\listoftables % Tabellenverzeichnis
-	\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
-	\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
-	\lstlistoflistings % Listings
-	\addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
 
 	%%% --------------------------------------------------
 	%%% Abkürzungsverzeichnis
@@ -159,6 +140,31 @@
 		\acro{THA}{Technische Hochschule Augsburg}
 	\end{acronym}
 	\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+	
+	\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
+	\lstlistoflistings % Listings
+	\addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
+	\listoftables % Tabellenverzeichnis
+	\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+
+	%%% --------------------------------------------------
+	%%% Ab hier: Inhalt
+	%%% --------------------------------------------------
+
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
+
+	\include{chapters/Einleitung}
+	\include{chapters/Grundlagen}
+	\include{chapters/Fragestellung}
+	\include{chapters/Methodik}
+	\include{chapters/Ergebnisse}
+	\include{chapters/Diskussion}
+	\include{chapters/Schlussfolgerung}
+
+	
+
+
 
 	% --------------------------------------------------
 	% Bibliographie

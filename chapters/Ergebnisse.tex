@@ -203,8 +203,6 @@ from ToothAnalyserLib.AnatomicalSegmentation.Segmentation
 
 Für die weiteren Teilaufgaben die in Kapitel \ref{sec_zerlegung_in_teilprobleme}
 definiert wurden bieten die beiden nachfolgenden Kapitel die Lösungen.
-% ---------------------------------------------------------------------------------------
-\section{Softwaretests}
 
 \pagebreak
 % ---------------------------------------------------------------------------------------
@@ -526,11 +524,71 @@ und alle Parameter als Argument mit übergeben. So ist innerhalb der Ausführung
 ein voller Zugriff auf die Parameter möglich.
 
 Nach der konkreten Umsetzung der Erweiterung kann Schritt für Schritt mit der
-Evaluation der Ergebnisse begonnen werden Ein wichtiger Teil ist hier die
-Performance.
+Evaluation der Ergebnisse begonnen werden. Ein wichter Teil sind die Tesergebnisse
 % ---------------------------------------------------------------------------------------
 
-\section{Performance}
+\section{Evaluierung}
+\label{subsec:evaluierung} Neben der Implementierung der Features wurden auch diverse Tests
+durchgeführt. Hierzu wurden Softwaretests, Usertests und Messungen durchgeführt. Dieses
+Kapitel beschäftigt sich mit der Testauswertung der verschiedenen Testfälle. Begonnen wird
+mit einer Analyse der Softwaretests, gefolgt von Performancemessungen. Abschließend werden
+die Anwendungsfälle des Tooth Analyser näher beleuchtet und auf die Limitierungen der
+Anwendung eingegangen.
+
+\subsection{Softwaretests}
+\label{subsec:softwaretests} Betrachtet man die Dokumentation von Slicer genauer, so fällt
+auf, dass dies eine recht starre Stuktur für die Implementiernug von Tests vorgiebt. Dabei
+ist jedoch nicht festgelegt, welche Art von Tests verwendet werden soll. Im Rahmen des
+Tooth Analyser wurden hier ausschließlich Unittest implementiert, welche die einzelnen
+Einheiten und Funktionen im Tooth Analyser abdecken. Ein grober Testaufbau
+sei hier gezeigt.
+
+\begin{lstlisting}[
+    language={python},
+    caption={Ausschnitt der Testklasse zum ausführen der Unittests},
+    label={lst:observe_parameter}]
+class ToothAnalyserTest(ScriptedLoadableModuleTest):
+
+def setUp(self):
+    slicer.mrmlScene.Clear()
+    self.loadSampleData()
+
+def runTest(self):
+    self.setUp()
+    self.testHandleApplyAnalyticsButton()
+    # add more tests here...
+
+def testHandleApplyAnalyticsButton(self):
+    from unittest.mock import MagicMock
+
+    self.mockedClass = MagicMock()
+    self.mockedClass.ui.applyAnalytics = MagicMock()
+    self.mockedClass._param.analytical = MagicMock()
+
+    self.mockedClass._param.analytical.currentAnalyticalVolume = None
+    self.mockedClass.handleApplyAnalyticsButton()
+    self.mockedClass.ui.applyAnalytics.enabled = False
+    self.delayDisplay("Test 1 passed")
+\end{lstlisting}
+
+- hier die sample Date erwähnen, die regestrerit wrude
+
+- die konkrete methode zeigen für das registrerein und laden
+
+- dann sagen dass das filtern über die standardabwiechung getetst werden kann
+
+- wenn ein bild rauscht, dann ist die Streuung sehr hoch. nach der fitlerung sollte
+sie kleiner seina ls zuvor.
+
+
+
+Prinzipiell sei gesagt, dass der Fokus der Evaluierung auf den Funktions- und Usertest lag.
+% ---------------------------------------------------------------------------------------
+
+\pagebreak
+% ---------------------------------------------------------------------------------------
+
+\subsection{Performance}
 Die Performance des Systems war nie ein wichtiges Kriterium und stand deshalb zu
 keiner Zeit im Fokus dieser Arbeit. Dennoch ergaben sich interessante Ergebnisse,
 die hier kurz erläutert werden sollen. Unter der Performance versteht dieses Kapitel
@@ -581,7 +639,7 @@ sondern im Hintergrund läuft. Für welche Anwendungsfälle der Tooth Analyser g
 eingesetzt werden kann, darüber berichtet das Kapitel Anwendungsszenarien
 % ---------------------------------------------------------------------------------------
 
-\section{Anwendungsszenarien}
+\subsection{Anwendungsszenarien}
 In erster Linie bietet der Tooth Analyser eine Visualisierungshilfe, die für
 Ärzte unterstützend wirken soll. Wie auch von Slicer empfohlen wird dieses Modul
 von den Ärzten rein zur Forschung eingesetzt. Mit den Tooth Analyser lässt sich
@@ -637,7 +695,7 @@ Wurzel. Jedoch bleibt es nicht aus, dass der Tooth Analyser auch Einschränkunge
 mitbringt und so auch die Verwendung dieses Moduls limitiert.
 % ---------------------------------------------------------------------------------------
 
-\section{Limitierungen}
+\subsection{Limitierungen}
 \label{sec:limitierungen} Dieses Kapitel soll alle Punkte transparent aufdecken,
 die im Modul Tooth Analyser noch Probleme machen, oder gar nicht erst umgesetzt
 wurden. Der limitierende Faktor in der Erweiterung ist das eingeschränkte Format
