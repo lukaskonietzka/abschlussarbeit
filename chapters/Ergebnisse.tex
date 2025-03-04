@@ -285,18 +285,18 @@ mit der Software QT-Designer erstellt und dann mittels einer Methode in die
 Anwendung geladen.
 
 Wie auch schon im Kapitel \ref{sec:tooth_analyser} beschrieben teilt sich die
-\ac{UI} auch hier sichtbar in unterschiedliche Teile auf. Vergleicht man nun
-Abbildung ... mit dem Klassendiagramm aus Abbildung ... so fällt auf, das Für jeden
-Funktionsbereich eine eigene Parameterklasse erstellt wurde, die dann wiederum
-in der Klasse ParameterNode zusammengefasst werden. Dies stellt eine gute Erweiterbarkeit
-der \ac{UI} um zusätzliche Parameter sicher. Es wurde an dieser Stelle bewusst keine
-Generalisierung verwendet, da Slicer genau diesen konzeptionierten Mechanismus
-vorsieht. Auf der anderen Seite der Struktur finden sich die Logikklassen. Die
-verschiedenen Logiken die aktuell und zukünftig den Tooth Analyser ausstatten, verwenden
-alle dieselbe Schnittstelle, die über die Klasse \texttt{ToothAnalyserLogic} bereitgestellt
-wird. Soll also in Zukunft weitere Funktionen hinzukommen, so kann hier einfach eine
-weitere Klasse an die Schnittstelle angehängt werden. So entsteht etwas was man
-in der Fachliteratur als \textit{Strategy Pattern} bezeichnet \citep[vgl.][S. 99]{siebler2014}.
+\ac{UI} auch hier sichtbar in unterschiedliche Teile auf. Betrachtet man nun
+Abbildung \ref{fig:klassendiagramm} so fällt auf, das Für jeden Funktionsbereich
+eine eigene Parameterklasse erstellt wurde, die dann wiederum in der Klasse
+ParameterNode zusammengefasst werden. Dies stellt eine gute Erweiterbarkeit der \ac{UI}
+um zusätzliche Parameter sicher. Es wurde an dieser Stelle bewusst keine Generalisierung
+verwendet, da Slicer genau diesen konzeptionierten Mechanismus vorsieht. Auf der
+anderen Seite der Struktur finden sich die Logikklassen. Die verschiedenen
+Logiken die aktuell und zukünftig den Tooth Analyser ausstatten, verwenden alle dieselbe
+Schnittstelle, die über die Klasse \texttt{ToothAnalyserLogic} bereitgestellt wird.
+Soll also in Zukunft weitere Funktionen hinzukommen, so kann hier einfach eine weitere
+Klasse an die Schnittstelle angehängt werden. So entsteht etwas was man in der
+Fachliteratur als \textit{Strategy Pattern} bezeichnet \citep[vgl.][S. 99]{siebler2014}.
 Der Benutzer der Software wählt also über die verschiedenen Buttons aus, welche
 Strategie er gerade nutzen will. Der Tooth Analyser sorgt dann dafür, dass auch
 die richtige Funktion geladen wird. Das Feature für den Batch Modus funktioniert
@@ -305,8 +305,8 @@ gelten soll, wird dieser nicht als eigene Strategie, sondern direkt in der
 Schnittstelle bereitgestellt. So ist sichergestellt, dass eine Implementierung
 erfolgen muss, sie jedoch für alle Strategien unterschiedlich sein kann. Um noch
 etwas genauer zu zeigen, welche Schritte notwendig sind um den Tooth Analyser mit
-weiteren Funktionen auszustatten sei auf Abbildung ... verwiesen. Hier wird
-deutlich, welche Klassen und Methoden erstellt werden müssen
+weiteren Funktionen auszustatten sei auf Abbildung \ref{fig:klassendiagramm_new}
+verwiesen. Hier wird deutlich, welche Klassen und Methoden erstellt werden müssen.
 
 \begin{figure}[h]
 	\centering
