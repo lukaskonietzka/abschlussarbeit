@@ -132,13 +132,13 @@ eine weitere Bearbeitung nur bedingt geeignet. Unter anderem wegen ihrer Größe
 konvertiert ein \ac{ISQ} Format in ein \ac{mhd} Format. Bei einer \ac{mhd} Datei
 handelt es sich um ein Metafile, dass auf die eigentliche Datei verweist.
 Folgender Ausschnitt zeigt die Verwendung des Pakets.
-
-\texttt{python3 isq\_to\_mhd.py <quelle> <ziel>}
-
-Diese Meta-Datei kann genutzt werden, um interessante Informationen über das Bild
-zu erlangen. Wird dieses Kommando ausgeführt, so erstellt das Skript \texttt{isq\_to\_mhd}
-ein Metafile, das detailliert Daten über die Datei enthält. Ein Ausschnitt
-dieses Metafiles liefer das Listing \ref{lst:inhalt_mhd_datei}
+\begin{center}
+	\texttt{python3 isq\_to\_mhd.py <quelle> <ziel>}
+\end{center}
+Diese Meta-Datei kann genutzt werden, um interessante Informationen über das
+Bild zu erlangen. Wird dieses Kommando ausgeführt, so erstellt das Skript
+\texttt{isq\_to\_mhd} ein Metafile, das detailliert Daten über die Datei enthält.
+Ein Ausschnitt dieses Metafiles liefer das Listing \ref{lst:inhalt_mhd_datei}
 
 \begin{lstlisting}[
 	caption={Ausschnitt des Inhaltes einer mhd-Datei},
@@ -152,21 +152,21 @@ ElementType = MET_SHORT
 ElementDataFile = P01A-C0005278.ISQ
 \end{lstlisting}
 
-In der Datei sind Informationen über die Ausprägung, Art und Größe der Datei zu finden.
-Besonders interessant sind die Punkte \texttt{DimSize und ElementType}. Über
+In der Datei sind Informationen über die Ausprägung, Art und Größe der Datei zu
+finden. Besonders interessant sind die Punkte \texttt{DimSize und ElementType}. Über
 diese Parameter lässt sich die Größe eines Bildes berechnen. \citet[Seite 10-11]{burger2009}
-erklärt, das ein Bild in Zellen aufgeteilt ist, welche Informationen enthalten.
-Diese Zellen sind im zweidimensionalen Raum als Pixel bekannt. Betrachtet man jedoch
-ein, wie im Falle der Zahnklinik an der LMU dreidimensionales Bild, so spricht man
-nicht mehr von einem Pixel, sondern von einem Voxel. Ein Voxel ist demnach das dreidimensionale
-Äquivalent zu einem Pixel. \citet[Seite 10-11]{burger2009} beschreibt weiter das
-jeder diese Zellen ein binäres Wort der Länge $2^{k}$ ist. Die Basis 2 ergibt sich
-durch das binäre Wort, wo hingegen für $k$ gilt: $k \in \mathbb{N}$. Um für den
-konkreten Fall aus Listing \ref{lst:inhalt_mhd_datei} das entsprechenden $k$ zu
-ermitteln, muss der \texttt{ElementType} näher betrachtet werden. \texttt{MET\_SHORT}
-steht hierbei für Signed short, was eine Größe von 16 Bit entspricht. Damit
-ergibt sich für die Länge $k$ ein Wert von 4. So können nach \citet[Seite 10-11]{burger2009}
-folgende Gleichungen festgehalten werden.
+erklärt, das ein Bild in Zellen aufgeteilt ist, welche Informationen enthalten. Diese
+Zellen sind im zweidimensionalen Raum als Pixel bekannt. Betrachtet man jedoch
+ein, wie im Falle der Zahnklinik an der LMU dreidimensionales Bild, so spricht
+man nicht mehr von einem Pixel, sondern von einem Voxel. Ein Voxel ist demnach
+das dreidimensionale Äquivalent zu einem Pixel. \citet[Seite 10-11]{burger2009} beschreibt
+weiter das jeder diese Zellen ein binäres Wort der Länge $2^{k}$ ist. Die Basis
+2 ergibt sich durch das binäre Wort, wo hingegen für $k$ gilt:
+$k \in \mathbb{N}$. Um für den konkreten Fall aus Listing \ref{lst:inhalt_mhd_datei}
+das entsprechenden $k$ zu ermitteln, muss der \texttt{ElementType} näher betrachtet
+werden. \texttt{MET\_SHORT} steht hierbei für Signed short, was eine Größe von
+16 Bit entspricht. Damit ergibt sich für die Länge $k$ ein Wert von 4. So können
+nach \citet[Seite 10-11]{burger2009} folgende Gleichungen festgehalten werden.
 
 \begin{align}
 	\label{equ:größe_bestimmen}1024 \cdot 1024 \cdot 517    & = 542,113,792 \, \text{Voxel}\notag  \\
@@ -175,54 +175,53 @@ folgende Gleichungen festgehalten werden.
 \end{align}
 
 Die erste Gleichung bestimmt die Gesamtzahl aller Voxel in einem Bild. Gleichung
-2 ermittelt die Größe des Bildes in der Einheit Byte. Die letzte Zeile nimmt eine
-Umrechnung von Byte nach Gigabyte (GB) vor.
+2 ermittelt die Größe des Bildes in der Einheit Byte. Die letzte Zeile nimmt
+eine Umrechnung von Byte nach Gigabyte (GB) vor.
 
 Durch die Gleichungen in \ref{equ:größe_bestimmen} wird klar, das eine CT-Aufnahme
-des Typs \texttt{.ISQ} direkt nach seiner Aufnahme über einen GB groß ist. Laut
-\citet{poliklinikLMU} ist dies ein zu großes Format. Es stellt sich also die
-spannende Frage, wie solch eine Datei komprimiert werden kann, ohne das es
-Verluste in der Qualität gibt. Dr. Elisa Walter hat hierfür eine Lösung
-entwickelt. QUELLE Betrachtet man den \texttt{ElementType} genauer, so fällt auf,
-dass es noch weiter Typen gibt, die durch eine geringere Länge $k$ deutlich weniger
-Speicher benötigen. Durch Anwendung simpler Statistik lässt sich herauslesen, das
-die $2^{4}$ Byte je Element nicht ausgenutzt werden. Als Werkzeug für die
-Betrachtung einer solchen Statistik kann das Histogramm eines Bildes genutzt
-werden. Laut \citet[Seite 249]{jahne2024} ist ein Histogramm die Häufigkeitsverteilung
-der Grauwerte. Diese zeigt Grafisch die unterschiedlichen Grauwerte (X-Achse) zu
-ihren Häufigkeiten im Bild (Y-Achse). \citet[Seite 249]{jahne2024} macht deutlich,
-dass das Histogramm jedoch kein Aufschluss über die räumliche Verteilung der
-Pixel oder Voxel liefert. Werden einige der Argumente nicht verwenden, so kann
+des Typs \texttt{.ISQ} direkt nach seiner Aufnahme über einen GB groß ist. Laut \citet{poliklinikLMU}
+ist dies ein zu großes Format. Es stellt sich also die spannende Frage, wie
+solch eine Datei komprimiert werden kann, ohne das es Verluste in der Qualität gibt.
+Dr. Elisa Walter hat hierfür eine Lösung entwickelt. Betrachtet man den \texttt{ElementType}
+genauer, so fällt auf, dass es noch weiter Typen gibt, die durch eine geringere
+Länge $k$ deutlich weniger Speicher benötigen. Durch Anwendung simpler Statistik
+lässt sich herauslesen, das die $2^{4}$ Byte je Element nicht ausgenutzt werden.
+Als Werkzeug für die Betrachtung einer solchen Statistik kann das Histogramm eines
+Bildes genutzt werden. Laut \citet[Seite 249]{jahne2024} ist ein Histogramm die
+Häufigkeitsverteilung der Grauwerte. Diese zeigt Grafisch die unterschiedlichen Grauwerte
+(X-Achse) zu ihren Häufigkeiten im Bild (Y-Achse). \citet[Seite 249]{jahne2024}
+macht deutlich, dass das Histogramm jedoch kein Aufschluss über die räumliche Verteilung
+der Pixel oder Voxel liefert. Werden einige der Argumente nicht verwenden, so kann
 der \texttt{ElementTyp} verkleinert werden
 % ---------------------------------------------------------------------------------------
 
 \section{Bildbearbeitung}
-\label{sec:bildbearbeitung} Nachdem ein CT erzeugt und gegebenenfalls
-komprimiert wurde, folgt die Bearbeitung eines Bildes. Hierfür bietet das
-Pipeline-Modell von \citet[Seite 50]{handels2000} eine gute Richtlinie. Er beschreibt
-mit dieser Visualisierungs-Pipeline Schritte, die bei der Bearbeitung von
-dreidimensionalen CT-Aufnahmen notwendig sind \citep[vgl.][Seite 50]{handels2000}.
-Die ersten Schritte, \textit{Bildvorverarbeitung} und \textit{Segmentierung}, sind
-von besonderem Interesse. Dieser Abschnitt orientiert sich an dieser
-Unterteilung und nimmt sie als Vorbild. Daraus ergeben sich die Abschnitte \ref{subsec:filter}
+\label{sec:bildbearbeitung} Nachdem ein CT erzeugt und gegebenenfalls komprimiert
+wurde, folgt die Bearbeitung eines Bildes. Hierfür bietet das Pipeline-Modell von
+\citet[Seite 50]{handels2000} eine gute Richtlinie. Er beschreibt mit dieser
+Visualisierungs-Pipeline Schritte, die bei der Bearbeitung von dreidimensionalen
+CT-Aufnahmen notwendig sind \citep[vgl.][Seite 50]{handels2000}. Die ersten
+Schritte, \textit{Bildvorverarbeitung} und \textit{Segmentierung}, sind von
+besonderem Interesse. Dieser Abschnitt orientiert sich an dieser Unterteilung und
+nimmt sie als Vorbild. Daraus ergeben sich die Abschnitte \ref{subsec:filter}
 Filter und \ref{subsec:segmentierung} Segmentierung, welche die Pipelineschritte
 \textit{Bildvorverarbeitung} und \textit{Segmentierung} wiederspiegeln sollen.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Filter}
-\label{subsec:filter} CT-Aufnahmen rauschen, dies ist ein Fakt und liegt in der Natur
-einer Röntgenaufnahme. Dies beschreiben auch \citet[Kapitel 3]{diwakar2018} in
-ihrem Paper über CT-Bildrauschen und Entrauschen. Dabei liegt die Ursache des Rauschens
-nicht an einer Stelle sondern ist auf viele Quellen zurückzuführen. Einen gute
-Einteilung dieser Quellen liefern ebenfalls \citet[Kapitel 3]{diwakar2018}. Sie teilen
-die Rauschquellen auf in \textit{Random noise, Statistical noise, Electronic
-noise und roundoff noise}.
+\label{subsec:filter} CT-Aufnahmen rauschen, dies ist ein Fakt und liegt in der
+Natur einer Röntgenaufnahme. Dies beschreiben auch \citet[Kapitel 3]{diwakar2018}
+in ihrem Paper über CT-Bildrauschen und Entrauschen. Dabei liegt die Ursache des
+Rauschens nicht an einer Stelle sondern ist auf viele Quellen zurückzuführen. Einen
+gute Einteilung dieser Quellen liefern ebenfalls \citet[Kapitel 3]{diwakar2018}.
+Sie teilen die Rauschquellen auf in \textit{Random noise, Statistical noise,
+Electronic noise und roundoff noise}.
 
 Unter dem Rauschen eines Bildes versteht man die Streuung der Pixelwerte im Bild.
-Für eine Segmentierung des Bildes ist dieses Verhalten unerwünscht und führt zu schlechten
-Ergebnissen \citep[vgl.][Seite 51]{handels2000}. Die Bildvorverarbeitung oder
-auch Filter gennant, hat die Aufgabe dieses Rauschen so gut wie möglich zu redzieren.
-Hierzu gibt es diverse Möglichkeiten.
+Für eine Segmentierung des Bildes ist dieses Verhalten unerwünscht und führt zu
+schlechten Ergebnissen \citep[vgl.][Seite 51]{handels2000}. Die Bildvorverarbeitung
+oder auch Filter gennant, hat die Aufgabe dieses Rauschen so gut wie möglich zu
+redzieren. Hierzu gibt es diverse Möglichkeiten.
 
 \begin{minipage}{0.40\textwidth}
 	Mit Blick auf die folgenden Kapitel sind für diese Arbeit vorallem die lokalen
@@ -241,59 +240,61 @@ Hierzu gibt es diverse Möglichkeiten.
 \end{minipage}
 
 Für die konkrete Betrachtung der Nachbarschaft eines Pixels empfiehlt \citet[Seite
-52]{handels2000} eine Maske (Ausschnitt) herranzuziehen, die mit einer Matrix
-interpretiert werdenen kann und die Nachbarschafft eines Pixels abbildet. Abbildung
+52]{handels2000} eine Maske (Ausschnitt) herranzuziehen, die mit einer Matrix interpretiert
+werdenen kann und die Nachbarschafft eines Pixels abbildet. Abbildung
 \ref{fig:lokaler_operator_maske} zeigt eine sollche Maske und soll das Verfahren
-so verdeutlichen. Der grau hinterlegte Mittelpunkt - $P = (0/0)$ - ist das
-aktuell betrachtete Pixel. die Felder um die Mitte herum die Nachbaren. Es fällt
-jedoch auf, dass durch dieses Schema nicht jede mögliche Ausprägung einer Maske in
-frage kommt. Um ein Mittelpunkt und damit einen aktuellen Pixel betrachtetn zu
-können, bedarf es eines ungeraden Grades für $M$. Diese Eingränzung lässt sich
-in Gleichung \ref{equ:lokaler_operator} generisch fassen.
+so verdeutlichen. Der grau hinterlegte Mittelpunkt - $P = (0/0)$ - ist das aktuell
+betrachtete Pixel. die Felder um die Mitte herum die Nachbaren. Es fällt jedoch auf,
+dass durch dieses Schema nicht jede mögliche Ausprägung einer Maske in frage
+kommt. Um ein Mittelpunkt und damit einen aktuellen Pixel betrachtetn zu können,
+bedarf es eines ungeraden Grades für $M$. Diese Eingränzung lässt sich in Gleichung
+\ref{equ:lokaler_operator} generisch fassen.
 
 \begin{align}
 	\label{equ:lokaler_operator}M_{(2_m+1)x(2_m+1)} & = \begin{bmatrix}k_{11}&k_{12}&k_{13}\\ k_{21}&x&k_{23}\\ k_{31}&k_{32}&k_{33}\\\end{bmatrix} & m \in \mathbb{N}
 \end{align}
 
-Die Gleichung \ref{equ:lokaler_operator} beschreibt die mögliche Ausprägung eines
-lokalen Operators als Matrix. Dabei sei $m \in \mathbb{N}$. Die Variable $x$ beschreibt
-das aktuell betrachtete Pixel, während $k_{nn}$ die Nachbarn illustrieren soll. Durch
-die Gleichung ist auch zu erkennen, das die Maske des lokalen Operators beliebig
-groß werden kann. Eine hohe Ordnung der Operatormatrix ist jedoch nicht immer von
-Vorteil, sodass es letzten Endes auf den Anwendungsfall ankommt.
+Die Gleichung \ref{equ:lokaler_operator} beschreibt die mögliche Ausprägung
+eines lokalen Operators als Matrix. Dabei sei $m \in \mathbb{N}$. Die Variable
+$x$ beschreibt das aktuell betrachtete Pixel, während $k_{nn}$ die Nachbarn illustrieren
+soll. Durch die Gleichung ist auch zu erkennen, das die Maske des lokalen Operators
+beliebig groß werden kann. Eine hohe Ordnung der Operatormatrix ist jedoch nicht
+immer von Vorteil, sodass es letzten Endes auf den Anwendungsfall ankommt.
 
-Mit der Technik der lokalen Operatoren können nun unterschiedliche Arten
-angwenden werden. \citet[Seite 54 - 55]{handels2000} unterscheidet hier in Glättungsfilter,
-Mittelwertfilter, Medianfilter, Gaußfilter und Binomialfilter. Alle dieser Filter
-bedienen sich einer Operatormaske um auf Basis der Nachbarelementen ein Statistischen
-Wert für den Bildpunkt zu erhalten. Um einen genaueren Einblick in alle Filter
-zu erlangen, sei an dieser Stell auf \citet[Seite 54 - 55]{handels2000} verwiesen.
+Mit der Technik der lokalen Operatoren können nun unterschiedliche Arten angwenden
+werden. \citet[Seite 54 - 55]{handels2000} unterscheidet hier in Glättungsfilter,
+Mittelwertfilter, Medianfilter, Gaußfilter und Binomialfilter. Alle dieser
+Filter bedienen sich einer Operatormaske um auf Basis der Nachbarelementen ein
+Statistischen Wert für den Bildpunkt zu erhalten. Um einen genaueren Einblick in
+alle Filter zu erlangen, sei an dieser Stell auf \citet[Seite 54 - 55]{handels2000}
+verwiesen.
 
 Wie zu Anfang dieses Kapitels beschrieben, ist eine Bildvorvearbeitung (Filterung)
 für eine gute Segmnetierung des Bildes unerlässlich. So kommt es das auch in der
-Visualisierungs-Pipelin nach \citet[Seite 50]{handels2000} der zweite Schritt bereits
-die Segmentierung einführt. Warum dies so ein wichtiger Bestandteil der
-Bildanalyse ist und welche Methoden sich hier bieten, erläutert das folgende Kapitel.
+Visualisierungs-Pipelin nach \citet[Seite 50]{handels2000} der zweite Schritt
+bereits die Segmentierung einführt. Warum dies so ein wichtiger Bestandteil der Bildanalyse
+ist und welche Methoden sich hier bieten, erläutert das folgende Kapitel.
 % ---------------------------------------------------------------------------------------
 
 \pagebreak
 
 \subsection{Segmentierung}
-\label{subsec:segmentierung} Die Bildsegmentierung oder auch Bildaufteilung
-genannt, ist ein wichtiges Teilgebiet der Bildverarbeitung und beschäfftigt sich
-mit der Bildanalyse. Ihr Ziel ist es, detailirtere beschreibende Bilder aus dem vorliegenden
-Orginalbild zu berechnen. Dies kann im Falle eines CTs der Zahnklinik an der LMU
-München die hervorgehobene Darstellung der Zahnsubstanzen Schmelz und Dentin
-sein. \citep[vgl.][Seite 359]{lehmann2013bildverarbeitung}. Konkret teilt ein
-Segmentierungsverfahren also ein Bild in Teilbereiche auf. Dabei sind die Teilbereich
-in sich bemerkenswert homogen. \citet[Seite 1]{ramesh2021} beschreiben, dass der
-Prozess der Segmentierung zur Gewinnung wichtiger Informationen dient wie zum Beispiel
-die Zahnkaries Ausbreitung. So kommt es, dass \citet[Seite 50]{handels2000} in seiner
-Visualisierungs-Pipelin die Segmentierung als zweiten Schritt und damit als zentrales
-Problem darstellt. \citet[Seite 95]{handels2000} und \citet[Seite 360]{lehmann2013bildverarbeitung}
-beschreiben beide, dass die Bildsegmentierung eines CTs für eine gute und eindeutige
-Ärzliche Diagnose nicht mehr wegzudenken ist. Warum dem so ist, verdeutlicht die
-Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
+\label{subsec:segmentierung} Die Bildsegmentierung oder auch Bildaufteilung genannt,
+ist ein wichtiges Teilgebiet der Bildverarbeitung und beschäfftigt sich mit der
+Bildanalyse. Ihr Ziel ist es, detailirtere beschreibende Bilder aus dem
+vorliegenden Orginalbild zu berechnen. Dies kann im Falle eines CTs der Zahnklinik
+an der LMU München die hervorgehobene Darstellung der Zahnsubstanzen Schmelz und
+Dentin sein. \citep[vgl.][Seite 359]{lehmann2013bildverarbeitung}. Konkret teilt
+ein Segmentierungsverfahren also ein Bild in Teilbereiche auf. Dabei sind die
+Teilbereich in sich bemerkenswert homogen. \citet[Seite 1]{ramesh2021} beschreiben,
+dass der Prozess der Segmentierung zur Gewinnung wichtiger Informationen dient
+wie zum Beispiel die Zahnkaries Ausbreitung. So kommt es, dass \citet[Seite 50]{handels2000}
+in seiner Visualisierungs-Pipelin die Segmentierung als zweiten Schritt und
+damit als zentrales Problem darstellt. \citet[Seite 95]{handels2000} und \citet[Seite
+360]{lehmann2013bildverarbeitung} beschreiben beide, dass die Bildsegmentierung
+eines CTs für eine gute und eindeutige Ärzliche Diagnose nicht mehr wegzudenken
+ist. Warum dem so ist, verdeutlicht die Abbildung
+\ref{fig:interpretation_einer_ct_aufnahem}.
 
 \begin{figure}[h]
 	\centering
@@ -302,40 +303,40 @@ Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
 	\label{fig:interpretation_einer_ct_aufnahem}
 \end{figure}
 
-Zu erkennen ist das orginale Bild (Ausgangslage) und mögliche
-Interpretationsschritte (Interpretation1 und Interpretation2). \citet[Seite 360]{lehmann2013bildverarbeitung}
-verdeutlichen mit dieser Abbildung \ref{fig:interpretation_einer_ct_aufnahem},
-dass mittels Segmentierung die einzig mögliche Interpretation die erste ist. Auch
-wenn die zweite Interpretation die deutlich logischere ist, kann diese ohne
-weitere Forschung nicht bewiesen werden, so \citet[Seite 360]{lehmann2013bildverarbeitung}.
-Ausßerdem ist zu erkennen, dass die Abbildung \ref{fig:interpretation_einer_ct_aufnahem}
-die Definition einer Segmentierung belegt. Die Erzeugung inhaltlich
-zusammengehöriger Regionen werden hier durch die verschiedenen Formen
-visualisiert \citep[vgl.][Seite 360]{lehmann2013bildverarbeitung}.
+Zu erkennen ist das orginale Bild (Ausgangslage) und mögliche Interpretationsschritte
+(Interpretation1 und Interpretation2). \citet[Seite 360]{lehmann2013bildverarbeitung}
+verdeutlichen mit dieser Abbildung \ref{fig:interpretation_einer_ct_aufnahem}, dass
+mittels Segmentierung die einzig mögliche Interpretation die erste ist. Auch
+wenn die zweite Interpretation die deutlich logischere ist, kann diese ohne weitere
+Forschung nicht bewiesen werden, so \citet[Seite 360]{lehmann2013bildverarbeitung}.
+Ausßerdem ist zu erkennen, dass die Abbildung
+\ref{fig:interpretation_einer_ct_aufnahem} die Definition einer Segmentierung
+belegt. Die Erzeugung inhaltlich zusammengehöriger Regionen werden hier durch die
+verschiedenen Formen visualisiert \citep[vgl.][Seite 360]{lehmann2013bildverarbeitung}.
 
-Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die Auswhal eines
-Verfahrens spielt unter Anderem der Anwendungsbereich eine wichtige Rolle. Die
-Verfahren, die in dieser Arbeit von Wichtigkeit sind, sind die
-Schwellwertverfahren \citep[vgl.][Seite 361]{lehmann2013bildverarbeitung}.
+Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die Auswhal
+eines Verfahrens spielt unter Anderem der Anwendungsbereich eine wichtige Rolle.
+Die Verfahren, die in dieser Arbeit von Wichtigkeit sind, sind die Schwellwertverfahren
+\citep[vgl.][Seite 361]{lehmann2013bildverarbeitung}.
 
 \pagebreak
 
-\textbf{Schwelltwertverfahren} (engl.: thresholding) gehören zu den
-Standardwerkzeugen einer Segmentierung, sodass sie die Basis vieler weiterer Verfahren
-legen. Bei einer Schwellwertbasierten Segmentierung werden die Pixel eines
-Bildes anhand von Schwellwerten eingruppiert \citep[vgl.][Seite 96]{handels2000}.
-Die nachfolgende Gleichung \ref{equ:schwellwertverfahren} soll dies verdeutlichen.
+\textbf{Schwelltwertverfahren} (engl.: thresholding) gehören zu den Standardwerkzeugen
+einer Segmentierung, sodass sie die Basis vieler weiterer Verfahren legen. Bei einer
+Schwellwertbasierten Segmentierung werden die Pixel eines Bildes anhand von Schwellwerten
+eingruppiert \citep[vgl.][Seite 96]{handels2000}. Die nachfolgende Gleichung
+\ref{equ:schwellwertverfahren} soll dies verdeutlichen.
 
 \begin{align}
 	\label{equ:schwellwertverfahren}B(x, y, z) = \begin{cases}1,&\text{falls }t_{\text{unten}}\leq f(x, y, z) \leq t_{\text{oben}}, \\ 0,&\text{sonst}.\end{cases}
 \end{align}
 
-$B(x, y, z)$ Beschreibt einen Pixel in einem dreidimensonalen Bild, demnach ein Voxel.
-Liegen die Werte eines Voxels, also $f(x, y, z)$, innerhalb der beiden
-Schwellwerte $t_{oben}$ und $t_{unten}$, dann wird eine 1 zugewiesen. Liegt der
-aktuell betrachtete Voxel nicht zwischen den Schwellwerten, so wird eine 0 zugewiesen.
-Das Ergebnis einer solchen primitiven Schwellwertsegmentierung ist in Abbildung
-\ref{fig:binäres_schwellwertverfahren} zu sehen
+$B(x, y, z)$ Beschreibt einen Pixel in einem dreidimensonalen Bild, demnach ein
+Voxel. Liegen die Werte eines Voxels, also $f(x, y, z)$, innerhalb der beiden Schwellwerte
+$t_{oben}$ und $t_{unten}$, dann wird eine 1 zugewiesen. Liegt der aktuell betrachtete
+Voxel nicht zwischen den Schwellwerten, so wird eine 0 zugewiesen. Das Ergebnis einer
+solchen primitiven Schwellwertsegmentierung ist in Abbildung \ref{fig:binäres_schwellwertverfahren}
+zu sehen
 
 \begin{figure}[h]
 	\centering
@@ -344,24 +345,24 @@ Das Ergebnis einer solchen primitiven Schwellwertsegmentierung ist in Abbildung
 	\label{fig:binäres_schwellwertverfahren}
 \end{figure}
 
-Zu erkennen ist, dass nach einem einfachen Schwellwertverfahren das Bild nur noch
-aus zwei unterschiedlichen Graustufen besteht. Betrachtet man das Ergbnis in
-\ref{fig:binäres_schwellwertverfahren} genauer, so ist abgesehen von der Sinnhaftigkeit,
-diese einfach Segmentierung durchaus erfolgreich verlaufen. Der Grund dafür ist die
-gute Wahl des Schwellwertes.
+Zu erkennen ist, dass nach einem einfachen Schwellwertverfahren das Bild nur
+noch aus zwei unterschiedlichen Graustufen besteht. Betrachtet man das Ergbnis in
+\ref{fig:binäres_schwellwertverfahren} genauer, so ist abgesehen von der
+Sinnhaftigkeit, diese einfach Segmentierung durchaus erfolgreich verlaufen. Der
+Grund dafür ist die gute Wahl des Schwellwertes.
 
-Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des Schwellwertes
-$t$. Dieser entscheident zwischen einer guten und einer schlechten Segmentierung.
-Für die Wahl eines Schwellwertes empfielt sich der Blick auf das Bildhistogramm.
-Dieses gibt Aufschluss über die Grauwertverteilung eines Bildes \citep[vgl.][Seite361]{lehmann2013bildverarbeitung}.
-Verfahren, welche eine gute Schwellwertwahl gewährleistet, ohne das zu viele Informationen
-verloren gehen, sind die Verfahren \textit{Otsu} und \textit{Renyi}.
+Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des
+Schwellwertes $t$. Dieser entscheident zwischen einer guten und einer schlechten
+Segmentierung. Für die Wahl eines Schwellwertes empfielt sich der Blick auf das
+Bildhistogramm. Dieses gibt Aufschluss über die Grauwertverteilung eines Bildes \citep[vgl.][Seite361]{lehmann2013bildverarbeitung}.
+Verfahren, welche eine gute Schwellwertwahl gewährleistet, ohne das zu viele
+Informationen verloren gehen, sind die Verfahren \textit{Otsu} und \textit{Renyi}.
 
 \pagebreak
 
 \textbf{Das Verfahren nach Otsu} gehört zu den Schwellwertverfahren und bestimmt
-den Schwellwert $t$ durch ein statistische Gütekriterieum. Hierzu bedient sich das
-Verfahren des Bildhistogrammes. Die räumliche Anordnung der Voxel und damit das
+den Schwellwert $t$ durch ein statistische Gütekriterieum. Hierzu bedient sich
+das Verfahren des Bildhistogrammes. Die räumliche Anordnung der Voxel und damit das
 tatsächliche Bild, benötigt dieser Algorthmus nicht \citep[vgl.][Seite 264]{lehmann2013bildverarbeitung}.
 
 \begin{minipage}{0.40\textwidth}
@@ -379,11 +380,11 @@ tatsächliche Bild, benötigt dieser Algorthmus nicht \citep[vgl.][Seite 264]{le
 \end{minipage}
 
 Das Otsu-Verfahren teilt die Grauwerte eines Bildes in verschiedenen Klassen ein,
-die durch Schwellwerte getrennt werden. Die Klassen können beispeilsweise mit
-$K_{0}$ bis $K_{n}$ bezeichnet werden, wobei sich dieses konkrete Beispiel auf die
-Klassen $K_{0}$ und $K_{1}$ beschränkt. Otsu wählt den Schwellwert $t$, der die Varianz
-zwischen den Pixelklassen maximiert und gleichzeitig die Varianz innerhalb jeder
-Klasse minimiert \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
+die durch Schwellwerte getrennt werden. Die Klassen können beispeilsweise mit $K_{0}$
+bis $K_{n}$ bezeichnet werden, wobei sich dieses konkrete Beispiel auf die
+Klassen $K_{0}$ und $K_{1}$ beschränkt. Otsu wählt den Schwellwert $t$, der die
+Varianz zwischen den Pixelklassen maximiert und gleichzeitig die Varianz
+innerhalb jeder Klasse minimiert \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
 Matematisch lässt sich dies wie folgt ausdrücken.
 
 \begin{align}
@@ -392,78 +393,78 @@ Matematisch lässt sich dies wie folgt ausdrücken.
 
 $\sigma_{zw}$ bildet die Varianz zwischen den beiden Klassen $K_{0}$ und $K_{1}$
 und wird gebildet aus der Wahrscheinlichkeiten mit denen jeder einzelne Grauwert
-auftritt. $\sigma_{in}$ hingegen, ist die Varianz innerhalb einer Klasse und entsteht
-durch die Addition der Varianzen der einzelnen Klassen. Der Schwellwert $t$ ist
-nun der, für den das Verhältnis maximal wird \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
+auftritt. $\sigma_{in}$ hingegen, ist die Varianz innerhalb einer Klasse und
+entsteht durch die Addition der Varianzen der einzelnen Klassen. Der Schwellwert
+$t$ ist nun der, für den das Verhältnis maximal wird \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
 
-Laut \citet[Seite264]{lehmann2013bildverarbeitung} fällt auf, dass dieses
-Verfahren vorallem bei bimodalen Bildern zum Einsatz kommt. Ein Bild ist bimodal,
-wenn es zwei lokale Maxima aufweist. Das Otsu-Verfahren ist jedoch nicht auf eine
-Bimodalität beschränkt und kann auf beliebig viele Klassen erweitert werden \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
+Laut \citet[Seite264]{lehmann2013bildverarbeitung} fällt auf, dass dieses Verfahren
+vorallem bei bimodalen Bildern zum Einsatz kommt. Ein Bild ist bimodal, wenn es zwei
+lokale Maxima aufweist. Das Otsu-Verfahren ist jedoch nicht auf eine Bimodalität
+beschränkt und kann auf beliebig viele Klassen erweitert werden \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
 
-Eine ganz ähnliche Technik für die bestimmung des Schwellwertes liefert das Verfahren
-der Renyi Entropie. Auch hier ist eine einteilung der Voxel in Klassen
+Eine ganz ähnliche Technik für die bestimmung des Schwellwertes liefert das
+Verfahren der Renyi Entropie. Auch hier ist eine einteilung der Voxel in Klassen
 vorgesehen.
 % ---------------------------------------------------------------------------------------
 \pagebreak
 
-\textbf{Das Verfahren nach Rényi} ist ein weiteres Verfahren, das im Laufe
-dieser Arbeit noch eine wichtige Rolle spielt. Wie bereits Beschrieben gehört es
-ebenfalls zu der Gruppe der Schwellwertverfahren und genneriert demnach ein Schwellwert
-$t$. Wie auch das Verfahren nach Otsu, benötigt Rényi keine Information über die
-räumliche Anordnung der Bilder, es genügt das Bildhistogramm. Dabei ist der optimal
-Schwellwert $t$ der, der eine maximale Entropie der Bildverteilung erzeugt. Unter
-einer Entropie wird ein Konzept verstanden, das eine Unordung, Unsicherheit oder
-den Informationsgehlat innerhalb eines Systems beschreibt, so \citet{bein2006}.
+\textbf{Das Verfahren nach Rényi} ist ein weiteres Verfahren, das im Laufe dieser
+Arbeit noch eine wichtige Rolle spielt. Wie bereits Beschrieben gehört es
+ebenfalls zu der Gruppe der Schwellwertverfahren und genneriert demnach ein
+Schwellwert $t$. Wie auch das Verfahren nach Otsu, benötigt Rényi keine
+Information über die räumliche Anordnung der Bilder, es genügt das Bildhistogramm.
+Dabei ist der optimal Schwellwert $t$ der, der eine maximale Entropie der Bildverteilung
+erzeugt. Unter einer Entropie wird ein Konzept verstanden, das eine Unordung,
+Unsicherheit oder den Informationsgehlat innerhalb eines Systems beschreibt, so \citet{bein2006}.
 Die Rényi-Entropie ist eine Verallgemeinerung der Shannon-Entropie und hängt von
-einem Parameter $q$ ab. Die Entropie misst die Unsicherheit oder den Informationsgehalt
-einer Wahrscheinlichkeitsverteilung, welche sich wie folgt ausdrücken lässt
-\citep[vgl.][K. 2]{bromiley2004}.
+einem Parameter $q$ ab. Die Entropie misst die Unsicherheit oder den
+Informationsgehalt einer Wahrscheinlichkeitsverteilung, welche sich wie folgt ausdrücken
+lässt \citep[vgl.][K. 2]{bromiley2004}.
 
 \begin{align}
 	H_{q}(P) = \frac{1}{1-q}\ln \left( \sum_{i=1}^{N}p_{i}^{q}\right)
 \end{align}
 
-Besonderes Augenmerk verdienen hierbei die Paramter $p_{i}$ und $q$, welche di charakteristischen
-Eigenschaften der Rényi-Entropie beschreiben. Der Parameter $p_{i}$ ist die
-Wahrscheinlichkeit eines jeden Grauwertes im Bild. $i$ symbolisiert hierbei jeden
-Grauwert. Wie viele Grauwerte genau betrachten werden sollen definiert $N$. Die Variable
-$q$ hingegen beeinflusst die Gewichtung der Wahrscheinlichkeit $p_{i}$ für jeden
-Grauwert. Setzt man den Parameter $q$ auf $q = 1$ so lässt sich so mittels
-Algebra die Shannon-Entropie zeigen \citep[vgl.][K.2]{bromiley2004}. Um nun mit
-der Rényi-Entropie den optimalen Schwellwert für ein Bild zu berechnen sieht
-Rényi ähnlich wie Otsu eine Einteilung in Klassen vor. Die Einteilung erfolgt mittels
-des Parameters $N$. So kann nun für jede gebildete Klasse die Gleichung ...
-angewendet werden. Die Gesamtentropie des Systems wird aus den beiden Teilentropien
-der jeweiligen Klassen bestimmt\citep[vgl.][K. 2]{bromiley2004}.
+Besonderes Augenmerk verdienen hierbei die Paramter $p_{i}$ und $q$, welche di
+charakteristischen Eigenschaften der Rényi-Entropie beschreiben. Der Parameter $p
+_{i}$ ist die Wahrscheinlichkeit eines jeden Grauwertes im Bild. $i$
+symbolisiert hierbei jeden Grauwert. Wie viele Grauwerte genau betrachten werden
+sollen definiert $N$. Die Variable $q$ hingegen beeinflusst die Gewichtung der
+Wahrscheinlichkeit $p_{i}$ für jeden Grauwert. Setzt man den Parameter $q$ auf $q
+= 1$ so lässt sich so mittels Algebra die Shannon-Entropie zeigen \citep[vgl.][K.2]{bromiley2004}.
+Um nun mit der Rényi-Entropie den optimalen Schwellwert für ein Bild zu berechnen
+sieht Rényi ähnlich wie Otsu eine Einteilung in Klassen vor. Die Einteilung
+erfolgt mittels des Parameters $N$. So kann nun für jede gebildete Klasse die Gleichung
+... angewendet werden. Die Gesamtentropie des Systems wird aus den beiden
+Teilentropien der jeweiligen Klassen bestimmt\citep[vgl.][K. 2]{bromiley2004}.
 \begin{align}
 	H_{q}(T) = H_{q}(P)^{(1)}+ H_{q}(P)^{(2)}
 \end{align}
-Um nun den optimalen Schwellwert $t$ bestimmen zu können muss der Wert genommen
-werden, bei dem die Gesamtentropie des Systems maximal ist. Dieser Sachverhalt
-lässt sich wie folgt ausdrücken \citep[vgl.][K. 2]{bromiley2004}.
+Um nun den optimalen Schwellwert $t$ bestimmen zu können muss der Wert genommen werden,
+bei dem die Gesamtentropie des Systems maximal ist. Dieser Sachverhalt lässt sich
+wie folgt ausdrücken \citep[vgl.][K. 2]{bromiley2004}.
 \begin{align}
 	t = max(H_{q}(T))
 \end{align}
-Neben unzähligen weiteren Segmentierungstechniken, ist eine für diese Arbeits von
-ganz besonderer Bedeutung. Diese Technik wurde speziell zum Segementieren der
-Micro-CT bilder des Zahnklinikums an der LMU in München entwickelt und bildet
-die Basis dieser Arbeit. Konkret ist damit das Hoffmann-Verfahren gemeint \citep[vgl.][]{hoffmann2020}.
+Neben unzähligen weiteren Segmentierungstechniken, ist eine für diese Arbeits
+von ganz besonderer Bedeutung. Diese Technik wurde speziell zum Segementieren der
+Micro-CT bilder des Zahnklinikums an der LMU in München entwickelt und bildet die
+Basis dieser Arbeit. Konkret ist damit das Hoffmann-Verfahren gemeint \citep[vgl.][]{hoffmann2020}.
 
 \pagebreak
 % ---------------------------------------------------------------------------------------
 
 \section{Verwandte Arbeit}
-\label{sec:verwwandte_arbeit} Wie bereits in der Einleitung dieser Arbeit klar wurde
-verfügt die Poliklinik für Zahnerhaltung und Parodontologie des LMU-Klinikums München
-über einen breiten Schatz an Bilddaten. Im Rahmen einer Bachelorarbeit an der
-Hohschule für angewnadte Wissenschafften in Augsburg unterstützte \citet{hoffmann2020}
-die Verarbeitung dieser Bilddaten mit Methoden der 3D-Bildverarbeitung. Konkret
-sollte die Arbeit die Kariesklassifizierung unterstützen. Hierzu entwickelte er ein
-Verfahren, das auf Basis adaptiver Schwellwertverfahren die Zahnsubstanzen
-Schmelz und Dentin aus dem Orginalbild herrauslöst. Konkret kann diese Segmentierung
-mit verschiedenen Verfahren durchgeführt werden. Man spricht hier von einer
-anatomsichen Segmentierung der Zahnkrone.
+\label{sec:verwwandte_arbeit} Wie bereits in der Einleitung dieser Arbeit klar
+wurde verfügt die Poliklinik für Zahnerhaltung und Parodontologie des LMU-Klinikums
+München über einen breiten Schatz an Bilddaten. Im Rahmen einer Bachelorarbeit an
+der Hohschule für angewnadte Wissenschafften in Augsburg unterstützte \citet{hoffmann2020}
+die Verarbeitung dieser Bilddaten mit Methoden der 3D-Bildverarbeitung. Konkret sollte
+die Arbeit die Kariesklassifizierung unterstützen. Hierzu entwickelte er ein
+Verfahren, das auf Basis adaptiver Schwellwertverfahren die Zahnsubstanzen Schmelz
+und Dentin aus dem Orginalbild herrauslöst. Konkret kann diese Segmentierung mit
+verschiedenen Verfahren durchgeführt werden. Man spricht hier von einer anatomsichen
+Segmentierung der Zahnkrone.
 
 \begin{minipage}{0.45\textwidth}
 	Durch die Segmentbetrachtung der Beiden Zahnhauptteile Schmelz und Dentin konnte
@@ -480,10 +481,10 @@ anatomsichen Segmentierung der Zahnkrone.
 	\label{fig:ergebnis_hoffmann}
 \end{minipage}
 
-Die anatomischeSegmentierung des Zahns umfasst ein ganze Reihe algorithmischer Schritte,
-sodass sich eine Pipeline an Verarbeitungsschritten ergibt. Die Abbildung \ref{fig:anatomische_segmentierung}
-zeigt den groben Ablauf des Verfahrens. Kleinere Zwischenschritte wurden nicht
-berücksichtig.
+Die anatomischeSegmentierung des Zahns umfasst ein ganze Reihe algorithmischer
+Schritte, sodass sich eine Pipeline an Verarbeitungsschritten ergibt. Die
+Abbildung \ref{fig:anatomische_segmentierung} zeigt den groben Ablauf des
+Verfahrens. Kleinere Zwischenschritte wurden nicht berücksichtig.
 
 \begin{figure}[h]
 	\centering
@@ -493,24 +494,22 @@ berücksichtig.
 	\label{fig:anatomische_segmentierung}
 \end{figure}
 
-\citet{hoffmann2020} beschreibt, dass dieses Verfahren bis zu einem gewissen Vortschritt
-des Karies durchgeführt werden konnte, da der Algorithmus diesbezüglich seine
-Grenzen hat. Außerdem ist das Verfahen für die orginalen ISQ-Bilder erstellt worden,
-deren Daten im Format \ac{16Int} vorliegen. Für die Spätere Darstellung der
-Ergebnisse kann eine überlappende Ansicht in einer Visualisierungssoftware
-verwendet werden. So ergibt sich die Situation, dass der Algorithmus ein gutes
-Ergebnis liefert, jedoch nicht benutzerfreundlich zu bedienen ist. Für das
-Starten und Visualisueren des Verfahrens sind aufwendige Befehle über das
-Terminal zu tippen \citep[vgl.][Seite 53]{hoffmann2020}. Genau an dieser Stelle soll
-die vorliegende Arbeit anknüpfen und das Verfahren nach \citet{hoffmann2020} so
-interaktiv und benutzerfreundlich gestallten.
+\citet{hoffmann2020} beschreibt, dass dieses Verfahren bis zu einem gewissen
+Vortschritt des Karies durchgeführt werden konnte, da der Algorithmus diesbezüglich
+seine Grenzen hat. Außerdem ist das Verfahen für die orginalen ISQ-Bilder
+erstellt worden, deren Daten im Format \ac{16Int} vorliegen. Für die Spätere Darstellung
+der Ergebnisse kann eine überlappende Ansicht in einer Visualisierungssoftware verwendet
+werden. So ergibt sich die Situation, dass der Algorithmus ein gutes Ergebnis liefert,
+jedoch nicht benutzerfreundlich zu bedienen ist. Für das Starten und Visualisueren
+des Verfahrens sind aufwendige Befehle über das Terminal zu tippen \citep[vgl.][Seite
+53]{hoffmann2020}. Genau an dieser Stelle soll die vorliegende Arbeit anknüpfen
+und das Verfahren nach \citet{hoffmann2020} so interaktiv und benutzerfreundlich
+gestallten.
 
-Für eine interaktive Verarbeitung von 3D Bilddaten bieten sich einige
-Möglichkeiten. Die wohl beste Lösung liefer 3D Slicer. Warum die Wahl auf diese
-Plattform viel und welche Vorteile daraus entstehen wird im folgenden Abschnitt
-\ref{sec:3d_slicer} erläutert.
-
-\pagebreak
+Für eine interaktive Verarbeitung von 3D Bilddaten bieten sich einige Möglichkeiten.
+Die wohl beste Lösung liefer 3D Slicer. Warum die Wahl auf diese Plattform viel und
+welche Vorteile daraus entstehen wird im folgenden Abschnitt \ref{sec:3d_slicer}
+erläutert.
 % ---------------------------------------------------------------------------------------
 
 \section{Interaktive Bildbearbeitung mit 3D Slicer}
@@ -563,13 +562,13 @@ Entwicklung mit 3D Slicer\citep[vgl.][]{slicer2024}, \citep[vgl.][]{fedorov2012s
 
 \subsection{Extension Manager und Plugin Infrastruktur}
 Der wohl bedeutenste Punkt ist die Plug-In Infrastruktur, welche Slicer von sich
-aus mitbringt. Um dieses Konzept genauer zu beläuchten Teilt man die Platform am
-besten in zwei Teile auf. Die Kernanwendung und die Module, welcher jeder User
-personalisiert installieren oder deinstallieren kann. Diese Module werden als \textit{Slicer
-lodabel module} bezeichnet \citep[vgl.][Seite 1332]{fedorov2012slicer}. Slicer realisiert
-die Struktur durch den Extention Manager, welcher durchaus vergleichbar ist mit
-einer Art AppStore. Über diesen können bequem und mit wenig Klicks die gewünschten
-Erweiterungen in das Kernsystem installiert werden.
+aus mitbringt. Um dieses Konzept gena uer zu beläuchten Teilt man die Platform
+am besten in zwei Teile auf. Die Kernanwendung und die Module, welcher jeder
+User personalisiert installieren oder deinstallieren kann. Diese Module werden als
+\textit{Slicer lodabel module} bezeichnet \citep[vgl.][Seite 1332]{fedorov2012slicer}.
+Slicer realisiert die Struktur durch den Extention Manager, welcher durchaus
+vergleichbar ist mit einer Art AppStore. Über diesen können bequem und mit wenig
+Klicks die gewünschten Erweiterungen in das Kernsystem installiert werden.
 
 \begin{minipage}{0.30\textwidth}
 	Neben der Möglichkeit Module zu installieren bietet Slicer noch die Möglichkeit
