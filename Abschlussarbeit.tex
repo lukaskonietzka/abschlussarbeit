@@ -86,19 +86,24 @@
 	%%% --------------------------------------------------
 	\begin{abstract}
 		\section*{Kurzfassung}
-		3D Slicer ist eines größten Open Source Projekt mit einer der stärksten Gemeinschaften.
+		3D Slicer ist eines der größten Open Source Projekt mit einer der stärksten Gemeinschaften.
 		Es hat sich über die Jahre hinweg in den unterschiedlichsten Kliniken
-		etablierte. So kommte es, dass auch die Klinik für Zahnerhaltung und
-		Parodontologie in München diese Plattform bereits in ihren Forschungsaltag
-		integriert haben. Ziel dieser vorliegenden Arbeit war die Erstellung eines Moduls
-		für die Software 3D Slicer um so die Ärzte in der Zahnklinik zu unterstüzten.
-		Dabei sollte ein bereits prototypisch bestehender Algorihmus überarbeitet
+		etablierte. So kommt es, dass auch die Klinik für Zahnerhaltung und
+		Parodontologie in München diese Plattform bereits in ihren Forschungsalltag
+		integriert hat. Ziel dieser vorliegenden Arbeit war die Erstellung eines Moduls
+		für die Software 3D Slicer um so die Ärzte in der Zahnklinik zu unterstützen.
+		Dabei sollte ein bereits prototypisch bestehender Algorithmus überarbeitet
 		und in das Modul integriert werden. Im Laufe der Entwicklung entstand so der
 		\textit{Tooth Analyser}, der es möglich macht den Algorithmus mit nur wenigen
-		Klicks über eine UI zu starten. Neben dem Mehrwert, den die Awendung für die
-		praktizierenden Ärzte liefert, konnten auch viele Erfahrunge mit der Slicer
-		Entwicklung gemacht werden, sodass am Ende ein guter Überblick über die wichtigsten
-		Punkte in der Entwicklung besteht.
+		Klicks über eine UI zu starten und so die Benutzerfreundlichkeit erheblich zu
+		steigern. Neben dem Mehrwert, den die Anwendung für die praktizierenden Ärzte
+		liefert, konnten auch viele Erfahrungen mit der 3D Slicer Entwicklung
+		gesammelt werden. So wird beispielsweise erläutert, wie die Plug-in-Infrastruktur
+		der Plattform funktioniert und wie schließlich sichergestellt wird, wie ein erstelltes
+		Modul ein Softwareupdate von Slicer überlebt. Die detaillierte Evaluation
+		des \textit{Tooth Analyser} wird zeigen, das die geforderte Integration des
+		Verfahrens in die Plattform 3D Slicer durchaus als Erfolg betrachtet werden
+		kann.
 	\end{abstract}
 
 	%%% --------------------------------------------------
@@ -117,7 +122,7 @@
 	%%% Inhaltsverzeichnis
 	%%% --------------------------------------------------
 	\tableofcontents
-	
+
 	%%% --------------------------------------------------
 	%%% Verzeichnisse
 	%%% --------------------------------------------------
@@ -137,10 +142,10 @@
 		\acro{ISQ}{Industrial Scan Quality} \acro{16Int}{16 bit sigend integer} \acro{8UInt}{8 not unsigend integer}
 		\acro{VTK}{Visualization Toolkit} \acro{ITK}{Insight Toolkit} \acro{ITK-SNAP}{Insight Toolkit Snake Automatic Partitioning}
 		\acro{JSON}{JavaScript Object Notation} \acro{CLI}{Commend Line Interface} \acro{LMU}{Ludwig-Maximilians-Universität München}
-		\acro{THA}{Technische Hochschule Augsburg}
+		\acro{THA}{Technische Hochschule Augsburg} \acro{GB}{Gigabyte }
 	\end{acronym}
 	\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
-	
+
 	\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
 	\lstlistoflistings % Listings
 	\addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
@@ -161,10 +166,6 @@
 	\include{chapters/Ergebnisse}
 	\include{chapters/Diskussion}
 	\include{chapters/Schlussfolgerung}
-
-	
-
-
 
 	% --------------------------------------------------
 	% Bibliographie
