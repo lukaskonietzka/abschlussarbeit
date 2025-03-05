@@ -12,9 +12,10 @@ ein, die zum Erstellen einer 3D Slicer Erweiterung wichtig sind.
 
 \section{Domänenspezifisch}
 \label{sec:domänenspezifisch} Wie bereits aus dem Kapitel \ref{chap:einleitung}
-Einleitung klar wurde, handelt es sich bei den Mikro-CT-Bilder um Zahnbilder. Um
-zu verstehen, wie eine CT-Aufnahme technisch segmentiert und damit zerlegt werden
-kann, muss zunächst die Zahnstruktur selbst verstanden werden.
+Einleitung klar wurde, handelt es sich bei den Mikro-\ac{CT}-Bilder um
+Zahnbilder. Um zu verstehen, wie eine \ac{CT}-Aufnahme technisch segmentiert und
+damit zerlegt werden kann, muss zunächst die Zahnstruktur selbst verstanden
+werden.
 
 \begin{minipage}{0.40\textwidth}
 	Die Abbildung \ref{fig:aufbau_eines_zahnes} zeigt den groben Aufbau eines Zahnes
@@ -32,10 +33,10 @@ kann, muss zunächst die Zahnstruktur selbst verstanden werden.
 	\captionof{figure}{Aufbau eines Zahnes nach \citet{lehmann2012Zahnheilkunde}} \label{fig:aufbau_eines_zahnes}
 \end{minipage}
 
-Für die Bearbeitung von Mikro-CT-Aufnahmen sind die Bereiche Schmelz, Dentin und
-Pulpa von besonderer Bedeutung. Betrachtet man eine CT wie es zu Beginn in der Abbildung
-\ref{fig:ct_aufnahme_eines_zahns} gezeigt wurde, so bilden diese drei
-Gewebearten die unterschiedlichen Grauwerte in einem CT-Bild.
+Für die Bearbeitung von Mikro-\ac{CT}-Aufnahmen sind die Bereiche Schmelz, Dentin
+und Pulpa von besonderer Bedeutung. Betrachtet man eine \ac{CT} wie es zu Beginn
+in der Abbildung \ref{fig:ct_aufnahme_eines_zahns} gezeigt wurde, so bilden
+diese drei Gewebearten die unterschiedlichen Grauwerte in einem \ac{CT}-Bild.
 
 \begin{description}
 	\item[\textbf{Die Pulpa}] unterscheidet sich hierbei nur wenig vom Hintergrund,
@@ -43,49 +44,51 @@ Gewebearten die unterschiedlichen Grauwerte in einem CT-Bild.
 		bei einer Röntgenaufnahme nicht absorbiert. Dieser Teil ist in dieser Arbeit
 		weniger relevant und auch nicht Teil des Verfahrens, was das
 		Segmentierungsverfahren eher zu einer Zahnkronensegmentierung macht. Geht man
-		weiter von innen nach außen, so ist der nächste Zahnteil auf einem CT das
+		weiter von innen nach außen, so ist der nächste Zahnteil auf einem \ac{CT} das
 		Zahnbein.
 
 	\item[\textbf{Das Dentin}] ist laut \citet[Seite 41]{lehmann2012Zahnheilkunde}
 		eine Hartsubstanz, die dem Kieferknochen sehr nah steht. So kommt es, dass
-		dieser Teil schon deutlich besser auf einem CT zu erkennen ist. Den äußersten
-		Teil in der Mundhöhle bildet das Zahnschmelz.
+		dieser Teil schon deutlich besser auf einem \ac{CT} zu erkennen ist. Den
+		äußersten Teil in der Mundhöhle bildet das Zahnschmelz.
 
 	\item[\textbf{Der Schmelz}] ist der härteste Teil im menschlichen Körper und aus
-		diesem Grund auch am hellsten auf dem CT zu erkennen.
+		diesem Grund auch am hellsten auf dem \ac{CT} zu erkennen.
 \end{description}
 
-Die folgende Abbildung \ref{fig:pulpa_dentin_schmelz} sollen durch Gegenüberstellung
-die einzelnen Zahnsubstanzen auf einer CT-Aufnahme lokalisieren.
+Die folgende Abbildung \ref{fig:pulpa_dentin_schmelz} sollen durch
+Gegenüberstellung die einzelnen Zahnsubstanzen auf einer \ac{CT}-Aufnahme lokalisieren.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/dentin_schmelz_pulpa.png}
-	\caption{Darstellung von Pulpa, Dentin und Schmelz auf einer CT-Aufnahme nach \citet{heck2024}.}
+	\caption{Darstellung von Pulpa, Dentin und Schmelz auf einer \ac{CT}-Aufnahme
+	nach \citet{heck2024}.}
 	\label{fig:pulpa_dentin_schmelz}
 \end{figure}
 
 Mit diesem Domänenwissen kann ein Schritt weiter gegangen werden, sodass der Fokus
-nun auf die CT-Bilder gesetzt wird. Das Kapitel \ref{sec:technologisch}
-Bildgebung führt die Technologie der Computertomografie tiefer ein. Darüber hinaus
-werden die verschiedenen Formate und statistische Modelle der CT-Aufnahmen vorgestellt.
+nun auf die \ac{CT}-Bilder gesetzt wird. Das Kapitel \ref{sec:technologisch} Bildgebung
+führt die Technologie der Computertomografie tiefer ein. Darüber hinaus werden
+die verschiedenen Formate und statistische Modelle der \ac{CT}-Aufnahmen vorgestellt.
 % ---------------------------------------------------------------------------------------
 
 \section{Bildgebung}
 \label{sec:technologisch} Es gibt die unterschiedlichsten Arten zur Erzeugung dreidimensonaler
-Bilddaten. Dieser Abschnitt erläutert federführend die Technologie der Mikro-CT-Aufnahmen
-und deren Erstellung. Diese sind für eine medizinischen Einsatz besonders interessant.
-Des Weiteren erfolgt eine Einführung in die Speicherung und Komprimierung von CT-Aufnahmen.
-Diese sorgt dafür, dass die digitalen Bilddaten deutlich handlicher werden.
+Bilddaten. Dieser Abschnitt erläutert federführend die Technologie der Mikro-\ac{CT}-Aufnahmen
+und deren Erstellung. Diese sind für eine medizinischen Einsatz besonders
+interessant. Des Weiteren erfolgt eine Einführung in die Speicherung und Komprimierung
+von \ac{CT}-Aufnahmen. Diese sorgt dafür, dass die digitalen Bilddaten deutlich
+handlicher werden.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Computertomografie}
-\label{subsec:computertomografie} Die Erfindung der Computertomografie (CT) war
-ein Quantensprung in der Geschichte der Medizin. Sie ist aus heutigen Diagnosen nicht
-mehr wegzudenken. Ein Mikro-CT-Bild ist laut \citet[Abstract]{baird2017} ein
-Menge hochauflösender Bilder, die wie ein Stapel zusammengelegt werden. Der
+\label{subsec:computertomografie} Die Erfindung der Computertomografie (\ac{CT})
+war ein Quantensprung in der Geschichte der Medizin. Sie ist aus heutigen
+Diagnosen nicht mehr wegzudenken. Ein Mikro-\ac{CT}-Bild ist laut \citet[Abstract]{baird2017}
+ein Menge hochauflösender Bilder, die wie ein Stapel zusammengelegt werden. Der
 Aspekt mikro deutet dabei darauf hin, dass es eine miniaturisierte Ausführung eines
-üblichen Kegelstrahl-CTs ist, so \citet[Seite 340]{buzug2011}. Eine andere Definition
+üblichen Kegelstrahl-\ac{CT}s ist, so \citet[Seite 340]{buzug2011}. Eine andere Definition
 erläutert \citet{lehmann2013bildverarbeitung}. Er beschreibt die Computertomografie
 als Projektionen einzelner Ebenen im Untersuchungsobjekt. Die Technologie, mit der
 diese Bilderstapel aufgenommen werden, ist unter der Röntgentechnik oder auch
@@ -104,24 +107,25 @@ Abbildung \ref{fig:spectrum} zeigt dieses elektromagnetische Spektrum.
 \end{figure}
 
 Durchdringt ein solcher Röntgenstrahl ein Untersuchungsobjekt, werden die
-Details aufgrund der Wechselwirkung mit Materie auf einer CT-Probe sichtbar. Die
-bekannteste Wechselwirkung ist die Absorption. Mit der Steigerung der Atomzahl
+Details aufgrund der Wechselwirkung mit Materie auf einer \ac{CT}-Probe sichtbar.
+Die bekannteste Wechselwirkung ist die Absorption. Mit der Steigerung der Atomzahl
 in einem Material nimmt auch die Absorption eines Materials zu, sodass es leicht
-ist verschiedene Materialien in einer CT-Aufnahme zu unterscheiden \citep[vgl.][]{nib2024}.
+ist verschiedene Materialien in einer \ac{CT}-Aufnahme zu unterscheiden \citep[vgl.][]{nib2024}.
 
-Für eine Mikro-CT-Aufnahme bedarf es spezieller Technik. Es gibt unterschiedliche
-Firmen, welche die unterschiedlichsten Modelle anbieten. Im Falle der Zahnklinik
-an der \ac{LMU} handelt es sich um ein Mikro-CT 40 der Firma \citet{scanco2024}.
-Dieses Gerät erstellt Aufnahmen mittels Röntgenstrahlung und generiert mithilfe
-der Computertomografie ein dreidimensionales Bild, welches im Format \ac{ISQ}
-abgelegt wird. Wie das nächste Kapitel beschreiben wird, ist der Speicherumfang
-den solch ein Bild benötigt sehr groß, jedoch auch sehr detaliert. Um ein
-einfacheres Arbeiten mit den CT-Bildern zu ermöglichen, kann eine simple Technik
-angewendet werden, die hier beschrieben werden soll.
+Für eine Mikro-\ac{CT}-Aufnahme bedarf es spezieller Technik. Es gibt
+unterschiedliche Firmen, welche die unterschiedlichsten Modelle anbieten. Im
+Falle der Zahnklinik an der \ac{LMU} handelt es sich um ein Mikro-\ac{CT} 40 der
+Firma \citet{scanco2024}. Dieses Gerät erstellt Aufnahmen mittels
+Röntgenstrahlung und generiert mithilfe der Computertomografie ein
+dreidimensionales Bild, welches im Format \ac{ISQ} abgelegt wird. Wie das nächste
+Kapitel beschreiben wird, ist der Speicherumfang den solch ein Bild benötigt
+sehr groß, jedoch auch sehr detaliert. Um ein einfacheres Arbeiten mit den \ac{CT}-Bildern
+zu ermöglichen, kann eine simple Technik angewendet werden, die hier beschrieben
+werden soll.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Datenformate}
-\label{subsec:datensätze} Die rohen Datensätze, welche direkt aus dem Mikro-CT-Gerät
+\label{subsec:datensätze} Die rohen Datensätze, welche direkt aus dem Mikro-\ac{CT}-Gerät
 kommen, haben nach \citet{scanco2024} das Format \ac{ISQ}. Dieses Format fällt speziell
 auf die Geräte der Firma SCANCO zurück. Wie das vorherige Kapitel
 \ref{subsec:computertomografie} bereits eingeführt hat, ist dieser Dateityp für eine
@@ -176,50 +180,52 @@ Die erste Gleichung bestimmt die Gesamtzahl aller Voxel in einem Bild. Gleichung
 2 ermittelt die Größe des Bildes in der Einheit Byte. Die letzte Zeile nimmt
 eine Umrechnung von Byte nach \ac{GB} vor.
 
-Durch die Gleichungen in \ref{equ:größe_bestimmen} wird klar, dass eine CT-Aufnahme
-des Typs \ac{ISQ} direkt nach seiner Aufnahme über einen \ac{GB} groß ist. Laut \citet{poliklinikLMU}
-ist dies ein zu großes Format. Es stellt sich also die spannende Frage, wie
-solch eine Datei komprimiert werden kann, ohne das es Verluste in der Qualität gibt.
-Dr. Elisa Walter hat hierfür eine Lösung entwickelt. Betrachtet man den \texttt{ElementType}
-genauer, so fällt auf, dass es noch weitere Typen gibt, die durch eine geringere
-Länge $k$ deutlich weniger Speicher benötigen. Durch Anwendung simpler Statistik
-lässt sich herauslesen, dass die $2^{4}$ Byte je Element nicht ausgenutzt werden.
-Als Werkzeug für die Betrachtung einer solchen Statistik kann das Histogramm eines
-Bildes genutzt werden. Laut \citet[Seite 249]{jahne2024} ist ein Histogramm die
-Häufigkeitsverteilung der Grauwerte. Diese zeigt grafisch die unterschiedlichen Grauwerte
-(X-Achse) zu ihren Häufigkeiten im Bild (Y-Achse). \citet[Seite 249]{jahne2024}
-macht deutlich, dass das Histogramm jedoch kein Aufschluss über die räumliche Verteilung
-der Pixel oder Voxel liefert. Werden einige der Argumente nicht verwenden, so kann
+Durch die Gleichungen in \ref{equ:größe_bestimmen} wird klar, dass eine \ac{CT}-Aufnahme
+des Typs \ac{ISQ} direkt nach seiner Aufnahme über einen \ac{GB} groß ist. Laut
+\citet{poliklinikLMU} ist dies ein zu großes Format. Es stellt sich also die
+spannende Frage, wie solch eine Datei komprimiert werden kann, ohne das es
+Verluste in der Qualität gibt. Dr. Elisa Walter hat hierfür eine Lösung
+entwickelt. Betrachtet man den \texttt{ElementType} genauer, so fällt auf, dass
+es noch weitere Typen gibt, die durch eine geringere Länge $k$ deutlich weniger Speicher
+benötigen. Durch Anwendung simpler Statistik lässt sich herauslesen, dass die $2^{4}$
+Byte je Element nicht ausgenutzt werden. Als Werkzeug für die Betrachtung einer
+solchen Statistik kann das Histogramm eines Bildes genutzt werden. Laut \citet[Seite
+249]{jahne2024} ist ein Histogramm die Häufigkeitsverteilung der Grauwerte.
+Diese zeigt grafisch die unterschiedlichen Grauwerte (X-Achse) zu ihren
+Häufigkeiten im Bild (Y-Achse). \citet[Seite 249]{jahne2024} macht deutlich,
+dass das Histogramm jedoch kein Aufschluss über die räumliche Verteilung der
+Pixel oder Voxel liefert. Werden einige der Argumente nicht verwenden, so kann
 der \texttt{ElementTyp} verkleinert werden.
 % ---------------------------------------------------------------------------------------
 
 \section{Bildbearbeitung}
-\label{sec:bildbearbeitung} Nachdem ein CT erzeugt und gegebenenfalls
+\label{sec:bildbearbeitung} Nachdem ein \ac{CT} erzeugt und gegebenenfalls
 komprimiert wurde, folgt die Bearbeitung eines Bildes. Hierfür bietet das
 Pipeline-Modell von \citet[Seite 50]{handels2000} eine gute Richtlinie. Er beschreibt
 mit dieser Visualisierungs-Pipeline Schritte, die bei der Bearbeitung von
-dreidimensionalen CT-Aufnahmen notwendig sind \citep[vgl.][Seite 50]{handels2000}.
-Die ersten Schritte, \textit{Bildvorverarbeitung} und \textit{Segmentierung}, sind
-von besonderem Interesse. Dieser Abschnitt orientiert sich an dieser
-Unterteilung und nimmt sie sich als Vorbild. Daraus ergeben sich die Abschnitte \ref{subsec:filter}
-Filter und \ref{subsec:segmentierung} Segmentierung, welche die Pipelineschritte
-\textit{Bildvorverarbeitung} und \textit{Segmentierung} wiederspiegeln sollen.
+dreidimensionalen \ac{CT}-Aufnahmen notwendig sind \citep[vgl.][Seite 50]{handels2000}.
+Die ersten Schritte, \textit{Bildvorverarbeitung} und \textit{Segmentierung},
+sind von besonderem Interesse. Dieser Abschnitt orientiert sich an dieser Unterteilung
+und nimmt sie sich als Vorbild. Daraus ergeben sich die Abschnitte
+\ref{subsec:filter} Filter und \ref{subsec:segmentierung} Segmentierung, welche die
+Pipelineschritte \textit{Bildvorverarbeitung} und \textit{Segmentierung} wiederspiegeln
+sollen.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Filter}
-\label{subsec:filter} CT-Aufnahmen rauschen, dies ist ein Fakt und liegt in der Natur
-einer Röntgenaufnahme. Dies beschreiben auch \citet[Kapitel 3]{diwakar2018} in
-ihrem Paper über CT-Bildrauschen und Entrauschen. Dabei liegt die Ursache des Rauschens
-nicht an einer Stelle sondern ist auf viele Quellen zurückzuführen. Einen gute
-Einteilung dieser Quellen liefern ebenfalls \citet[Kapitel 3]{diwakar2018}. Sie teilen
-die Rauschquellen auf in \textit{Random noise, Statistical noise, Electronic
-noise} undn\textit{roundoff noise}.
+\label{subsec:filter} \ac{CT}-Aufnahmen rauschen, dies ist ein Fakt und liegt in
+der Natur einer Röntgenaufnahme. Dies beschreiben auch \citet[Kapitel 3]{diwakar2018}
+in ihrem Paper über \ac{CT}-Bildrauschen und Entrauschen. Dabei liegt die
+Ursache des Rauschens nicht an einer Stelle sondern ist auf viele Quellen
+zurückzuführen. Einen gute Einteilung dieser Quellen liefern ebenfalls \citet[Kapitel
+3]{diwakar2018}. Sie teilen die Rauschquellen auf in \textit{Random noise, Statistical
+noise, Electronic noise} undn\textit{roundoff noise}.
 
 Unter dem Rauschen eines Bildes versteht man die Streuung der Pixelwerte im Bild.
-Für eine Segmentierung des Bildes ist dieses Verhalten unerwünscht und führt zu schlechten
-Ergebnissen \citep[vgl.][Seite 51]{handels2000}. Die Bildvorverarbeitung oder
-auch Filter gennant, hat die Aufgabe dieses Rauschen so gut wie möglich zu reduzieren.
-Hierzu gibt es diverse Möglichkeiten.
+Für eine Segmentierung des Bildes ist dieses Verhalten unerwünscht und führt zu
+schlechten Ergebnissen \citep[vgl.][Seite 51]{handels2000}. Die Bildvorverarbeitung
+oder auch Filter gennant, hat die Aufgabe dieses Rauschen so gut wie möglich zu
+reduzieren. Hierzu gibt es diverse Möglichkeiten.
 
 \begin{minipage}{0.40\textwidth}
 	Mit Blick auf die folgenden Kapitel sind für diese Arbeit vorallem die lokalen
@@ -238,101 +244,102 @@ Hierzu gibt es diverse Möglichkeiten.
 \end{minipage}
 
 Für die konkrete Betrachtung der Nachbarschaft eines Pixels empfiehlt \citet[Seite
-52]{handels2000} eine Maske (Ausschnitt) herranzuziehen, die mit einer Matrix
-interpretiert werden kann und die Nachbarschaft eines Pixels abbildet. Abbildung
-\ref{fig:lokaler_operator_maske} zeigt eine solche Maske und soll das Verfahren so
-verdeutlichen. Der grau hinterlegte Mittelpunkt - $P = (0/0)$ - ist das aktuell
-betrachtete Pixel. die Felder um die Mitte herum die Nachbarn. Es fällt jedoch
-auf, dass durch dieses Schema nicht jede mögliche Ausprägung einer Maske in Frage
+52]{handels2000} eine Maske (Ausschnitt) herranzuziehen, die mit einer Matrix interpretiert
+werden kann und die Nachbarschaft eines Pixels abbildet. Abbildung
+\ref{fig:lokaler_operator_maske} zeigt eine solche Maske und soll das Verfahren
+so verdeutlichen. Der grau hinterlegte Mittelpunkt - $P = (0/0)$ - ist das aktuell
+betrachtete Pixel. die Felder um die Mitte herum die Nachbarn. Es fällt jedoch auf,
+dass durch dieses Schema nicht jede mögliche Ausprägung einer Maske in Frage
 kommt. Um einen Mittelpunkt und damit einen aktuellen Pixel betrachten zu können,
-bedarf es eines ungeraden Grades für $M$. Diese Eingränzung lässt sich in
-Gleichung \ref{equ:lokaler_operator} generisch fassen.
+bedarf es eines ungeraden Grades für $M$. Diese Eingränzung lässt sich in Gleichung
+\ref{equ:lokaler_operator} generisch fassen.
 
 \begin{align}
 	\label{equ:lokaler_operator}M_{(2_m+1)x(2_m+1)} & = \begin{bmatrix}k_{11}&k_{12}&k_{13}\\ k_{21}&x&k_{23}\\ k_{31}&k_{32}&k_{33}\\\end{bmatrix} & m \in \mathbb{N}
 \end{align}
 
-Die Gleichung \ref{equ:lokaler_operator} beschreibt die mögliche Ausprägung eines
-lokalen Operators als Matrix. Dabei sei $m \in \mathbb{N}$. Die Variable $x$ beschreibt
-das aktuell betrachtete Pixel, während $k_{nn}$ die Nachbarn illustrieren soll. Durch
-die Gleichung ist auch zu erkennen, dass die Maske des lokalen Operators
+Die Gleichung \ref{equ:lokaler_operator} beschreibt die mögliche Ausprägung
+eines lokalen Operators als Matrix. Dabei sei $m \in \mathbb{N}$. Die Variable
+$x$ beschreibt das aktuell betrachtete Pixel, während $k_{nn}$ die Nachbarn illustrieren
+soll. Durch die Gleichung ist auch zu erkennen, dass die Maske des lokalen Operators
 beliebig groß werden kann. Eine hohe Ordnung der Operatormatrix ist jedoch nicht
 immer von Vorteil, sodass es letzten Endes auf den Anwendungsfall ankommt.
 
-Mit der Technik der lokalen Operatoren können nun unterschiedliche Arten
-angewendet werden. \citet[Seite 54 - 55]{handels2000} unterscheidet hier in Glättungsfilter,
-Mittelwertfilter, Medianfilter, Gaußfilter und Binomialfilter. Alle dieser Filter
-bedienen sich einer Operatormaske um auf Basis der Nachbarelementen ein Statistischen
-Wert für den Bildpunkt zu erhalten. Um einen genaueren Einblick in alle Filter
-zu erlangen, sei an dieser Stelle auf \citet[Seite 54 - 55]{handels2000} verwiesen.
+Mit der Technik der lokalen Operatoren können nun unterschiedliche Arten angewendet
+werden. \citet[Seite 54 - 55]{handels2000} unterscheidet hier in Glättungsfilter,
+Mittelwertfilter, Medianfilter, Gaußfilter und Binomialfilter. Alle dieser
+Filter bedienen sich einer Operatormaske um auf Basis der Nachbarelementen ein
+Statistischen Wert für den Bildpunkt zu erhalten. Um einen genaueren Einblick in
+alle Filter zu erlangen, sei an dieser Stelle auf \citet[Seite 54 - 55]{handels2000}
+verwiesen.
 
 Wie zu Anfang dieses Kapitels beschrieben, ist eine Bildvorvearbeitung (Filterung)
 für eine gute Segmentierung des Bildes unerlässlich. So kommt es das auch in der
-Visualisierungs-Pipelin nach \citet[Seite 50]{handels2000} der zweite Schritt bereits
-die Segmentierung einführt. Warum dies so ein wichtiger Bestandteil der
-Bildanalyse ist und welche Methoden sich hier bieten, erläutert das folgende Kapitel.
+Visualisierungs-Pipelin nach \citet[Seite 50]{handels2000} der zweite Schritt
+bereits die Segmentierung einführt. Warum dies so ein wichtiger Bestandteil der Bildanalyse
+ist und welche Methoden sich hier bieten, erläutert das folgende Kapitel.
 % ---------------------------------------------------------------------------------------
 
 \pagebreak
 
 \subsection{Segmentierung}
-\label{subsec:segmentierung} Die Bildsegmentierung oder auch Bildaufteilung
-genannt, ist ein wichtiges Teilgebiet der Bildverarbeitung und beschäftigt sich mit
-der Bildanalyse. Ihr Ziel ist es, detalierte beschreibende Bilder aus dem vorliegenden
-Orginalbild zu berechnen. Dies kann im Falle eines CTs der Zahnklinik an der \ac{LMU}
-die hervorgehobene Darstellung der Zahnsubstanzen Schmelz und Dentin sein.
-\citep[vgl.][Seite 359]{lehmann2013bildverarbeitung}. Konkret teilt ein Segmentierungsverfahren
-also ein Bild in Teilbereiche auf. Dabei sind die Teilbereiche in sich
-bemerkenswert homogen. \citet[Seite 1]{ramesh2021} beschreiben, dass der Prozess
-der Segmentierung zur Gewinnung wichtiger Informationen dient wie zum Beispiel
-die Zahnkaries Ausbreitung. So kommt es, dass \citet[Seite 50]{handels2000} in
-seiner Visualisierungs-Pipelin die Segmentierung als zweiten Schritt und damit
-als zentrales Problem darstellt. \citet[Seite 95]{handels2000} und \citet[Seite 360]{lehmann2013bildverarbeitung}
-beschreiben beide, dass die Bildsegmentierung eines CTs für eine gute und
-eindeutige Ärzliche Diagnose nicht mehr wegzudenken ist. Warum dem so ist,
-verdeutlicht die Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
+\label{subsec:segmentierung} Die Bildsegmentierung oder auch Bildaufteilung genannt,
+ist ein wichtiges Teilgebiet der Bildverarbeitung und beschäftigt sich mit der
+Bildanalyse. Ihr Ziel ist es, detalierte beschreibende Bilder aus dem
+vorliegenden Orginalbild zu berechnen. Dies kann im Falle eines \ac{CT}s der Zahnklinik
+an der \ac{LMU} die hervorgehobene Darstellung der Zahnsubstanzen Schmelz und
+Dentin sein. \citep[vgl.][Seite 359]{lehmann2013bildverarbeitung}. Konkret teilt
+ein Segmentierungsverfahren also ein Bild in Teilbereiche auf. Dabei sind die Teilbereiche
+in sich bemerkenswert homogen. \citet[Seite 1]{ramesh2021} beschreiben, dass der
+Prozess der Segmentierung zur Gewinnung wichtiger Informationen dient wie zum Beispiel
+die Zahnkaries Ausbreitung. So kommt es, dass \citet[Seite 50]{handels2000} in seiner
+Visualisierungs-Pipelin die Segmentierung als zweiten Schritt und damit als zentrales
+Problem darstellt. \citet[Seite 95]{handels2000} und \citet[Seite 360]{lehmann2013bildverarbeitung}
+beschreiben beide, dass die Bildsegmentierung eines \ac{CT}s für eine gute und eindeutige
+Ärzliche Diagnose nicht mehr wegzudenken ist. Warum dem so ist, verdeutlicht die
+Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{img/bild_interpretation.jpg}
-	\caption{Interpretation einer CT-Aufnahme nach \citet[Seite 360]{lehmann2013bildverarbeitung}}
+	\caption{Interpretation einer \ac{CT}-Aufnahme nach \citet[Seite 360]{lehmann2013bildverarbeitung}}
 	\label{fig:interpretation_einer_ct_aufnahem}
 \end{figure}
 
-Zu erkennen ist das orginale Bild (Ausgangslage) und mögliche Interpretationsschritte
-(Interpretation 1 und Interpretation 2). \citet[Seite 360]{lehmann2013bildverarbeitung}
-verdeutlichen mit dieser Abbildung \ref{fig:interpretation_einer_ct_aufnahem}, dass
-mittels Segmentierung die einzig mögliche Interpretation die Erste ist. Auch
-wenn die zweite Interpretation die deutlich logischere ist, kann diese ohne weitere
-Forschung nicht bewiesen werden, so \citet[Seite 360]{lehmann2013bildverarbeitung}.
-Außerdem ist zu erkennen, dass die Abbildung
-\ref{fig:interpretation_einer_ct_aufnahem} die Definition einer Segmentierung
-belegt. Die Erzeugung inhaltlich zusammengehöriger Regionen werden hier durch die
-verschiedenen Formen visualisiert \citep[vgl.][Seite 360]{lehmann2013bildverarbeitung}.
+Zu erkennen ist das orginale Bild (Ausgangslage) und mögliche
+Interpretationsschritte (Interpretation 1 und Interpretation 2). \citet[Seite 360]{lehmann2013bildverarbeitung}
+verdeutlichen mit dieser Abbildung \ref{fig:interpretation_einer_ct_aufnahem},
+dass mittels Segmentierung die einzig mögliche Interpretation die Erste ist. Auch
+wenn die zweite Interpretation die deutlich logischere ist, kann diese ohne
+weitere Forschung nicht bewiesen werden, so \citet[Seite 360]{lehmann2013bildverarbeitung}.
+Außerdem ist zu erkennen, dass die Abbildung \ref{fig:interpretation_einer_ct_aufnahem}
+die Definition einer Segmentierung belegt. Die Erzeugung inhaltlich
+zusammengehöriger Regionen werden hier durch die verschiedenen Formen
+visualisiert \citep[vgl.][Seite 360]{lehmann2013bildverarbeitung}.
 
-Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die Auswhal
-eines Verfahrens spielt unter Anderem der Anwendungsbereich eine wichtige Rolle.
-Die Verfahren, die in dieser Arbeit von Wichtigkeit sind, sind die Schwellwertverfahren
-\citep[vgl.][Seite 361]{lehmann2013bildverarbeitung}.
+Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die Auswhal eines
+Verfahrens spielt unter Anderem der Anwendungsbereich eine wichtige Rolle. Die
+Verfahren, die in dieser Arbeit von Wichtigkeit sind, sind die
+Schwellwertverfahren \citep[vgl.][Seite 361]{lehmann2013bildverarbeitung}.
 
 \pagebreak
 
-\textbf{Schwelltwertverfahren} (engl.: thresholding) gehören zu den Standardwerkzeugen
-einer Segmentierung, sodass diese die Basis vieler weiterer Verfahren legen. Bei
-einer Schwellwertbasierten Segmentierung werden die Pixel eines Bildes anhand von
-Schwellwerten eingruppiert \citep[vgl.][Seite 96]{handels2000}. Die nachfolgende
-Gleichung \ref{equ:schwellwertverfahren} soll dies verdeutlichen.
+\textbf{Schwelltwertverfahren} (engl.: thresholding) gehören zu den
+Standardwerkzeugen einer Segmentierung, sodass diese die Basis vieler weiterer Verfahren
+legen. Bei einer Schwellwertbasierten Segmentierung werden die Pixel eines
+Bildes anhand von Schwellwerten eingruppiert \citep[vgl.][Seite 96]{handels2000}.
+Die nachfolgende Gleichung \ref{equ:schwellwertverfahren} soll dies verdeutlichen.
 
 \begin{align}
 	\label{equ:schwellwertverfahren}B(x, y, z) = \begin{cases}1,&\text{falls }t_{\text{unten}}\leq f(x, y, z) \leq t_{\text{oben}}, \\ 0,&\text{sonst}.\end{cases}
 \end{align}
 
-$B(x, y, z)$ Beschreibt einen Pixel in einem dreidimensonalen Bild, demnach ein
-Voxel. Liegen die Werte eines Voxels, also $f(x, y, z)$, innerhalb der beiden Schwellwerte
-$t_{oben}$ und $t_{unten}$, dann wird eine 1 zugewiesen. Liegt der aktuell betrachtete
-Voxel nicht zwischen den Schwellwerten, so wird eine 0 zugewiesen. Das Ergebnis einer
-solchen primitiven Schwellwertsegmentierung ist in Abbildung \ref{fig:binäres_schwellwertverfahren}
-zu sehen
+$B(x, y, z)$ Beschreibt einen Pixel in einem dreidimensonalen Bild, demnach ein Voxel.
+Liegen die Werte eines Voxels, also $f(x, y, z)$, innerhalb der beiden
+Schwellwerte $t_{oben}$ und $t_{unten}$, dann wird eine 1 zugewiesen. Liegt der
+aktuell betrachtete Voxel nicht zwischen den Schwellwerten, so wird eine 0 zugewiesen.
+Das Ergebnis einer solchen primitiven Schwellwertsegmentierung ist ein binäres
+Bild, welches in Abbildung \ref{fig:binäres_schwellwertverfahren} zu sehen ist.
 
 \begin{figure}[h]
 	\centering
@@ -341,24 +348,24 @@ zu sehen
 	\label{fig:binäres_schwellwertverfahren}
 \end{figure}
 
-Zu erkennen ist, dass nach einem einfachen Schwellwertverfahren das Bild nur
-noch aus zwei unterschiedlichen Graustufen besteht. Betrachtet man das Ergbnis in
-\ref{fig:binäres_schwellwertverfahren} genauer, so ist diese einfache
-Segmentierung durchaus erfolgreich verlaufen. Der Grund dafür ist die gute Wahl des
+Zu erkennen ist, dass nach einem einfachen Schwellwertverfahren das Bild nur noch
+aus zwei unterschiedlichen Graustufen besteht. Betrachtet man das Ergbnis in
+\ref{fig:binäres_schwellwertverfahren} genauer, so ist diese einfache Segmentierung
+durchaus erfolgreich verlaufen. Der Grund dafür ist die gute Wahl des
 Schwellwertes.
 
-Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des Schwellwertes
-$t$. Dieser entscheidet zwischen einer guten und einer schlechten Segmentierung.
+Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des
+Schwellwertes $t$. Dieser entscheidet zwischen einer guten und einer schlechten Segmentierung.
 Für die Wahl eines Schwellwertes empfielt sich der Blick auf das Bildhistogramm.
 Dieses gibt Aufschluss über die Grauwertverteilung eines Bildes \citep[vgl.][Seite361]{lehmann2013bildverarbeitung}.
-Verfahren, welche eine gute Schwellwertwahl gewährleistet, ohne dass zu viele Informationen
-verloren gehen, sind die Verfahren \textit{Otsu} und \textit{Renyi}.
+Verfahren, welche eine gute Schwellwertwahl gewährleistet, ohne dass zu viele
+Informationen verloren gehen, sind die Verfahren \textit{Otsu} und \textit{Renyi}.
 
 \pagebreak
 
 \textbf{Das Verfahren nach Otsu} gehört zu den Schwellwertverfahren und bestimmt
-den Schwellwert $t$ durch ein statistisches Gütekriterieum. Hierzu bedient sich das
-Verfahren des Bildhistogrammes. Die räumliche Anordnung der Voxel und damit das
+den Schwellwert $t$ durch ein statistisches Gütekriterieum. Hierzu bedient sich
+das Verfahren des Bildhistogrammes. Die räumliche Anordnung der Voxel und damit das
 tatsächliche Bild, benötigt dieser Algorithmus nicht \citep[vgl.][Seite 264]{lehmann2013bildverarbeitung}.
 
 \begin{minipage}{0.40\textwidth}
@@ -376,73 +383,75 @@ tatsächliche Bild, benötigt dieser Algorithmus nicht \citep[vgl.][Seite 264]{l
 \end{minipage}
 
 Das Otsu-Verfahren teilt die Grauwerte eines Bildes in verschiedenen Klassen ein,
-die durch Schwellwerte getrennt werden. Die Klassen können beispeilsweise mit
-$K_{0}$ bis $K_{n}$ bezeichnet werden, wobei sich dieses konkrete Beispiel auf die
-Klassen $K_{0}$ und $K_{1}$ beschränkt. Otsu wählt den Schwellwert $t$, der die Varianz
-zwischen den Pixelklassen maximiert und gleichzeitig die Varianz innerhalb jeder
-Klasse minimiert \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}. Mathematisch
-lässt sich dies wie folgt ausdrücken.
+die durch Schwellwerte getrennt werden. Die Klassen können beispeilsweise mit $K_{0}$
+bis $K_{n}$ bezeichnet werden, wobei sich dieses konkrete Beispiel auf die
+Klassen $K_{0}$ und $K_{1}$ beschränkt. Otsu wählt den Schwellwert $t$, der die
+Varianz zwischen den Pixelklassen maximiert und gleichzeitig die Varianz
+innerhalb jeder Klasse minimiert \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}.
+Mathematisch lässt sich dies wie folgt ausdrücken.
 
 \begin{align}
 	t = \text{max }(\sigma_{zw}^{2}/ \sigma_{in}^{2})
 \end{align}
 
 $\sigma_{zw}$ bildet die Varianz zwischen den beiden Klassen $K_{0}$ und $K_{1}$
-und bildet sich aus den Wahrscheinlichkeiten mit denen jeder einzelne Grauwert
-auftritt. $\sigma_{in}$ hingegen, ist die Varianz innerhalb einer Klasse und
-entsteht durch die Addition der Varianzen der einzelnen Klassen. Der Schwellwert
-$t$ ist nun der, für den das Verhältnis maximal wird \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}.
+und bildet sich aus den Wahrscheinlichkeiten mit denen jeder einzelne Grauwert auftritt.
+$\sigma_{in}$ hingegen, ist die Varianz innerhalb einer Klasse und entsteht durch
+die Addition der Varianzen der einzelnen Klassen. Der Schwellwert $t$ ist nun
+der, für den das Verhältnis maximal wird \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}.
 
-Laut \citet[S.~264]{lehmann2013bildverarbeitung} fällt auf, dass dieses Verfahren
-vorallem bei bimodalen Bildern zum Einsatz kommt. Ein Bild ist bimodal, wenn es zwei
-lokale Maxima aufweist. Vereinfacht gesagt, wenn es zwei lokale Pieks enthält \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}.
+Laut \citet[S.~264]{lehmann2013bildverarbeitung} fällt auf, dass dieses
+Verfahren vorallem bei bimodalen Bildern zum Einsatz kommt. Ein Bild ist bimodal,
+wenn es zwei lokale Maxima aufweist. Vereinfacht gesagt, wenn es zwei lokale
+Pieks enthält \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}.
 
 Eine ähnliche Technik für die Bestimmung des Schwellwertes liefert das Verfahren
-der Renyi Entropie. Auch hier ist eine Einteilung der Voxel in Klassen vorgesehen.
+der Renyi Entropie. Auch hier ist eine Einteilung der Voxel in Klassen
+vorgesehen.
 % ---------------------------------------------------------------------------------------
 \pagebreak
 
-\textbf{Das Verfahren nach Rényi} ist ein weiteres Verfahren, das im Laufe dieser
-Arbeit noch eine wichtige Rolle spielt. Wie bereits beschrieben gehört es
-ebenfalls zu der Gruppe der Schwellwertverfahren und generiert demnach einen
-Schwellwert $t$. Wie auch das Verfahren nach Otsu, benötigt Rényi keine
-Information über die räumliche Anordnung der Bilder, es genügt das Bildhistogramm.
-Dabei ist der optimal Schwellwert $t$ der, der eine maximale Entropie der Bildverteilung
-erzeugt. Unter einer Entropie wird ein Konzept verstanden, das eine Unordung,
-Unsicherheit oder den Informationsgehlat innerhalb eines Systems beschreibt, so \citet{bein2006}.
+\textbf{Das Verfahren nach Rényi} ist ein weiteres Verfahren, das im Laufe
+dieser Arbeit noch eine wichtige Rolle spielt. Wie bereits beschrieben gehört es
+ebenfalls zu der Gruppe der Schwellwertverfahren und generiert demnach einen Schwellwert
+$t$. Wie auch das Verfahren nach Otsu, benötigt Rényi keine Information über die
+räumliche Anordnung der Bilder, es genügt das Bildhistogramm. Dabei ist der optimal
+Schwellwert $t$ der, der eine maximale Entropie der Bildverteilung erzeugt. Unter
+einer Entropie wird ein Konzept verstanden, das eine Unordung, Unsicherheit oder
+den Informationsgehlat innerhalb eines Systems beschreibt, so \citet{bein2006}.
 Die Rényi-Entropie ist eine Verallgemeinerung der Shannon-Entropie und hängt von
-einem Parameter $q$ ab. Die Entropie misst die Unsicherheit oder den
-Informationsgehalt einer Wahrscheinlichkeitsverteilung, welche sich wie folgt ausdrücken
-lässt \citep[vgl.][K. 2]{bromiley2004}.
+einem Parameter $q$ ab. Die Entropie misst die Unsicherheit oder den Informationsgehalt
+einer Wahrscheinlichkeitsverteilung, welche sich wie folgt ausdrücken lässt
+\citep[vgl.][K. 2]{bromiley2004}.
 
 \begin{align}
 	\label{equ:renyi}H_{q}(P) = \frac{1}{1-q}\ln \left( \sum_{i=1}^{N}p_{i}^{q}\right)
 \end{align}
 
-Besonderes Augenmerk verdienen hierbei die Paramter $p_{i}$ und $q$, welche di
-charakteristischen Eigenschaften der Rényi-Entropie beschreiben. Der Parameter $p
-_{i}$ ist die Wahrscheinlichkeit eines jeden Grauwertes im Bild. $i$
-symbolisiert hierbei jeden Grauwert. Wie viele Grauwerte genau betrachten werden
-sollen definiert $N$. Die Variable $q$ hingegen beeinflusst die Gewichtung der
-Wahrscheinlichkeit $p_{i}$ für jeden Grauwert. Setzt man den Parameter $q$ auf $q
-= 1$ so lässt sich mittels Algebra die Shannon-Entropie zeigen \citep[vgl.][K.2]{bromiley2004}.
-Um nun mit der Rényi-Entropie den optimalen Schwellwert für ein Bild zu berechnen
-sieht Rényi ähnlich wie Otsu eine Einteilung in Klassen vor. Die Einteilung
-erfolgt mittels des Parameters $N$. So kann nun für jede gebildete Klasse die Gleichung
-\ref{equ:renyi} angewendet werden. Die Gesamtentropie des Systems wird aus den
-beiden Teilentropien der jeweiligen Klassen bestimmt\citep[vgl.][K. 2]{bromiley2004}.
+Besonderes Augenmerk verdienen hierbei die Paramter $p_{i}$ und $q$, welche di charakteristischen
+Eigenschaften der Rényi-Entropie beschreiben. Der Parameter $p_{i}$ ist die
+Wahrscheinlichkeit eines jeden Grauwertes im Bild. $i$ symbolisiert hierbei jeden
+Grauwert. Wie viele Grauwerte genau betrachten werden sollen definiert $N$. Die Variable
+$q$ hingegen beeinflusst die Gewichtung der Wahrscheinlichkeit $p_{i}$ für jeden
+Grauwert. Setzt man den Parameter $q$ auf $q = 1$ so lässt sich mittels Algebra
+die Shannon-Entropie zeigen \citep[vgl.][K.2]{bromiley2004}. Um nun mit der
+Rényi-Entropie den optimalen Schwellwert für ein Bild zu berechnen sieht Rényi
+ähnlich wie Otsu eine Einteilung in Klassen vor. Die Einteilung erfolgt mittels des
+Parameters $N$. So kann nun für jede gebildete Klasse die Gleichung
+\ref{equ:renyi} angewendet werden. Die Gesamtentropie des Systems wird aus den beiden
+Teilentropien der jeweiligen Klassen bestimmt\citep[vgl.][K. 2]{bromiley2004}.
 \begin{align}
 	H_{q}(T) = H_{q}(P)^{(1)}+ H_{q}(P)^{(2)}
 \end{align}
-Um nun den optimalen Schwellwert $t$ bestimmen zu können muss der Wert genommen werden,
-bei dem die Gesamtentropie des Systems maximal ist. Dieser Sachverhalt lässt sich
-wie folgt ausdrücken \citep[vgl.][K. 2]{bromiley2004}.
+Um nun den optimalen Schwellwert $t$ bestimmen zu können muss der Wert genommen
+werden, bei dem die Gesamtentropie des Systems maximal ist. Dieser Sachverhalt
+lässt sich wie folgt ausdrücken \citep[vgl.][K. 2]{bromiley2004}.
 \begin{align}
 	t = max(H_{q}(T))
 \end{align}
-Neben unzähligen weiteren Segmentierungstechniken, ist eine für diese Arbeits
-von ganz besonderer Bedeutung. Diese Technik wurde speziell zum Segementieren der
-Mikro-CT-Bilder des Zahnklinikums an der \ac{LMU} in München entwickelt.
+Neben unzähligen weiteren Segmentierungstechniken, ist eine für diese Arbeits von
+ganz besonderer Bedeutung. Diese Technik wurde speziell zum Segementieren der
+Mikro-\ac{CT}-Bilder des Zahnklinikums an der \ac{LMU} in München entwickelt.
 
 \pagebreak
 % ---------------------------------------------------------------------------------------
