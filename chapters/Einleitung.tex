@@ -5,16 +5,16 @@ führenden Erweiterungen der klassischen Röntgentechnik. Für die Entwicklung
 dieser Technologie wurden Godfrey Newbold Hounsfield und Allan McLeod Cormack im
 Jahre 1979 mit dem Nobelpreis für Medizin ausgezeichnet \citep[Seite12]{handels2000}.
 
-\begin{minipage}{0.40\textwidth}
+\begin{minipage}{0.45\textwidth}
 	Die Computertomografie wird in den verschiedensten Bereichen und im wahrsten Sinne
 	des Wortes von Kopf bis Fuß eingesetzt. So kommt es, dass auch im Dentalbereich
 	CT Aufnahmen von größter Wichtigkeit sind. Abbildung
-	\ref{fig:ct_aufnahme_eines_zahns} zeigt eine solche CT-Aufnahem. Eine konkrete
-	Anwendung in diesem Kont ext ist die Zahnkaries Forschung der Poliklinik für Zahnerhaltung
-	und Parodontologie des LMU Klinikums in München.
+	\ref{fig:ct_aufnahme_eines_zahns} zeigt eine solche CT-Aufnahmen. Eine konkrete
+	Anwendung in diesem Kontext ist die Zahnkaries Forschung der Poliklinik für Zahnerhaltung
+	und Parodontologie der \ac{LMU}.
 \end{minipage}
 \hfill
-\begin{minipage}{0.50\textwidth}
+\begin{minipage}{0.45\textwidth}
 	\centering
 	\includegraphics[scale=0.2, width=\textwidth]{img/micro_ct_orginal.jpg}
 	\captionof{figure}{CT-Aufnahme eines Zahns nach \citet{heck2024}.} \label{fig:ct_aufnahme_eines_zahns}
@@ -26,78 +26,79 @@ Umfang und zu welchem Grund ist in den folgenden Abschnitten beschrieben.
 
 \section{Ziel der Arbeit}
 \label{sec:ziel_der_arbeit} Diese Arbeit beschreibt eine Technik, mit der \ac{3D}
-Micro-CT Bilder zur Untersuchung zahnmedizinischen Strukturen automatisch
-mittels der Software \textit{3D Slicer} segmentiert und analysiert werden können
-Was genau unter eine Segmentierung verstanden wird, darüber informiert das
-Kapitel \ref{subsec:segmentierung} Segmentierung. Die algorithmische Formulierung
-einer konkreten Segmentierung ist bereits vorhanden und prototypisch implementiert.
-Dieser Algorithmus hat jedoch Schwachstellen. So muss beispielsweise das Verfahren
-umständlich über ein ipython Notebook im Terminal ausgeführt werden, was die
-Benutzerfreundlichkeit deutlich beeinträchtigt. Ziel dieser Arbeit ist es in erster
-Linie das bereits existierende Verfahren in der Klinik für Zahnerhaltung zu analysieren
-und für die Mitarbeiter der Klinik benutzbar zu machen. Dabei soll auf
-etablierte und vertraute Lösungen zurückgegriffen werden.
+Mikro-CT-Bilder zur Untersuchung zahnmedizinischen Strukturen automatisch
+mittels der Software \textit{3D Slicer} segmentiert und analysiert werden können.
+Was genau unter eine Segmentierung verstanden wird, darüber informiert das Kapitel
+\ref{subsec:segmentierung} Segmentierung. Die algorithmische Formulierung einer
+konkreten Segmentierung ist bereits vorhanden und prototypisch implementiert. Dieser
+Algorithmus hat jedoch Schwachstellen. So muss beispielsweise das Verfahren
+umständlich über ein ipython Notebook im Terminal ausgeführt werden, was die Benutzerfreundlichkeit
+deutlich beeinträchtigt. Ziel dieser Arbeit ist es in erster Linie das bereits
+existierende Verfahren in der Klinik für Zahnerhaltung zu analysieren und für
+die Mitarbeiter der Klinik benutzbar zu machen. Dabei soll auf etablierte und vertraute
+Lösungen zurückgegriffen werden.
 
 Es stellt sich nun die Frage, zu welchem Zweck eine automatische und interaktive
-Segmentierung überhaupt notwendig ist. Für die Zahnklinik an der LMU in München
-gibt es hierfür viele Gründe. Über den wichtigsten gibt das nächste Kapitel Aufschluss.
+Segmentierung überhaupt notwendig ist. Für die Zahnklinik an der LMU in München gibt
+es hierfür viele Gründe. Über den wichtigsten gibt das nächste Kapitel
+Aufschluss.
 % ---------------------------------------------------------------------------------------
 
 \section{Relevanz der Arbeit}
-\label{sec:relevanz_der_arbeit} Der wohl relevanteste Punkt wurde bereits im vorherigen
-Kapitel \ref{sec:ziel_der_arbeit} diskutiert, Zahnärte sind keine
-Softwareentwickler sonder reine Anwender von Software. Darüber hinaus verfolgt die
-Klinik für Zahnerhaltung und Parodontologie der LMU in München einen sehr interessanten
-Forschungsansatz, welche eine Segmentbetrachtung der CTs rechtfertigt.
+\label{sec:relevanz_der_arbeit} Der wohl relevanteste Punkt wurde bereits im
+vorherigen Kapitel \ref{sec:ziel_der_arbeit} diskutiert, Zahnärzte sind keine Softwareentwickler
+sondern reine Anwender von Software. Darüber hinaus verfolgt die Klinik für
+Zahnerhaltung und Parodontologie der \ac{LMU} einen sehr interessanten Forschungsansatz,
+welche eine Segmentbetrachtung der CTs rechtfertigt.
 
 Über viele Jahre hinweg wurden in der Zahnklinik sehr viel Bilddaten von Zähnen
 gesammelt. Hierbei wurden Aufnahmen der unterschiedlichsten Arten gemacht.
 Darunter fallen zum Beispiel einfache Bilddateien, Infrarotbilder und die für diese
-Arbeit so relevanten dreidimensionalen Micro-CT Aufnahmen. Dieser große Schatz
+Arbeit so relevanten dreidimensionalen Mikro-CT-Aufnahmen. Dieser große Schatz
 an Bildmaterial soll verwendet werden, um in ferner Zukunft ein neuronales Netzwerk
 zu trainieren, welches statistische Aussagen über das Verhalten von Karies
-treffen kann. Jedoch gibt es hier ein Problem, bei dem das Ergebnis dieser
-Arbeit Unterstützen kann. Karies auf CT-Bildern zu lokalisieren ist nicht trivial.
-Er ist ohne weitere Bearbeitung des Bildes nur sehr schwer auf eine Stelle
-einzugrenzen. So kommt es vor, dass drei verschiedene Ärzte auf dem selben Micro-CT
-Bild drei unterschiedliche Stellen mit Karies identifizieren. Eine Segmentierung
-des dreidimensionalen CTs kann hier Wunder wirken lassen. Durch die Aufteilung
-des Micro-CTs in seine zwei Zahnhauptsubstanzen, kann eine sehr gute visuelle Darstellung
-des Zahnes gewährleistet werden. Für Ärztes bietet diese Darstellung einen sehr
-großen Mehrwert \citep[vgl.][S. 1]{walter2025projekt}.
+treffen kann. Jedoch gibt es hier ein Problem bei dem das Ergebnis dieser Arbeit
+unterstützen kann. Karies auf CT-Bildern zu lokalisieren ist nicht trivial. Er ist
+ohne weitere Bearbeitung des Bildes nur sehr schwer auf eine Stelle einzugrenzen.
+So kommt es vor, dass drei verschiedene Ärzte auf dem selben Mikro-CT-Bild drei unterschiedliche
+Stellen mit Karies identifizieren. Eine Segmentierung des dreidimensionalen CTs
+kann hier Wunder wirken. Durch die Aufteilung des Mikro-CTs in seine zwei Zahnhauptsubstanzen,
+kann eine sehr gute visuelle Darstellung des Zahnes gewährleistet werden. Für Ärztes
+bietet diese Darstellung einen sehr großen Mehrwert \citep[vgl.][S. 1]{walter2025projekt}.
 
-Mit dieser klaren und einduetigen identifizierung von Karies, sind die
-Ergebnisse, die ein neuronales Netzer generieren würde viel genauer und brauchbarer.
-Konkret wird mit einer automatischen Segmentierung ein \textit{Ground Trueth} gewonnen,
-der eine eindeutige Basiswahrheit liefert. Hierbe sei gesagt das diese Anwendung
-nur ein von vielen Möglichkeiten ist. Konkrete Daten über die Ausbreitung einer
-Krankheit im Menschlichen Körper zu besitzten kann in den verschiedensten Fällen
-und Institutionen von größtem Nutzen sein. So zeigen es auch \citet{de20083d} in
-ihrem Paper.
+Mit dieser klaren und eindeutigen Identifizierung von Karies, sind die Ergebnisse,
+die ein neuronales Netzer generieren würde viel genauer und brauchbarer. Konkret
+wird mit einer automatischen Segmentierung ein \textit{Ground Trueth} gewonnen, der
+eine eindeutige Basiswahrheit liefert. Hierbei sei gesagt das diese Anwendung
+nur eine von vielen Möglichkeiten ist. Konkrete Daten über die Ausbreitung einer
+Krankheit im Menschlichen Körper zu besitzen kann in den verschiedensten Fällen und
+Institutionen von größtem Nutzen sein. So zeigen es auch \citet{de20083d} in ihrem
+Paper.
 
-Anhand dieser Argumente wird deutlich, dass eine automatische Segmentierung durchaus
-einen mehrwert für Ärzte bilden kann. Nicht zuletzt auch durch die enorme
-Zeitersparung. Für eine automatische Segmentierung von Micro-CT Bildern gibt es einige
-Softwarelösungen am Markt, die alle eine gut optionen sind. Aus diesem Gurnd wird
-im folgenden Kapitel ein mögliches Framework diskutiert werden.
+Anhand dieser Argumente wird deutlich, dass eine automatische Segmentierung
+durchaus einen mehrwert für Ärzte bilden kann. Nicht zuletzt auch durch die enorme
+Zeiteinsparung. Für eine automatische Segmentierung von Mikro-CT-Bildern gibt es
+einige Softwarelösungen am Markt, die alle eine gut Optionen sind. Aus diesem
+Grund soll im folgenden Kapitel ein mögliches Framework diskutiert werden.
 % ---------------------------------------------------------------------------------------
 
 \section{Fokus der Arbeit}
-\label{sec:fokus_der-arbeit} Dieser Arbeit setzt den Fokus auf die Open Sorce Plattform
-\textit{3D Slicer}, da diese ohnehin bereits eine breite Anwendung in der Zahnklinik
+\label{sec:fokus_der-arbeit} Dieser Arbeit setzt den Fokus auf die Open Sorce
+Plattform 3D Slicer, da diese ohnehin bereits eine breite Anwendung in der Zahnklinik
 in München findet. Durch die Modul und Plug-In Infrastruktur dieser Plattform
-kann die Softwar auch anderen Institutionen bereitgestellt werden. Hierzu muss diese
-einfach als \textit{3D Slicer Extetion} bereitgestellt werden. \textit{3DSlicer}
-bietet einen Extension Manager, der ähnlich wie ein App Store betrachtet werden kann.
-So bleibt die vorerst konkret entwickelte Software nicht nur einer Einrichtung
-vorbehalten. Eine tiefere Einfürhung in die Open Sorce Plattform bietet der Abschnitt
-\ref{sec:3d_slicer}. Das weitere Optimieren des bereits bestehenden Verfahrens
-wird in dieser Arbeit nicht weiter thematisiert. Es werden lediglich Anpassungen
-vorgenommen, sodass eine Benutzerschnittstelle verwendet werden kann.
+kann die Software auch anderen Institutionen bereitgestellt werden. Hierzu muss diese
+einfach als \textit{3D Slicer Extension} bereitgestellt werden. 3D Slicer bietet
+einen \textit{Extension Manager}, der ähnlich wie ein App Store betrachtet werden
+kann. So bleibt die vorerst konkret entwickelte Software nicht nur einer
+Einrichtung vorbehalten. Eine tiefere Einführung in die Open Source Plattform bietet
+der Abschnitt \ref{sec:3d_slicer}. Das weitere Optimieren des bereits
+bestehenden Verfahrens wird in dieser Arbeit nicht weiter thematisiert. Es werden
+lediglich Anpassungen vorgenommen, sodass eine Benutzerschnittstelle verwendet
+werden kann.
 
 Mit diesem Umfang, der Motiavtion und dem gesetzten Fokus, ergibt sich für dies
-Arbeit eine konkrete Struktur, die einen hohen detailgrad aufweisen wird. Um
-einen Überblich zu gewähren, sei diese Struktr hier kurz eräutert.
+Arbeit eine konkrete Struktur, die einen hohen Detailgrad aufweisen wird. Um
+einen Überblick zu gewähren, sei diese Struktur hier kurz erläutert.
 % ---------------------------------------------------------------------------------------
 
 \section{Aufbau der Arbeit}
@@ -108,13 +109,13 @@ theoretischen und technischen Grundlagen behandelt, welche zum Verstehen der Erg
 essenziell sind. Als Ergebnis der theoretischen Grundlagen bildet das Kapitel
 \ref{chap:fragestellung} eine konkrete Forschungsfrage. Während sich Kapitel \ref{chap:methodik}
 darum kümmert mit welchen Methodiken und Lösungsansätzen an die Forschungsfrage herrangegangen
-wird, erläutert das Kapitel \ref{chap:ergebnisse} was die konkreten Ergebnisse
-der Arbeit sind. In Kapitel \ref{chap:diskussion} erfolgt eine kritische Diskussio
-der Resultate einschließich möglicher Limitationen. Das Abschließende Kapitel
-\ref{chap:schlussfolgerung} fasst die wichtigsten Erkenntnisse zusammen und gibt
-einen Ausblick auf zukünftige Forschungsfragen.
+wird, erläutert das Kapitel \ref{chap:ergebnisse} welche die konkreten
+Ergebnisse der Arbeit sind. In Kapitel \ref{chap:diskussion} erfolgt eine kritische
+Diskussion der Resultate einschließich möglicher Limitationen. Das Abschließende
+Kapitel \ref{chap:schlussfolgerung} fasst die wichtigsten Erkenntnisse zusammen
+und gibt einen Ausblick auf zukünftige Forschungsfragen.
 
 Die theoretischen Grundlagen die wie beschrieben direkt nach der Einleitung
-folgen, sind zentral für das Versetehen der Fragestellung und der später folgenden
+folgen, sind zentral für das Verstehen der Fragestellung und der später folgenden
 Ergebnisse der Arbeit.
 % ---------------------------------------------------------------------------------------
