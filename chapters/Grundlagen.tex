@@ -5,26 +5,25 @@ Grundlagen \ref{sec:domänenspezifisch}, welche genauer darauf eingehen, welchen
 die zu bearbeitenden Bilder bieten und wie diese zu verstehen sind. Abschnitt
 \ref{sec:technologisch} geht anschließend genauer auf die Bildgebung ein, die eine
 wichtige Rolle spielen. Der Abschnitt \ref{sec:verwwandte_arbeit} geht auf die
-Arbeit von \citet{hoffmann2020} ein, welche das zugrundeligende Verfahren
-beschreibt. Der Abschnitt \ref{sec:3d_slicer} führt in Softwareentwicklungsthemen
-ein, die zum Erstellen einer 3D Slicer Erweiterung wichtig sind.
+Arbeit von Herrn Hofmann ein, welche das zugrundeligende Verfahren beschreibt.
+Der Abschnitt \ref{sec:3d_slicer} führt in Softwareentwicklungsthemen ein, die zum
+Erstellen einer 3D Slicer Erweiterung wichtig sind.
 % ---------------------------------------------------------------------------------------
 
 \section{Domänenspezifisch}
-\label{sec:domänenspezifisch} Wie bereits aus dem Kapitel \ref{chap:einleitung}
-Einleitung klar wurde, handelt es sich bei den Mikro-\ac{CT}-Bilder um
-Zahnbilder. Um zu verstehen, wie eine \ac{CT}-Aufnahme technisch segmentiert und
-damit zerlegt werden kann, muss zunächst die Zahnstruktur selbst verstanden
-werden.
+\label{sec:domänenspezifisch} Wie bereits aus dem Kapitel \ref{chap:einleitung} Einleitung
+klar wurde, handelt es sich bei den Mikro-\ac{CT}-Bilder um Zahnbilder. Um zu
+verstehen, wie eine \ac{CT}-Aufnahme technisch segmentiert und damit zerlegt
+werden kann, muss zunächst die Zahnstruktur selbst verstanden werden.
 
 \begin{minipage}{0.40\textwidth}
 	Die Abbildung \ref{fig:aufbau_eines_zahnes} zeigt den groben Aufbau eines Zahnes
-	nach \citet[Seite 17]{lehmann2012Zahnheilkunde}. Zu sehen ist, dass das Denit oder
-	auch Zahnbein genannt den Großteil eines Zahnes einnimmt. Im Bereich der
-	Zahnkrone wird das Dentin von Zahnschmelz überzogen. Der Zahnschmelz ragt in die
-	Mundhöhle und ist nach \citet[Seite 41]{lehmann2012Zahnheilkunde} das härteste
-	Material im menschlichen Körper. In der Mitte des Zahnes befindet sich
-	Weichgewebe, das als Pulpa bezeichnet wird vgl. \citep[Seite ]{lehmann2012Zahnheilkunde}.
+	nach \citet[S.~17]{lehmann2012Zahnheilkunde}. Zu sehen ist, dass das Denit
+	oder auch Zahnbein genannt den Großteil eines Zahnes einnimmt. Im Bereich der Zahnkrone
+	wird das Dentin von Zahnschmelz überzogen. Der Zahnschmelz ragt in die
+	Mundhöhle und ist nach \citet[S.~41]{lehmann2012Zahnheilkunde} das härteste Material
+	im menschlichen Körper. In der Mitte des Zahnes befindet sich Weichgewebe, das
+	als Pulpa bezeichnet wird vgl. \citep[vgl.][S.~]{lehmann2012Zahnheilkunde}.
 \end{minipage}
 \hfill
 \begin{minipage}{0.50\textwidth}
@@ -33,9 +32,9 @@ werden.
 	\captionof{figure}{Aufbau eines Zahnes nach \citet{lehmann2012Zahnheilkunde}} \label{fig:aufbau_eines_zahnes}
 \end{minipage}
 
-Für die Bearbeitung von Mikro-\ac{CT}-Aufnahmen sind die Bereiche Schmelz, Dentin
-und Pulpa von besonderer Bedeutung. Betrachtet man eine \ac{CT} wie es zu Beginn
-in der Abbildung \ref{fig:ct_aufnahme_eines_zahns} gezeigt wurde, so bilden
+Für die Bearbeitung von Mikro-\ac{CT}-Aufnahmen sind die Bereiche Schmelz,
+Dentin und Pulpa von besonderer Bedeutung. Betrachtet man eine \ac{CT} wie es zu
+Beginn in der Abbildung \ref{fig:ct_aufnahme_eines_zahns} gezeigt wurde, so bilden
 diese drei Gewebearten die unterschiedlichen Grauwerte in einem \ac{CT}-Bild.
 
 \begin{description}
@@ -47,56 +46,57 @@ diese drei Gewebearten die unterschiedlichen Grauwerte in einem \ac{CT}-Bild.
 		weiter von innen nach außen, so ist der nächste Zahnteil auf einem \ac{CT} das
 		Zahnbein.
 
-	\item[\textbf{Das Dentin}] ist laut \citet[Seite 41]{lehmann2012Zahnheilkunde}
-		eine Hartsubstanz, die dem Kieferknochen sehr nah steht. So kommt es, dass
-		dieser Teil schon deutlich besser auf einem \ac{CT} zu erkennen ist. Den
-		äußersten Teil in der Mundhöhle bildet das Zahnschmelz.
+	\item[\textbf{Das Dentin}] ist laut \citet[S.~41]{lehmann2012Zahnheilkunde}
+		eine Hartsubstanz, die dem Kieferknochen sehr nah steht. So kommt es, dass dieser
+		Teil schon deutlich besser auf einem \ac{CT} zu erkennen ist. Den äußersten Teil
+		in der Mundhöhle bildet das Zahnschmelz.
 
 	\item[\textbf{Der Schmelz}] ist der härteste Teil im menschlichen Körper und aus
 		diesem Grund auch am hellsten auf dem \ac{CT} zu erkennen.
 \end{description}
 
-Die folgende Abbildung \ref{fig:pulpa_dentin_schmelz} sollen durch
-Gegenüberstellung die einzelnen Zahnsubstanzen auf einer \ac{CT}-Aufnahme lokalisieren.
+Die folgende Abbildung \ref{fig:pulpa_dentin_schmelz} sollen durch Gegenüberstellung
+die einzelnen Zahnsubstanzen auf einer \ac{CT}-Aufnahme lokalisieren.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/dentin_schmelz_pulpa.png}
 	\caption{Darstellung von Pulpa, Dentin und Schmelz auf einer \ac{CT}-Aufnahme
-	nach \citet{heck2024}.}
+	nach \citet{heck2024}}
 	\label{fig:pulpa_dentin_schmelz}
 \end{figure}
 
-Mit diesem Domänenwissen kann ein Schritt weiter gegangen werden, sodass der Fokus
-nun auf die \ac{CT}-Bilder gesetzt wird. Das Kapitel \ref{sec:technologisch} Bildgebung
-führt die Technologie der Computertomografie tiefer ein. Darüber hinaus werden
-die verschiedenen Formate und statistische Modelle der \ac{CT}-Aufnahmen vorgestellt.
+Mit diesem Domänenwissen kann ein Schritt weiter gegangen werden, sodass der
+Fokus nun auf die \ac{CT}-Bilder gesetzt wird. Das Kapitel
+\ref{sec:technologisch} Bildgebung führt die Technologie der Computertomografie
+tiefer ein. Darüber hinaus werden die verschiedenen Formate und statistische Modelle
+der \ac{CT}-Aufnahmen vorgestellt.
 % ---------------------------------------------------------------------------------------
 
 \section{Bildgebung}
-\label{sec:technologisch} Es gibt die unterschiedlichsten Arten zur Erzeugung dreidimensonaler
-Bilddaten. Dieser Abschnitt erläutert federführend die Technologie der Mikro-\ac{CT}-Aufnahmen
-und deren Erstellung. Diese sind für eine medizinischen Einsatz besonders
-interessant. Des Weiteren erfolgt eine Einführung in die Speicherung und Komprimierung
-von \ac{CT}-Aufnahmen. Diese sorgt dafür, dass die digitalen Bilddaten deutlich
-handlicher werden.
+\label{sec:technologisch} Es gibt die unterschiedlichsten Arten zur Erzeugung
+dreidimensonaler Bilddaten. Dieser Abschnitt erläutert federführend die Technologie
+der Mikro-\ac{CT}-Aufnahmen und deren Erstellung. Diese sind für eine medizinischen
+Einsatz besonders interessant. Des Weiteren erfolgt eine Einführung in die
+Speicherung und Komprimierung von \ac{CT}-Aufnahmen. Diese sorgt dafür, dass die
+digitalen Bilddaten deutlich handlicher werden.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Computertomografie}
 \label{subsec:computertomografie} Die Erfindung der Computertomografie (\ac{CT})
-war ein Quantensprung in der Geschichte der Medizin. Sie ist aus heutigen
-Diagnosen nicht mehr wegzudenken. Ein Mikro-\ac{CT}-Bild ist laut \citet[Abstract]{baird2017}
-ein Menge hochauflösender Bilder, die wie ein Stapel zusammengelegt werden. Der
-Aspekt mikro deutet dabei darauf hin, dass es eine miniaturisierte Ausführung eines
-üblichen Kegelstrahl-\ac{CT}s ist, so \citet[Seite 340]{buzug2011}. Eine andere Definition
+war ein Quantensprung in der Geschichte der Medizin. Sie ist aus heutigen Diagnosen
+nicht mehr wegzudenken. Ein Mikro-\ac{CT}-Bild ist laut \citet[Abstract]{baird2017}
+ein Menge hochauflösender Bilder, die wie ein Stapel zusammengelegt werden. Der Aspekt
+mikro deutet dabei darauf hin, dass es eine miniaturisierte Ausführung eines
+üblichen Kegelstrahl-\ac{CT}s ist, so \citet[S.~340]{buzug2011}. Eine andere Definition
 erläutert \citet{lehmann2013bildverarbeitung}. Er beschreibt die Computertomografie
 als Projektionen einzelner Ebenen im Untersuchungsobjekt. Die Technologie, mit der
 diese Bilderstapel aufgenommen werden, ist unter der Röntgentechnik oder auch
 \ac{X-Ray} bekannt. Die Röntgenstrahlung ist eine Form der elektromagnetischen
-Strahlung, ähnlich wie das sichtbare Licht, so das \citet{nib2024}. Anders als
-das Licht haben die Röntgenstrahlen eine viel höhere Energie. Das führt dazu,
+Strahlung, ähnlich wie das sichtbare Licht, so das \citet[K.~1]{nib2024}. Anders
+als das Licht haben die Röntgenstrahlen eine viel höhere Energie. Das führt dazu,
 dass man mit dieser elektromagnetischen Strahlung viele Objekte durchdringt
-werden können. So auch Gewebeteile eines Zahnes vgl. \citep{nib2024}. Die
+werden können. So auch Gewebeteile eines Zahnes \citep[vgl.][K.~1]{nib2024}. Die
 Abbildung \ref{fig:spectrum} zeigt dieses elektromagnetische Spektrum.
 
 \begin{figure}[h]
@@ -106,41 +106,39 @@ Abbildung \ref{fig:spectrum} zeigt dieses elektromagnetische Spektrum.
 	\label{fig:spectrum}
 \end{figure}
 
-Durchdringt ein solcher Röntgenstrahl ein Untersuchungsobjekt, werden die
-Details aufgrund der Wechselwirkung mit Materie auf einer \ac{CT}-Probe sichtbar.
-Die bekannteste Wechselwirkung ist die Absorption. Mit der Steigerung der Atomzahl
-in einem Material nimmt auch die Absorption eines Materials zu, sodass es leicht
-ist verschiedene Materialien in einer \ac{CT}-Aufnahme zu unterscheiden \citep[vgl.][]{nib2024}.
+Durchdringt ein solcher Röntgenstrahl ein Untersuchungsobjekt, werden die Details
+aufgrund der Wechselwirkung mit Materie auf einer \ac{CT}-Probe sichtbar. Die bekannteste
+Wechselwirkung ist die Absorption. Mit der Steigerung der Atomzahl in einem
+Material nimmt auch die Absorption eines Materials zu, sodass es leicht ist verschiedene
+Materialien in einer \ac{CT}-Aufnahme zu unterscheiden \citep[vgl.][K.~1]{nib2024}.
 
-Für eine Mikro-\ac{CT}-Aufnahme bedarf es spezieller Technik. Es gibt
-unterschiedliche Firmen, welche die unterschiedlichsten Modelle anbieten. Im
-Falle der Zahnklinik an der \ac{LMU} handelt es sich um ein Mikro-\ac{CT} 40 der
-Firma \citet{scanco2024}. Dieses Gerät erstellt Aufnahmen mittels
-Röntgenstrahlung und generiert mithilfe der Computertomografie ein
-dreidimensionales Bild, welches im Format \ac{ISQ} abgelegt wird. Wie das nächste
-Kapitel beschreiben wird, ist der Speicherumfang den solch ein Bild benötigt
-sehr groß, jedoch auch sehr detaliert. Um ein einfacheres Arbeiten mit den \ac{CT}-Bildern
-zu ermöglichen, kann eine simple Technik angewendet werden, die hier beschrieben
-werden soll.
+Für eine Mikro-\ac{CT}-Aufnahme bedarf es spezieller Technik. Es gibt unterschiedliche
+Firmen, welche die unterschiedlichsten Modelle anbieten. Im Falle der Zahnklinik
+an der \ac{LMU} handelt es sich um ein Mikro-\ac{CT} 40 der Firma \citet{scanco2024}.
+Dieses Gerät erstellt Aufnahmen mittels Röntgenstrahlung und generiert mithilfe der
+Computertomografie ein dreidimensionales Bild, welches im Format \ac{ISQ} abgelegt
+wird. Wie das nächste Kapitel beschreiben wird, ist der Speicherumfang den solch
+ein Bild benötigt sehr groß, jedoch auch sehr detaliert. Um ein einfacheres Arbeiten
+mit den \ac{CT}-Bildern zu ermöglichen, kann eine simple Technik angewendet werden,
+die hier beschrieben werden soll.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Datenformate}
 \label{subsec:datensätze} Die rohen Datensätze, welche direkt aus dem Mikro-\ac{CT}-Gerät
-kommen, haben nach \citet{scanco2024} das Format \ac{ISQ}. Dieses Format fällt speziell
-auf die Geräte der Firma SCANCO zurück. Wie das vorherige Kapitel
-\ref{subsec:computertomografie} bereits eingeführt hat, ist dieser Dateityp für eine
-weitere Bearbeitung nur bedingt geeignet. Unter anderem wegen ihrer Größe. \citet{RoeschKunzelmann2018}
-haben hierfür ein Paket entwickelt. Dieses konvertiert ein \ac{ISQ} Format in
-ein \ac{mhd} Format. Bei einer \ac{mhd} Datei handelt es sich um ein Metafile,
-dass auf die eigentliche Datei verweist. Folgender Ausschnitt zeigt die Verwendung
-des Pakets.
+kommen, haben nach \citet{scanco2024} das Format \ac{ISQ}. Dieses Format fällt
+speziell auf die Geräte der Firma SCANCO zurück. Wie das vorherige Kapitel \ref{subsec:computertomografie}
+bereits eingeführt hat, ist dieser Dateityp für eine weitere Bearbeitung nur
+bedingt geeignet. Unter anderem wegen ihrer Größe. \citet{RoeschKunzelmann2018} haben
+hierfür ein Paket entwickelt. Dieses konvertiert ein \ac{ISQ} Format in ein \ac{mhd}
+Format. Bei einer \ac{mhd} Datei handelt es sich um ein Metafile, dass auf die eigentliche
+Datei verweist. Folgender Ausschnitt zeigt die Verwendung des Pakets.
 \begin{center}
 	\texttt{python3 isq\_to\_mhd.py <quelle> <ziel>}
 \end{center}
-Diese Meta-Datei kann genutzt werden, um interessante Informationen über das Bild
-zu erlangen. Wird dieses Kommando ausgeführt, so erstellt das Skript \texttt{isq\_to\_mhd}
-ein Metafile, das detaillierte Daten über die Datei enthält. Ein Ausschnitt
-dieses Metafiles liefer das Listing \ref{lst:inhalt_mhd_datei}
+Diese Meta-Datei kann genutzt werden, um interessante Informationen über das
+Bild zu erlangen. Wird dieses Kommando ausgeführt, so erstellt das Skript
+\texttt{isq\_to\_mhd} ein Metafile, das detaillierte Daten über die Datei
+enthält. Ein Ausschnitt dieses Metafiles liefer das Listing \ref{lst:inhalt_mhd_datei}
 
 \begin{lstlisting}[
 	caption={Ausschnitt des Inhaltes einer mhd-Datei},
@@ -154,21 +152,21 @@ ElementType = MET_SHORT
 ElementDataFile = P01A-C0005278.ISQ
 \end{lstlisting}
 
-In der Datei sind Informationen über die Ausprägung, Art und Größe der Datei zu finden.
-Besonders interessant sind die Punkte \texttt{DimSize und ElementType}. Über
-diese Parameter lässt sich die Größe eines Bildes berechnen. \citet[Seite 10-11]{burger2009}
+In der Datei sind Informationen über die Ausprägung, Art und Größe der Datei zu
+finden. Besonders interessant sind die Punkte \texttt{DimSize und ElementType}. Über
+diese Parameter lässt sich die Größe eines Bildes berechnen. \citet[S.~10-11]{burger2009}
 erklärt, dass ein Bild in Zellen aufgeteilt ist, welche Informationen enthalten.
 Diese Zellen sind im zweidimensionalen Raum als Pixel bekannt. Betrachtet man jedoch
 ein, wie im Falle der Zahnklinik an der \ac{LMU} dreidimensionales Bild, so
 spricht man nicht mehr von einem Pixel, sondern von einem Voxel. Ein Voxel ist
-demnach das dreidimensionale Äquivalent zu einem Pixel. \citet[Seite 10-11]{burger2009}
+demnach das dreidimensionale Äquivalent zu einem Pixel. \citet[S.~10-11]{burger2009}
 beschreibt weiter das jeder diese Zellen ein binäres Wort der Länge $2^{k}$ ist.
-Die Basis 2 ergibt sich durch das binäre Wort, wo hingegen für $k$ gilt:
-$k \in \mathbb{N}$. Um für den konkreten Fall aus Listing \ref{lst:inhalt_mhd_datei}
-das entsprechenden $k$ zu ermitteln, muss der \texttt{ElementType} näher betrachtet
-werden. \texttt{MET\_SHORT} steht hierbei für Signed short, was eine Größe von
-16 Bit entspricht. Damit ergibt sich für die Länge $k$ ein Wert von 4. So können
-nach \citet[Seite 10-11]{burger2009} folgende Gleichungen festgehalten werden.
+Die Basis 2 ergibt sich durch das binäre Wort, wo hingegen für $k$ gilt: $k \in \mathbb{N}$.
+Um für den konkreten Fall aus Listing \ref{lst:inhalt_mhd_datei} das
+entsprechenden $k$ zu ermitteln, muss der \texttt{ElementType} näher betrachtet
+werden. \texttt{MET\_SHORT} steht hierbei für Signed short, was eine Größe von 16
+Bit entspricht. Damit ergibt sich für die Länge $k$ ein Wert von 4. So können
+nach \citet[S.~10-11]{burger2009} folgende Gleichungen festgehalten werden.
 
 \begin{align}
 	\label{equ:größe_bestimmen}1024 \cdot 1024 \cdot 517    & = 542,113,792 \, \text{Voxel}\notag  \\
@@ -181,29 +179,28 @@ Die erste Gleichung bestimmt die Gesamtzahl aller Voxel in einem Bild. Gleichung
 eine Umrechnung von Byte nach \ac{GB} vor.
 
 Durch die Gleichungen in \ref{equ:größe_bestimmen} wird klar, dass eine \ac{CT}-Aufnahme
-des Typs \ac{ISQ} direkt nach seiner Aufnahme über einen \ac{GB} groß ist. Laut
-\citet{poliklinikLMU} ist dies ein zu großes Format. Es stellt sich also die
-spannende Frage, wie solch eine Datei komprimiert werden kann, ohne das es
-Verluste in der Qualität gibt. Dr. Elisa Walter hat hierfür eine Lösung
-entwickelt. Betrachtet man den \texttt{ElementType} genauer, so fällt auf, dass
-es noch weitere Typen gibt, die durch eine geringere Länge $k$ deutlich weniger Speicher
-benötigen. Durch Anwendung simpler Statistik lässt sich herauslesen, dass die $2^{4}$
-Byte je Element nicht ausgenutzt werden. Als Werkzeug für die Betrachtung einer
-solchen Statistik kann das Histogramm eines Bildes genutzt werden. Laut \citet[Seite
-249]{jahne2024} ist ein Histogramm die Häufigkeitsverteilung der Grauwerte.
-Diese zeigt grafisch die unterschiedlichen Grauwerte (X-Achse) zu ihren
-Häufigkeiten im Bild (Y-Achse). \citet[Seite 249]{jahne2024} macht deutlich,
-dass das Histogramm jedoch kein Aufschluss über die räumliche Verteilung der
-Pixel oder Voxel liefert. Werden einige der Argumente nicht verwenden, so kann
-der \texttt{ElementTyp} verkleinert werden.
+des Typs \ac{ISQ} direkt nach seiner Aufnahme über einen \ac{GB} groß ist. Es
+stellt sich also die spannende Frage, wie solch eine Datei komprimiert werden kann,
+ohne das es Verluste in der Qualität gibt. Dr. Elisa Walter hat hierfür eine
+Lösung entwickelt. Betrachtet man den \texttt{ElementType} genauer, so fällt auf,
+dass es noch weitere Typen gibt, die durch eine geringere Länge $k$ deutlich weniger
+Speicher benötigen. Durch Anwendung simpler Statistik lässt sich herauslesen, dass
+die $2^{4}$ Byte je Element nicht ausgenutzt werden. Als Werkzeug für die
+Betrachtung einer solchen Statistik kann das Histogramm eines Bildes genutzt
+werden. Laut \citet[S.~249]{jahne2024} ist ein Histogramm die
+Häufigkeitsverteilung der Grauwerte. Diese zeigt grafisch die unterschiedlichen Grauwerte
+(X-Achse) zu ihren Häufigkeiten im Bild (Y-Achse). \citet[S.~249]{jahne2024} macht
+deutlich, dass das Histogramm jedoch kein Aufschluss über die räumliche
+Verteilung der Pixel oder Voxel liefert. Werden einige der Argumente nicht verwenden,
+so kann der \texttt{ElementTyp} verkleinert werden.
 % ---------------------------------------------------------------------------------------
 
 \section{Bildbearbeitung}
 \label{sec:bildbearbeitung} Nachdem ein \ac{CT} erzeugt und gegebenenfalls
 komprimiert wurde, folgt die Bearbeitung eines Bildes. Hierfür bietet das
-Pipeline-Modell von \citet[Seite 50]{handels2000} eine gute Richtlinie. Er beschreibt
-mit dieser Visualisierungs-Pipeline Schritte, die bei der Bearbeitung von
-dreidimensionalen \ac{CT}-Aufnahmen notwendig sind \citep[vgl.][Seite 50]{handels2000}.
+Pipeline-Modell von \citet[S.~50]{handels2000} eine gute Richtlinie. Er
+beschreibt mit dieser Visualisierungs-Pipeline Schritte, die bei der Bearbeitung
+von dreidimensionalen \ac{CT}-Aufnahmen notwendig sind \citep[vgl.][S.~50]{handels2000}.
 Die ersten Schritte, \textit{Bildvorverarbeitung} und \textit{Segmentierung},
 sind von besonderem Interesse. Dieser Abschnitt orientiert sich an dieser Unterteilung
 und nimmt sie sich als Vorbild. Daraus ergeben sich die Abschnitte
@@ -214,18 +211,18 @@ sollen.
 
 \subsection{Filter}
 \label{subsec:filter} \ac{CT}-Aufnahmen rauschen, dies ist ein Fakt und liegt in
-der Natur einer Röntgenaufnahme. Dies beschreiben auch \citet[Kapitel 3]{diwakar2018}
-in ihrem Paper über \ac{CT}-Bildrauschen und Entrauschen. Dabei liegt die
-Ursache des Rauschens nicht an einer Stelle sondern ist auf viele Quellen
-zurückzuführen. Einen gute Einteilung dieser Quellen liefern ebenfalls \citet[Kapitel
-3]{diwakar2018}. Sie teilen die Rauschquellen auf in \textit{Random noise, Statistical
-noise, Electronic noise} undn\textit{roundoff noise}.
+der Natur einer Röntgenaufnahme. Dies beschreiben auch \citet[K.~3]{diwakar2018}
+in ihrem Paper über \ac{CT}-Bildrauschen und Entrauschen. Dabei liegt die Ursache
+des Rauschens nicht an einer Stelle sondern ist auf viele Quellen zurückzuführen.
+Einen gute Einteilung dieser Quellen liefern ebenfalls \citet[K.~3]{diwakar2018}.
+Sie teilen die Rauschquellen auf in \textit{Random noise, Statistical noise,
+Electronic noise} undn\textit{roundoff noise}.
 
 Unter dem Rauschen eines Bildes versteht man die Streuung der Pixelwerte im Bild.
 Für eine Segmentierung des Bildes ist dieses Verhalten unerwünscht und führt zu
-schlechten Ergebnissen \citep[vgl.][Seite 51]{handels2000}. Die Bildvorverarbeitung
-oder auch Filter gennant, hat die Aufgabe dieses Rauschen so gut wie möglich zu
-reduzieren. Hierzu gibt es diverse Möglichkeiten.
+schlechten Ergebnissen \citep[vgl.][S.~51]{handels2000}. Die Bildvorverarbeitung
+oder auch Filter gennant, hat die Aufgabe dieses Rauschen so gut wie möglich zu reduzieren.
+Hierzu gibt es diverse Möglichkeiten.
 
 \begin{minipage}{0.40\textwidth}
 	Mit Blick auf die folgenden Kapitel sind für diese Arbeit vorallem die lokalen
@@ -233,19 +230,19 @@ reduzieren. Hierzu gibt es diverse Möglichkeiten.
 	Betrachtung der lokalen Nachbarschaft. Jeder Pixel betrachtet also seine Umgebung
 	und führt auf Basis darauf eine Berechnung des jeweils betrachteten Pixels durch.
 	In Abbildung \ref{fig:lokaler_operator_maske} ist der aktuelle Pixel der, mit der
-	Position $P = (0/0)$ \citep[vgl.][Seite 52]{handels2000}.
+	Position $P = (0/0)$ \citep[vgl.][S.~52]{handels2000}.
 \end{minipage}
 \hfill
 \begin{minipage}{0.50\textwidth}
 	\centering
 	\includegraphics[width=0.60\textwidth]{img/lokaler_operator_maske.jpg}
-	\captionof{figure}{Maske eines lokalen Operators nach \citet[Seite 52]{handels2000}}
+	\captionof{figure}{Maske eines lokalen Operators nach \citet[S.~52]{handels2000}}
 	\label{fig:lokaler_operator_maske}
 \end{minipage}
 
-Für die konkrete Betrachtung der Nachbarschaft eines Pixels empfiehlt \citet[Seite
-52]{handels2000} eine Maske (Ausschnitt) herranzuziehen, die mit einer Matrix interpretiert
-werden kann und die Nachbarschaft eines Pixels abbildet. Abbildung
+Für die konkrete Betrachtung der Nachbarschaft eines Pixels empfiehlt \citet[S.~52]{handels2000}
+eine Maske (Ausschnitt) herranzuziehen, die mit einer Matrix interpretiert werden
+kann und die Nachbarschaft eines Pixels abbildet. Abbildung
 \ref{fig:lokaler_operator_maske} zeigt eine solche Maske und soll das Verfahren
 so verdeutlichen. Der grau hinterlegte Mittelpunkt - $P = (0/0)$ - ist das aktuell
 betrachtete Pixel. die Felder um die Mitte herum die Nachbarn. Es fällt jedoch auf,
@@ -266,35 +263,34 @@ beliebig groß werden kann. Eine hohe Ordnung der Operatormatrix ist jedoch nich
 immer von Vorteil, sodass es letzten Endes auf den Anwendungsfall ankommt.
 
 Mit der Technik der lokalen Operatoren können nun unterschiedliche Arten angewendet
-werden. \citet[Seite 54 - 55]{handels2000} unterscheidet hier in Glättungsfilter,
-Mittelwertfilter, Medianfilter, Gaußfilter und Binomialfilter. Alle dieser
-Filter bedienen sich einer Operatormaske um auf Basis der Nachbarelementen ein
-Statistischen Wert für den Bildpunkt zu erhalten. Um einen genaueren Einblick in
-alle Filter zu erlangen, sei an dieser Stelle auf \citet[Seite 54 - 55]{handels2000}
-verwiesen.
+werden. \citet[S.~54 - 55]{handels2000} unterscheidet hier in Glättungsfilter,
+Mittelwertfilter, Medianfilter, Gaußfilter und Binomialfilter. Alle dieser Filter
+bedienen sich einer Operatormaske um auf Basis der Nachbarelementen ein Statistischen
+Wert für den Bildpunkt zu erhalten. Um einen genaueren Einblick in alle Filter
+zu erlangen, sei an dieser Stelle auf \citet[S.~54 - 55]{handels2000} verwiesen.
 
 Wie zu Anfang dieses Kapitels beschrieben, ist eine Bildvorvearbeitung (Filterung)
 für eine gute Segmentierung des Bildes unerlässlich. So kommt es das auch in der
-Visualisierungs-Pipelin nach \citet[Seite 50]{handels2000} der zweite Schritt
-bereits die Segmentierung einführt. Warum dies so ein wichtiger Bestandteil der Bildanalyse
-ist und welche Methoden sich hier bieten, erläutert das folgende Kapitel.
+Visualisierungs-Pipelin nach \citet[S.~50]{handels2000} der zweite Schritt bereits
+die Segmentierung einführt. Warum dies so ein wichtiger Bestandteil der
+Bildanalyse ist und welche Methoden sich hier bieten, erläutert das folgende Kapitel.
 % ---------------------------------------------------------------------------------------
 
 \pagebreak
 
 \subsection{Segmentierung}
-\label{subsec:segmentierung} Die Bildsegmentierung oder auch Bildaufteilung genannt,
-ist ein wichtiges Teilgebiet der Bildverarbeitung und beschäftigt sich mit der
-Bildanalyse. Ihr Ziel ist es, detalierte beschreibende Bilder aus dem
-vorliegenden Orginalbild zu berechnen. Dies kann im Falle eines \ac{CT}s der Zahnklinik
-an der \ac{LMU} die hervorgehobene Darstellung der Zahnsubstanzen Schmelz und
-Dentin sein. \citep[vgl.][Seite 359]{lehmann2013bildverarbeitung}. Konkret teilt
-ein Segmentierungsverfahren also ein Bild in Teilbereiche auf. Dabei sind die Teilbereiche
-in sich bemerkenswert homogen. \citet[Seite 1]{ramesh2021} beschreiben, dass der
-Prozess der Segmentierung zur Gewinnung wichtiger Informationen dient wie zum Beispiel
-die Zahnkaries Ausbreitung. So kommt es, dass \citet[Seite 50]{handels2000} in seiner
-Visualisierungs-Pipelin die Segmentierung als zweiten Schritt und damit als zentrales
-Problem darstellt. \citet[Seite 95]{handels2000} und \citet[Seite 360]{lehmann2013bildverarbeitung}
+\label{subsec:segmentierung} Die Bildsegmentierung oder auch Bildaufteilung
+genannt, ist ein wichtiges Teilgebiet der Bildverarbeitung und beschäftigt sich mit
+der Bildanalyse. Ihr Ziel ist es, detalierte beschreibende Bilder aus dem vorliegenden
+Orginalbild zu berechnen. Dies kann im Falle eines \ac{CT}s der Zahnklinik an
+der \ac{LMU} die hervorgehobene Darstellung der Zahnsubstanzen Schmelz und Dentin
+sein. \citep[vgl.][S.~359]{lehmann2013bildverarbeitung}. Konkret teilt ein
+Segmentierungsverfahren also ein Bild in Teilbereiche auf. Dabei sind die Teilbereiche
+in sich bemerkenswert homogen. \citet[S.~1]{ramesh2021} beschreiben, dass der
+Prozess der Segmentierung zur Gewinnung wichtiger Informationen dient wie zum
+Beispiel die Zahnkaries Ausbreitung. So kommt es, dass \citet[S.~50]{handels2000}
+in seiner Visualisierungs-Pipelin die Segmentierung als zweiten Schritt und damit
+als zentrales Problem darstellt. \citet[S.~95]{handels2000} und \citet[S.~360]{lehmann2013bildverarbeitung}
 beschreiben beide, dass die Bildsegmentierung eines \ac{CT}s für eine gute und eindeutige
 Ärzliche Diagnose nicht mehr wegzudenken ist. Warum dem so ist, verdeutlicht die
 Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
@@ -302,62 +298,63 @@ Abbildung \ref{fig:interpretation_einer_ct_aufnahem}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{img/bild_interpretation.jpg}
-	\caption{Interpretation einer \ac{CT}-Aufnahme nach \citet[Seite 360]{lehmann2013bildverarbeitung}}
+	\caption{Interpretation einer \ac{CT}-Aufnahme nach \citet[S.~360]{lehmann2013bildverarbeitung}}
 	\label{fig:interpretation_einer_ct_aufnahem}
 \end{figure}
 
 Zu erkennen ist das orginale Bild (Ausgangslage) und mögliche
-Interpretationsschritte (Interpretation 1 und Interpretation 2). \citet[Seite 360]{lehmann2013bildverarbeitung}
-verdeutlichen mit dieser Abbildung \ref{fig:interpretation_einer_ct_aufnahem},
-dass mittels Segmentierung die einzig mögliche Interpretation die Erste ist. Auch
-wenn die zweite Interpretation die deutlich logischere ist, kann diese ohne
-weitere Forschung nicht bewiesen werden, so \citet[Seite 360]{lehmann2013bildverarbeitung}.
+Interpretationsschritte (Interpretation 1 und Interpretation 2). \citet[S.~360]{lehmann2013bildverarbeitung}
+verdeutlichen mit dieser Abbildung \ref{fig:interpretation_einer_ct_aufnahem}, dass
+mittels Segmentierung die einzig mögliche Interpretation die Erste ist. Auch
+wenn die zweite Interpretation die deutlich logischere ist, kann diese ohne weitere
+Forschung nicht bewiesen werden, so \citet[S.~360]{lehmann2013bildverarbeitung}.
 Außerdem ist zu erkennen, dass die Abbildung \ref{fig:interpretation_einer_ct_aufnahem}
 die Definition einer Segmentierung belegt. Die Erzeugung inhaltlich
 zusammengehöriger Regionen werden hier durch die verschiedenen Formen
-visualisiert \citep[vgl.][Seite 360]{lehmann2013bildverarbeitung}.
+visualisiert \citep[vgl.][S.~360]{lehmann2013bildverarbeitung}.
 
-Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die Auswhal eines
-Verfahrens spielt unter Anderem der Anwendungsbereich eine wichtige Rolle. Die
-Verfahren, die in dieser Arbeit von Wichtigkeit sind, sind die
-Schwellwertverfahren \citep[vgl.][Seite 361]{lehmann2013bildverarbeitung}.
+Um ein Bild zu segmentieren gibt es unzählige Möglichkeiten. Für die Auswhal
+eines Verfahrens spielt unter Anderem der Anwendungsbereich eine wichtige Rolle.
+Die Verfahren, die in dieser Arbeit von Wichtigkeit sind, sind die Schwellwertverfahren
+\citep[vgl.][S.~361]{lehmann2013bildverarbeitung}.
 
 \pagebreak
 
 \textbf{Schwelltwertverfahren} (engl.: thresholding) gehören zu den
 Standardwerkzeugen einer Segmentierung, sodass diese die Basis vieler weiterer Verfahren
 legen. Bei einer Schwellwertbasierten Segmentierung werden die Pixel eines
-Bildes anhand von Schwellwerten eingruppiert \citep[vgl.][Seite 96]{handels2000}.
-Die nachfolgende Gleichung \ref{equ:schwellwertverfahren} soll dies verdeutlichen.
+Bildes anhand von Schwellwerten eingruppiert \citep[vgl.][S.~96]{handels2000}.
+Die nachfolgende Gleichung \ref{equ:schwellwertverfahren} soll dies
+verdeutlichen.
 
 \begin{align}
 	\label{equ:schwellwertverfahren}B(x, y, z) = \begin{cases}1,&\text{falls }t_{\text{unten}}\leq f(x, y, z) \leq t_{\text{oben}}, \\ 0,&\text{sonst}.\end{cases}
 \end{align}
 
-$B(x, y, z)$ Beschreibt einen Pixel in einem dreidimensonalen Bild, demnach ein Voxel.
-Liegen die Werte eines Voxels, also $f(x, y, z)$, innerhalb der beiden
-Schwellwerte $t_{oben}$ und $t_{unten}$, dann wird eine 1 zugewiesen. Liegt der
-aktuell betrachtete Voxel nicht zwischen den Schwellwerten, so wird eine 0 zugewiesen.
-Das Ergebnis einer solchen primitiven Schwellwertsegmentierung ist ein binäres
-Bild, welches in Abbildung \ref{fig:binäres_schwellwertverfahren} zu sehen ist.
+$B(x, y, z)$ Beschreibt einen Pixel in einem dreidimensonalen Bild, demnach ein
+Voxel. Liegen die Werte eines Voxels, also $f(x, y, z)$, innerhalb der beiden Schwellwerte
+$t_{oben}$ und $t_{unten}$, dann wird eine 1 zugewiesen. Liegt der aktuell betrachtete
+Voxel nicht zwischen den Schwellwerten, so wird eine 0 zugewiesen. Das Ergebnis einer
+solchen primitiven Schwellwertsegmentierung ist ein binäres Bild, welches in
+Abbildung \ref{fig:binäres_schwellwertverfahren} zu sehen ist.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{img/beispiel_schwellwertverfahren.jpg}
-	\caption{Ergebnis eines einfachen Schwellwertverfahrens nach \citet[Seite 96]{handels2000}}
+	\caption{Ergebnis eines einfachen Schwellwertverfahrens nach \citet[S.~96]{handels2000}}
 	\label{fig:binäres_schwellwertverfahren}
 \end{figure}
 
-Zu erkennen ist, dass nach einem einfachen Schwellwertverfahren das Bild nur noch
-aus zwei unterschiedlichen Graustufen besteht. Betrachtet man das Ergbnis in
-\ref{fig:binäres_schwellwertverfahren} genauer, so ist diese einfache Segmentierung
-durchaus erfolgreich verlaufen. Der Grund dafür ist die gute Wahl des
+Zu erkennen ist, dass nach einem einfachen Schwellwertverfahren das Bild nur
+noch aus zwei unterschiedlichen Graustufen besteht. Betrachtet man das Ergbnis in
+\ref{fig:binäres_schwellwertverfahren} genauer, so ist diese einfache
+Segmentierung durchaus erfolgreich verlaufen. Der Grund dafür ist die gute Wahl des
 Schwellwertes.
 
-Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des
-Schwellwertes $t$. Dieser entscheidet zwischen einer guten und einer schlechten Segmentierung.
+Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des Schwellwertes
+$t$. Dieser entscheidet zwischen einer guten und einer schlechten Segmentierung.
 Für die Wahl eines Schwellwertes empfielt sich der Blick auf das Bildhistogramm.
-Dieses gibt Aufschluss über die Grauwertverteilung eines Bildes \citep[vgl.][Seite361]{lehmann2013bildverarbeitung}.
+Dieses gibt Aufschluss über die Grauwertverteilung eines Bildes \citep[vgl.][S.~361]{lehmann2013bildverarbeitung}.
 Verfahren, welche eine gute Schwellwertwahl gewährleistet, ohne dass zu viele
 Informationen verloren gehen, sind die Verfahren \textit{Otsu} und \textit{Renyi}.
 
@@ -366,113 +363,112 @@ Informationen verloren gehen, sind die Verfahren \textit{Otsu} und \textit{Renyi
 \textbf{Das Verfahren nach Otsu} gehört zu den Schwellwertverfahren und bestimmt
 den Schwellwert $t$ durch ein statistisches Gütekriterieum. Hierzu bedient sich
 das Verfahren des Bildhistogrammes. Die räumliche Anordnung der Voxel und damit das
-tatsächliche Bild, benötigt dieser Algorithmus nicht \citep[vgl.][Seite 264]{lehmann2013bildverarbeitung}.
+tatsächliche Bild, benötigt dieser Algorithmus nicht \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}.
 
 \begin{minipage}{0.40\textwidth}
 	Ein solches Histogramm, welches die Grundlage für für das Verfahren nach Otsu
 	liefert sei in Abbildung \ref{fig:histogramm} gezeigt. Dies gibt Aufschluss über
-	die unterschiedlichen Grauwerte und wie oft sie in einem Bild vorkommen \citep[vgl.][Seite264]{lehmann2013bildverarbeitung}.
-	Für eine genauere Beschreibung eines Histogrammes, sei an dieser Stelle auf \citet[Seite42]{burger2009}
-	verwiesen.
+	die unterschiedlichen Grauwerte und wie oft sie in einem Bild vorkommen \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}.
+	Für eine genauere Beschreibung eines Histogrammes, sei an dieser Stelle auf
+	\citet[S.~42]{burger2009} verwiesen.
 \end{minipage}
 \hfill
 \begin{minipage}{0.50\textwidth}
 	\centering
 	\includegraphics[width=1\textwidth]{img/histogramm.jpg}
-	\captionof{figure}{Histogramm einer Zahnaufnahme nach Hoffmann} \label{fig:histogramm}
+	\captionof{figure}{Histogramm einer Zahnaufnahme nach \citet[S.~13]{hoffmann2020}}
+	\label{fig:histogramm}
 \end{minipage}
 
 Das Otsu-Verfahren teilt die Grauwerte eines Bildes in verschiedenen Klassen ein,
-die durch Schwellwerte getrennt werden. Die Klassen können beispeilsweise mit $K_{0}$
-bis $K_{n}$ bezeichnet werden, wobei sich dieses konkrete Beispiel auf die
-Klassen $K_{0}$ und $K_{1}$ beschränkt. Otsu wählt den Schwellwert $t$, der die
-Varianz zwischen den Pixelklassen maximiert und gleichzeitig die Varianz
-innerhalb jeder Klasse minimiert \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}.
-Mathematisch lässt sich dies wie folgt ausdrücken.
+die durch Schwellwerte getrennt werden. Die Klassen können beispeilsweise mit
+$K_{0}$ bis $K_{n}$ bezeichnet werden, wobei sich dieses konkrete Beispiel auf die
+Klassen $K_{0}$ und $K_{1}$ beschränkt. Otsu wählt den Schwellwert $t$, der die Varianz
+zwischen den Pixelklassen maximiert und gleichzeitig die Varianz innerhalb jeder
+Klasse minimiert \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}. Mathematisch
+lässt sich dies wie folgt ausdrücken.
 
 \begin{align}
 	t = \text{max }(\sigma_{zw}^{2}/ \sigma_{in}^{2})
 \end{align}
 
 $\sigma_{zw}$ bildet die Varianz zwischen den beiden Klassen $K_{0}$ und $K_{1}$
-und bildet sich aus den Wahrscheinlichkeiten mit denen jeder einzelne Grauwert auftritt.
-$\sigma_{in}$ hingegen, ist die Varianz innerhalb einer Klasse und entsteht durch
-die Addition der Varianzen der einzelnen Klassen. Der Schwellwert $t$ ist nun
-der, für den das Verhältnis maximal wird \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}.
+und bildet sich aus den Wahrscheinlichkeiten mit denen jeder einzelne Grauwert
+auftritt. $\sigma_{in}$ hingegen, ist die Varianz innerhalb einer Klasse und
+entsteht durch die Addition der Varianzen der einzelnen Klassen. Der Schwellwert
+$t$ ist nun der, für den das Verhältnis maximal wird \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}.
 
-Laut \citet[S.~264]{lehmann2013bildverarbeitung} fällt auf, dass dieses
-Verfahren vorallem bei bimodalen Bildern zum Einsatz kommt. Ein Bild ist bimodal,
-wenn es zwei lokale Maxima aufweist. Vereinfacht gesagt, wenn es zwei lokale
-Pieks enthält \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}.
+Laut \citet[S.~264]{lehmann2013bildverarbeitung} fällt auf, dass dieses Verfahren
+vorallem bei bimodalen Bildern zum Einsatz kommt. Ein Bild ist bimodal, wenn es zwei
+lokale Maxima aufweist. Vereinfacht gesagt, wenn es zwei lokale Pieks enthält \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}.
 
 Eine ähnliche Technik für die Bestimmung des Schwellwertes liefert das Verfahren
-der Renyi Entropie. Auch hier ist eine Einteilung der Voxel in Klassen
-vorgesehen.
+der Renyi Entropie. Auch hier ist eine Einteilung der Voxel in Klassen vorgesehen.
 % ---------------------------------------------------------------------------------------
 \pagebreak
 
-\textbf{Das Verfahren nach Rényi} ist ein weiteres Verfahren, das im Laufe
-dieser Arbeit noch eine wichtige Rolle spielt. Wie bereits beschrieben gehört es
-ebenfalls zu der Gruppe der Schwellwertverfahren und generiert demnach einen Schwellwert
-$t$. Wie auch das Verfahren nach Otsu, benötigt Rényi keine Information über die
-räumliche Anordnung der Bilder, es genügt das Bildhistogramm. Dabei ist der optimal
-Schwellwert $t$ der, der eine maximale Entropie der Bildverteilung erzeugt. Unter
-einer Entropie wird ein Konzept verstanden, das eine Unordung, Unsicherheit oder
-den Informationsgehlat innerhalb eines Systems beschreibt, so \citet{bein2006}.
+\textbf{Das Verfahren nach Rényi} ist ein weiteres Verfahren, das im Laufe dieser
+Arbeit noch eine wichtige Rolle spielt. Wie bereits beschrieben gehört es
+ebenfalls zu der Gruppe der Schwellwertverfahren und generiert demnach einen
+Schwellwert $t$. Wie auch das Verfahren nach Otsu, benötigt Rényi keine
+Information über die räumliche Anordnung der Bilder, es genügt das Bildhistogramm.
+Dabei ist der optimal Schwellwert $t$ der, der eine maximale Entropie der Bildverteilung
+erzeugt. Unter einer Entropie wird ein Konzept verstanden, das eine Unordung,
+Unsicherheit oder den Informationsgehlat innerhalb eines Systems beschreibt, so \citet[S.~102]{bein2006}.
 Die Rényi-Entropie ist eine Verallgemeinerung der Shannon-Entropie und hängt von
-einem Parameter $q$ ab. Die Entropie misst die Unsicherheit oder den Informationsgehalt
-einer Wahrscheinlichkeitsverteilung, welche sich wie folgt ausdrücken lässt
-\citep[vgl.][K. 2]{bromiley2004}.
+einem Parameter $q$ ab. Die Entropie misst die Unsicherheit oder den
+Informationsgehalt einer Wahrscheinlichkeitsverteilung, welche sich wie folgt ausdrücken
+lässt \citep[vgl.][K.~2]{bromiley2004}.
 
 \begin{align}
 	\label{equ:renyi}H_{q}(P) = \frac{1}{1-q}\ln \left( \sum_{i=1}^{N}p_{i}^{q}\right)
 \end{align}
 
-Besonderes Augenmerk verdienen hierbei die Paramter $p_{i}$ und $q$, welche di charakteristischen
-Eigenschaften der Rényi-Entropie beschreiben. Der Parameter $p_{i}$ ist die
-Wahrscheinlichkeit eines jeden Grauwertes im Bild. $i$ symbolisiert hierbei jeden
-Grauwert. Wie viele Grauwerte genau betrachten werden sollen definiert $N$. Die Variable
-$q$ hingegen beeinflusst die Gewichtung der Wahrscheinlichkeit $p_{i}$ für jeden
-Grauwert. Setzt man den Parameter $q$ auf $q = 1$ so lässt sich mittels Algebra
-die Shannon-Entropie zeigen \citep[vgl.][K.2]{bromiley2004}. Um nun mit der
-Rényi-Entropie den optimalen Schwellwert für ein Bild zu berechnen sieht Rényi
-ähnlich wie Otsu eine Einteilung in Klassen vor. Die Einteilung erfolgt mittels des
-Parameters $N$. So kann nun für jede gebildete Klasse die Gleichung
-\ref{equ:renyi} angewendet werden. Die Gesamtentropie des Systems wird aus den beiden
-Teilentropien der jeweiligen Klassen bestimmt\citep[vgl.][K. 2]{bromiley2004}.
+Besonderes Augenmerk verdienen hierbei die Paramter $p_{i}$ und $q$, welche di
+charakteristischen Eigenschaften der Rényi-Entropie beschreiben. Der Parameter $p
+_{i}$ ist die Wahrscheinlichkeit eines jeden Grauwertes im Bild. $i$
+symbolisiert hierbei jeden Grauwert. Wie viele Grauwerte genau betrachten werden
+sollen definiert $N$. Die Variable $q$ hingegen beeinflusst die Gewichtung der
+Wahrscheinlichkeit $p_{i}$ für jeden Grauwert. Setzt man den Parameter $q$ auf $q
+= 1$ so lässt sich mittels Algebra die Shannon-Entropie zeigen \citep[vgl.][K.~2]{bromiley2004}.
+Um nun mit der Rényi-Entropie den optimalen Schwellwert für ein Bild zu berechnen
+sieht Rényi ähnlich wie Otsu eine Einteilung in Klassen vor. Die Einteilung
+erfolgt mittels des Parameters $N$. So kann nun für jede gebildete Klasse die Gleichung
+\ref{equ:renyi} angewendet werden. Die Gesamtentropie des Systems wird aus den
+beiden Teilentropien der jeweiligen Klassen bestimmt\citep[vgl.][K.~2]{bromiley2004}.
 \begin{align}
 	H_{q}(T) = H_{q}(P)^{(1)}+ H_{q}(P)^{(2)}
 \end{align}
-Um nun den optimalen Schwellwert $t$ bestimmen zu können muss der Wert genommen
-werden, bei dem die Gesamtentropie des Systems maximal ist. Dieser Sachverhalt
-lässt sich wie folgt ausdrücken \citep[vgl.][K. 2]{bromiley2004}.
+Um nun den optimalen Schwellwert $t$ bestimmen zu können muss der Wert genommen werden,
+bei dem die Gesamtentropie des Systems maximal ist. Dieser Sachverhalt lässt sich
+wie folgt ausdrücken \citep[vgl.][K.~2]{bromiley2004}.
 \begin{align}
 	t = max(H_{q}(T))
 \end{align}
-Neben unzähligen weiteren Segmentierungstechniken, ist eine für diese Arbeits von
-ganz besonderer Bedeutung. Diese Technik wurde speziell zum Segementieren der
+Neben unzähligen weiteren Segmentierungstechniken, ist eine für diese Arbeits
+von ganz besonderer Bedeutung. Diese Technik wurde speziell zum Segementieren der
 Mikro-\ac{CT}-Bilder des Zahnklinikums an der \ac{LMU} in München entwickelt.
 
 \pagebreak
 % ---------------------------------------------------------------------------------------
 
 \section{Verwandte Arbeit}
-\label{sec:verwwandte_arbeit} Wie bereits in der Einleitung dieser Arbeit klar wurde
-verfügt die Poliklinik für Zahnerhaltung und Parodontologie des \ac{LMU}-Klinikums
-München über einen breiten Schatz an Bilddaten. Im Rahmen einer Bachelorarbeit an
-der Hohschule für angewandte Wissenschafften in Augsburg unterstützte Herr Hofmann
-die Verarbeitung dieser Bilddaten mit Methoden der 3D-Bildverarbeitung. Konkret
-sollte diese Arbeit die Kariesklassifizierung unterstützen. Hierzu entwickelte er
-ein Verfahren, das auf Basis adaptiver Schwellwertverfahren die Zahnsubstanzen
-Schmelz und Dentin aus dem Orginalbild herrauslöst. Konkret kann diese Segmentierung
-mit verschiedenen Verfahren durchgeführt werden. Man spricht hier von einer
-anatomsichen Segmentierung der Zahnkrone.
+\label{sec:verwwandte_arbeit} Wie bereits in der Einleitung dieser Arbeit klar
+wurde verfügt die Poliklinik für Zahnerhaltung und Parodontologie des \ac{LMU}-Klinikums
+München über einen breiten Schatz an Bilddaten. Im Rahmen einer Bachelorarbeit
+an der Hohschule für angewandte Wissenschafften in Augsburg unterstützte Herr
+Hofmann die Verarbeitung dieser Bilddaten mit Methoden der 3D-Bildverarbeitung. Konkret
+sollte diese Arbeit die Kariesklassifizierung unterstützen. Hierzu entwickelte
+er ein Verfahren, das auf Basis adaptiver Schwellwertverfahren die Zahnsubstanzen
+Schmelz und Dentin aus dem Orginalbild herrauslöst. Konkret kann diese
+Segmentierung mit verschiedenen Verfahren durchgeführt werden. Man spricht hier von
+einer anatomsichen Segmentierung der Zahnkrone.
 
 \begin{minipage}{0.45\textwidth}
 	Durch die Segmentbetrachtung der beiden Zahnhauptteile Schmelz und Dentin konnte
-	\citet{hoffmann2020} eine gute Hilfe für die Befundung kariöse Stellen liefern.
-	Ein Ergebnis aus der Arbeit von Hoffman sei in Abbildung \ref{fig:ergebnis_hoffmann}
-	gezeigt. \citet{hoffmann2020} entwickelte hierfür ein Prototypisches Verfahren,
+	\citet[S.~41]{hoffmann2020} eine gute Hilfe für die Befundung kariöse Stellen
+	liefern. Ein Ergebnis aus der Arbeit von Hoffman sei in Abbildung \ref{fig:ergebnis_hoffmann}
+	gezeigt. \citet[S.~53]{hoffmann2020} entwickelte hierfür ein Prototypisches Verfahren,
 	mit dem es gelang ca. 250 Datensätze der Zahnklinik automatisch aufzubereiten.
 \end{minipage}
 \hfill
@@ -483,10 +479,10 @@ anatomsichen Segmentierung der Zahnkrone.
 	\label{fig:ergebnis_hoffmann}
 \end{minipage}
 
-Die anatomische Segmentierung des Zahnes umfasst eine ganze Reihe algorithmischer
-Schritte, sodass sich eine Pipeline an Verarbeitungsschritten ergibt. Die Abbildung
-\ref{fig:anatomische_segmentierung} zeigt den groben Ablauf des Verfahrens.
-Kleinere Zwischenschritte wurden nicht berücksichtig.
+Die anatomische Segmentierung des Zahnes umfasst eine ganze Reihe
+algorithmischer Schritte, sodass sich eine Pipeline an Verarbeitungsschritten ergibt.
+Die Abbildung \ref{fig:anatomische_segmentierung} zeigt den groben Ablauf des
+Verfahrens. Kleinere Zwischenschritte wurden nicht berücksichtig.
 
 \begin{figure}[h]
 	\centering
@@ -496,42 +492,43 @@ Kleinere Zwischenschritte wurden nicht berücksichtig.
 	\label{fig:anatomische_segmentierung}
 \end{figure}
 
-\citet{hoffmann2020} beschreibt, dass dieses Verfahren bis zu einem gewissen Fortschritt
-des Karies durchgeführt werden konnte, da der Algorithmus diesbezüglich seine
-Grenzen hat. Außerdem ist das Verfahren für die orginalen \ac{ISQ}-Bilder
-erstellt worden, deren Daten im Format \ac{16Int} vorliegen. Für die spätere Darstellung
-der Ergebnisse kann eine überlappende Ansicht in einer Visualisierungssoftware verwendet
-werden. So ergibt sich die Situation, dass der Algorithmus ein gutes Ergebnis liefert,
-jedoch nicht benutzerfreundlich zu bedienen ist. Für das Starten und Visualisueren
-des Verfahrens sind aufwendige Befehle über das Terminal zu tippen \citep[vgl.][Seite
-53]{hoffmann2020}. Genau an dieser Stelle soll die vorliegende Arbeit anknüpfen
-und das Verfahren nach \citet{hoffmann2020} so interaktiv und benutzerfreundlich
-gestallten.
+\citet[S.~55]{hoffmann2020} beschreibt, dass dieses Verfahren bis zu einem
+gewissen Fortschritt des Karies durchgeführt werden konnte, da der Algorithmus diesbezüglich
+seine Grenzen hat. Außerdem ist das Verfahren für die orginalen \ac{ISQ}-Bilder erstellt
+worden, deren Daten im Format \ac{16Int} vorliegen. Für die spätere Darstellung
+der Ergebnisse kann eine überlappende Ansicht in einer Visualisierungssoftware
+verwendet werden. So ergibt sich die Situation, dass der Algorithmus ein gutes
+Ergebnis liefert, jedoch nicht benutzerfreundlich zu bedienen ist. Für das
+Starten und Visualisueren des Verfahrens sind aufwendige Befehle über das
+Terminal zu tippen \citep[vgl.][S.~53]{hoffmann2020}. Genau an dieser Stelle
+soll die vorliegende Arbeit anknüpfen und das Verfahren der anatomischen
+Segmentierungso interaktiv und benutzerfreundlich gestallten.
 
-Für eine interaktive Verarbeitung von 3D Bilddaten bieten sich einige Möglichkeiten.
-Die wohl beste Lösung liefert 3D Slicer. Warum die Wahl auf diese Plattform fiel
-und welche Vorteile daraus entstehen wird im folgenden Abschnitt \ref{sec:3d_slicer}
-erläutert.
+Für eine interaktive Verarbeitung von 3D Bilddaten bieten sich einige
+Möglichkeiten. Die wohl beste Lösung liefert 3D Slicer. Warum die Wahl auf diese
+Plattform fiel und welche Vorteile daraus entstehen wird im folgenden Abschnitt
+\ref{sec:3d_slicer} erläutert.
 % ---------------------------------------------------------------------------------------
 
 \section{Interaktive Bildbearbeitung mit 3D Slicer}
-\label{sec:3d_slicer} 3D Slicer ist eine Open Source Plattform, die speziel für
-die Verarbeitung von Bilddaten im medizinischen Kontext eingesetzt wird. Dabei wird
-sie von einer aktiven Community regelmäßig gewartet und weiterentwickelt \citep[vgl.][]{slicer2024},
-\citep[vgl.][]{fedorov2012slicer}. Für Slicer gibt es offizell keine Nutzungsbeschränkung.
-Jedoch sei auch gesagt, dass 3D Slicer nicht für die klinische Nutzung zugelassen
-ist. \citet{fedorov2012slicer} macht deutlich, das 3D Slicer ausschließlich für
-die Forschung gedacht ist. Um einen ersten Überblick über die Komponenten von Slicer
-zu erlangen, soll die Abbildung \ref{fig:3d_slicer_oekosystem} betrachtet weden.
+\label{sec:3d_slicer} 3D Slicer ist eine Open Source Plattform, die speziel für die
+Verarbeitung von Bilddaten im medizinischen Kontext eingesetzt wird. Dabei wird
+sie von einer aktiven Community regelmäßig gewartet und weiterentwickelt \citep[vgl.][K.~1]{slicer2024},
+\citep[vgl.][S.~3]{fedorov2012slicer}. Für Slicer gibt es offizell keine
+Nutzungsbeschränkung. Jedoch sei auch gesagt, dass 3D Slicer nicht für die
+klinische Nutzung zugelassen ist. \citet[S.~7]{fedorov2012slicer} macht deutlich,
+das 3D Slicer ausschließlich für die Forschung gedacht ist. Um einen ersten
+Überblick über die Komponenten von Slicer zu erlangen, soll die Abbildung \ref{fig:3d_slicer_oekosystem}
+betrachtet weden.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/3d_slicer_overview.jpg}
-	\caption{3D Slicer Ökosystem nach \citet[Seite 1326]{fedorov2012slicer}}
+	\caption{3D Slicer Ökosystem nach \citet[S.~23]{fedorov2012slicer}}
 	\label{fig:3d_slicer_oekosystem}
 \end{figure}
 
-\citet[Seite 1326]{fedorov2012slicer} teilt mit der Abbildung \ref{fig:3d_slicer_oekosystem}
+\citet[S.~23]{fedorov2012slicer} teilt mit der Abbildung \ref{fig:3d_slicer_oekosystem}
 die Plattform in drei Schichten auf. Auf der Obersten wird klar, dass 3D Slicer aus
 der Kernanwendung und den installierbaren Modulen besteht. Neben den bereits
 vorhandenen Modulen können von externen Entwicklern Module über die Slicer
@@ -541,8 +538,7 @@ werden. Auf der untersten Schicht sind die Plattformspezifischen Anforderungen z
 sehen, die Slicer erfüllen soll.
 
 So kommt es, dass das 3D Slicer Ökosystem sich durch einige Kriterien besonders auszeichnet.
-Die wohl wichtigsten seien hier Stichpunktartig genannt \citep[vgl.][]{slicer2024},
-\citep[vgl.][]{fedorov2012slicer}.
+Die wohl wichtigsten seien hier Stichpunktartig genannt \citep[vgl.][S.~11]{fedorov2012slicer}.
 
 \begin{itemize}
 	\item Kostenfreie Software
@@ -559,25 +555,25 @@ Die wohl wichtigsten seien hier Stichpunktartig genannt \citep[vgl.][]{slicer202
 3D Slicer hat für alle diese Punkte jeweils eine Lösung entwickelt, wobei der erste
 Punkt durch die Open Source Philosophie schon gegeben ist. Die folgenden
 Abschnitte decken diese Lösungen ab und bilden so eine erste Grundlage für die
-Entwicklung mit 3D Slicer\citep[vgl.][]{slicer2024}, \citep[vgl.][]{fedorov2012slicer}.
+Entwicklung mit 3D Slicer \citep[vgl.][S.~11]{fedorov2012slicer}.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Extension Manager und Plug-in-Infrastruktur}
 Der wohl bedeutenste Punkt ist die Plug-In Infrastruktur, welche Slicer von sich
-aus mitbringt. Um dieses Konzept genauer zu beleuchten teilt man die Plattform
-am besten in zwei Teile auf, die Kernanwendung und die Module, welcher jeder
-User personalisiert installieren oder deinstallieren kann. Diese Module werden als
-\textit{Slicer lodabel module} bezeichnet \citep[vgl.][Seite 1332]{fedorov2012slicer}.
-Slicer realisiert die Struktur durch den \textit{Extension Manager}, welcher durchaus
-vergleichbar ist mit einer Art AppStore. Über diesen können bequem und mit wenig
-Klicks die gewünschten Erweiterungen in das Kernsystem installiert werden.
+aus mitbringt. Um dieses Konzept genauer zu beleuchten teilt man die Plattform am
+besten in zwei Teile auf, die Kernanwendung und die Module, welcher jeder User personalisiert
+installieren oder deinstallieren kann. Diese Module werden als \textit{Slicer
+lodabel module} bezeichnet \citep[vgl.][S.~25]{fedorov2012slicer}. Slicer realisiert
+die Struktur durch den \textit{Extension Manager}, welcher durchaus vergleichbar
+ist mit einer Art AppStore. Über diesen können bequem und mit wenig Klicks die
+gewünschten Erweiterungen in das Kernsystem installiert werden.
 
 \begin{minipage}{0.30\textwidth}
 	Neben der Möglichkeit Module zu installieren bietet Slicer noch die Möglichkeit
 	eigenen Module zu bauen und Sie im \textit{Extension Manager} zu
 	veröffentlichen. Diese werden als \ac{SEM} bezeichnet. Hierzu verfolgt Slicer den
 	Ansatz, dass jeder Entwickler eines Moduls selbst verantwortlich für Wartung
-	und Weiterentwicklung ist, auch nachdem ein Paket veröffentlicht wurde \citep{slicer2024}.
+	und Weiterentwicklung ist, auch nachdem ein Paket veröffentlicht wurde \citep[vgl.][]{slicer2024}.
 \end{minipage}
 \hfill
 \begin{minipage}{0.60\textwidth}
@@ -610,7 +606,7 @@ Eine High Level Betrachtung der Softwarearchitektur von 3D Slicer bietet
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/3d_slicer_architektur.jpg}
-	\caption{3D Slicer High Level Architektur nach \citet[Seite 1326]{fedorov2012slicer}}
+	\caption{3D Slicer High Level Architektur nach \citet[S.~25]{fedorov2012slicer}}
 	\label{fig:3d_slicer_architektur}
 \end{figure}
 
@@ -657,18 +653,18 @@ Slicer Kernanwendung entwickelt. Dies ermöglicht ein portieren der Datenstruktu
 auf andere Softwareapplikationen. Da Slicer die einzig große Plattform ist, die
 diese Datenstruktur nutzt, wird der Quellcode für \ac{MRML} im Reporsitory von
 3D Slicher gewartet und weiterentwickelt, so \citet{slicer2024}. Durch den Artikel
-von \citet[Seite 1327]{fedorov2012slicer} wird klar, dass \ac{MRML} mehr ist also
-nur eine Datenstruktur. Sie beschreiben \ac{MRML} als Szenenorganisator von Bilder,
-Anotationen, Layouts und Anwendungsstaten.
+von \citet[S.1]{fedorov2012slicer} wird klar, dass \ac{MRML} mehr ist also nur
+eine Datenstruktur. Sie beschreiben \ac{MRML} als Szenenorganisator von Bilder, Anotationen,
+Layouts und Anwendungsstaten.
 
-\citet[Seite 1331]{fedorov2012slicer} beschreiben die \ac{MRML}-Datenstruktur
-als Schlüsselkomponenten innerhalb von 3D Slicer. Dies ist auf die Softwarearchitektur
+\citet[S.~11]{fedorov2012slicer} beschreiben die \ac{MRML}-Datenstruktur als
+Schlüsselkomponenten innerhalb von 3D Slicer. Dies ist auf die Softwarearchitektur
 von Slicer zurückzuführen, die in Abbildung \ref{fig:3d_slicer_architektur}
 beschrieben wurde. Die Kernanwendung von Slicer arbeitet wie bereits beschrieben
 nach dem \ac{MVC}-Pattern. \ac{MRML} übernimmt hier den Teil des \textit{Models
-(M)} und bildet damit den Grundstein der Anwendung \citep[vgl.][Seite 1332]{fedorov2012slicer}.
+(M)} und bildet damit den Grundstein der Anwendung \citep[vgl.][S.~25]{fedorov2012slicer}.
 
-\citet{slicer2024} und der Artikel von \citet[Seite 1327]{fedorov2012slicer}
+\citet{slicer2024} und der Artikel von \citet[S.~11]{fedorov2012slicer}
 beschreibt \ac{MRML} als \ac{XML}-Format. Wird also eine \ac{MRML}-Szenen
 gespeichert, so folgt eine Speicherung als .mrml-Datei und damit unter der Haube
 als XML-Datei. Dabei wird laut \citet{slicer2024} nur eine Referenz auf das Bild
@@ -731,7 +727,7 @@ erfolgen
 
 \begin{lstlisting}[
 	language={python},
-	caption={Auslesen der Informationen aus den verschiedenen nodes},
+	caption={Auslesen der Informationen aus den verschiedenen Knoten},
 	label={lst:_auslehsen_nodes}]
 # data node - vtkMRMLVolumeNode
 currentVolume.GetImageData()
@@ -744,7 +740,7 @@ currentVolume.GetDisplayNode()
 Wie die Kommentaren in Listing \ref{lst:_auslehsen_nodes} bereits zeigen, gibt es
 noch eine Besonderheit von \ac{MRML}. Damit ein Verwaltung aller Dateiformate möglich
 ist, bedient sich \ac{MRML} einiger Tools, die sich bereits etabliert haben. Die
-Wichtigsten sind hierbei \ac{VTK} und \ac{ITK} \citep[vgl.][]{vtk2024}, \citep[vgl.][]{itk2024}.
+Wichtigsten sind hierbei \ac{VTK} und \ac{ITK} \citep[vgl.][K.~1.1]{vtk2006}, \citep[vgl.][K.~1.1]{itkguide2015}.
 Dies beiden Tools sind echte Riesen in ihrere Branche. \ac{MRML} nutzt diese um einige
 Dateiformate zu lesen und zu schreiben.
 
@@ -759,29 +755,30 @@ Benutzerschnittstelle diskutiert werden.
 
 \subsection{Benutzerschnittstelle}
 \label{subsec:benutzerschnitstelle} Für das Erstellen eines \ac{UI}, das für
-eine Slicer Erweiterung notwendig ist, nutzt 3D Slicer den Qt-Designer \citep[vgl.][]{qt2024}.
+eine Slicer Erweiterung notwendig ist, nutzt 3D Slicer den Qt-Designer \citep[vgl.][Ab.~Einführung]{qt2024}.
 Die Integration des Qt-Designers als Applikation in eine andere Applikation funktioniert
-aufgrund der Plattformintegrität, die der Designer mitbringt \citep[vgl.][]{qt2024}.
+aufgrund der Plattformintegrität, die der Designer mitbringt \citep[vgl.][Ab.~Einführung]{qt2024}.
 Diese bietet so die Möglichkeit die benötigten Widgets über ein interaktives
 User Interface zu bauen. Für dieses \ac{UI}-Vorrischtung gibt es einen
 Gegenspieler im Quelltext des Programmes, welcher als \textit{ParameterNode}
 bekannt ist. Der \textit{ParameterNode} ist laut \citet{slicer2024} eine leichte
 Variante eines \ac{MRML}-Node um Parametereinstellungen zu speichern. Durch das Zusammenspiel
 zwischen \ac{UI} und \textit{ParameterNode} wird die \ac{UI} automatisch
-aktualisiert, wenn sich das Programm ändert und umgehert, so erklärt es \citet{slicer2024}.
+aktualisiert, wenn sich das Programm ändert und umgehert, so erklärt es die
+\citet{slicer2024}.
 
 \begin{minipage}{0.35\textwidth}
-	Das Erstellen der Verknüpfung zwischen UI-Widget und \textit{ParameterNode}
-	erfolgt über die dynamische Eigenschaft \texttt{SlicerParameterName}, die
-	direkt in der Komponentenansicht im Qt-Designer einstellbar ist. Die Abbidlung
-	\ref{fig:qt_designer} soll diesen Vorgang verdeutlichen. Diese Verknüpfung
-	lässt sich laut \citet{slicer2024} auch via Programmcode setzten.
+	Das Erstellen der Verknüpfung zwischen \ac{UI}-Widget und \textit{ParameterNode}
+	erfolgt über die dynamische Eigenschaft \texttt{SlicerParameterName}, die direkt
+	in der Komponentenansicht im Qt-Designer einstellbar ist. Die Abbidlung
+	\ref{fig:qt_designer} soll diesen Vorgang verdeutlichen. Diese Verknüpfung lässt
+	sich laut \citet{slicer2024} auch via Programmcode setzten.
 \end{minipage}
 \hfill
 \begin{minipage}{0.55\textwidth}
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/qt_designer.jpg}
-	\captionof{figure}{Dynamische Eigenschaft einer Komponente im Qt-Designer nach \citet{slicer2024}}
+	\captionof{figure}{Dynamische Eigenschaft einer Komponente im Qt-Designer nach der \citet{slicer2024}}
 	\label{fig:qt_designer}
 \end{minipage}
 
