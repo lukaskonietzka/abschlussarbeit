@@ -13,7 +13,7 @@ das Ziel dieser Arbeit die Entwicklung einer vollständigen Softwarelösung ist,
 das Problem anschließend in Teilaufgaben zerlegt. Dies ermöglicht eine gezielte
 Bearbeitung einzelner Komponenten und erleichtert die iterative Entwicklung. Falls
 für bestimmte Teilbereiche keine passenden Lösungsansätze aus der Literatur ableitbar
-waren, wurden darauf basierend eigene methodische Ansätze erarbeitet.
+waren, wurden darauf basierend eigene Lösungen ‚erarbeitet.
 
 Neben der praktischen Anwendung der entwickelten Erweiterung bietet diese Arbeit
 auch wissenschaftlichen Mehrwert. Daher wird im folgenden Abschnitt die gewählte
@@ -31,19 +31,19 @@ bezüglich der Reihenfolge während der Bearbeitung geben.
 \pagebreak
 
 \begin{description}
-	\item[Analysephase:] Diese erste Phase ist bei fast allen Softwareprojekten die
+	\item[Analysephase] diese erste Phase ist bei fast allen Softwareprojekten die
 		wichtigste Phase und gleichzeitig die, die meist zu kurz kommt. Innerhalb der
 		Analysephase werden also alle Anforderungen an die Software gesammelt. Diese
 		basieren zum großen Teil auf der Literaturrecherche. Außerdem werden bestehende
 		Lösungen analysiert und so die Kernfunktionalität herausgefiltert.
 
-	\item[Entwicklungsphase:] Die Entwicklungsphase bildet den größten Teil. Hier
+	\item[Entwicklungsphase] die Entwicklungsphase bildet den größten Teil. Hier
 		findet die konkrete Umsetzung statt. Hierzu wird das System in mehrere Subsysteme
 		unterteilt. Dies ermöglicht eine isolierte Betrachtung. Während der Entwicklung
 		wird ein Phototypenansatz verfolgt.
 
-	\item[Evaluationsphase:] Die letzte Phase dieser Arbeit beschäftigt sich ausschließlich
-		mit der Evaluation der Ergebnisse. Hier soll eine Antwort auf die in
+	\item[Evaluationsphase] die letzte Phase dieser Arbeit beschäftigt sich ausschließlich
+		mit der Evaluation der Ergebnisse. Hier soll eine Antwort auf die in Kapitel
 		\ref{chap:fragestellung} formulierten Fragestellungen gefunden werden.
 \end{description}
 
@@ -72,8 +72,8 @@ die nächste wichtige Anforderung abgeleitet werden. Die Erweiterung soll gut un
 einfach über eine \ac{UI} bedient werden können. Außerdem ist eine stabile Anwendung
 gefragt, die sich gut in die Kernanwendung von 3D Slicer einfügt. \citet[]{walter2025}
 machte im Interview deutlich, dass die Erweiterung neben einer Einzelbildbearbeitung
-auch einen Batch-Prozess ermöglichen so. So können Beispielsweise Parameter an
-einem Bild erprobt werden und diese anschließend in einen Batch-Prozess für
+auch einen Batch-Prozess ermöglichen so. So können beispielsweise Parameter an
+einem Bild erprobt werden und diese anschließend in einen Batch-Prozess auf
 viele Bilder überführt werden. Außerdem soll es möglich sein, verschiedenen
 Schwellwertverfahren, die in der anatomischen Segmentierung vorgesehen sind,
 auch in der Erweiterung auszuwählen. Ein wichtiger Softwaretechnischer Anspruch an
@@ -93,7 +93,7 @@ dieser Grafik, können die gestellten Anforderungen visuell dargestellt werden
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.75\textwidth]{img/domaenenmodell.jpg}
-	\caption{\ac{UML}-Domänenmodell des gesamten Softwaresystems}
+	\caption{UML-Domänenmodell des gesamten Softwaresystems}
 	\label{fig:3d_slicer_domäne}
 \end{figure}
 
@@ -112,13 +112,13 @@ die den aktuellen Stand der Technik abbildet. Dabei wird auf Fachliteratur sowie
 domänenspezifische Quellen zurückgegriffen, um alle relevanten Aspekte abzudecken.
 
 Für diese Arbeit spielt eine Quelle eine besonders wichtige Rolle: die
-offizielle Dokumentation von \citet{slicer2024}. Sie bietet wertvolle
-Anhaltspunkte für die Implementierung und hilft dabei, die technischen Gegebenheiten
-von 3D Slicer zu verstehen. Zudem enthält sie \textit{Best-Practice-Ansätze},
-die bei der Entwicklung berücksichtigt wurden. 3D Slicer stellt außerdem einen Developer
-Guide zur Verfügung, der Teil der offiziellen Dokumentation ist und den Einstieg
-in das Framework erleichtert. Ein weiterer zentraler Referenzpunkt ist der 3D Slicer
-Extension Index, in dem bereits entwickelte Erweiterungen einsehbar sind. Ein konkretes
+offizielle Dokumentation von 3D Slicer. Sie bietet wertvolle Anhaltspunkte für die
+Implementierung und hilft dabei, die technischen Gegebenheiten von 3D Slicer zu
+verstehen. Zudem enthält sie \textit{Best-Practice-Ansätze}, die bei der Entwicklung
+berücksichtigt wurden. 3D Slicer stellt außerdem einen Developer Guide zur
+Verfügung, der Teil der offiziellen Dokumentation ist und den Einstieg in das Framework
+erleichtert. Ein weiterer zentraler Referenzpunkt ist der \textit{3D Slicer
+Extension Index}, in dem bereits entwickelte Erweiterungen einsehbar sind. Ein konkretes
 Beispiel ist das Modul \textit{Airway Segmentation}, dessen Analyse dazu beiträgt,
 bewährte Konventionen für die Entwicklung der eigenen Erweiterung abzuleiten. So
 kommt es, dass beispielsweise für die Gestaltung einer Benutzerschnittstelle
@@ -146,52 +146,51 @@ in kleinere Teilsysteme vor.
 
 \section{Zerlegung in Teilprobleme}
 \label{sec_zerlegung_in_teilprobleme} Durch die Aufteilung des Gesamtsystems in mehrere
-kleine Teilaufgaben wird die Software für den Entwicklungsprozess übersichtlicher.
+kleine Teilaufgaben wird die Software für den Entwicklungsphase übersichtlicher.
 Die einzelnen Domänen können so schneller und besser verstanden werden. Es gibt viele
 Möglichkeiten ein Softwaresystem in kleine Teile aufzuteilen, sodass es am Ende
 auf den konkreten Anwendungsfall ankommt. Diese Arbeit sieht folgenden Teilaufgaben
 für das Gesamtsystem vor:
 
 \begin{description}
-	\item[Architektur- und \ac{UI}-Design] Mithilfe von UML Diagrammen soll die Architektur
+	\item[Architektur- und \ac{UI}-Design] , mithilfe von UML Diagrammen soll die Architektur
 		dieses Systems abgebildet werden und sukzessive immer detaillierter beschrieben
 		werden. Es soll dann verglichen werden, welche Entwurfsmuster für dieses System
 		infrage kommen. Durch die Bearbeitung dieses Teilproblems kann die
 		Anforderung an eine flexible Architektur erfüllt werden.
 
-	\item[Kapselung der anatomische Segmnetierung:] Das bereits bestehende Segmentierungsverfahren
+	\item[Kapselung der anatomischen Segmentierung] , das bereits bestehende Segmentierungsverfahren
 		muss in das Modul integriert werden. Hier soll das Verfahren von einem
 		Python Notebook in eine Bibliothek überführt werden, sodass dieses Verfahren
 		in der Erweiterung ausführbar ist.
 
-	\item[Parameter Node] Der Benutzer steuert das Verfahren über die Parameter in
+	\item[Parameter Node] , der Benutzer steuert das Verfahren über die Parameter in
 		der \ac{UI}. Für die Speicherung der Parametereinstellungen hat Slicer den Mechanismus
 		des \textit{ParameterNode} entworfen. Diese wurde bereits in Abschnitt \ref{subsec:benutzerschnitstelle}
-		erwähnt. Dieser Mechanismus ist nicht trivial, erhöht die Benutzerfreundlichkeit
+		erwähnt. Dieser Mechanismus ist nicht trivial, erhöht aber die Benutzerfreundlichkeit
 		des Systems erheblich und soll demnach auch in diese Erweiterung Anwendung finden.
 
-	\item[Einzelbildbearbeitung:] Sobald alle notwendigen Vorbereitungen getroffen
+	\item[Einzelbildbearbeitung] , sobald alle notwendigen Vorbereitungen getroffen
 		sind, kann der Algorithmus nun eingebettet werden. Hierzu betrachtet man isoliert
 		den Single Prozess. Auch die \ac{UI} wird erst nur so weit entwickelt, wie
 		es für den einfachen Prozess nötig ist. Hierbei wird auf das erstellte Paket
 		der anatomischen Segmentierung zurückgegriffen.
 
-	\item[Batch Prozess:] Ist das einfache Verfahren fertig implementiert und funktioniert,
-		so kann der Batch Prozess hinzukommen. Hier bedarf es einer zusätzlichen Arbeit
-		in der \ac{UI}, da der Benutzer über das Verwenden dieser Funktion gewarnt werden
-		muss. Der Batch Prozess bedarf nämlich erheblicher Ressourcen.
+	\item[Batch Prozess] , ist das einfache Verfahren fertig implementiert und funktioniert,
+		so kann der Batch Prozess hinzukommen. Hier geht es federführend um das richtige
+		und organisierte Abspeichern der erstellten Bilder.
 
-	\item[Ausführungsmodus] Während der Ausführung des Algorithmus soll das Modul in
-		einem Aufsührungszustand wechseln. Hierbei ist wichtig, dass die \ac{UI} in
-		dieser zeit gesperrt bleibt.
+	\item[Ausführungsmodus] , während der Ausführung des Algorithmus soll das Modul
+		in einem Aufführungszustand wechseln. Hierbei ist wichtig, dass die \ac{UI}
+		in dieser Zeit gesperrt bleibt.
 
-	\item[Dokumentation und Test] Abschließend ist eine ausführliche Dokumentation
+	\item[Dokumentation und Test] , abschließend ist eine ausführliche Dokumentation
 		der Architektur erwünscht, sodass zukünftige Entwickler wissen, wo sie ansetzten
 		müssen. Hinzu kommt ein Benutzerhandbuch für eine Verwendung der Erweiterung.
 		Das Benutzerhandbuch und die Architekturdokumentation erfolgen in einer README.md
-		innerhalb der Extension. An letzter Stelle sollen noch Softwaretests
-		implementiert werde, um die Richtigkeit der Extension sicherzustellen. 3D
-		Slicer sieht hier Unittests vor
+		innerhalb der Erweiterung. An letzter Stelle sollen noch Softwaretests
+		implementiert werde, um die Richtigkeit der Erweiterung sicherzustellen. 3D
+		Slicer sieht hier Unittests vor.
 \end{description}
 
 Die Ordnung dieser Punkte gibt eine grobe Orientierung bezüglich der Reihenfolge
@@ -201,77 +200,78 @@ kurz erläutert werden.
 % ---------------------------------------------------------------------------------------
 
 \section{Entwicklungsumgebung}
-Die slicer library noch ERWÄHENEN Da bereits ein Framework feststeht, mit dem
-gearbeitet werden soll, ist keine weitere Forschung nötig, um die richtige
-Programmiersprache auszuwählen. Jedoch gibt es eine kleine Auswahl zu treffen.
-3D Slicer unterscheidet zwischen zwei Arten von Modulen, die CLI-Module (Commend
-Line Interface), welche in der Sprache C++ geschrieben werden und die \textit{Scripted
-Moduls}, die eine Python Implementierung verlangen. Da die anatomische Segmentierung
-ohnehin in einem Python Notebook bereitliegt, fiel die Wahl hier auf die
-Scripted Moduls. So kann auch die breite Palette der Python Pakete genutzte werden.
-Für eine detalierte Beschreibung des Frameworks selber sei an dieser Stelle auf
-das Kapitel \ref{sec:bildbearbeitung}f verwiesen, indem das Framework und alle
-zugehörigen Eigenheiten noch genauer beschrieben wurden. Um den Entwicklungsprozess
-etwas zu vereinfachen, wurde während der Entwicklung auf ein Modul von Slicer
-zurückgegriffen, das speziell für Entwickler entworfen wurde. Die Abbildung
-\ref{fig:entwicklungsumgebung} verdeutlicht dieses Tool.
+Da bereits ein Framework feststeht, mit dem gearbeitet werden soll, ist keine weitere
+Forschung nötig, um die richtige Programmiersprache auszuwählen. Jedoch gibt es eine
+kleine Auswahl zu treffen. 3D Slicer unterscheidet zwischen zwei Arten von
+Modulen, die \ac{CLI}-Module, welche in der Sprache C++ geschrieben werden und die
+\textit{Scripted Moduls}, die eine Python Implementierung verlangen. Da die
+anatomische Segmentierung ohnehin in einem IPython Notebook bereitliegt, fiel die
+Wahl hier auf die Scripted Moduls. So kann auch die breite Palette der Python
+Pakete genutzte werden. Für eine detaillierte Beschreibung des Frameworks selber
+sei an dieser Stelle auf das Kapitel \ref{sec:bildbearbeitung}f verwiesen, indem
+das Framework und alle zugehörigen Eigenheiten noch genauer beschrieben wurden.
+Um den Entwicklungsprozess etwas zu vereinfachen, wurde während der Entwicklung auf
+ein Modul von Slicer zurückgegriffen, das speziell für Entwickler entworfen
+wurde. Die Abbildung \ref{fig:entwicklungsumgebung} verdeutlicht dieses Tool.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\textwidth]{img/Entwicklungsumgebung.png}
-	\caption{Umgenbung während der Entwicklung mit 3D Slicer und PyCharm}
+	\caption{Umgebung während der Entwicklung mit 3D Slicer und PyCharm}
 	\label{fig:entwicklungsumgebung}
 \end{figure}
 
-Mit den Debugging Tools lässt sich eine gewohnte Umgebung reproduzieren, in der
-der Quellcode Schritt für Schritt analysiert werden kann \citep[vgl.][]{slicerdebuggingtools}.
-Speziell bei der Fehlersuche ist dieses Tool eine sehr gute Unterstützung. Die Abbildung
-beschreibt weiter, das als Umgebung für das Erstellen des Programmcodes die
-Software Pycharm verwendet wird. Pycharm ist eine Lösung der Firma Jetbrains,
-für das Erstellen von Python Quellcode. Dieses Tool bietet eine breite Palette an
-Funktionalitäten, die das Erstellen von Software vereinfachen und als \textit{State
+Mit dem Debugging Tool lässt sich eine gewohnte Umgebung reproduzieren, in der der
+Quellcode Schritt für Schritt analysiert werden kann \citep[vgl.][]{slicerdebuggingtools}.
+Speziell bei der Fehlersuche ist dieses Tool eine sehr gute Unterstützung. Die
+Abbildung beschreibt weiter, das als Umgebung für das Erstellen des Programmcodes
+die Software Pycharm verwendet wird. Pycharm ist eine Lösung der Firma Jetbrains,
+für das Erstellen von Python Quellcode. Dieses Tool bietet eine breite Palette
+an Funktionalitäten, die das Erstellen von Software vereinfachen und als \textit{State
 of the Art} bezeichnet werden kann \citep[vgl.][]{jetbrains2024}.
 
-Damit während der Entwicklung auch Teilbereiche der Software bereits getestet
-werden können, werden Testdaten benötigt. Bei diesen Testdaten handelt es sich
-um orginale Mikro-\ac{CT}-Aufnahmen von Zahnstrukturen. Diese wurde auf einem
-Server an der \ac{LMU} in München bereitgestellt und konnten über den \textit{x2goclient}
-heruntergeladen werden. Mit dem Zugriff auf den Galadrielrechhner an der \ac{LMU}
-konnten auch diverse Pythonumgebungen zum verarbeiten von Daten genutzt werden. Dies
-war in erster Line für ein Nachvollziehen der anatomischen Segmentierung hilfreich.
+Damit während der Entwicklung auch Teilbereiche der Software bereits getestet werden
+können, werden Testdaten benötigt. Bei diesen Testdaten handelt es sich um originale
+Mikro-\ac{CT}-Aufnahmen von Zahnstrukturen. Diese wurden auf einem Server an der
+\ac{LMU} in München bereitgestellt und konnten über den \textit{x2goclient} heruntergeladen
+werden. Mit dem Zugriff auf den Galadriel-Rechner an der \ac{LMU} konnten auch diverse
+Pythonumgebungen zum Verarbeiten von Daten genutzt werden. Dies war in erster
+Linie für ein Nachvollziehen der anatomischen Segmentierung hilfreich.
 
-Neben der eigentlichen Umgebung und den Entwicklerwerkzeugen steht zur Entwicklung
-auch ein Python Paket zur Verfügung, das von Herrn Prof. Rösch speziell für die Klinik
-an der \ac{LMU} erstellt wurde. Dieses Tool beinhaltet diverse Funktionalität für
-das Verarbeiten von medizinischen Bilddaten. Speziell für die Mikro-\ac{CT}-Aufnahmen
-der Klinik. Das Paket ist ebenfalls über den Server in München erreichbar.
+Neben der eigentlichen Umgebung und den Entwicklerwerkzeugen steht zur
+Entwicklung auch ein Python Paket zur Verfügung, das von Herrn Prof. Rösch
+speziell für die Klinik an der \ac{LMU} erstellt wurde. Dieses Tool beinhaltet
+diverse Funktionalität für das Verarbeiten von medizinischen Bilddaten. Speziell
+für die Mikro-\ac{CT}-Aufnahmen der Klinik. Für die Interaktion mit der Slicer Kernanwendung
+stellt der Pythoninterpreter das Paket \texttt{slicer} zur Verfügung. Hierdurch lassen
+sich diverse Mechanismen steuern. Wichtig ist hierbe, dass das Paket \texttt{slicer}
+nicht auf \ac{PyPi} zu finden ist.
 
-Nachdem die Anforderungen, die Recherche, die konkreten Aufgaben und die
-verfügbaren Werkzeuge erläutert wurden, bleibt noch die Evaluation der Arbeit.
-Das Kapitel Forschungsevaluation erläutert die Methodik, mit dem das Erreichen des
-Forschungsziels messbar gemacht werden kann.
+Nachdem die Anforderungen, die Recherche, die konkreten Aufgaben und die verfügbaren
+Werkzeuge erläutert wurden, bleibt noch die Evaluation der Arbeit. Das Kapitel Forschungsevaluation
+erläutert die Methodik, mit dem das Erreichen des Forschungsziels messbar
+gemacht werden kann.
 
 % ---------------------------------------------------------------------------------------
 
 \section{Forschungsevaluation}
 Die Evaluation kann grob in zwei Teile unterteilt werden. Der erste Teil ist der
-wohl Wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die Benutzer.
-Hier kann also die Benutzerfreundlichkeit und die \ac{UI} der Erweiterung gut analysiert
-werden. Dabei werden Verbesserungen gesammelt und als möglicher Ausblick zur
-Verfügung gestellt. Wichtig für die Benutzbarkeit der Software ist auch das Benutzerhandbuch.
-Dies ist auch Teil der Ergebnisse und muss mittels Benutzertest evaluiert werden.
+wohl Wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die
+Benutzer. Hier kann also die Benutzerfreundlichkeit und die \ac{UI} der
+Erweiterung gut analysiert werden. Dabei werden Verbesserungen gesammelt und als
+möglicher Ausblick zur Verfügung gestellt. Wichtig für die Benutzbarkeit der
+Software ist auch das Benutzerhandbuch. Dies ist auch Teil der Ergebnisse und muss
+mittels Benutzertests evaluiert werden.
 
-Der zweite Teil der Evaluation soll prüfen ob der softwaretechnische Ansatz
-erfolgreich umgesetzt wurde. Um dies gewährleisten zu können, müssen zusätzlich
-zur Funktionalität auch Softwaretests bereitgestellt werden. Wie eine der Teilaufgaben
-aus Kapitel \ref{sec_zerlegung_in_teilprobleme} bereits zeigt, handelt es sich
-hierbei um Unittests. Außerdem ist für diesen Teil auch die technische Dokumentation
-notwendig. Abschießend soll die Performance des Systems noch gemessen und
-analysiert werden.
+Der zweite Teil der Evaluation soll prüfen ob der softwaretechnische Ansatz erfolgreich
+umgesetzt wurde. Um dies gewährleisten zu können, müssen zusätzlich zur Funktionalität
+auch Softwaretests bereitgestellt werden. Wie eine der Teilaufgaben aus Kapitel
+\ref{sec_zerlegung_in_teilprobleme} bereits zeigt, handelt es sich hierbei um Unittests.
+Außerdem ist für diesen Teil auch die technische Dokumentation notwendig. Abschießend
+soll die Performance des Systems noch gemessen und analysiert werden.
 
 Die in diesem Kapitel beschriebenen methodischen Schritte bildeten die Grundlage
-für die Entwicklung der Erweiterung. Nach der Konzeption und Umsetzung folgt nun
-die Präsentation der erzielten Ergebnisse. Im nächsten Kapitel wird das Plug-in
-detailliert vorgestellt, seine Funktionen erläutert und anhand von Anwendungsszenarien
-sowie Tests bewertet.
+für die Entwicklung der Erweiterung. Nachdem die Analysephase abgeschlossen ist,
+folgen nun die Phasen Entwicklung und Evaluation in Form der Ergebnisse. Hierzu
+wird die erstellte \ac{SEM} detalliert vorgestellt und die Funktionen näher beschrieben.
 % ---------------------------------------------------------------------------------------

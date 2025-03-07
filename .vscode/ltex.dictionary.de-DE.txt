@@ -31,3 +31,6 @@ ToothAnalyserLogic
 Html-Tags
 observeParameter
 eventbasierten
+Segmentierungsverfahren
+Zahnkronensegmentierung
+Operatormatrix
