@@ -153,38 +153,38 @@ auf den konkreten Anwendungsfall ankommt. Diese Arbeit sieht folgenden Teilaufga
 für das Gesamtsystem vor:
 
 \begin{description}
-	\item[Architektur- und \ac{UI}-Design] , mithilfe von UML Diagrammen soll die Architektur
+	\item[Architektur- und \ac{UI}-Design,] mithilfe von UML Diagrammen soll die Architektur
 		dieses Systems abgebildet werden und sukzessive immer detaillierter beschrieben
 		werden. Es soll dann verglichen werden, welche Entwurfsmuster für dieses System
 		infrage kommen. Durch die Bearbeitung dieses Teilproblems kann die
 		Anforderung an eine flexible Architektur erfüllt werden.
 
-	\item[Kapselung der anatomischen Segmentierung] , das bereits bestehende Segmentierungsverfahren
+	\item[Kapselung der anatomischen Segmentierung,] das bereits bestehende Segmentierungsverfahren
 		muss in das Modul integriert werden. Hier soll das Verfahren von einem
 		Python Notebook in eine Bibliothek überführt werden, sodass dieses Verfahren
 		in der Erweiterung ausführbar ist.
 
-	\item[Parameter Node] , der Benutzer steuert das Verfahren über die Parameter in
+	\item[Parameter Node,] der Benutzer steuert das Verfahren über die Parameter in
 		der \ac{UI}. Für die Speicherung der Parametereinstellungen hat Slicer den Mechanismus
 		des \textit{ParameterNode} entworfen. Diese wurde bereits in Abschnitt \ref{subsec:benutzerschnitstelle}
 		erwähnt. Dieser Mechanismus ist nicht trivial, erhöht aber die Benutzerfreundlichkeit
 		des Systems erheblich und soll demnach auch in diese Erweiterung Anwendung finden.
 
-	\item[Einzelbildbearbeitung] , sobald alle notwendigen Vorbereitungen getroffen
+	\item[Einzelbildbearbeitung,] sobald alle notwendigen Vorbereitungen getroffen
 		sind, kann der Algorithmus nun eingebettet werden. Hierzu betrachtet man isoliert
-		den Single Prozess. Auch die \ac{UI} wird erst nur so weit entwickelt, wie
-		es für den einfachen Prozess nötig ist. Hierbei wird auf das erstellte Paket
+		die Einzelbildbearbeitung. Auch die \ac{UI} wird erst nur so weit entwickelt,
+		wie es für den einfachen Prozess nötig ist. Hierbei wird auf das erstellte Paket
 		der anatomischen Segmentierung zurückgegriffen.
 
-	\item[Batch Prozess] , ist das einfache Verfahren fertig implementiert und funktioniert,
+	\item[Batch Prozess,] ist das einfache Verfahren fertig implementiert und funktioniert,
 		so kann der Batch Prozess hinzukommen. Hier geht es federführend um das richtige
 		und organisierte Abspeichern der erstellten Bilder.
 
-	\item[Ausführungsmodus] , während der Ausführung des Algorithmus soll das Modul
+	\item[Ausführungsmodus,] während der Ausführung des Algorithmus soll das Modul
 		in einem Aufführungszustand wechseln. Hierbei ist wichtig, dass die \ac{UI}
 		in dieser Zeit gesperrt bleibt.
 
-	\item[Dokumentation und Test] , abschließend ist eine ausführliche Dokumentation
+	\item[Dokumentation und Test,] abschließend ist eine ausführliche Dokumentation
 		der Architektur erwünscht, sodass zukünftige Entwickler wissen, wo sie ansetzten
 		müssen. Hinzu kommt ein Benutzerhandbuch für eine Verwendung der Erweiterung.
 		Das Benutzerhandbuch und die Architekturdokumentation erfolgen in einer README.md
