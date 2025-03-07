@@ -2,14 +2,14 @@
 \babel@toc {ngerman}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {lstlisting}{\numberline {2.1}{\ignorespaces Ausschnitt des Inhaltes einer mhd-Datei}}{7}{lstlisting.2.1}%
+\contentsline {lstlisting}{\numberline {2.1}{\ignorespaces Ausschnitt des Inhaltes einer MHD-Datei}}{7}{lstlisting.2.1}%
 \contentsline {lstlisting}{\numberline {2.2}{\ignorespaces Auslesen der Informationen aus den verschiedenen Knoten}}{21}{lstlisting.2.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {lstlisting}{\numberline {5.1}{\ignorespaces Projektstruktur des Moduls Tooth Analyser mit Fokus auf die ToothAnalyserLib}}{36}{lstlisting.5.1}%
 \contentsline {lstlisting}{\numberline {5.2}{\ignorespaces Importieren von Funktionen aus der Bibliothek des Tooth Analyser}}{37}{lstlisting.5.2}%
-\contentsline {lstlisting}{\numberline {5.3}{\ignorespaces Modifizierte Methode zum erstellen einer \ac {mhd} Datei aus einem \ac {ISQ} Format}}{37}{lstlisting.5.3}%
+\contentsline {lstlisting}{\numberline {5.3}{\ignorespaces Modifizierte Methode zum erstellen einer mhd-Datei aus einem ISQ-Format}}{37}{lstlisting.5.3}%
 \contentsline {lstlisting}{\numberline {5.4}{\ignorespaces Grober Aufbau der Klasse ToothAnalyser nach der Slicer Dokumentation}}{40}{lstlisting.5.4}%
 \contentsline {lstlisting}{\numberline {5.5}{\ignorespaces Verteilung der Felder in der Klasse Widget-Klasse}}{41}{lstlisting.5.5}%
 \contentsline {lstlisting}{\numberline {5.6}{\ignorespaces Laden der \ac {UI} in das Modul ToothAnalyser}}{41}{lstlisting.5.6}%
