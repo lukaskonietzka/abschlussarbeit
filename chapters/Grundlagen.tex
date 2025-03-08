@@ -39,21 +39,20 @@ Beginn in der Abbildung \ref{fig:ct_aufnahme_eines_zahns} gezeigt wurde, so bild
 diese drei Gewebearten die unterschiedlichen Grauwerte in einem \ac{CT}-Bild.
 
 \begin{description}
-	\item[\textbf{Die Pulpa}] unterscheidet sich hierbei nur wenig vom Hintergrund,
-		da sie als einzige der drei Hauptteile eines Zahnes ein Weichgewebe ist und
-		bei einer Röntgenaufnahme nicht absorbiert. Dieser Teil ist in dieser Arbeit
-		weniger relevant und auch nicht Teil des Verfahrens, was das
-		Segmentierungsverfahren eher zu einer Zahnkronensegmentierung macht. Geht man
-		weiter von innen nach außen, so ist der nächste Zahnteil auf einem \ac{CT} das
-		Zahnbein.
+	\item[Die Pulpa] unterscheidet sich hierbei nur wenig vom Hintergrund, da sie
+		als einzige der drei Hauptteile eines Zahnes ein Weichgewebe ist und bei
+		einer Röntgenaufnahme nicht absorbiert. Dieser Teil ist in dieser Arbeit weniger
+		relevant und auch nicht Teil des Verfahrens, was das Segmentierungsverfahren
+		eher zu einer Zahnkronensegmentierung macht. Geht man weiter von innen nach außen,
+		so ist der nächste Zahnteil auf einem \ac{CT} das Zahnbein.
 
-	\item[\textbf{Das Dentin}] ist laut \citet[S.~41]{lehmann2012Zahnheilkunde}
-		eine Hartsubstanz, die dem Kieferknochen sehr nah steht. So kommt es, dass dieser
+	\item[Das Dentin] ist laut \citet[S.~41]{lehmann2012Zahnheilkunde} eine
+		Hartsubstanz, die dem Kieferknochen sehr nah steht. So kommt es, dass dieser
 		Teil schon deutlich besser auf einem \ac{CT} zu erkennen ist. Den äußersten Teil
 		in der Mundhöhle bildet das Zahnschmelz.
 
-	\item[\textbf{Der Schmelz}] ist der härteste Teil im menschlichen Körper und aus
-		diesem Grund auch am hellsten auf dem \ac{CT} zu erkennen.
+	\item[ Der Schmelz] ist der härteste Teil im menschlichen Körper und aus diesem
+		Grund auch am hellsten auf dem \ac{CT} zu erkennen.
 \end{description}
 
 Die folgende Abbildung \ref{fig:pulpa_dentin_schmelz} soll die unterschiedlichen
@@ -468,7 +467,7 @@ Schmelz und Dentin aus dem Originalbild herauslöst. Konkret kann diese Segmenti
 mit verschiedenen Verfahren durchgeführt werden. Man spricht hier von einer
 anatomischen Segmentierung der Zahnkrone.
 
-\begin{minipage}{0.45\textwidth}
+\begin{minipage}{0.40\textwidth}
 	Durch die Segmentbetrachtung der beiden Zahnhauptteile Schmelz und Dentin konnte
 	\citet[S.~41]{hoffmann2020} eine gute Hilfe für die Befundung kariöse Stellen
 	liefern. Ein Ergebnis aus der Arbeit von Hofmann sei in Abbildung \ref{fig:ergebnis_hoffmann}
@@ -476,7 +475,7 @@ anatomischen Segmentierung der Zahnkrone.
 	mit dem es gelang ca. 250 Datensätze der Zahnklinik automatisch aufzubereiten.
 \end{minipage}
 \hfill
-\begin{minipage}{0.45\textwidth}
+\begin{minipage}{0.50\textwidth}
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/ergebnis_hoffmann_2.jpg}
 	\captionof{figure}{Reproduzierte Ergebnisansicht der anatomischen Segmentierung}
@@ -517,21 +516,21 @@ erläutert.
 \label{sec:3d_slicer} 3D Slicer ist eine Open-Source-Plattform, die speziell für
 die Verarbeitung von Bilddaten im medizinischen Kontext eingesetzt wird. Dabei wird
 sie von einer aktiven Community regelmäßig gewartet und weiterentwickelt \citep[vgl.][]{slicer2024},
-\citep[vgl.][S.~3]{fedorov2012slicer}. Für Slicer gibt es offiziell keine Nutzungsbeschränkung.
+\citep[vgl.][S.~1325]{fedorov2012slicer}. Für Slicer gibt es offiziell keine Nutzungsbeschränkung.
 Jedoch sei auch gesagt, dass 3D Slicer nicht für die klinische Nutzung zugelassen
-ist. \citet[S.~7]{fedorov2012slicer} macht deutlich, das 3D Slicer
+ist. \citet[S.~1331]{fedorov2012slicer} macht deutlich, das 3D Slicer
 ausschließlich für die Forschung gedacht ist. Um einen ersten Überblick über die
 Komponenten von Slicer zu erlangen, soll die Abbildung
 \ref{fig:3d_slicer_oekosystem} betrachtet werden.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{img/3d_slicer_overview.jpg}
-	\caption{3D Slicer Ökosystem nach \citet[S.~23]{fedorov2012slicer}}
+	\includegraphics[width=1\textwidth]{img/3d_slicer_overview.jpg}
+	\caption{3D Slicer Ökosystem nach \citet[S.~1326]{fedorov2012slicer}}
 	\label{fig:3d_slicer_oekosystem}
 \end{figure}
 
-\citet[S.~23]{fedorov2012slicer} teilt mit der Abbildung
+\citet[S.~1326]{fedorov2012slicer} teilt mit der Abbildung
 \ref{fig:3d_slicer_oekosystem} die Plattform in drei Schichten auf. Auf der Obersten
 wird klar, dass 3D Slicer aus der Kernanwendung und den installierbaren Modulen
 besteht. Neben den bereits vorhandenen Modulen können von externen Entwicklern Module
@@ -541,14 +540,14 @@ jedoch portabel gehalten werden. Auf der untersten Schicht sind die
 Plattformspezifischen Anforderungen zu sehen, die Slicer erfüllen soll.
 
 So kommt es, dass das 3D Slicer Ökosystem sich durch einige Kriterien besonders
-auszeichnet. Die wohl wichtigsten seien hier Stichpunktartig genannt \citep[vgl.][S.~11]{fedorov2012slicer}.
+auszeichnet. Die wohl wichtigsten seien hier Stichpunktartig genannt \citep[]{slicer2024}.
 
 \begin{itemize}
 	\item Kostenfreie Software
 
 	\item Plug-in-Infrastruktur durch den \textit{Extension Manager}
 
-	\item Ausführen von Skripten in der integrierten Python Konsole
+	\item Ausführen von Skripten in der integrierten Python-Konsole
 
 	\item Verarbeitung von medizinischen Bilddaten von Kopf bis Fuß
 
@@ -558,56 +557,62 @@ auszeichnet. Die wohl wichtigsten seien hier Stichpunktartig genannt \citep[vgl.
 3D Slicer hat für alle diese Punkte jeweils eine Lösung entwickelt, wobei der
 erste Punkt durch die Open-Source-Philosophie schon gegeben ist. Die folgenden Abschnitte
 decken diese Lösungen ab und bilden so eine erste Grundlage für die Entwicklung mit
-3D Slicer \citep[vgl.][S.~11]{fedorov2012slicer}.
+3D Slicer.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Extension Manager und Plug-in-Infrastruktur}
-Der wohl bedeutendste Punkt ist die Plug-in-Infrastruktur, welche Slicer von sich
-aus mitbringt. Um dieses Konzept genauer zu beleuchten, teilt man die Plattform am
-besten in zwei Teile auf, die Kernanwendung und die Module, welcher jeder Anwender
-personalisiert installieren oder deinstallieren kann. Diese Module werden als
-\textit{Slicer lodabel module} bezeichnet \citep[vgl.][S.~25]{fedorov2012slicer}.
-Slicer realisiert die Struktur durch den \textit{Extension Manager}, welcher durchaus
-vergleichbar ist mit einer Art App-Store. Über diesen können bequem und mit
-wenig Klicks die gewünschten Erweiterungen in das Kernsystem installiert werden.
+Der wohl bedeutendste Punkt ist die Plug-in-Infrastruktur, welche Slicer von
+sich aus mitbringt. Um dieses Konzept genauer zu beleuchten, teilt man die
+Plattform am besten in zwei Teile auf, die Kernanwendung und die Module, welcher
+jeder Anwender personalisiert installieren oder deinstallieren kann. Diese Module
+werden als \textit{Slicer lodabel module} bezeichnet \citep[vgl.][S.~1332]{fedorov2012slicer}.
+Slicer realisiert die Struktur durch den \textit{Extension Manager}, welcher
+durchaus vergleichbar ist mit einer Art App-Store. Über diesen können bequem und
+mit wenig Klicks die gewünschten Erweiterungen in das Kernsystem installiert werden.
 
-\begin{minipage}{0.30\textwidth}
-	Neben der Möglichkeit Module zu installieren bietet Slicer noch die Möglichkeit
-	eigenen Module zu bauen und Sie im \textit{Extension Manager} zu
-	veröffentlichen. Diese werden als \ac{SEM} bezeichnet. Hierzu verfolgt Slicer den
-	Ansatz, dass jeder Entwickler eines Moduls selbst verantwortlich für Wartung
-	und Weiterentwicklung ist, auch nachdem ein Paket veröffentlicht wurde \citep[vgl.][]{slicer2024}.
-\end{minipage}
-\hfill
-\begin{minipage}{0.60\textwidth}
+Neben der Möglichkeit Module zu installieren bietet Slicer noch die Möglichkeit eigenen
+Module zu bauen und Sie im \textit{Extension Manager} zu veröffentlichen. Diese werden
+als \ac{SEM} bezeichnet. Hierzu verfolgt Slicer den Ansatz, dass jeder
+Entwickler eines Moduls selbst verantwortlich für Wartung und Weiterentwicklung
+ist, auch nachdem ein Paket veröffentlicht wurde \citep[vgl.][]{slicer2024}.
+
+Slicer realisiert dies, indem die Plattform über ein zusätzliches Repository verfügt,
+dass sich
+\href{https://github.com/Slicer/ExtensionsIndex?tab=readme-ov-file}{\textit{ExtensionIndex}}
+nennt. Dieses öffentliche Repository ist eine Auflistung aller \ac{SEM}. Die Auflistung
+erfolgt durch eine Reihe an \ac{JSON} Dateien, die auf die Repositorien der einzelnen
+Entwickler verweisen. Dieser
+\href{https://github.com/Slicer/ExtensionsIndex?tab=readme-ov-file}{\textit{ExtensionIndex}}
+ist über die Slicer Factory an den Extention Server und damit auch an den
+Extention Manager angebunden. Die Slicer Factory ist ein System, das aus einem
+Slicer Extention Repository ein lauffähiges Build erstellt, welches in den Extention
+Katalog eingebunden werden kann. Ist eine Erweiterung in dem Erweiterungskatalog
+gelistet, so sorgt der \textit{Extension Manager} dafür, dass die von der Slicer
+Factory erstellt Build-Datei installiert werden kann. Abbildung
+\ref{fig:3d_slicer_extension_index} soll diesen Vorgang verdeutlichen \citep[vgl.][]{slicer2024}.
+
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{img/slicer_extention_index.png}
-	\captionof{figure}{Funktionsweise der Plug-in-Infrastruktur von 3D Slicer nach \citet{extensionsIndex2024}}
+	\includegraphics[width=0.8\textwidth]{img/slicer_extention_index.png}
+	\caption{Funktionsweise der Plug-in-Infrastruktur von 3D Slicer nach \citet{extensionsIndex2024}}
 	\label{fig:3d_slicer_extension_index}
-\end{minipage}
+\end{figure}
 
-Slicer realisiert dies, indem die Plattform über ein zusätzliches Repository
-verfügt, dass sich \href{https://github.com/Slicer/ExtensionsIndex?tab=readme-ov-file}{\textit{ExtensionIndex}}
-nennt. Dieses öffentliche Repository ist eine Auflistung aller \ac{SEM}. Die
-Auflistung erfolgt durch eine Reihe an \ac{JSON} Dateien, die auf die
-Repositorien der einzelnen Entwickler verweisen. Dieser \href{https://github.com/Slicer/ExtensionsIndex?tab=readme-ov-file}{\textit{ExtensionIndex}}
-ist über die Slicer Factory an den Extention Server und damit auch an den Extention
-Manager angebunden. Die Slicer Factory ist ein System, das aus einem Slicer Extention
-Repository ein lauffähiges Build erstellt, welches in den Extention Katalog
-eingebunden werden kann. Ist eine Erweiterung in dem Erweiterungskatalog gelistet,
-so sorgt der \textit{Extension Manager} dafür, dass die von der Slicer Factory
-erstellt Build-Datei installiert werden kann. Abbildung \ref{fig:3d_slicer_extension_index}
-soll diesen Vorgang verdeutlichen \citep[vgl.][]{slicer2024}.
+Während die Module von Slicer gebaut werden, werden parallel auch immer die Tests
+für die Kernanwendung ausgeführt. Diese sind über ein Dashboard einsehbar. So wird
+sichergestellt, dass keines der Module einen Fehler im Kernsystem verursacht. Außerdem
+ist so für alle Benutzer von Slicer transparent einsehbar, in welchem Zustand
+sich die Software gerade befindet.
 
 Die Kernanwendung von 3D Slicer folgt einem Entwurfsmuster, dass sich \ac{MVC}
 nennt. Bei der Erstellung einer \ac{SEM} soll dieser Ansatz ebenfalls gepflegt
 werden. Eine High Level Betrachtung der Softwarearchitektur von 3D Slicer bietet
-\cite[S.~25]{fedorov2012slicer} mit der Abbildung \ref{fig:3d_slicer_architektur}.
+\cite[S.~1332]{fedorov2012slicer} mit der Abbildung \ref{fig:3d_slicer_architektur}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/3d_slicer_architektur.jpg}
-	\caption{3D Slicer High Level Architektur nach \citet[S.~25]{fedorov2012slicer}}
+	\caption{3D Slicer High Level Architektur nach \citet[S.~1332]{fedorov2012slicer}}
 	\label{fig:3d_slicer_architektur}
 \end{figure}
 
@@ -620,25 +625,25 @@ einer eigenen Erweiterung ist die Idee, dass nur die Logik implementiert werden 
 und die komplexe Architektur von Slicer erstmal nicht relevant ist.
 
 Jedoch bietet sich in Slicer nicht nur die Möglichkeit eigene Erweiterungen zu erstellen,
-es lässt sich hierfür auch die integrierte Python Konsole nutzen.
+es lässt sich hierfür auch die integrierte Python-Konsole nutzen.
 % ---------------------------------------------------------------------------------------
 
-\subsection{Python Umgebung}
-\label{subsec:pythob_umgebung} 3D Slicer bringt eine integrierte Python Konsole
-mit, über die mit der Datenstruktur interagiert werden kann. So ist es möglich, Python
+\subsection{Python-Umgebung}
+\label{subsec:pythob_umgebung} 3D Slicer bringt eine integrierte Python-Konsole
+mit, über die mit der Datenstruktur interagiert werden kann. So ist es möglich, Python-
 Skripte direkt in der Konsole auszuführen. Um dies zu realisieren, bringt Slicer
-mit der Installation im jeweiligen Betriebssystem eine eigene Python Umgebung mit.
-Dieses sieht wie folgt aus.
+mit der Installation im jeweiligen Betriebssystem eine eigene Python-Umgebung
+mit. Dieses sieht wie folgt aus.
 
 \begin{center}
 	\texttt{./Slicer/bin/PythonSlicer}
 \end{center}
 
-Diese Python Umgebung verfügt über alle notwendigen Abhängigkeiten und Pakete.
-Bei der Entwicklung eines \ac{SEM} kann dann auf das \ac{PyPi} in der
-integrierten Python Umgebung zurückgegriffen werden. So kommt es, dass für eine
-Entwicklung mit Slicer keine eigenen Python Umgebung auf der lokalen Maschine
-installiert sein muss. Slicer bringt hier alles mit.
+Diese Python-Umgebung verfügt über alle notwendigen Abhängigkeiten und Pakete. Bei
+der Entwicklung eines \ac{SEM} kann dann auf das \ac{PyPi} in der integrierten Python-Umgebung
+zurückgegriffen werden. So kommt es, dass für eine Entwicklung mit Slicer. keine
+eigene Python-Umgebung auf der lokalen Maschine installiert sein muss. Slicer bringt
+hier alles mit.
 
 Für den letzten charakteristischen Punkt von Slicer aus Kapitel \ref{sec:3d_slicer}
 führt der nächste Abschnitt in die durchaus komplexe Datenstruktur \ac{MRML} ein,
@@ -654,29 +659,25 @@ Slicer Kernanwendung entwickelt. Dies ermöglicht ein Portieren der Datenstruktu
 auf andere Softwareapplikationen. Da Slicer die einzig große Plattform ist, die
 diese Datenstruktur nutzt, wird der Quellcode für \ac{MRML} im Repository von 3D
 Slicer gewartet und weiterentwickelt, so \citet{slicer2024}. Durch den Artikel von
-\citet[S.~1]{fedorov2012slicer} wird klar, dass \ac{MRML} mehr ist also nur eine
-Datenstruktur. Sie beschreiben \ac{MRML} als Szenenorganisator von Bilder, Annotationen,
-Layouts und Anwendungsdaten.
-
-\citet[S.~11]{fedorov2012slicer} beschreiben die \ac{MRML}-Datenstruktur als
-Schlüsselkomponenten innerhalb von 3D Slicer. Dies ist auf die Softwarearchitektur
-von Slicer zurückzuführen, die in Abbildung \ref{fig:3d_slicer_architektur}
+\citet[S.~1331]{fedorov2012slicer} wird klar, dass \ac{MRML} mehr ist also nur
+eine Datenstruktur. Sie beschreiben \ac{MRML} als Szenenorganisator von Bilder, Annotationen,
+Layouts und Anwendungsdaten. \citet[S.~1327]{fedorov2012slicer} beschreiben die
+\ac{MRML}-Datenstruktur als Schlüsselkomponenten innerhalb von 3D Slicer. Dies
+ist auf die Softwarearchitektur von Slicer zurückzuführen, die in Abbildung \ref{fig:3d_slicer_architektur}
 beschrieben wurde. Die Kernanwendung von Slicer arbeitet wie bereits beschrieben
 nach dem \ac{MVC}-Pattern. \ac{MRML} übernimmt hier den Teil des \textit{Models
-(M)} und bildet damit den Grundstein der Anwendung \citep[vgl.][S.~25]{fedorov2012slicer}.
-
-\citet{slicer2024} und der Artikel von \citet[S.~11]{fedorov2012slicer}
+(M)} und bildet damit den Grundstein der Anwendung \citep[vgl.][S.~1332]{fedorov2012slicer}.
+\citet{slicer2024} und der Artikel von \citet[S.~1327]{fedorov2012slicer}
 beschreibt \ac{MRML} als \ac{XML}-Format. Wird also eine \ac{MRML}-Szene
 gespeichert, so folgt eine Speicherung als \ac{MRML}-Datei und damit unter der
 Haube als \ac{XML}-Datei. Dabei wird laut \citet{slicer2024} nur eine Referenz auf
 das Bild gespeichert. Die zu bearbeitende Aufnahme selbst wird nicht innerhalb
-einer \ac{MRML}-Datei abgespeichert.
-
-\ac{MRML} zeichnet sich vor allem dadurch aus, dass es eine Vielzahl an Dateiformaten
-akzeptiert. Alle Formate, die für einen klinischen Zweck verarbeitet werden,
-können durch \ac{MRML} unterstützt werden. Um dies zu gewährleisten, ist die \ac{MRML}-Szene
-in sogenannte Knoten (engl.: nodes) aufgeteilt. Die Basistypen für einen Knoten folgen
-der \citet{slicer2024} und sind in der folgenden Aufzählung zu sehen.
+einer \ac{MRML}-Datei abgespeichert. \ac{MRML} zeichnet sich vor allem dadurch aus,
+dass es eine Vielzahl an Dateiformaten akzeptiert. Alle Formate, die für einen
+klinischen Zweck verarbeitet werden, können durch \ac{MRML} unterstützt werden. Um
+dies zu gewährleisten, ist die \ac{MRML}-Szene in sogenannte Knoten (engl.:
+nodes) aufgeteilt. Die Basistypen für einen Knoten folgen der \citet{slicer2024}
+und sind in der folgenden Aufzählung zu sehen.
 
 \begin{minipage}{0.45\textwidth}
 	\begin{itemize}
@@ -702,27 +703,29 @@ der \citet{slicer2024} und sind in der folgenden Aufzählung zu sehen.
 	\end{itemize}
 \end{minipage}
 
-Wird also ein Bild in eine \ac{MRML}-Szene geladen, so speichert Slicer die unterschiedlichen
-Eigenschaften eines Bildes in unterschiedlichen Knoten. So werden Beispielsweise
-Basiseigenschaften einer Probe im \textit{Data node} gespeichert, wo hingegen
-ein \textit{Storage node} beschreibt wie ein Bild auf der Festplatte gespeichert
-wird. In \textit{Display node} werden die Eigenschaften zur Darstellung eines Bildes
-hinterlegt. Der Hintergrund für die Speicherung von Probendaten in
-unterschiedlichen Knoten ist, dass beispielsweise dasselbe Bild in unterschiedlichen
-Formaten vorliegt oder ein und dasselbe Bild auf zwei unterschiedliche Arten visualisiert
-werden soll. So kann sich beispielsweise eine Struktur wie in Abbildung
-\ref{fig:3d_slicer_class} ergeben.
+Wird also ein Bild in eine \ac{MRML}-Szene geladen, so speichert Slicer die
+unterschiedlichen Eigenschaften eines Bildes in unterschiedlichen Knoten. So werden
+Beispielsweise Basiseigenschaften einer Probe im \textit{Data node} gespeichert,
+wo hingegen ein \textit{Storage node} beschreibt wie ein Bild auf der Festplatte
+gespeichert wird. In \textit{Display node} werden die Eigenschaften zur
+Darstellung eines Bildes hinterlegt. Der Hintergrund für die Speicherung von Probendaten
+in unterschiedlichen Knoten ist, dass beispielsweise dasselbe Bild in
+unterschiedlichen Formaten vorliegt oder ein und dasselbe Bild auf zwei
+unterschiedliche Arten visualisiert werden soll. So kann sich beispielsweise eine
+Struktur wie in Abbildung \ref{fig:3d_slicer_class} ergeben.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{img/slicer_class_index.jpg}
-	\caption{3D Slicer High Level Architektur nach \citet{slicer2024}}
+	\caption{Verkettung der einzelnen Knoten in der MRML-Datenstruktur nach
+	\cite{slicer2024}}
 	\label{fig:3d_slicer_class}
 \end{figure}
 
-Die Informationen in einem Bild werden also über diese Typen aufgeteilt und je nach
-Sinn abgespeichert. Möchte man demnach auf die bestimmte Informationen in einer
-Probe zugreifen. So kann diese Information über den Aufruf bestimmter Methoden erfolgen
+Die Informationen in einem Bild werden also über diese Typen aufgeteilt und je
+nach Sinn abgespeichert. Möchte man demnach auf die bestimmte Informationen in einer
+Probe zugreifen. So kann diese Information über den Aufruf bestimmter Methoden
+erfolgen
 
 \begin{lstlisting}[
 	language={python},
@@ -737,16 +740,15 @@ currentVolume.GetDisplayNode()
 \end{lstlisting}
 
 Wie die Kommentare in Listing \ref{lst:_auslehsen_nodes} bereits zeigen, gibt es
-noch eine Besonderheit von \ac{MRML}. Damit eine Verwaltung aller Dateiformate
-möglich ist, bedient sich \ac{MRML} einiger Tools, die sich bereits etabliert haben.
-Die Wichtigsten sind hierbei \ac{VTK} und \ac{ITK} \citep[vgl.][K.~1.1]{vtk2006},
-\citep[vgl.][K.~1.1]{itkguide2015}. Die beiden Tools sind echte Riesen in ihrer
-Branche. \ac{MRML} nutzt diese, um einige Dateiformate zu lesen und zu schreiben.
-
-Durch das Betrachten der \ac{MRML}-Szene wird klar, dass Slicer hierdurch viele Möglichkeiten
-bietet. Speziell für die effiziente Speicherung der Proben in einer Szene durch
-die unterschiedlichen Knotentypen. Ein besonderer Knoten, der gleichzeitig auch
-die Brücke zu der interaktiven Benutzerschnittstelle von Slicer baut, ist der \textit{Parameter
+noch eine Besonderheit von \ac{MRML}. Damit eine Verwaltung aller Dateiformate möglich
+ist, bedient sich \ac{MRML} einiger Tools, die sich bereits etabliert haben. Die
+Wichtigsten sind hierbei \ac{VTK} und \ac{ITK} \citep[vgl.][K.~1.1]{vtk2006}, \citep[vgl.][K.~1.1]{itkguide2015}.
+Die beiden Tools sind echte Riesen in ihrer Branche. \ac{MRML} nutzt diese, um
+einige Dateiformate zu lesen und zu schreiben. Durch das Betrachten der \ac{MRML}-Szene
+wird klar, dass Slicer hierdurch viele Möglichkeiten bietet. Speziell für die
+effiziente Speicherung der Proben in einer Szene durch die unterschiedlichen
+Knotentypen. Ein besonderer Knoten, der gleichzeitig auch die Brücke zu der
+interaktiven Benutzerschnittstelle von Slicer baut, ist der \textit{Parameter
 node}. Warum dieser eine zentrale Rolle spielt und wie Slicer die Schnittstelle grundsätzlich
 gestaltet, soll in Kapitel \ref{subsec:benutzerschnitstelle}
 Benutzerschnittstelle diskutiert werden.
@@ -763,31 +765,30 @@ Gegenspieler im Quelltext des Programmes, welcher als \textit{ParameterNode}
 bekannt ist. Der \textit{ParameterNode} ist laut \citet{slicer2024} eine leichte
 Variante eines \ac{MRML}-Knoten um Parametereinstellungen zu speichern. Durch das
 Zusammenspiel zwischen \ac{UI} und \textit{ParameterNode} wird die \ac{UI}
-automatisch aktualisiert, wenn sich das Programm ändert und umgekehrt, so
-erklärt es die \citet{slicer2024}.
+automatisch aktualisiert, wenn sich das Programm ändert \citep[vgl.][]{slicer2024}.
 
 \begin{minipage}{0.35\textwidth}
 	Das Erstellen der Verknüpfung zwischen \ac{UI}-Widget und \textit{ParameterNode}
 	erfolgt über die dynamische Eigenschaft \texttt{SlicerParameterName}, die direkt
-	in der Bombenentenansicht im Qt-Designer einstellbar ist. Die Abbildung
-	\ref{fig:qt_designer} soll diesen Vorgang verdeutlichen. Diese Verknüpfung lässt
-	sich laut \citet{slicer2024} auch via Programmcode setzten.
+	in der Komponentenansicht im Qt-Designer einstellbar ist. Die Abbildung
+	\ref{fig:qt_designer} soll diesen Vorgang verdeutlichen. Dabei ist es wichtig,
+	dass genau diese Eigenschaft auch verwendet wird. Diese Verknüpfung lässt sich
+	laut \citet{slicer2024} auch via Programmcode setzten.
 \end{minipage}
 \hfill
 \begin{minipage}{0.55\textwidth}
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/qt_designer.jpg}
-	\captionof{figure}{Dynamische Eigenschaft einer Komponente im Qt-Designer nach der \citet{slicer2024}}
+	\captionof{figure}{Komponentenansicht im Qt-Designer nach der \citet{slicer2024}}
 	\label{fig:qt_designer}
 \end{minipage}
 
+Über das Objekt \texttt{widget} kann die Eigenschaft einer Komponente gesetzt
+werden, ohne dass sie im Designer berührt werden muss. Das nachfolgende Beispiel
+zeigt dies genauer.
 \begin{center}
 	\texttt{widget.setProperty('SlicerParameterName', 'parameterName')}
 \end{center}
-
-Über das Objekt \texttt{widget} kann die Eigenschaft einer Komponente gesetzt
-werden, ohne dass sie im Designer berührt werden muss.
-
 Mit dem Ende dieses Abschnittes wurden alle wichtigen Bestandteile von 3D Slicer
 abgedeckt und diskutiert, sowie alle weiteren Domänen eingeführt. So bleibt nun die
 Frage nach dem Sinn dieser Arbeit. Das Kapitel \ref{chap:fragestellung} soll

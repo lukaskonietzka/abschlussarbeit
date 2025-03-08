@@ -183,7 +183,7 @@ zu Beginn definiert wurden, wieder aufgegriffen werden.
 
 \section{Tooth Analyser Bibliothek}
 Eine dieser Teilaufgaben beschäftigte sich mit der Integration der anatomischen Segmentierung
-welches prototypisch als Python Notebook bereitgestellt wurde. Dieses Notebook
+welches prototypisch als Python-Notebook bereitgestellt wurde. Dieses Notebook
 funktioniert, war aber nicht gut strukturiert. So viel es schwer den Überblick
 darin zu bewahren und das Verfahren gut nachzuvollziehen. Die gute Quelltextdokumentation
 kompensiert dies etwas. Für das von Herrn Hofmann entwickelte Verfahren wurde
@@ -229,7 +229,7 @@ folgenden Befehl erfolgen.
 from ToothAnalyserLib.AnatomicalSegmentation.Segmentation import (loadImage, isSmoothed)
 \end{lstlisting}
 
-Betrachtet man das Pythonpaket der anatomischen Segmentierung genauer, so fällt
+Betrachtet man das Python-Paket der anatomischen Segmentierung genauer, so fällt
 auf, dass es sich in zwei Module teilt. Im Modul \texttt{Segmentation.py} befinden
 sich alle Funktionen, die zum Ausführen der Pipeline für die anatomische
 Segmentierung notwendig sind. Darüber hinaus finden auch einige Hilfsfunktionen Platz.
@@ -390,7 +390,7 @@ in die Slicer Kernanwendung sichergestellt. Innerhalb des Konstruktors der
 Klasse werden unterschiedliche Felder angelegt, welche die verschiedenen Texte widerspiegeln
 sollen. Zu Beachten ist noch, dass die Felder die einen einfachen String erwarten,
 in einer unscheinbaren Methode \texttt{\_()} gekapselt sind. Diese Methode ist
-Teil des Slicer Python Framework und sorgt dafür, dass automatisch der Kontextname
+Teil des Slicer Python-Framework und sorgt dafür, dass automatisch der Kontextname
 gewechselt wird. Über bekannte Html-Tags können auch Bilder oder Hyperlinks
 eingebaut werden, welche auf Screenshots oder Dokumentationen verweisen.
 
@@ -446,18 +446,17 @@ Anwendung reagiert werden kann. Der Tooth Analyser hat in der Widget-Klasse
 mehrere solcher Event-Methoden, die hier genannt werden.
 
 \begin{description}
-	\item[enter(),]wird immer ausgeführt, wenn der Benutzer das Modul öffnet
+	\item[enter(),] wird immer ausgeführt, wenn der Benutzer das Modul öffnet
 
-	\item[exit(),]wird immer ausgeführt, wenn der Benutzer ein anderes Modul
+	\item[exit(),] wird immer ausgeführt, wenn der Benutzer ein anderes Modul
 		öffnet
 
-	\item[onSceneStartCloes(),]wird immer ausgeführt, kurz bevor das Modul
+	\item[onSceneStartCloes(),] wird immer ausgeführt, kurz bevor das Modul
 		geschlossen wird
 
-	\item[onSceneEndClose(),]wird ausgeführt, nachdem das Modul geschlossen
-		wurde
+	\item[onSceneEndClose(),] wird ausgeführt, nachdem das Modul geschlossen wurde
 
-	\item[observeParameter(),]wird ausgeführt, wenn der Benutzer Änderungen an
+	\item[observeParameter(),] wird ausgeführt, wenn der Benutzer Änderungen an
 		der \ac{UI} macht
 \end{description}
 

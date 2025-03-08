@@ -161,7 +161,7 @@ für das Gesamtsystem vor:
 
 	\item[Kapselung der anatomischen Segmentierung,] das bereits bestehende Segmentierungsverfahren
 		muss in das Modul integriert werden. Hier soll das Verfahren von einem
-		Python Notebook in eine Bibliothek überführt werden, sodass dieses Verfahren
+		IPython-Notebook in eine Bibliothek überführt werden, sodass dieses Verfahren
 		in der Erweiterung ausführbar ist.
 
 	\item[Parameter Node,] der Benutzer steuert das Verfahren über die Parameter in
@@ -205,14 +205,14 @@ Forschung nötig, um die richtige Programmiersprache auszuwählen. Jedoch gibt e
 kleine Auswahl zu treffen. 3D Slicer unterscheidet zwischen zwei Arten von
 Modulen, die \ac{CLI}-Module, welche in der Sprache C++ geschrieben werden und die
 \textit{Scripted Moduls}, die eine Python Implementierung verlangen. Da die
-anatomische Segmentierung ohnehin in einem IPython Notebook bereitliegt, fiel die
-Wahl hier auf die Scripted Moduls. So kann auch die breite Palette der Python
-Pakete genutzte werden. Für eine detaillierte Beschreibung des Frameworks selber
-sei an dieser Stelle auf das Kapitel \ref{sec:bildbearbeitung}f verwiesen, indem
-das Framework und alle zugehörigen Eigenheiten noch genauer beschrieben wurden.
-Um den Entwicklungsprozess etwas zu vereinfachen, wurde während der Entwicklung auf
-ein Modul von Slicer zurückgegriffen, das speziell für Entwickler entworfen
-wurde. Die Abbildung \ref{fig:entwicklungsumgebung} verdeutlicht dieses Tool.
+anatomische Segmentierung ohnehin in einem IPython-Notebook bereitliegt, fiel die
+Wahl hier auf die Scripted Moduls. So kann auch die breite Palette der Python- Pakete
+genutzte werden. Für eine detaillierte Beschreibung des Frameworks selber sei an
+dieser Stelle auf das Kapitel \ref{sec:bildbearbeitung}f verwiesen, indem das
+Framework und alle zugehörigen Eigenheiten noch genauer beschrieben wurden. Um den
+Entwicklungsprozess etwas zu vereinfachen, wurde während der Entwicklung auf ein
+Modul von Slicer zurückgegriffen, das speziell für Entwickler entworfen wurde.
+Die Abbildung \ref{fig:entwicklungsumgebung} verdeutlicht dieses Tool.
 
 \begin{figure}[h]
 	\centering
@@ -221,57 +221,59 @@ wurde. Die Abbildung \ref{fig:entwicklungsumgebung} verdeutlicht dieses Tool.
 	\label{fig:entwicklungsumgebung}
 \end{figure}
 
-Mit dem Debugging Tool lässt sich eine gewohnte Umgebung reproduzieren, in der der
-Quellcode Schritt für Schritt analysiert werden kann \citep[vgl.][]{slicerdebuggingtools}.
-Speziell bei der Fehlersuche ist dieses Tool eine sehr gute Unterstützung. Die
-Abbildung beschreibt weiter, das als Umgebung für das Erstellen des Programmcodes
-die Software Pycharm verwendet wird. Pycharm ist eine Lösung der Firma Jetbrains,
-für das Erstellen von Python Quellcode. Dieses Tool bietet eine breite Palette
-an Funktionalitäten, die das Erstellen von Software vereinfachen und als \textit{State
+Mit dem Debugging Tool lässt sich eine gewohnte Umgebung reproduzieren, in der
+der Quellcode Schritt für Schritt analysiert werden kann \citep[vgl.][]{slicerdebuggingtools}.
+Speziell bei der Fehlersuche ist dieses Tool eine sehr gute Unterstützung. Die Abbildung
+beschreibt weiter, das als Umgebung für das Erstellen des Programmcodes die
+Software Pycharm verwendet wird. Pycharm ist eine Lösung der Firma Jetbrains,
+für das Erstellen von Python-Quellcode. Dieses Tool bietet eine breite Palette an
+Funktionalitäten, die das Erstellen von Software vereinfachen und als \textit{State
 of the Art} bezeichnet werden kann \citep[vgl.][]{jetbrains2024}.
 
-Damit während der Entwicklung auch Teilbereiche der Software bereits getestet werden
-können, werden Testdaten benötigt. Bei diesen Testdaten handelt es sich um originale
-Mikro-\ac{CT}-Aufnahmen von Zahnstrukturen. Diese wurden auf einem Server an der
-\ac{LMU} in München bereitgestellt und konnten über den \textit{x2goclient} heruntergeladen
-werden. Mit dem Zugriff auf den Galadriel-Rechner an der \ac{LMU} konnten auch diverse
-Pythonumgebungen zum Verarbeiten von Daten genutzt werden. Dies war in erster
-Linie für ein Nachvollziehen der anatomischen Segmentierung hilfreich.
+Damit während der Entwicklung auch Teilbereiche der Software bereits getestet
+werden können, werden Testdaten benötigt. Bei diesen Testdaten handelt es sich
+um originale Mikro-\ac{CT}-Aufnahmen von Zahnstrukturen. Diese wurden auf einem
+Server an der \ac{LMU} in München bereitgestellt und konnten über den \textit{x2goclient}
+heruntergeladen werden. Mit dem Zugriff auf den Galadriel-Rechner an der \ac{LMU}
+konnten auch diverse Pythonumgebungen zum Verarbeiten von Daten genutzt werden. Dies
+war in erster Linie für ein Nachvollziehen der anatomischen Segmentierung hilfreich.
 
-Neben der eigentlichen Umgebung und den Entwicklerwerkzeugen steht zur
-Entwicklung auch ein Python Paket zur Verfügung, das von Herrn Prof. Rösch
-speziell für die Klinik an der \ac{LMU} erstellt wurde. Dieses Tool beinhaltet
-diverse Funktionalität für das Verarbeiten von medizinischen Bilddaten. Speziell
-für die Mikro-\ac{CT}-Aufnahmen der Klinik. Für die Interaktion mit der Slicer Kernanwendung
-stellt der Pythoninterpreter das Paket \texttt{slicer} zur Verfügung. Hierdurch lassen
-sich diverse Mechanismen steuern. Wichtig ist hierbe, dass das Paket \texttt{slicer}
-nicht auf \ac{PyPi} zu finden ist.
+Neben der eigentlichen Umgebung und den Entwicklerwerkzeugen steht zur Entwicklung
+auch ein Python Paket zur Verfügung, das von Herrn Prof. Rösch speziell für die Klinik
+an der \ac{LMU} erstellt wurde. Dieses Tool beinhaltet diverse Funktionalität für
+das Verarbeiten von medizinischen Bilddaten. Speziell für die Mikro-\ac{CT}-Aufnahmen
+der Klinik. Für die Interaktion mit der Slicer Kernanwendung stellt der Python-Interpreter
+das Paket \texttt{slicer} zur Verfügung. Hierdurch lassen sich diverse
+Mechanismen steuern. Wichtig ist hierbe, dass das Paket \texttt{slicer} nicht auf
+\ac{PyPi} zu finden ist.
 
-Nachdem die Anforderungen, die Recherche, die konkreten Aufgaben und die verfügbaren
-Werkzeuge erläutert wurden, bleibt noch die Evaluation der Arbeit. Das Kapitel Forschungsevaluation
-erläutert die Methodik, mit dem das Erreichen des Forschungsziels messbar
-gemacht werden kann.
+Nachdem die Anforderungen, die Recherche, die konkreten Aufgaben und die
+verfügbaren Werkzeuge erläutert wurden, bleibt noch die Evaluation der Arbeit.
+Das Kapitel Forschungsevaluation erläutert die Methodik, mit dem das Erreichen des
+Forschungsziels messbar gemacht werden kann.
 
 % ---------------------------------------------------------------------------------------
 
 \section{Forschungsevaluation}
 Die Evaluation kann grob in zwei Teile unterteilt werden. Der erste Teil ist der
-wohl Wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die
-Benutzer. Hier kann also die Benutzerfreundlichkeit und die \ac{UI} der
-Erweiterung gut analysiert werden. Dabei werden Verbesserungen gesammelt und als
-möglicher Ausblick zur Verfügung gestellt. Wichtig für die Benutzbarkeit der
-Software ist auch das Benutzerhandbuch. Dies ist auch Teil der Ergebnisse und muss
-mittels Benutzertests evaluiert werden.
+wohl Wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die Benutzer.
+Hier kann also die Benutzerfreundlichkeit und die \ac{UI} der Erweiterung gut analysiert
+werden. Dabei werden Verbesserungen gesammelt und als möglicher Ausblick zur
+Verfügung gestellt. Wichtig für die Benutzbarkeit der Software ist auch das Benutzerhandbuch.
+Dies ist auch Teil der Ergebnisse und muss mittels Benutzertests evaluiert
+werden.
 
-Der zweite Teil der Evaluation soll prüfen ob der softwaretechnische Ansatz erfolgreich
-umgesetzt wurde. Um dies gewährleisten zu können, müssen zusätzlich zur Funktionalität
-auch Softwaretests bereitgestellt werden. Wie eine der Teilaufgaben aus Kapitel
-\ref{sec_zerlegung_in_teilprobleme} bereits zeigt, handelt es sich hierbei um Unittests.
-Außerdem ist für diesen Teil auch die technische Dokumentation notwendig. Abschießend
-soll die Performance des Systems noch gemessen und analysiert werden.
+Der zweite Teil der Evaluation soll prüfen ob der softwaretechnische Ansatz
+erfolgreich umgesetzt wurde. Um dies gewährleisten zu können, müssen zusätzlich
+zur Funktionalität auch Softwaretests bereitgestellt werden. Wie eine der Teilaufgaben
+aus Kapitel \ref{sec_zerlegung_in_teilprobleme} bereits zeigt, handelt es sich
+hierbei um Unittests. Außerdem ist für diesen Teil auch die technische Dokumentation
+notwendig. Abschießend soll die Performance des Systems noch gemessen und
+analysiert werden.
 
 Die in diesem Kapitel beschriebenen methodischen Schritte bildeten die Grundlage
 für die Entwicklung der Erweiterung. Nachdem die Analysephase abgeschlossen ist,
-folgen nun die Phasen Entwicklung und Evaluation in Form der Ergebnisse. Hierzu
-wird die erstellte \ac{SEM} detalliert vorgestellt und die Funktionen näher beschrieben.
+folgen nun die Phasen Entwicklung und Evaluation in Form der Ergebnisse. Hierzu wird
+die erstellte \ac{SEM} detalliert vorgestellt und die Funktionen näher
+beschrieben.
 % ---------------------------------------------------------------------------------------
