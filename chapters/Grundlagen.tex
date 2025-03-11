@@ -1,13 +1,65 @@
-\chapter{Theoretische Grundlagen}
-\label{chap:theoretische_grundlagen} Dieses Kapitel führt in die theoretischen Grundlagen
-ein, die in dieser Arbeit benötigt werden. Den ersten Teil bilden die domänenspezifischen
-Grundlagen \ref{sec:domänenspezifisch}, welche genauer darauf eingehen, welchen Inhalt
-die zu bearbeitenden Bilder bieten und wie diese zu verstehen sind. Abschnitt
-\ref{sec:technologisch} geht anschließend genauer auf die Bildgebung ein, die eine
-wichtige Rolle spielen. Der Abschnitt \ref{sec:verwwandte_arbeit} geht auf die
-Arbeit von Herrn Hofmann ein, welche das zugrundeliegende Verfahren beschreibt.
-Der Abschnitt \ref{sec:3d_slicer} führt in Softwareentwicklungsthemen ein, die zum
-Erstellen einer 3D Slicer Erweiterung wichtig sind.
+\chapter{Anatomische Segmentierung}
+\label{chap:theoretische_grundlagen} Die anatomische Segmentierung ist ein bestehendes
+Verfahren, das bereits von der Klinik an der LMU eingesetzt wird um
+segmentierungs Daten aus Mikro-CT-Bildern gezielt zu gewinnen. Ein wichtigen Meilenstein
+hierfür liefert Hofmann. Im Rahmen einer Bachelorarbeit an der Hochschule für
+angewandte Wissenschaften in Augsburg unterstützte Herr Hofmann die
+Kariesklassifizierung auf den unterschiedlichen Mikro-CT-Aufnahmen. Hierzu entwickelte
+er ein Verfahren, das auf Basis von Schwellwertverfahren die Zahnsubstanzen
+Schmelz und Dentin aus dem Originalbild herauslöst. Dabei wird die anatomische Segmentierung
+als der Prozess verstanden, bei dem diese Gewebetypen gezielt voneinander
+getrennt und visuell sowie rechnerisch unterscheidbar gemacht werden.
+
+\begin{minipage}{0.40\textwidth}
+	Durch die Segmentbetrachtung der beiden Gewebesubstanzen Schmelz und Dentin konnte
+	\citet[S.~41]{hoffmann2020} eine gute Hilfe für die Befundung kariöse Stellen
+	liefern. Ein Ergebnis aus der Arbeit von Hofmann sei in Abbildung \ref{fig:ergebnis_hoffmann}
+	gezeigt. Hierfür entwickelte Hofmann ein prototypischs Verfahren innerhalb
+	eines IPython Notebooks, mit dem es gelang ca. 250 Datensätze der Zahnklinik
+	automatisch aufzubereiten.
+\end{minipage}
+\hfill
+\begin{minipage}{0.50\textwidth}
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/ergebnis_hoffmann_2.jpg}
+	\captionof{figure}{Reproduziertes Ergebnis der anatomischen Segmentierung} \label{fig:ergebnis_hoffmann}
+\end{minipage}
+
+Die anatomische Segmentierung des Zahnes umfasst eine Reihe algorithmischer
+Schritte, die in einer strukturierten Pipeline ablaufen. Abbildung
+\ref{fig:anatomische_segmentierung} veranschaulicht den groben Ablauf dieses
+Verfahrens, wobei kleinere Zwischenschritte nicht berücksichtigt wurden.
+
+Wie \citet[S.~55]{hoffmann2020} beschreibt, kann dieses Verfahren bis zu einem
+gewissen Fortschritt von Karies angewendet werden. Da Karies im Laufe der Zeit zur
+Zersetzung des Zahns führt, entstehen dunkle Stellen im Schmelzbereich, die die zusammenhängenden
+Grauwerte im Bild stören und somit die Segmentierung erschweren.
+
+Eine weitere Herausforderung liegt in der Art der Bilddaten, für die das
+Verfahren ursprünglich entwickelt wurde. Es basiert auf \ac{ISQ}-Bildern, die im
+\ac{16Int}-Format vorliegen. Um die Segmentierungsergebnisse später anschaulich darzustellen,
+kann eine überlappende Visualisierung in einer geeigneten Software verwendet
+werden.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{img/anatomischeSegmentierung.png}
+	\caption{Algorithmische Formulierung der anatomischen Segmentierung nach
+	\citet{hoffmann2020} (von links oben nach rechts unten)}
+	\label{fig:anatomische_segmentierung}
+\end{figure}
+
+Die einzelnen Schritte in Abbildung \ref{fig:anatomische_segmentierung} verdeutlichen,
+dass die Segmentierung stets einem spezifischen Muster folgt und das Verfahren
+primär zwischen Dentin und Schmelz unterscheidet. Zudem wird ersichtlich, dass
+sowohl Filter als auch Segmentierungstechniken essenziell für eine präzise
+Trennung der Strukturen sind. Um ein besseres Verständnis für diesen Prozess zu gewinnen,
+führt das folgende Kapitel in die anatomischen Strukturen eines Zahns ein und
+zeigt, wie diese auf Mikro-CT-Aufnahmen erkennbar sind. Dabei werden die
+grundlegenden Techniken der Bildgewinnung und -bearbeitung näher erläutert.
+
+\pagebreak
+
 % ---------------------------------------------------------------------------------------
 
 \section{Anatomische Zahnstrukturen in Mikro-CT-Bildern}
@@ -453,63 +505,6 @@ ganz besonderer Bedeutung. Diese Technik wurde speziell zum Segmentieren der
 Mikro-\ac{CT}-Bilder des Zahnklinikums an der \ac{LMU} in München entwickelt.
 
 \pagebreak
-% ---------------------------------------------------------------------------------------
-
-\section{Anatomische Segmentierung von Mikro-CT-Bildern}
-\label{sec:verwwandte_arbeit} Wie bereits in der Einleitung dieser Arbeit klar wurde
-verfügt die Poliklinik für Zahnerhaltung und Parodontologie des \ac{LMU}-Klinikums
-München über einen breiten Schatz an Bilddaten. Im Rahmen einer Bachelorarbeit an
-der Hochschule für angewandte Wissenschaften in Augsburg unterstützte Herr Hofmann
-die Verarbeitung dieser Bilddaten mit Methoden der 3D-Bildverarbeitung. Konkret
-sollte diese Arbeit die Kariesklassifizierung unterstützen. Hierzu entwickelte er
-ein Verfahren, das auf Basis adaptiver Schwellwertverfahren die Zahnsubstanzen
-Schmelz und Dentin aus dem Originalbild herauslöst. Konkret kann diese Segmentierung
-mit verschiedenen Verfahren durchgeführt werden. Man spricht hier von einer
-anatomischen Segmentierung der Zahnkrone.
-
-\begin{minipage}{0.40\textwidth}
-	Durch die Segmentbetrachtung der beiden Zahnhauptteile Schmelz und Dentin konnte
-	\citet[S.~41]{hoffmann2020} eine gute Hilfe für die Befundung kariöse Stellen
-	liefern. Ein Ergebnis aus der Arbeit von Hofmann sei in Abbildung \ref{fig:ergebnis_hoffmann}
-	gezeigt. \citet[S.~53]{hoffmann2020} entwickelte hierfür ein prototypisches Verfahren,
-	mit dem es gelang ca. 250 Datensätze der Zahnklinik automatisch aufzubereiten.
-\end{minipage}
-\hfill
-\begin{minipage}{0.50\textwidth}
-	\centering
-	\includegraphics[width=0.7\textwidth]{img/ergebnis_hoffmann_2.jpg}
-	\captionof{figure}{Reproduzierte Ergebnisansicht der anatomischen Segmentierung}
-	\label{fig:ergebnis_hoffmann}
-\end{minipage}
-
-Die anatomische Segmentierung des Zahnes umfasst eine ganze Reihe algorithmischer
-Schritte, sodass sich eine Pipeline an Verarbeitungsschritten ergibt. Die Abbildung
-\ref{fig:anatomische_segmentierung} zeigt den groben Ablauf des Verfahrens.
-Kleinere Zwischenschritte wurden nicht berücksichtigt.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\textwidth]{img/anatomischeSegmentierung.png}
-	\caption{Algorithmische Formulierung der anatomischen Segmentierung nach
-	\citet{hoffmann2020}}
-	\label{fig:anatomische_segmentierung}
-\end{figure}
-
-\citet[S.~55]{hoffmann2020} beschreibt, dass dieses Verfahren bis zu einem gewissen
-Fortschritt des Karies durchgeführt werden konnte, da der Algorithmus
-diesbezüglich seine Grenzen hat. Außerdem ist das Verfahren für die ordinalen \ac{ISQ}-Bilder
-erstellt worden, deren Daten im Format \ac{16Int} vorliegen. Für die spätere Darstellung
-der Ergebnisse kann eine überlappende Ansicht in einer Visualisierungssoftware verwendet
-werden. So ergibt sich die Situation, dass der Algorithmus ein gutes Ergebnis liefert,
-jedoch nicht benutzerfreundlich zu bedienen ist. Für das Starten und visualisieren
-des Verfahrens sind aufwendige Befehle über das Terminal zu tippen \citep[vgl.][S.~53]{hoffmann2020}.
-Genau an dieser Stelle soll die vorliegende Arbeit anknüpfen und das Verfahren der
-anatomischen Segmentierung so interaktiv und benutzerfreundlich gestalten.
-
-Für eine interaktive Verarbeitung von 3D Bilddaten bieten sich einige Möglichkeiten.
-Die wohl beste Lösung liefert 3D Slicer. Warum die Wahl auf diese Plattform fiel
-und welche Vorteile daraus entstehen wird im folgenden Abschnitt \ref{sec:3d_slicer}
-erläutert.
 % ---------------------------------------------------------------------------------------
 
 \section{Interaktive Bildbearbeitung mit 3D Slicer}

@@ -1,120 +1,106 @@
 \chapter{Einleitung}
 \label{chap:einleitung} Die \ac{CT} hat die Medizintechnik revolutioniert und
-ist bis heute eines der wichtigsten Methoden für die Bildanalyse. Sie ist eine der
-führenden Erweiterungen der klassischen Röntgentechnik. Für die Entwicklung
-dieser Technologie wurden Godfrey Newbold Hounsfield und Allan McLeod Cormack im
-Jahre 1979 mit dem Nobelpreis für Medizin ausgezeichnet \citep[.vgl][S.~12]{handels2000}.
+zählt bis heute zu den wichtigsten Verfahren der Bildanalyse. Sie stellt eine entscheidende
+Weiterentwicklung der klassischen Röntgentechnik dar. Für ihre bahnbrechende
+Entwicklung wurden Godfrey Newbold Hounsfield und Allan McLeod Cormack im Jahr
+1979 mit dem Nobelpreis für Medizin ausgezeichnet \citep[vgl.][S.~12]{handels2000}.
+Dank dieser innovativen Technik lassen sich detaillierte Krankheitsanalysen
+durchführen, die eine gezielte und individuell angepasste Behandlung ermöglichen.
+Damit trägt die Computertomografie maßgeblich zur Optimierung der medizinischen
+Versorgung bei und verbessert die Effektivität therapeutischer Maßnahmen \citep[vgl.][S.~207]{de20083d}.
 
-\begin{minipage}{0.45\textwidth}
-	Die Computertomografie wird in den verschiedensten Bereichen und im wahrsten Sinne
-	des Wortes von Kopf bis Fuß eingesetzt. So kommt es, dass auch im Dentalbereich
-	\ac{CT}-Aufnahmen von größter Wichtigkeit sind. Abbildung \ref{fig:ct_aufnahme_eines_zahns}
-	zeigt eine solche \ac{CT}-Aufnahmen. Eine konkrete Anwendung in diesem Kontext
-	ist die Zahnkaries Forschung der Poliklinik für Zahnerhaltung und Parodontologie
-	der \ac{LMU}.
-\end{minipage}
-\hfill
-\begin{minipage}{0.45\textwidth}
+Die Einsatzmöglichkeiten der Computertomografie sind vielfältig und werden im wahrsten
+Sinne des Wortes von Kopf bis Fuß eingesetzt. So kommt es, dass sie auch in der Zahnmedizin
+eine zentrale Rolle spielen. Die Abbildung \ref{fig:ct_aufnahme_eines_zahns}
+zeigt eine solche Aufnahme, wie sie zu Forschungszwecken eingesetzt wird.
+
+\begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.2, width=\textwidth]{img/micro_ct_orginal.jpg}
-	\captionof{figure}{CT-Aufnahme eines Zahns nach \citet{heck2024}} \label{fig:ct_aufnahme_eines_zahns}
-\end{minipage}
+	\includegraphics[width=0.5\textwidth]{img/micro_ct_orginal.jpg}
+	\caption{CT-Aufnahme einer Zahnkrone nach \citet{heck2024}}
+	\label{fig:ct_aufnahme_eines_zahns}
+\end{figure}
 
-Die vorliegende Arbeit soll genau diese Forschung unterstützen. In welchem Umfang
-und zu welchem Grund ist in den folgenden Abschnitten beschrieben.
-% ---------------------------------------------------------------------------------------
-
-\section{Ziel der Arbeit}
-\label{sec:ziel_der_arbeit} Diese Arbeit beschreibt eine Technik, mit der \ac{3D}
-Mikro-\ac{CT}-Bilder zur Untersuchung zahnmedizinischen Strukturen automatisch
-mittels der Software 3D Slicer segmentiert und analysiert werden können. Was genau
-unter eine Segmentierung verstanden wird, darüber informiert das Kapitel
-\ref{subsec:segmentierung} Segmentierung. Die algorithmische Formulierung einer konkreten
-Segmentierung ist bereits vorhanden und prototypisch implementiert. Dieser
-Algorithmus hat jedoch Schwachstellen. So muss beispielsweise das Verfahren umständlich
-über ein IPython Notebook im Terminal ausgeführt werden, was die
-Benutzerfreundlichkeit deutlich beeinträchtigt. Ziel dieser Arbeit ist es in erster
-Linie das bereits existierende Verfahren in der Klinik für Zahnerhaltung zu analysieren
-und für die Mitarbeiter der Klinik benutzbar zu machen. Dabei soll auf
-etablierte und vertraute Lösungen zurückgegriffen werden.
-
-Es stellt sich nun die Frage, zu welchem Zweck eine automatische und interaktive
-Segmentierung überhaupt notwendig ist. Für die Zahnklinik an der LMU in München
-gibt es hierfür viele Gründe. Über den wichtigsten gibt das nächste Kapitel Aufschluss.
+Mikro-\ac{CT}-Aufnahmen von Zähnen liefern hochauflösende Bilder der inneren Zahnstruktur
+und sind damit eine essenzielle Grundlage für die zahnmedizinische Forschung.
+Sie ermöglichen nicht nur eine präzisere Diagnostik, sondern auch weiterführende
+wissenschaftliche Analysen, beispielsweise zur Untersuchung von Kariesverläufen
+oder zur Entwicklung neuer Behandlungsmethoden. Eine konkrete Anwendung zeigt die
+Forschung der Poliklinik für Zahnerhaltung und Parodontologie an der \ac{LMU}.
 % ---------------------------------------------------------------------------------------
 
 \section{Relevanz der Arbeit}
-\label{sec:relevanz_der_arbeit} Der wohl relevanteste Punkt wurde bereits im vorherigen
-Kapitel \ref{sec:ziel_der_arbeit} diskutiert, Zahnärzte sind keine
-Softwareentwickler, sondern reine Anwender von Software. Darüber hinaus verfolgt
-die Klinik für Zahnerhaltung und Parodontologie der \ac{LMU} einen sehr interessanten
-Forschungsansatz, welche eine Segmentbetrachtung der \ac{CT}s rechtfertigt.
-
-Über viele Jahre hinweg wurden in der Zahnklinik sehr viel Bilddaten von Zähnen
-gesammelt. Hierbei wurden Aufnahmen der unterschiedlichsten Arten gemacht.
-Darunter fallen zum Beispiel einfache Bilddateien, Infrarotbilder und die für diese
-Arbeit so relevanten dreidimensionalen Mikro-CT-Aufnahmen. Dieser große Schatz
-an Bildmaterial soll verwendet werden, um in ferner Zukunft ein neuronales Netzwerk
-zu trainieren, welches statistische Aussagen über das Verhalten von Karies
-treffen kann. Jedoch gibt es hier ein Problem, bei dem das Ergebnis dieser
-Arbeit unterstützen kann. Karies auf \ac{CT}-Bildern zu lokalisieren ist nicht
-trivial. Er ist ohne weitere Bearbeitung des Bildes nur sehr schwer auf eine Stelle
-einzugrenzen. So kommt es vor, dass drei verschiedene Ärzte auf demselben Mikro-\ac{CT}-Bild
-drei unterschiedliche Stellen mit Karies identifizieren. Eine Segmentierung des dreidimensionalen
-\ac{CT}s kann hier Wunder wirken. Durch die Aufteilung des Mikro-\ac{CT}s in
-seine zwei Zahnhauptsubstanzen, kann eine sehr gute visuelle Darstellung des Zahnes
-gewährleistet werden. Für Ärzte bietet diese Darstellung einen sehr großen
-Mehrwert \citep[vgl.][S.~1]{walter2025projekt}.
-
-Mit dieser klaren und eindeutigen Identifizierung von Karies, sind die
-Ergebnisse, die ein neuronales Netzer generieren würde viel genauer und brauchbarer.
-Konkret wird mit einer automatischen Segmentierung ein \textit{Ground Trueth} gewonnen,
-der eine eindeutige Basiswahrheit liefert. Hierbei sei gesagt das diese Anwendung
-nur eine von vielen Möglichkeiten ist. Konkrete Daten über die Ausbreitung einer
-Krankheit im menschlichen Körper zu besitzen kann in den verschiedensten Fällen
-und Institutionen von größtem Nutzen sein. So zeigen es auch \citet[S.~207]{de20083d}
-in ihrem Paper.
-
-Anhand dieser Argumente wird deutlich, dass eine automatische Segmentierung durchaus
-einen Mehrwert für Ärzte bilden kann. Nicht zuletzt auch durch die enorme
-Zeiteinsparung. Für eine automatische Segmentierung von Mikro-\ac{CT}-Bildern
-gibt es einige Softwarelösungen am Markt, die alle eine gute Optionen sind. Aus
-diesem Grund soll im folgenden Kapitel ein mögliches Framework diskutiert werden.
+\label{sec:relevanz_der_arbeit} Da Mikro-\ac{CT} eines der relevantesten Forschungsgrundlagen
+im Dentalbereich ist, sammelt die Klinik Bilddaten in großen Mengen. Dabei entstehen
+Aufnahmen der unterschiedlichsten Art, darunter einfache Bilddateien, Infrarotbilder
+und insbesondere die für diese Arbeit relevanten dreidimensionalen Mikro-\ac{CT}-Aufnahmen.
+Dieser umfangreiche Datenschatz soll künftig genutzt werden, um ein neuronales
+Netzwerk zu trainieren, das statistische Aussagen über das Verhalten von Karies treffen
+kann \citep[vgl.][S.~1]{walter2025projekt}. Damit dieses Ziel erreicht werden kann,
+müssen die Mikro-\ac{CT}-Bilder jedoch zunächst in eine geeignete Form gebracht werden.
+Rohdaten allein sind für eine weiterführende Analyse nur bedingt nutzbar, da sie
+komplexe Strukturen enthalten, die erst durch gezielte Verarbeitung sinnvoll
+interpretiert werden können. Eine der zentralen Herausforderungen dabei ist die Segmentierung
+– also die präzise Trennung der verschiedenen Gewebetypen wie Zahnschmelz und Dentin
+\citep[vgl.][S.~359]{lehmann2013bildverarbeitung}. Erst durch diesen Schritt lassen
+sich anatomisch aussagekräftige Modelle erstellen, die als Grundlage für
+Diagnosen, Rekonstruktionen und weiterführende computergestützte Verfahren dienen.
+Besonders für das Training neuronaler Netzwerke ist eine saubere Segmentierung
+essenziell, da sie die Qualität und Aussagekraft der daraus gewonnenen Erkenntnisse
+maßgeblich beeinflusst.
 % ---------------------------------------------------------------------------------------
 
-\section{Fokus der Arbeit}
-\label{sec:fokus_der-arbeit} Dieser Arbeit setzt den Fokus auf die Open-Sorce-Plattform
-3D Slicer, da diese ohnehin bereits eine breite Anwendung in der Zahnklinik in München
-findet. Durch die Modul- und Plug-in-Infrastruktur dieser Plattform kann die Software
-auch anderen Institutionen bereitgestellt werden. Hierzu muss diese einfach als
-\textit{3D Slicer Extension} bereitgestellt werden. 3D Slicer bietet einen
-\textit{Extension Manager}, der ähnlich wie ein App Store betrachtet werden kann.
-So bleibt die vorerst konkret entwickelte Software nicht nur einer Einrichtung vorbehalten.
-Eine tiefere Einführung in die Open-Source-Plattform bietet der Abschnitt
-\ref{sec:3d_slicer}. Das weitere Optimieren des bereits bestehenden Verfahrens wird
-in dieser Arbeit nicht thematisiert. Es werden lediglich Anpassungen vorgenommen,
-sodass eine Benutzerschnittstelle verwendet werden kann.
+\section{Ziel der Arbeit}
+\label{sec:ziel_der_arbeit} Das Erzeugen von segmentierter Daten aus einem Mikro-\ac{CT}
+ist jedoch nicht trivial und verlangt komplexe Techniken der 3D-Bildbearbeitung.
+Der aktuelle Stand der Kunst zeigt, dass es bereits ein Verfahren gibt, mit dem solche
+Daten erzeugt werden können. Hierbei unterteilt das Verfahren ein gegebenes
+Mikro-\ac{CT}-Bild in die zwei Gewebesubstanzen Dentin und Schmelz. Dieser
+Vorgang kann als anatomische Segmentierung des Zahns bezeichnet werden. Die Ergebnisse
+die das Verfahrens, zeigen vielversprechende Ergebnisse. Jedoch bringt es auch einige
+Limitierungen mit, was die Benutzung deutlich einschränkt. Eine dieser Limitierungen
+bezieht sich auf die Art der Ausführung. Zum aktuellen Stand muss das Verfahren
+aufwendig über ein Terminal gestartet werden. Dies stellt für praktizierende Ärzte,
+die letzten Endes die Anwendergruppe dieses Verfahrens sind, eine besondere Herausforderung
+dar.
 
-Mit diesem Umfang, der Motivation und dem gesetzten Fokus, ergibt sich für diese
-Arbeit eine konkrete Struktur, die einen hohen Detailgrad aufweist. Um einen ersten
-Überblick zu gewähren, sei diese Struktur hier kurz erläutert.
-% ---------------------------------------------------------------------------------------
+Die vorliegende Arbeit widmet sich genau dieser aktuellen Herausforderung. Ziel
+ist es, eine Benutzerschnittstelle zu entwickeln, die den Anwender mit der
+anatomischen Segmentierung verbindet und so die Verwendung des Verfahrens
+deutlich vereinfacht. Da Mikro-\ac{CT}-Bilder weltweit eine zentrale Rolle in
+der zahnmedizinischen Forschung spielt, bietet sich hierfür die Plattform 3D Slicer
+an. Diese etablierte Software wird in zahlreichen Kliniken und
+Forschungseinrichtungen weltweit zur Verarbeitung und Analyse medizinischer
+Bilddaten eingesetzt. Aufbauend auf dieser Grundlage soll nun eine spezielle Benutzerschnittstelle
+innerhalb 3D Slicer entwickelt werden, die auf der vorhandenen Modul- und Plug-in-Infrastruktur
+der Plattform basiert. Diese Infrastruktur bietet die Möglichkeit, eigene Module
+mit individuellen Algorithmen zu befüllen, eine Schnittstelle bereitzustellen
+und diese nahtlos in das Kernsystem zu integrieren. 3D Slicer sieht hierfür die Implementierung
+einer \ac{SEM} vor. Hierbei handelt es sich um einer Erweiterung oder ein Plug-in
+für die Slice Kernanwendung. Durch die Bereitstellung von segmentierten Daten in
+einer \ac{SEM} würde so nicht nur die der aktuellen Forschungsumgebung einen Mehrwert
+erhalten, sondern die gesamte Zahnmedizin.
 
-\section{Aufbau der Arbeit}
-\label{sec:aufbau_der_arbeit} Die Arbeit ist in sieben Kapitel unterteilt. Nach der
-Einführung in Kapitel \ref{chap:einleitung}, in der die Relevanz und der Fokus
-beschrieben werden, werden in Kapitel \ref{chap:theoretische_grundlagen} die theoretischen
-und technischen Grundlagen behandelt, welche zum Verstehen der Ergebnisse
-essenziell sind. Als Ergebnis der theoretischen Grundlagen bildet das Kapitel \ref{chap:fragestellung}
-eine konkrete Forschungsfrage. Während sich Kapitel \ref{chap:methodik} darum
-kümmert mit welchen Methodiken und Lösungsansätzen an die Forschungsfrage
-herangegangen wird, erläutert das Kapitel \ref{chap:ergebnisse} welche die konkreten
-Ergebnisse der Arbeit sind. In Kapitel \ref{chap:diskussion} erfolgt eine
-kritische Diskussion der Resultate. Das abschließende Kapitel \ref{chap:schlussfolgerung}
-fasst die wichtigsten Erkenntnisse zusammen und gibt einen Ausblick auf zukünftige
-Forschungsfragen.
+Bei der Umsetzung dieser Erweiterung stehen nicht nur die funktionalen
+Anforderungen im Fokus, sondern auch softwaretechnische Qualitätskriterien. Eine
+möglichst generische Architektur soll gewährleisten, dass das Modul flexibel bleibt
+und künftig um weitere Funktionalitäten erweitert werden kann.
 
-Die theoretischen Grundlagen, die wie beschrieben direkt nach der Einleitung
-folgen, sind zentral für das Verstehen der Fragestellung und der späteren Ergebnisse
-der Arbeit.
+Mit diesen konkreten Zielsetzungen lässt sich nun eine Forschungsfrage ableiten,
+die in dieser Arbeit im Fokus stehen soll.
+
+\begin{center}
+	\textit{Wie kann eine benutzerfreundliche Schnittstelle innerhalb 3D Slicer
+	entwickelt werden, die das Verfahren der anatomischen Segmentierung effizient integriert,
+	den Zugang für Anwender vereinfacht und zugleich eine flexible Erweiterbarkeit
+	für zukünftige Funktionalitäten gewährleistet?}
+\end{center}
+
+Um das in dieser Arbeit zu entwickelnde Modul optimal in den bestehenden Prozess
+der anatomischen Segmentierung zu integrieren, ist es essenziell, zunächst ein grundlegendes
+Verständnis dieses Verfahrens zu erlangen. Daher wird im folgenden Kapitel
+erläutert, wie die anatomische Segmentierung funktioniert, welche Techniken und
+Algorithmen dabei zum Einsatz kommen und welche Herausforderungen sich daraus
+ergeben. Dieses theoretische Fundament bildet so die Basis für die darauf aufbauende
+Entwicklung einer 3D Slicer Erweiterung.
 % ---------------------------------------------------------------------------------------
