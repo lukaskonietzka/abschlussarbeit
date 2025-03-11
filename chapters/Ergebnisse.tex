@@ -13,7 +13,7 @@ kann eine Aussage bezogen auf die Forschungsfrage gestellt werden.
 
 \section{Tooth Analyser}
 \label{sec:tooth_analyser} Im Rahmen dieser vorliegenden Arbeit ist eine Slicer Erweiterung,
-entstanden, das den Namen Tooth Analyser trägt und für die Forschung im Dentalbereich
+entstanden, die den Namen Tooth Analyser trägt und für die Forschung im Dentalbereich
 eingesetzt wird. In erster Linie können mit diesem Plug-in Mikro-\ac{CT}-Aufnahmen
 anatomisch segmentiert werden. Das Modul schmiegt sich wie alle anderen Module
 gut in die Kernanwendung ein und ist auch für die aktuelle stabile Version von
@@ -29,7 +29,7 @@ zeigt dies.
 	\label{fig:logo_tooth_analyser}
 \end{figure}
 
-Des Emblem des Tooth Analyser bildet einen Zahn ab, dessen Hauptsegmenten (Schmelz,
+Des Emblem des Tooth Analyser bildet einen Zahn ab, dessen Hauptsegmente (Schmelz,
 Dentin, Pulpa) mit den unterschiedlichen Farben (grün, gelb, orange) visualisiert
 werden. Dies verdeutlicht die Analogie zur anatomischen Segmentierung und lässt
 gleich vermuten, dass sich dieses Modul mit einer Segmentierung beschäftigt. Der
@@ -38,13 +38,14 @@ Analyser installiert, so ist er über den Menüpunkt \textit{Module} in Slicer
 auswählbar. Hier wird er in dem Unterpunkt \textit{Segmentierung} eingruppiert, was
 ein weiteres Indiz auf die grobe Funktionalität liefert. Wird also der Tooth
 Analyser gestartet so erhält man die Ansicht der Kernanwendung mit der
-Entsprechenden \ac{UI}. Die Abbildung \ref{fig:tooth_analyser_start_up} soll
+entsprechenden \ac{UI}. Die Abbildung \ref{fig:tooth_analyser_start_up} soll
 genau diese Ansicht verdeutlichen.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.2, width=\textwidth]{img/toothAnalyserStarUp.png}
-	\caption{Startansicht der Erweiterung Tooth Analyser nach dem ersten Aufruf}
+	\caption{Startansicht der Erweiterung Tooth Analyser bevor ein Verfahren
+	gestartet wurde}
 	\label{fig:tooth_analyser_start_up}
 \end{figure}
 
@@ -54,17 +55,17 @@ des jeweiligen Moduls. Die Kernanwendung kann auch als Szene beschrieben werden 
 immer eine Sidebar zu sehen, welche die \ac{UI} des jeweiligen Moduls abbildet. Im
 Falle der Abbildung \ref{fig:tooth_analyser_start_up} ist es die \ac{UI} des
 Tooth Analyser. Das manuelle Laden eines Bildes in die Szene ist Teil der Slicer
-Kernanwendung und nicht teil der Modullogik. Das bereits geladene Bild ist
+Kernanwendung und nicht Teil der Modullogik. Das bereits geladene Bild ist
 demnach unabhängig vom der Tooth Analyser entstanden. Betrachtet man die Benutzerschnittstelle
 genauer, so fällt sofort auf, dass diese in vier Bereiche unterteilt ist. Diese
 Aufteilung in Bereiche ist ein Ergebnis der Literaturrecherche und eine gute
 Konvention in der Welt von 3D Slicer. Der Bereich \textit{Help and
 Acknowledgement} stellt Hilfen und Informationen über das Modul bereit. Über diesen
 Abschnitt ist auch die offizielle Dokumentation über dieses Modul erreichbar. Zu
-Beachten ist, dass dieser Bereich nicht eigens für den Tooth Analyser entwickelt
+beachten ist, dass dieser Bereich nicht eigens für den Tooth Analyser entwickelt
 wurde. Es handelt sich hier um eine Funktionalität, die automatisch allen \ac{SEM}
 zur Verfügung steht. Bei den übrigen Abschnitten handelt es sich um Features die
-spezifische für den Tooth Analyser entwickelt wurden. Bevor genauer auf die
+spezifisch für den Tooth Analyser entwickelt wurden. Bevor genauer auf die
 Funktionalitäten des Tooth Analyser eingegangen wird, sei zunächst auf die Abbildung
 \ref{fig:tooth_analyser_full_view} verwiesen, welche die Ergebnisansicht zeigt.
 
@@ -79,7 +80,7 @@ Funktionalitäten des Tooth Analyser eingegangen wird, sei zunächst auf die Abb
 Der Analysebereich des Tooth Analyser ermöglicht es das Histogramm eines gegebenen
 Bildes zu erstellen. Dies ist besonders interessant, wenn ein Algorithmus für die
 anatomische Segmentierung ausgewählt werden muss. Diese Algorithmen sind
-Schwellwertverfahren, die auf das Histogramm eines Bildes basieren, um es zu
+Schwellwertverfahren, die das Histogramm eines Bildes betrachten, um es zu
 segmentieren. Das erstellte Histogramm ist rechts oben in der Abbildung \ref{fig:tooth_analyser_full_view}
 zu erkennen. Es wird in einem \textit{Plot node} dargestellt und kann über diesen
 auch verändert werden. Hierzu ist die Pinnnadel im Fenster des Plotknoten zu
@@ -112,11 +113,11 @@ hier die Wahl des zu segmentierenden Volumens der entscheidende Parameter.
 Dessen Bedeutung gleicht der Analysen, insbesondere in Bezug auf das Verhalten.
 Damit schnell ein Ergebnis generiert werden kann, wurde für die übrigen zwei Parameter
 eine Vorauswahl definiert, die zum vollen Ergebnisumfang des Tools führt. So ergibt
-sich die Situation, das nach dem Laden eines \ac{CT}s in die Szene nur auf den
+sich die Situation, dass nach dem Laden eines \ac{CT}s in die Szene nur auf den
 Button für das Ausführen gedrückt werden muss, damit eine anatomische Segmentierung
 erstellt wird. Dies nimmt dem Benutzer viel Arbeit ab und sorgt für eine gut \ac{UX}.
 Sind jedoch Einstellungen in den Parametern gewünscht, so können diese natürlich
-getätigt werden. Über den Parameter \textit{Segmentation algorithm} kann das entsprechenden
+getätigt werden. Über den Parameter \textit{Segmentation algorithm} kann das entsprechende
 Schwellwertverfahren gewählt werden, mit dem der Zahn segmentiert werden soll. Dies
 mag nur geringfügig eine Änderung auf die Ergebnismenge ausmachen, kann aber
 dennoch wichtig sein. Die Checkbox \textit{calculate medial surface} ermöglicht
@@ -169,11 +170,11 @@ Hierbei ist zu beachten, dass Slicer selber während der Ausführung nicht bedie
 werden kann, da die Ressourcen des Prozesses für den laufenden Algorithmus
 verwendet werden. Die Dokumentation von Slicer empfiehlt hier auch kein parallelisieren
 der Anwendung, da dies zu \ac{GUI} Fehlern führen würde. Der Benutzer muss also
-die Zeit schlichtweg abwarten. Treten während der Bedienung der Software noch weitere
-Fehler auf, so verfügt der Tooth Analyser auch über eine ausführliche
-Dokumentation. Diese ist im öffentlichen Repository der Erweiterung einsehbar und
-in vier kleine Dokumentationen gegliedert \citep[vgl.][]{procida2017}. Der Link zur
-Dokumentation ist dem Anhang zu entnehmen.
+die Zeit abwarten. Treten während der Bedienung der Software noch weitere Fehler
+auf, so verfügt der Tooth Analyser auch über eine ausführliche Dokumentation. Diese
+ist im öffentlichen Repository der Erweiterung einsehbar und in vier kleine Dokumentationen
+gegliedert \citep[vgl.][]{procida2017}. Der Link zur Dokumentation ist dem Anhang
+zu entnehmen.
 
 Da neben der reinen Erstellung noch weitere Anforderungen an die Erweiterung gegeben
 waren, beschäftigt sich die nächsten Kapitel tiefer mit den softwaretechnischen
@@ -212,13 +213,13 @@ gezeigt.
 |   |   |   |-- isq_to_mhd.py
 \end{lstlisting}
 
-Zu sehen ist der Ordner \texttt{ToothAnalyser}, der alle Datei beinhaltet, die für
-das Modul relevant sind. Die Datei \texttt{TootAnalyser.py} ist das Hauptskript und
-stellt die Anbindung an Slicer dar. Außerdem ist der Ordner \texttt{ToothAnalyserLib}
-zu finden, der den ganzen externen Quellcode für das Modul beinhaltet. So auch die
+Zu sehen ist der Ordner \texttt{ToothAnalyser}, der alle Dateien beinhaltet, die
+für das Modul relevant sind. Die Datei \texttt{TootAnalyser.py} ist das Hauptskript
+und stellt die Anbindung an Slicer dar. Außerdem ist der Ordner \texttt{ToothAnalyserLib}
+zu finden, der den ganzen externen Quellcode für das Modul beinhaltet, so auch die
 anatomische Segmentierung. Kommen in Zukunft weitere Funktionen dazu, kann diese
 Bibliothek problemlos um neue Funktionen erweitert werden. Dies symbolisiert der
-Ordner \textsl{NewFunktion}. Soll eine Funktion aus dieser Bibliothek verwendet
+Ordner \textsl{NewFunction}. Soll eine Funktion aus dieser Bibliothek verwendet
 werden, so kann dies im Modul \texttt{ToothAnalyser.py} einfach über den
 folgenden Befehl erfolgen.
 
@@ -255,12 +256,12 @@ def isq_to_mhd_as_string(isq_file_name) -> str:
 
 Der Quellcode aus \ref{lst:isq_mhd} zeigt, dass statt einer Abspeicherung auf
 der Festplatte ein Pufferspeicher genutzt wird (Zeile acht). Anstatt dann auf die
-abgespeicherte Date zu verweisen wird einfach der Pufferspeicher ausgelesen (Zeile
+abgespeicherte Daten zu verweisen, wird einfach der Pufferspeicher ausgelesen (Zeile
 neun).
 
-Nachdem zu Beginn ein Gesamtüberblick über die Ergebnisse gewonnen wurde und damit
-das Modul Tooth Analyser eingeführt wurde, folgen nun die Lösungen der
-restlichen Teilaufgaben in Form von Implementierungsdetails.
+Nachdem zu Beginn ein Gesamtüberblick über die Ergebnisse gewonnen wurde und
+damit das Modul Tooth Analyser eingeführt wurde, folgen nun die Lösungen der restlichen
+Teilaufgaben in Form von Implementierungsdetails.
 
 \pagebreak
 % ---------------------------------------------------------------------------------------
@@ -268,13 +269,12 @@ restlichen Teilaufgaben in Form von Implementierungsdetails.
 \section{Konzeptionen}
 \label{sec:konzeptionen} Die ausgearbeiteten Konzeptionen bilden überwiegend die
 Ergebnisse der in \ref{sec_zerlegung_in_teilprobleme} beschriebenen Teilaufgaben.
-Konkret soll das bedeuten, dass hier konzeptionell gezeigt wird, wie die
-softwaretechnischen Aspekte aus den Anforderungen umgesetzt wurden. Hierzu soll zunächst
-das Design-Klassendiagramm betrachtet werden, das sich aus dem Domänenmodell in
-Abbildung \ref{fig:3d_slicer_domäne} ableiten lässt. Zu beachten ist hier, dass
-es sich bei den Diagrammen in Abbildung \ref{fig:klassendiagramm} und
-\ref{fig:klassendiagramm_new} um einen Ausschnitt handelt. Das vollständige Design-Klassendiagramm
-ist dem Anhang zu entnehmen.
+Konkret soll das bedeuten, dass hier konzeptionell gezeigt wird, wie die softwaretechnischen
+Aspekte aus den Anforderungen umgesetzt wurden. Hierzu soll zunächst das Design-Klassendiagramm
+betrachtet werden, das sich aus dem Domänenmodell in Abbildung \ref{fig:3d_slicer_domäne}
+ableiten lässt. Zu beachten ist hier, dass es sich bei den Diagrammen in Abbildung
+\ref{fig:klassendiagramm} und \ref{fig:klassendiagramm_new} um einen Ausschnitt handelt.
+Das vollständige Design-Klassendiagramm ist dem Anhang zu entnehmen.
 
 \begin{figure}[h]
 	\centering
@@ -285,37 +285,37 @@ ist dem Anhang zu entnehmen.
 	\label{fig:klassendiagramm}
 \end{figure}
 
-Wie der weitere Verlauf des Kapitels zeigen wird, ist die Erweiterung unter anderem
-über die Klassen \texttt{ToothAnalyserWidget} und \texttt{ToothAnalyserLogic} in
-das Kernsystem eingebunden. Den Zentralen Punkt bildet dabei die Widget-Klasse. Sie
-hält auf der einen Seite alle Parameter der verschiedenen Funktionen und auf der
-anderen Seite die dazugehörigen Logiken. Des Weiteren bildet diese Klasse die
-gesamt \ac{UI} des Tooth Analyser ab, was unter anderem das Laden der \ac{UI} mit
-einschließt. Die \ac{UI} des Tooth Analyser wurde mit der Software QT-Designer erstellt
-und dann mittels einer Methode in die Anwendung geladen. Wie auch schon im
-Kapitel \ref{sec:tooth_analyser} beschrieben teilt sich die \ac{UI} auch hier sichtbar
-in unterschiedliche Teile auf. Betrachtet man nun Abbildung
-\ref{fig:klassendiagramm} so fällt auf, das für jeden Funktionsbereich eine eigene
-Parameterklasse erstellt wurde, die dann wiederum in der Klasse ParameterNode
-zusammengefasst werden. Dies stellt eine gute Erweiterbarkeit der \ac{UI} um
-zusätzliche Parameter sicher. Es wurde an dieser Stelle bewusst keine Generalisierung
-verwendet, da Slicer genau diesen konzeptionierten Mechanismus vorsieht. Auf der
-anderen Seite der Struktur finden sich die Logikklassen. Die verschiedenen
-Logiken die aktuell und zukünftig den Tooth Analyser ausstatten, verwenden alle dieselbe
-Schnittstelle, die über die Klasse \texttt{ToothAnalyserLogic} bereitgestellt wird.
-Sollen also in Zukunft weitere Funktionen hinzukommen, so kann hier einfach eine
-weitere Klasse an die Schnittstelle angehängt werden. So entsteht etwas, das man
-in der Fachliteratur als \textit{Strategy Pattern} bezeichnet \citep[vgl.][S.~99]{siebler2014}.
-Der Benutzer der Software wählt also über die verschiedenen Buttons aus, welche Strategie
-er gerade nutzen will. Der Tooth Analyser sorgt dann dafür, dass auch die richtige
-Funktion geladen wird. Das Feature für den Batch Modus funktioniert nach einem
-anderen Schema. Da dieser Modus auch für alle zukünftigen Funktionen gelten soll,
-wird dieser nicht als eigene Strategie, sondern direkt in der Schnittstelle bereitgestellt.
-So ist sichergestellt, dass eine Implementierung erfolgen muss, sie jedoch für
-alle Strategien unterschiedlich sein kann. Um noch etwas genauer zu zeigen,
-welche Schritte notwendig sind um den Tooth Analyser mit weiteren Funktionen
-auszustatten sei auf Abbildung \ref{fig:klassendiagramm_new} verwiesen. Hier wird
-deutlich, welche Klassen und Methoden erstellt werden müssen.
+Wie der weitere Verlauf des Kapitels zeigen wird, ist die Erweiterung unter
+anderem über die Klassen \texttt{ToothAnalyserWidget} und \texttt{ToothAnalyserLogic}
+in das Kernsystem eingebunden. Den Zentralen Punkt bildet dabei die Widget-Klasse.
+Sie hält auf der einen Seite alle Parameter der verschiedenen Funktionen und auf
+der anderen Seite die dazugehörigen Logiken. Des Weiteren bildet diese Klasse die
+gesamt \ac{UI} des Tooth Analyser ab, was unter anderem das Laden der \ac{UI}
+mit einschließt. Die \ac{UI} des Tooth Analyser wurde mit der Software QT-Designer
+erstellt und dann mittels einer Methode in die Anwendung geladen. Wie auch schon
+im Kapitel \ref{sec:tooth_analyser} beschrieben teilt sich die \ac{UI} auch hier
+sichtbar in unterschiedliche Teile auf. Betrachtet man nun Abbildung \ref{fig:klassendiagramm}
+so fällt auf, das für jeden Funktionsbereich eine eigene Parameterklasse
+erstellt wurde, die dann wiederum in der Klasse ParameterNode zusammengefasst werden.
+Dies stellt eine gute Erweiterbarkeit der \ac{UI} um zusätzliche Parameter sicher.
+Es wurde an dieser Stelle bewusst keine Generalisierung verwendet, da Slicer genau
+diesen konzeptionierten Mechanismus vorsieht. Auf der anderen Seite der Struktur
+finden sich die Logikklassen. Die verschiedenen Logiken die aktuell und zukünftig
+den Tooth Analyser ausstatten, verwenden alle dieselbe Schnittstelle, die über die
+Klasse \texttt{ToothAnalyserLogic} bereitgestellt wird. Sollen also in Zukunft weitere
+Funktionen hinzukommen, so kann hier einfach eine weitere Klasse an die
+Schnittstelle angehängt werden. So entsteht etwas, das man in der Fachliteratur
+als \textit{Strategy Pattern} bezeichnet \citep[vgl.][S.~99]{siebler2014}. Der Benutzer
+der Software wählt also über die verschiedenen Buttons aus, welche Strategie er
+gerade nutzen will. Der Tooth Analyser sorgt dann dafür, dass auch die richtige
+Funktion geladen wird. Das Feature für den Batch Modus funktioniert nach einem anderen
+Schema. Da dieser Modus auch für alle zukünftigen Funktionen gelten soll, wird dieser
+nicht als eigene Strategie, sondern direkt in der Schnittstelle bereitgestellt. So
+ist sichergestellt, dass eine Implementierung erfolgen muss, sie jedoch für alle
+Strategien unterschiedlich sein kann. Um noch etwas genauer zu zeigen, welche Schritte
+notwendig sind um den Tooth Analyser mit weiteren Funktionen auszustatten sei auf
+Abbildung \ref{fig:klassendiagramm_new} verwiesen. Hier wird deutlich, welche Klassen
+und Methoden erstellt werden müssen.
 
 \begin{figure}[h]
 	\centering
@@ -327,21 +327,21 @@ deutlich, welche Klassen und Methoden erstellt werden müssen.
 	\label{fig:klassendiagramm_new}
 \end{figure}
 
-Wie bereits zu erkennen ist, signalisieren die roten Elemente die Punkte, an denen
-die Funktionalität erweitert werden kann. Um einen noch genaueren Einblick in
-die Strukturen zu geben, geht das nachfolgende Kapitel noch einen Schritt weiter
-und geht auf konkrete Implementierungsdetails ein.
+Wie bereits zu erkennen ist, signalisieren die roten Elemente die Punkte, an
+denen die Funktionalität erweitert werden kann. Um einen noch genaueren Einblick
+in die Strukturen zu geben, geht das nachfolgende Kapitel noch einen Schritt
+weiter und geht auf konkrete Implementierungsdetails ein.
 
 \pagebreak
 % ---------------------------------------------------------------------------------------
 
 \section{Implementierungen}
 \label{sec:technische_umsetzung} Zu Beginn sei gesagt, dass dieses Kapitel nicht
-alle Funktionen detailliert beschreibt, sondern sich auf die wichtigsten
-Funktionen und Methode des Tooth Analyser beschränkt. Auf Basis des Klassendiagramms
-aus Abbildung \ref{fig:klassendiagramm} lässt sich eine grobe Übersicht über die
-wichtigsten Klassen gewinnen. Tabelle \ref{tab:methoden_klassen} fasst diese
-Übersicht zusammen. Die Reihenfolge gibt eine grobe Orientierung bezüglich der Wichtigkeit.
+alle Funktionen detailliert beschreibt, sondern sich auf die wichtigsten Funktionen
+und Methode des Tooth Analyser beschränkt. Auf Basis des Klassendiagramms aus
+Abbildung \ref{fig:klassendiagramm} lässt sich eine grobe Übersicht über die
+wichtigsten Klassen gewinnen. Tabelle \ref{tab:methoden_klassen} fasst diese Übersicht
+zusammen. Die Reihenfolge gibt eine grobe Orientierung bezüglich der Wichtigkeit.
 
 \begin{table}[h]
 	\centering
@@ -361,13 +361,13 @@ wichtigsten Klassen gewinnen. Tabelle \ref{tab:methoden_klassen} fasst diese
 	\label{tab:methoden_klassen}
 \end{table}
 
-Die drei Klassen aus der eben gezeigten Tabelle werden von der Slicer
-Dokumentation grob vorgeschrieben, und bilden somit den Kern der Erweiterung.
-Alle drei erben von der Klasse \texttt{ScriptedLoadableModule} und stellen so die
-Anbindung an das Kernsystem sicher. Die Klasse \texttt{ToothAnalyser} bildet hierbei
-den Abschnitt \textit{Help and Acknowledgemt}, den jedes Modul mitbringen muss.
-Dort stehen alle wichtigen Metainformationen über das konkrete Modul. Der nachfolgende
-Ausschnitt eines Quelltextes zeigt grob den Aufbau dieser Klasse.
+Die drei Klassen aus der eben gezeigten Tabelle werden von der Slicer Dokumentation
+grob vorgeschrieben, und bilden somit den Kern der Erweiterung. Alle drei erben von
+der Klasse \texttt{ScriptedLoadableModule} und stellen so die Anbindung an das
+Kernsystem sicher. Die Klasse \texttt{ToothAnalyser} bildet hierbei den
+Abschnitt \textit{Help and Acknowledgemt}, den jedes Modul mitbringen muss. Dort
+enthalten sind alle wichtigen Metainformationen über das konkrete Modul. Der
+nachfolgende Ausschnitt eines Quelltextes zeigt grob den Aufbau dieser Klasse.
 
 \begin{lstlisting}[
     language={python},
@@ -384,21 +384,22 @@ class ToothAnalyser(ScriptedLoadableModule):
 	    self.parent.acknowledgementText = _("ackn.")
 \end{lstlisting}
 
-Direkt in Zeile eins ist zu sehen, dass die Klasse eine Generalisierung der Klasse
-\texttt{ScriptedLoadableModule} ist. Über diese Elternklasse wird die Integration
-in die Slicer Kernanwendung sichergestellt. Innerhalb des Konstruktors der
-Klasse werden unterschiedliche Felder angelegt, welche die verschiedenen Texte widerspiegeln
-sollen. Zu Beachten ist noch, dass die Felder die einen einfachen String erwarten,
-in einer unscheinbaren Methode \texttt{\_()} gekapselt sind. Diese Methode ist
-Teil des Slicer Python-Framework und sorgt dafür, dass automatisch der Kontextname
-gewechselt wird. Über bekannte Html-Tags können auch Bilder oder Hyperlinks
-eingebaut werden, welche auf Screenshots oder Dokumentationen verweisen.
+Direkt in Zeile eins ist zu sehen, dass die Klasse eine Generalisierung der
+Klasse \texttt{ScriptedLoadableModule} ist. Über diese Elternklasse wird die
+Integration in die Slicer Kernanwendung sichergestellt. Innerhalb des Konstruktors
+der Klasse werden unterschiedliche Felder angelegt, welche die verschiedenen
+Texte widerspiegeln sollen. Zu Beachten ist noch, dass die Felder die einen
+einfachen String erwarten, in einer unscheinbaren Methode \texttt{\_()}
+gekapselt sind. Diese Methode ist Teil des Slicer Python-Framework und sorgt dafür,
+dass automatisch der Kontextname gewechselt wird. Über bekannte Html-Tags können
+auch Bilder oder Hyperlinks eingebaut werden, welche auf Screenshots oder
+Dokumentationen verweisen.
 
 Die Klasse \texttt{ToothAnalyserWidget} bildet die gesamte Benutzerschnittstelle
-der Erweiterung ab und kümmert sich gleichzeitig um das Zusammenspiel zwischen
-Logik und Parameter. Hierfür hat die Widget-Klasse Zugriff auf alle Parameter und
-auf die Logik-Schnittstelle. Das nachfolgende Listing zeigt einen groben Aufbau
-der Felder innerhalb der Klasse \texttt{ToothAnalyserWidget}.
+der Erweiterung ab und kümmert sich gleichzeitig um das Zusammenspiel zwischen Logik
+und Parameter. Hierfür hat die Widget-Klasse Zugriff auf alle Parameter und auf
+die Logik-Schnittstelle. Das nachfolgende Listing zeigt einen groben Aufbau der Felder
+innerhalb der Klasse \texttt{ToothAnalyserWidget}.
 
 \begin{lstlisting}[
     language={python},
@@ -412,16 +413,16 @@ class ToothAnalyserWidget(ScriptedLoadableModuleWidget):
 \end{lstlisting}
 
 Wie auch schon die Klasse \texttt{ToothAnalyser} ist auch die Widget-Klasse eine
-Kindklasse. Der Konstruktor dieser Klasse wird jedes Mal aufgerufen, wenn der Benutzer
-zum ersten Mal nach dem Start von Slicer das Modul aufruft. Neben dem
-Konstruktoraufruf der Elternklasse werden auch die Parameter und die Logik-Schnittstelle
-initialisiert. So ergibt sich die Situation, dass die \ac{UI} die aktuellen Parametereinstellungen
-abfragt und sie an die Logik weiterleitet.
+Kindklasse. Der Konstruktor dieser Klasse wird jedes Mal aufgerufen, wenn der
+Benutzer zum ersten Mal nach dem Start von Slicer das Modul aufruft. Neben dem Konstruktoraufruf
+der Elternklasse werden auch die Parameter und die Logik-Schnittstelle initialisiert.
+So ergibt sich die Situation, dass die \ac{UI} die aktuellen
+Parametereinstellungen abfragt und sie an die Logik weiterleitet.
 
-Neben der Steuerungsaufgabe erstellt die Widget-Klasse auch die \ac{UI} aus der
-\ac{UI}-Datei bereit. Da diese unter der Haube ein \ac{XML} Format aufweist,
-kann diese einfach in das Modul hineingeladen werden. Der Quellcode aus \ref{lst:create_ui}
-zeigt dies.
+Neben der Steuerungsaufgabe erstellt die Widget-Klasse auch die \ac{UI} aus der \ac{UI}-Datei
+bereit. Da diese unter der Haube ein \ac{XML} Format aufweist, kann diese einfach
+in das Modul hineingeladen werden. Der Quellcode aus \ref{lst:create_ui} zeigt
+dies.
 
 \begin{lstlisting}[
     language={python},
@@ -435,15 +436,15 @@ def createUI(self) -> any:
 \end{lstlisting}
 
 Mittels der Bibliothek \texttt{slicer} lässt sich hier die Datei für die \ac{UI}
-laden. Diese Datei liegt im Ordner \textit{Resources} sodass der Pfad zu diesem
-Ordner mit der Methode \texttt{self.resourcePath()} ausgelesen werden kann. Als
-Argument kann dann der Name der Datei angegeben werden. In diesem Fall existiert
-noch ein Unterordner mit der entsprechenden Datei (\texttt{"UI/W.ui"}).
+laden. Diese Datei liegt im Ordner \textit{Resources} sodass der Pfad zu diesem Ordner
+mit der Methode \texttt{self.resourcePath()} ausgelesen werden kann. Als Argument
+kann dann der Name der Datei angegeben werden. In diesem Fall existiert noch ein
+Unterordner mit der entsprechenden Datei (\texttt{"UI/W.ui"}).
 
 Ein weiterer nennenswerter Punkt in der Klasse \texttt{ToothAnalyserWidget} sind
-die eventbasierten Methoden. Diese sorgen dafür, dass auf bestimmte Aktionen in der
-Anwendung reagiert werden kann. Der Tooth Analyser hat in der Widget-Klasse
-mehrere solcher Event-Methoden, die hier genannt werden.
+die eventbasierten Methoden. Diese sorgen dafür, dass auf bestimmte Aktionen in
+der Anwendung reagiert werden kann. Der Tooth Analyser hat in der Widget-Klasse mehrere
+solcher Event-Methoden, die hier genannt werden.
 
 \begin{description}
 	\item[enter(),] wird immer ausgeführt, wenn der Benutzer das Modul öffnet
@@ -460,12 +461,13 @@ mehrere solcher Event-Methoden, die hier genannt werden.
 		der \ac{UI} macht
 \end{description}
 
-Die Methode \texttt{observerParameter()} ist hierbei sehr interessant und verdient
-besondere Beachtung. Die Methode ist eine Beobachtungsmethode, die an ein Event gekoppelt
-ist, dass sich \textit{ModifiedEvent} nennt. Dieses Event wird immer ausgelöst, wenn
-der Benutzer Änderungen in der Slicer \ac{UI} macht. Dies umschließt nicht nur das
-Modul. Wird also solch ein Event gefeuert, so wird die Methode \texttt{observeParameter()}
-aufgerufen. Das Listing \ref{lst:observe_parameter} zeigt diese Methode:
+Die Methode \texttt{observerParameter()} ist hierbei sehr interessant und
+verdient besondere Betrachtung. Die Methode ist eine Beobachtungsmethode, die an
+ein Event gekoppelt ist, dass sich \textit{ModifiedEvent} nennt. Dieses Event wird
+immer ausgelöst, wenn der Benutzer Änderungen in der Slicer \ac{UI} macht. Dies
+umschließt nicht nur das Modul. Wird also solch ein Event gefeuert, so wird die
+Methode \texttt{observeParameter()} aufgerufen. Das Listing
+\ref{lst:observe_parameter} zeigt diese Methode:
 
 \begin{lstlisting}[
     language={python},
@@ -477,23 +479,23 @@ def observerParameters(self, caller=None, event=None)->None:
   self.handleApplyAnatomicalButton()
 \end{lstlisting}
 
-Die Methode verfügt über die Parameter \texttt{caller} und \texttt{event}. Mittels
-diesen Parametern kann der Auslöser des Events und die Art des Events bestimmt werden.
-So könnte man verschiedenen Aktionen auf verschiedene Events ausführen. Innerhalb
-des Tooth Analyser wird diese Methode genutzt, um die Klick-Logik der Buttons
-abzubilden. Die Methoden \texttt{handleApply<...>Button()} steuern jeweils die
-Sichtbarkeiten der einzelnen Buttons. Immer wenn der Benutzer dann Änderungen an
-der \ac{UI} durchführt, wird die Logik innerhalb dieser Methode aus Listing \ref{lst:observe_parameter}
+Die Methode verfügt über die Parameter \texttt{caller} und \texttt{event}.
+Mittels diesen Parametern kann der Auslöser des Events und die Art des Events
+bestimmt werden. So könnte man verschiedenen Aktionen auf verschiedene Events ausführen.
+Innerhalb des Tooth Analyser wird diese Methode genutzt, um die Klick-Logik der Buttons
+abzubilden. Die Methoden \texttt{handleApply<...>Button()} steuern jeweils die Sichtbarkeiten
+der einzelnen Buttons. Immer wenn der Benutzer dann Änderungen an der \ac{UI} durchführt,
+wird die Logik innerhalb dieser Methode aus Listing \ref{lst:observe_parameter}
 aktualisiert.
 
-Die letzte der wichtigen Klassen bildet die Logik-Schnittstelle, wie sie in
-Tabelle \ref{tab:methoden_klassen}, Zeile drei genannt wurde. Diese
-Schnittstelle ist der zentrale Punkt aller aktuellen und zukünftigen
-Logikklassen. Jede Klasse, die einen speziellen Algorithmus implementiert, muss dieses
-Interface implementieren. So wird sichergestellt, dass alle Algorithmen nach dem
-gleichen Aufbau eingebaut werden. Dies sorgt für ein einheitliches Vorgehen. Das
-Listing \ref{lst:logik_interface} zeigt diese eben beschriebenen Schnittstelle und
-soll diese so genauere beleuchten.
+Die letzte der wichtigen Klassen bildet die Logik-Schnittstelle, wie sie in Tabelle
+\ref{tab:methoden_klassen}, Zeile drei genannt wurde. Diese Schnittstelle ist der
+zentrale Punkt aller aktuellen und zukünftigen Logikklassen. Jede Klasse, die einen
+speziellen Algorithmus implementiert, muss dieses Interface implementieren. So wird
+sichergestellt, dass alle Algorithmen nach dem gleichen Aufbau eingebaut werden.
+Dies sorgt für ein einheitliches Vorgehen. Das Listing \ref{lst:logik_interface}
+zeigt diese eben beschriebenen Schnittstelle und soll diese so genauere
+beleuchten.
 
 \pagebreak
 
@@ -525,23 +527,74 @@ class ToothAnalyserLogic(ScriptedLoadableModuleLogic):
         raise NotImplementedError("Please implement this")
 \end{lstlisting}
 
-Auch die dritte der wichtigen Klassen erbt von einer übergeordneten Klasse und verfügt
-so über deren Funktionen. Die Schnittstelle verfügt über drei Methoden, die eine
-Standardimplementierung haben und direkt im Interface implementiert werden. Die
-Methode \texttt{getParameterNode()} sorgt dafür, dass alle Parameter des Moduls
-zur Verfügung stehen und verwendet werden können. \texttt{preProcessing()} und
-\texttt{postProcessing()} sind für eine Vor- und Nachverarbeitung des
-entsprechenden Bildes verantwortlich. Die Vorverarbeitung könnte beispielsweise eine
-Komprimierung des Bildes beinhalten, wohingegen die Nachbereitung Analysen auf
-dem Ergebnis anstoßen könnte. Im Rahmen dieser vorliegenden Arbeit wurden für die
-Methoden \texttt{preProcessing()} und \texttt{postProcessing()} keine Methodenrümpfe
-gebaut. Eine mögliche zukünftige Implementierung ist im Kapitel
-\ref{chap:schlussfolgerung} zu finden. Die beiden noch übrigen Methoden \texttt{execute()}
-und \texttt{executeAsBatch()} sind abstrakte Methoden, die eine Implementierung
-in den jeweiligen Unterklassen erfordern. Dabei bilden beide Methoden zentrale Punkte.
-Innerhalb dieser Methoden soll der entsprechende Algorithmus der Klasse
-ausgeführt und gestartet werden. Einmal mit nur einem Bild und anschließender Visualisierung
-in der Slicer Szene und einmal als Batch ohne Visualisierung.
+Auch die dritte der wichtigen Klassen erbt von einer übergeordneten Klasse und
+verfügt so über deren Funktionen. Die Schnittstelle verfügt über drei Methoden,
+die eine Standardimplementierung haben und direkt im Interface implementiert
+werden. Die Methode \texttt{getParameterNode()} sorgt dafür, dass alle Parameter
+des Moduls zur Verfügung stehen und verwendet werden können. \texttt{preProcessing()}
+und \texttt{postProcessing()} sind für eine Vor- und Nachverarbeitung des entsprechenden
+Bildes verantwortlich. Die Vorverarbeitung könnte beispielsweise eine
+Komprimierung des Bildes beinhalten, wohingegen die Nachbereitung Analysen auf dem
+Ergebnis anstoßen könnte. Im Rahmen dieser vorliegenden Arbeit wurden für die
+Methoden \texttt{preProcessing()} und \texttt{postProcessing()} keine
+Methodenrümpfe gebaut. Eine mögliche zukünftige Implementierung ist im Kapitel \ref{chap:schlussfolgerung}
+zu finden. Die beiden noch übrigen Methoden \texttt{execute()} und \texttt{executeAsBatch()}
+sind abstrakte Methoden, die eine Implementierung in den jeweiligen Unterklassen
+erfordern. Dabei bilden beide Methoden zentrale Punkte. Innerhalb dieser Methoden
+soll der entsprechende Algorithmus der Klasse ausgeführt und gestartet werden.
+Einmal mit nur einem Bild und anschließender Visualisierung in der Slicer Szene
+und einmal als Batch ohne Visualisierung.
+
+Neben den drei Hauptklassen, die auch die Integration in das Kernsystem von 3D Slicer
+sicherstellen, verfügt der Tooth Analyser auch über einen Mechanismus, der die Kommunikation
+zwischen der Benutzerschnittstelle und dem Quellcode der Erweiterung realisiert.
+Für das Erstellen einer \ac{UI}, die für eine Slicer Erweiterung notwendig ist, nutzt
+3D Slicer den Qt-Designer \citep[vgl.][]{qt2024}. Die Integration des Qt-Designers
+als Applikation in eine andere Applikation funktioniert aufgrund der Plattformintegrität,
+die der Designer mitbringt \citep[vgl.][]{qt2024}. Diese bietet so die
+Möglichkeit die benötigten Widgets über eine interaktive Benutzerschnittstelle
+zu bauen. Für diese \ac{UI}-Vorrichtung gibt es einen Gegenspieler im Quelltext
+des Programmes, welcher als \textit{ParameterNode} bekannt ist. Der \textit{ParameterNode}
+ist laut \citet{slicer2024} eine leichte Variante eines \ac{MRML}-Knoten um
+Parametereinstellungen zu speichern. Durch das Zusammenspiel zwischen \ac{UI}
+und \textit{ParameterNode} wird die \ac{UI} automatisch aktualisiert, wenn sich das
+Programm ändert \citep[vgl.][]{slicer2024}.
+
+Das Erstellen der Verknüpfung zwischen \ac{UI}-Widget und \textit{ParameterNode}
+erfolgt über die dynamische Eigenschaft \texttt{SlicerParameterName}, die direkt
+in der Komponentenansicht im Qt-Designer einstellbar ist. Die Abbildung \ref{fig:qt_designer}
+soll diesen Vorgang verdeutlichen. Dabei ist es wichtig, dass genau diese Eigenschaft
+auch verwendet wird. Diese Verknüpfung lässt sich laut \citet{slicer2024} auch via
+Programmcode setzten.
+
+\begin{minipage}{0.55\textwidth}
+	\centering
+	\begin{lstlisting}[
+		language=Python,
+		label={lst:qt_parameter_node},
+		caption={Ausschnitt des Parameter Knoten im Quellcode des Tooth Analysers, der mit der UI über den Parameter \texttt{SlicerParameterName} gekoppelt ist}]
+@parameterNodeWrapper
+class ToothAnalyserParameterNode:
+    batch: Batch
+    status: str = ""
+    \end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.35\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/qt_designer.png}
+	\captionof{figure}{Komponentenansicht der Komponente status im QT-Designer} \label{fig:qt_designer}
+\end{minipage}
+
+Betrachtet man erst das Feld \texttt{status} im Quellcode \ref{lst:qt_parameter_node}
+und dann den Parameter \texttt{SlicerParameterName} in der Abbildung
+\ref{fig:qt_designer}, so fällt auf, dass diese einheitliche Benennung die \ac{UI}
+mit dem Quellcode verbindet. Dabei ist es wichtig, das genau dieser Parameter Name
+für die dynamische Eigenschaft verwendet wird.
+
+Nachdem die Implementierung der wichtigsten Komponenten isoliert besprochen wurden,
+soll der Abschluss des Kapitels noch genauer beleuchten, wie die unterschiedlichen
+Klassen und Komponenten untereinander interagieren.
 
 Um die Architektur des Tooth Analyser noch genauer nachvollziehen zu können,
 soll abschließend in diesem Kapitel das Zusammenspiel genauer betrachtet werden.
@@ -682,7 +735,7 @@ wenn das Modul installiert werden soll. Die Bilder werden erst dann heruntergela
 wenn sie benötigt werden. Um dieses Herunterladen zu ermöglichen, werden die
 Bilder beim Starten des Moduls erstmals in Slicer registriert, sodass sie dann im
 Modul \texttt{sampleData} zur Verfügung stehen. Damit ist nicht nur gewährleistet,
-dass zukünftige Entwickler Tests ausführen könne, es kann so auch Benutzern Beispielbilder
+dass zukünftige Entwickler Tests ausführen könne, es können so auch Benutzern Beispielbilder
 bereitgestellt werden, um erste Erfahrungen mit dem Tool zu machen. Die Abbildung
 \ref{fig:sample_data} zeigt das Modul \texttt{SampleData} mit besonderem
 Augenmerk auf das Bild \textit{ToothCT}.
@@ -750,7 +803,7 @@ keiner Zeit im Fokus dieser Arbeit. Dennoch ergaben sich interessante Ergebnisse
 die hier kurz erläutert werden sollen. Unter der Performance versteht dieses
 Kapitel das konkrete Laufzeitverhalten der Anwendung also jene Zeit die zwischen
 Start und Ende vergeht. Grundsätzlich lässt sich dazu sagen, dass die Laufzeit
-bei der Bearbeitung von 3D Mikro-\ac{CT}-Aufnahmen sehr stark vom Type des Bildes
+bei der Bearbeitung von 3D Mikro-\ac{CT}-Aufnahmen sehr stark vom Typ des Bildes
 abhängt. So kommt es beispielsweise darauf an, wie groß das Bild ist, oder ob es
 bereits eine Filterung erfahren hat. Bei der Verarbeitung der Mikro-\ac{CT}-Bilder
 aus dem Klinikum für Zahnerhaltung wurde eine konkrete Messung durchgeführt, die
@@ -776,14 +829,14 @@ hier in Abbildung \ref{fig:laufzeit} gezeigt wird.
 \end{figure}
 
 Zu sehen ist, dass unter diesen Bedingungen die Bearbeitung eines einzelnen Bildes
-ca. 17 Minuten beansprucht. Dabei fallen über drei Viertel der Zeit auf die Filterung
+ca. 17 Minuten beansprucht. Dabei fallen über dreiviertel der Zeit auf die Filterung
 zurück. Der Bereich Auffüllung beinhaltet ebenfalls eine Filterung der einzelnen
 Segmente, weswegen dieser den zweitgrößten Teil ausmacht. Ein Weiterer
 wesentlichen Teil stellen die beiden medialen Flächen dar. Um dieser doch enormen
 Laufzeit etwas entgegen zu Wirken wurden zwei Mechanismen implementiert. Das
 Verfahren kann einerseits erkennen, ob ein Bild bereits gefiltert wurde und andererseits
 die medialen Flächen optional berechnen. So kommt es, dass sich ein \textit{Best
-Case} ergibt der grob nur noch ein Viertel der Zeit benötigt. Dieser \textit{Best
+Case} ergibt der grob nur noch einviertel der Zeit benötigt. Dieser \textit{Best
 Case} tritt ein, wenn ein Bild in den Algorithmus gegeben wird, das bereits
 gefiltert wurde und keine medialen Flächen erfordert. Unter Berücksichtigung von
 Abbildung \ref{fig:laufzeit} kann dann die Zeit für die Filterung und die medialen
@@ -895,7 +948,7 @@ Algorithmus. Die anatomische Segmentierung wurde speziell für die \ac{CT}-Aufna
 im \ac{ISQ} Typ entwickelt. Aus diesem Grund wurden die Schwellwerte und Parameter
 für dieses Verfahren fest codiert. Führt man dennoch die Segmentierung mit einem
 anderen Format durch (z.B. \ac{8UInt}), so stellt man fest, dass der Algorithmus
-zwar ein Ergebnis generiert, dieses aber nicht brauchbar ist. Die Abbildung
+zwar ein Ergebnis generiert, dieses aber nicht verwendbar ist. Die Abbildung
 \ref{fig:3d_error} zeigt ein solches falsche Ergebnis.
 
 \begin{figure}[h]
@@ -907,12 +960,11 @@ zwar ein Ergebnis generiert, dieses aber nicht brauchbar ist. Die Abbildung
 
 Zu sehen ist ein 3D Modell, das nur aus einem Segment besteht. In diesem Fall wurde
 der gesamte Zahn mit Pulpa als Dentin markiert. Nach einer etwas detaillierteren
-Analyse konnte festgestellt werden, dass das Problem wohl im Bereich der Auffüllung
-liegt. Den Grund dafür liefern die einzelnen Datensätze während der
-Segmentierung. Betrachtet man diese genauer so fällt auf, das der Zahn zu Beginn
-richtig segmentiert wird, auch in Bezug auf die Pulpa. Nachdem dann die
-Auffüllung für das Schmelzsegment über das Bild läuft, wird diese zuerst richtige
-Segmentierung wieder verworfen.
+Analyse konnte festgestellt werden, dass das Problem im Bereich der Auffüllung liegt.
+Den Grund dafür liefern die einzelnen Datensätze während der Segmentierung. Betrachtet
+man diese genauer so fällt auf, das der Zahn zu Beginn richtig segmentiert wird,
+auch in Bezug auf die Pulpa. Nachdem dann die Auffüllung für das Schmelzsegment
+über das Bild läuft, wird diese zuerst richtige Segmentierung wieder verworfen.
 
 Durch diese Limitierung ergibt sich eine weitere. Zu Beginn in der Analysephase
 des Projektes, war eine Vorverarbeitung der Bilder vorgesehen, dass die

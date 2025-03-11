@@ -19,7 +19,7 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
-    \entry{slicer2024}{misc}{}
+    \entry{slicer2024}{manual}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=ce3f66733f8020adf3ecfd1c5ef3c404}{%
            family={{3D Slicer Community}},
@@ -38,31 +38,30 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.slicer.org}}
-      \field{note}{Zugriff am 21. November 2024}
+      \field{note}{Zugriff am 06. M\"{a}rz 2024}
       \field{title}{3D Slicer: A multi-platform, free and open source software package for visualization and image analysis}
       \field{year}{2024}
     \endentry
     \entry{extensionsIndex2024}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=9dd12323302c383fb0fedb34e8ba6ba3}{%
-           family={{3D Slicer Index}},
+        {{un=0,uniquepart=base,hash=0072f2555da3b504bf95ed7a0cf9702d}{%
+           family={{3D Slicer Developer Community}},
            familyi={3\bibinitperiod}}}%
       }
-      \strng{namehash}{9dd12323302c383fb0fedb34e8ba6ba3}
-      \strng{fullhash}{9dd12323302c383fb0fedb34e8ba6ba3}
-      \strng{bibnamehash}{9dd12323302c383fb0fedb34e8ba6ba3}
-      \strng{authorbibnamehash}{9dd12323302c383fb0fedb34e8ba6ba3}
-      \strng{authornamehash}{9dd12323302c383fb0fedb34e8ba6ba3}
-      \strng{authorfullhash}{9dd12323302c383fb0fedb34e8ba6ba3}
+      \strng{namehash}{0072f2555da3b504bf95ed7a0cf9702d}
+      \strng{fullhash}{0072f2555da3b504bf95ed7a0cf9702d}
+      \strng{bibnamehash}{0072f2555da3b504bf95ed7a0cf9702d}
+      \strng{authorbibnamehash}{0072f2555da3b504bf95ed7a0cf9702d}
+      \strng{authornamehash}{0072f2555da3b504bf95ed7a0cf9702d}
+      \strng{authorfullhash}{0072f2555da3b504bf95ed7a0cf9702d}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://github.com/Slicer/ExtensionsIndex}}
-      \field{note}{GitHub repository}
-      \field{title}{Slicer Extensions Index}
+      \field{note}{GitHub-Repository, Zugriff am 06 M\"{a}rz 2025}
+      \field{title}{3D Slicer Extensions Index}
       \field{year}{2024}
       \verb{urlraw}
       \verb https://github.com/Slicer/ExtensionsIndex
@@ -528,7 +527,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{1}
-      \field{note}{Zugriff am: 2024-11-15}
+      \field{note}{Zugriff am 15. November 2024}
       \field{title}{In-vitro caries diagnostic study - 375 microtomographic images of the coronal part of extracted human teeth}
       \field{year}{2024}
       \verb{doi}
@@ -570,29 +569,6 @@
       \field{type}{Bachelorarbeit}
       \field{year}{2020}
     \endentry
-    \entry{itk2024}{misc}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=cb6d675190b04c7e0eadabe06e81e776}{%
-           family={{ITK Development Team}},
-           familyi={I\bibinitperiod}}}%
-      }
-      \strng{namehash}{cb6d675190b04c7e0eadabe06e81e776}
-      \strng{fullhash}{cb6d675190b04c7e0eadabe06e81e776}
-      \strng{bibnamehash}{cb6d675190b04c7e0eadabe06e81e776}
-      \strng{authorbibnamehash}{cb6d675190b04c7e0eadabe06e81e776}
-      \strng{authornamehash}{cb6d675190b04c7e0eadabe06e81e776}
-      \strng{authorfullhash}{cb6d675190b04c7e0eadabe06e81e776}
-      \field{sortinit}{I}
-      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://itk.org}}
-      \field{note}{Entwickelt und gepflegt von Kitware, Zugriff am 21. November 2024}
-      \field{title}{ITK: Insight Segmentation and Registration Toolkit}
-      \field{year}{2024}
-    \endentry
     \entry{jahne2024}{book}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=2af9a87ab3a028f0648eedb98f353969}{%
@@ -619,6 +595,76 @@
       \field{labeltitlesource}{title}
       \field{title}{Digitale bildverarbeitung: und bildgewinnung}
       \field{year}{2024}
+    \endentry
+    \entry{jetbrains2024}{software}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b6a77f3f5bead76a495a90d63703e1f9}{%
+           family={{JetBrains}},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{fullhash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{bibnamehash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{authorbibnamehash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{authornamehash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{authorfullhash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Integrierte Entwicklungsumgebung (IDE)}
+      \field{title}{PyCharm IDEA}
+      \field{version}{2024.1}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.jetbrains.com/de-de/pycharm/
+      \endverb
+      \verb{url}
+      \verb https://www.jetbrains.com/de-de/pycharm/
+      \endverb
+    \endentry
+    \entry{itkguide2015}{book}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6048ec4777f717a50cafebea5148e281}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Hans},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=55d0663259f2242e707c6a2544644fab}{%
+           family={McCormick},
+           familyi={M\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=69198d3d0b301c3fdc46b7d4da06b543}{%
+           family={Ibanez},
+           familyi={I\bibinitperiod},
+           given={Luis},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Kitware Inc.}%
+      }
+      \strng{namehash}{14cc93eed531daf49cb8b1c94fd6816d}
+      \strng{fullhash}{08edb95e5f17e6721c028945e9f12c80}
+      \strng{bibnamehash}{08edb95e5f17e6721c028945e9f12c80}
+      \strng{authorbibnamehash}{08edb95e5f17e6721c028945e9f12c80}
+      \strng{authornamehash}{14cc93eed531daf49cb8b1c94fd6816d}
+      \strng{authorfullhash}{08edb95e5f17e6721c028945e9f12c80}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{4th}
+      \field{isbn}{978-1-930934-27-6}
+      \field{title}{The ITK Software Guide: Introduction and Development Guidelines}
+      \field{year}{2015}
     \endentry
     \entry{lehmann2012Zahnheilkunde}{book}{}
       \name{author}{3}{}{%
@@ -722,7 +768,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Zugriff am: 2024-11-15}
+      \field{note}{Zugriff am 15. November 2024}
       \field{title}{X-Rays - Science Topic}
       \field{year}{2024}
       \verb{urlraw}
@@ -732,28 +778,36 @@
       \verb https://www.nibib.nih.gov/science-education/science-topics/x-rays
       \endverb
     \endentry
-    \entry{poliklinikLMU}{misc}{}
+    \entry{procida2017}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=98f28b1ba0c8a79f3b067f3e0c67f670}{%
-           family={Poliklinik},
-           familyi={P\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=a81edd28231fd6c55d40cf04bea6e417}{%
+           family={Procida},
+           familyi={P\bibinitperiod},
+           given={Daniele},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
       }
-      \strng{namehash}{98f28b1ba0c8a79f3b067f3e0c67f670}
-      \strng{fullhash}{98f28b1ba0c8a79f3b067f3e0c67f670}
-      \strng{bibnamehash}{98f28b1ba0c8a79f3b067f3e0c67f670}
-      \strng{authorbibnamehash}{98f28b1ba0c8a79f3b067f3e0c67f670}
-      \strng{authornamehash}{98f28b1ba0c8a79f3b067f3e0c67f670}
-      \strng{authorfullhash}{98f28b1ba0c8a79f3b067f3e0c67f670}
+      \strng{namehash}{a81edd28231fd6c55d40cf04bea6e417}
+      \strng{fullhash}{a81edd28231fd6c55d40cf04bea6e417}
+      \strng{bibnamehash}{a81edd28231fd6c55d40cf04bea6e417}
+      \strng{authorbibnamehash}{a81edd28231fd6c55d40cf04bea6e417}
+      \strng{authornamehash}{a81edd28231fd6c55d40cf04bea6e417}
+      \strng{authorfullhash}{a81edd28231fd6c55d40cf04bea6e417}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.klinikum.uni-muenchen.de/Poliklinik-fuer-Zahnerhaltung-und-Parodontologie/}}
-      \field{note}{Zugriff am 22. November 2024}
-      \field{title}{Poliklinik f\"{u}r Zahnerhaltung und Parodontologie des LMU-Klinikums M\"{u}nchen}
-      \field{year}{2024}
+      \field{note}{Konferenzvortrag bei Write the Docs EU 2017, zuletzt abgerufen am 6. M\"{a}rz 2025}
+      \field{title}{The Four Kinds of Documentation and Why You Need to Understand What They Are}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.writethedocs.org/videos/eu/2017/the-four-kinds-of-documentation-and-why-you-need-to-understand-what-they-are-daniele-procida/
+      \endverb
+      \verb{url}
+      \verb https://www.writethedocs.org/videos/eu/2017/the-four-kinds-of-documentation-and-why-you-need-to-understand-what-they-are-daniele-procida/
+      \endverb
     \endentry
     \entry{qt2024}{misc}{}
       \name{author}{1}{}{%
@@ -774,8 +828,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://doc.qt.io/qt-6/qt-intro.html}}
-      \field{note}{Entwickelt und gepflegt von The Qt Company, Zugriff am 21. November 2024}
-      \field{title}{Qt Documentation: Introduction to Qt}
+      \field{note}{Zugriff am 21. November 2024}
+      \field{title}{Qt Documentation: Einf\"{u}hrung}
       \field{year}{2024}
     \endentry
     \entry{ramesh2021}{article}{}
@@ -887,15 +941,55 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Zugriff am: 22. November 2024}
-      \field{title}{Brochures and Documentation}
+      \field{note}{Zugriff am 22. November 2024}
+      \field{title}{MicroCT Systems Overview}
       \field{year}{2024}
       \verb{urlraw}
-      \verb https://www.scanco.ch/brochures.html
+      \verb https://www.scanco.ch/systems-overview.html
       \endverb
       \verb{url}
-      \verb https://www.scanco.ch/brochures.html
+      \verb https://www.scanco.ch/systems-overview.html
       \endverb
+    \endentry
+    \entry{vtk2006}{book}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=f2debcce030b32c7f2016e566261199c}{%
+           family={Schroeder},
+           familyi={S\bibinitperiod},
+           given={Will},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=417386cd55d38dbbe1bbebccbbc8e8ed}{%
+           family={Martin},
+           familyi={M\bibinitperiod},
+           given={Ken},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=02d5a325a8f2c3733843953a7005298b}{%
+           family={Lorensen},
+           familyi={L\bibinitperiod},
+           given={Bill},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Kitware}%
+      }
+      \strng{namehash}{dd0f40f214396cc2ecc0aec2965786bc}
+      \strng{fullhash}{340ff298ce91155ae09c9a40578df722}
+      \strng{bibnamehash}{340ff298ce91155ae09c9a40578df722}
+      \strng{authorbibnamehash}{340ff298ce91155ae09c9a40578df722}
+      \strng{authornamehash}{dd0f40f214396cc2ecc0aec2965786bc}
+      \strng{authorfullhash}{340ff298ce91155ae09c9a40578df722}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-930934-19-1}
+      \field{title}{The Visualization Toolkit (4th ed.)}
+      \field{year}{2006}
     \endentry
     \entry{siebler2014}{book}{}
       \name{author}{1}{}{%
@@ -931,28 +1025,33 @@
       \verb https://books.google.de/books?id=9GkIoAEACAAJ
       \endverb
     \endentry
-    \entry{vtk2024}{misc}{}
+    \entry{slicerdebuggingtools}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3df4698da7088f98aeb1e5967a743306}{%
-           family={{VTK Development Team}},
-           familyi={V\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=9f278ecdf8c06cbbcde0fb9a3c5492bc}{%
+           family={{SlicerRt Team}},
+           familyi={S\bibinitperiod}}}%
       }
-      \strng{namehash}{3df4698da7088f98aeb1e5967a743306}
-      \strng{fullhash}{3df4698da7088f98aeb1e5967a743306}
-      \strng{bibnamehash}{3df4698da7088f98aeb1e5967a743306}
-      \strng{authorbibnamehash}{3df4698da7088f98aeb1e5967a743306}
-      \strng{authornamehash}{3df4698da7088f98aeb1e5967a743306}
-      \strng{authorfullhash}{3df4698da7088f98aeb1e5967a743306}
-      \field{sortinit}{V}
-      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \strng{namehash}{9f278ecdf8c06cbbcde0fb9a3c5492bc}
+      \strng{fullhash}{9f278ecdf8c06cbbcde0fb9a3c5492bc}
+      \strng{bibnamehash}{9f278ecdf8c06cbbcde0fb9a3c5492bc}
+      \strng{authorbibnamehash}{9f278ecdf8c06cbbcde0fb9a3c5492bc}
+      \strng{authornamehash}{9f278ecdf8c06cbbcde0fb9a3c5492bc}
+      \strng{authorfullhash}{9f278ecdf8c06cbbcde0fb9a3c5492bc}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://vtk.org}}
-      \field{note}{Entwickelt und gepflegt von Kitware, Zugriff am 21. November 2024}
-      \field{title}{VTK: The Visualization Toolkit}
+      \field{note}{GitHub-Repository, Zugriff am 06 M\"{a}rz 2025}
+      \field{title}{SlicerDebuggingTools}
       \field{year}{2024}
+      \verb{urlraw}
+      \verb https://github.com/SlicerRt/SlicerDebuggingTools
+      \endverb
+      \verb{url}
+      \verb https://github.com/SlicerRt/SlicerDebuggingTools
+      \endverb
     \endentry
     \entry{walter2025}{misc}{}
       \name{author}{1}{}{%

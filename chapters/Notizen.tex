@@ -125,7 +125,57 @@ beschäftigt.
 \textbf{Batch Prozess}
 
 % ---------------------------------------------------------------------------------------
+\subsection{Benutzerschnittstelle}
+\label{subsec:benutzerschnitstelle} Für das Erstellen einer \ac{UI}, die für
+eine Slicer Erweiterung notwendig ist, nutzt 3D Slicer den Qt-Designer \citep[vgl.][]{qt2024}.
+Die Integration des Qt-Designers als Applikation in eine andere Applikation funktioniert
+aufgrund der Plattformintegrität, die der Designer mitbringt \citep[vgl.][]{qt2024}.
+Diese bietet so die Möglichkeit die benötigten Widgets über eine interaktive
+Benutzerschnittstelle zu bauen. Für diese \ac{UI}-Vorrichtung gibt es einen
+Gegenspieler im Quelltext des Programmes, welcher als \textit{ParameterNode}
+bekannt ist. Der \textit{ParameterNode} ist laut \citet{slicer2024} eine leichte
+Variante eines \ac{MRML}-Knoten um Parametereinstellungen zu speichern. Durch das
+Zusammenspiel zwischen \ac{UI} und \textit{ParameterNode} wird die \ac{UI}
+automatisch aktualisiert, wenn sich das Programm ändert \citep[vgl.][]{slicer2024}.
 
-\section{Auswahl von Lösungsansätzen}
+\begin{minipage}{0.35\textwidth}
+	Das Erstellen der Verknüpfung zwischen \ac{UI}-Widget und \textit{ParameterNode}
+	erfolgt über die dynamische Eigenschaft \texttt{SlicerParameterName}, die direkt
+	in der Komponentenansicht im Qt-Designer einstellbar ist. Die Abbildung
+	\ref{fig:qt_designer} soll diesen Vorgang verdeutlichen. Dabei ist es wichtig,
+	dass genau diese Eigenschaft auch verwendet wird. Diese Verknüpfung lässt sich
+	laut \citet{slicer2024} auch via Programmcode setzten.
+\end{minipage}
+\hfill
+\begin{minipage}{0.55\textwidth}
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/qt_designer.png}
+	\captionof{figure}{Komponentenansicht im Qt-Designer nach der \citet{slicer2024}}
+	\label{fig:qt_designer}
+\end{minipage}
 
-TODO
+Über das Objekt \texttt{widget} kann die Eigenschaft einer Komponente gesetzt
+werden, ohne dass sie im Designer berührt werden muss. Das nachfolgende Beispiel
+zeigt dies genauer.
+\begin{center}
+	\texttt{widget.setProperty('SlicerParameterName', 'parameterName')}
+\end{center}
+Mit dem Ende dieses Abschnittes wurden alle wichtigen Bestandteile von 3D Slicer
+abgedeckt und diskutiert, sowie alle weiteren Domänen eingeführt. So bleibt nun die
+Frage nach dem Sinn dieser Arbeit. Das Kapitel \ref{chap:fragestellung} soll
+hier Klarheit liefern und die konkrete Fragestellung ausarbeiten.
+% ---------------------------------------------------------------------------------------
+
+TODO:
+
+- Kurzfassung überarbeiten
+
+- Diskussion überarbeiten, mehr auf die Forschungsfrage eingehen
+
+- Das Kapitel theoretische Grundlagen umbauen
+
+- Benutzerschnittstelle kommt in das Kapitel Ergebnisse
+
+- Überleitung von MRML-Datenstruktur auf Das Kapitel Methodik
+
+Diese Seiten muss Sara nochmal lesen:

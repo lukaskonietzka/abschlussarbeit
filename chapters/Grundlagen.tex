@@ -10,7 +10,7 @@ Der Abschnitt \ref{sec:3d_slicer} führt in Softwareentwicklungsthemen ein, die 
 Erstellen einer 3D Slicer Erweiterung wichtig sind.
 % ---------------------------------------------------------------------------------------
 
-\section{Domänenspezifisch}
+\section{Anatomische Zahnstrukturen in Mikro-CT-Bildern}
 \label{sec:domänenspezifisch} Wie bereits aus dem Kapitel \ref{chap:einleitung} Einleitung
 klar wurde, handelt es sich bei den Mikro-\ac{CT}-Bildern um Zahnbilder. Um zu
 verstehen, wie eine \ac{CT}-Aufnahme technisch segmentiert und damit zerlegt
@@ -72,7 +72,7 @@ tiefer ein. Darüber hinaus werden die verschiedenen Formate und statistische Mo
 der \ac{CT}-Aufnahmen vorgestellt.
 % ---------------------------------------------------------------------------------------
 
-\section{Bildgebung}
+\section{Erstellung von Mikro-CT-Bildern}
 \label{sec:technologisch} Es gibt die unterschiedlichsten Arten zur Erzeugung
 dreidimensionaler Bilddaten. Dieser Abschnitt erläutert federführend die Technologie
 der Mikro-\ac{CT}-Aufnahmen und deren Erstellung. Diese sind für einen medizinischen
@@ -106,7 +106,7 @@ Abbildung \ref{fig:spectrum} zeigt dieses elektromagnetische Spektrum.
 \end{figure}
 
 Durchdringt ein solcher Röntgenstrahl ein Untersuchungsobjekt, werden die
-Details aufgrund der Wechselwirkung mit Materie auf einer \ac{CT}-Probe sichtbar.
+Details aufgrund der Wechselwirkung mit Materie auf einer \ac{CT}-Aufnahme sichtbar.
 Die bekannteste Wechselwirkung ist die Absorption. Mit der Steigerung der Atomzahl
 in einem Material nimmt auch die Absorption eines Materials zu, sodass es leicht
 ist verschiedene Materialien in einer \ac{CT}-Aufnahme zu unterscheiden \citep[vgl.][K.~1]{nib2024}.
@@ -196,7 +196,7 @@ Verteilung der Pixel oder Voxel liefert. Werden einige der Argumente nicht verwe
 so kann der \texttt{ElementType} verkleinert werden.
 % ---------------------------------------------------------------------------------------
 
-\section{Bildbearbeitung}
+\section{Bearbeitung von Mikro-CT-Bildern}
 \label{sec:bildbearbeitung} Nachdem ein \ac{CT} erzeugt und gegebenenfalls
 komprimiert wurde, folgt die Bearbeitung eines Bildes. Hierfür bietet das
 Pipeline-Modell von \citet[S.~50]{handels2000} eine gute Richtlinie. Er
@@ -210,7 +210,7 @@ Pipelineschritte \textit{Bildvorverarbeitung} und \textit{Segmentierung} wieders
 sollen.
 % ---------------------------------------------------------------------------------------
 
-\subsection{Filter}
+\subsection{Filterung}
 \label{subsec:filter} \ac{CT}-Aufnahmen rauschen, dies ist ein Fakt und liegt in
 der Natur einer Röntgenaufnahme. Dies beschreiben auch \citet[K.~3]{diwakar2018}
 in ihrem Paper über \ac{CT}-Bildrauschen und Entrauschen. Dabei liegt die Ursache
@@ -455,7 +455,7 @@ Mikro-\ac{CT}-Bilder des Zahnklinikums an der \ac{LMU} in München entwickelt.
 \pagebreak
 % ---------------------------------------------------------------------------------------
 
-\section{Verwandte Arbeit}
+\section{Anatomische Segmentierung von Mikro-CT-Bildern}
 \label{sec:verwwandte_arbeit} Wie bereits in der Einleitung dieser Arbeit klar wurde
 verfügt die Poliklinik für Zahnerhaltung und Parodontologie des \ac{LMU}-Klinikums
 München über einen breiten Schatz an Bilddaten. Im Rahmen einer Bachelorarbeit an
@@ -518,7 +518,7 @@ die Verarbeitung von Bilddaten im medizinischen Kontext eingesetzt wird. Dabei w
 sie von einer aktiven Community regelmäßig gewartet und weiterentwickelt \citep[vgl.][]{slicer2024},
 \citep[vgl.][S.~1325]{fedorov2012slicer}. Für Slicer gibt es offiziell keine Nutzungsbeschränkung.
 Jedoch sei auch gesagt, dass 3D Slicer nicht für die klinische Nutzung zugelassen
-ist. \citet[S.~1331]{fedorov2012slicer} macht deutlich, das 3D Slicer
+ist. \citet[S.~1331]{fedorov2012slicer} machen deutlich, dass 3D Slicer
 ausschließlich für die Forschung gedacht ist. Um einen ersten Überblick über die
 Komponenten von Slicer zu erlangen, soll die Abbildung
 \ref{fig:3d_slicer_oekosystem} betrachtet werden.
@@ -550,8 +550,6 @@ auszeichnet. Die wohl wichtigsten seien hier Stichpunktartig genannt \citep[]{sl
 	\item Ausführen von Skripten in der integrierten Python-Konsole
 
 	\item Verarbeitung von medizinischen Bilddaten von Kopf bis Fuß
-
-	\item Interaktive Benutzerschnittstelle
 \end{itemize}
 
 3D Slicer hat für alle diese Punkte jeweils eine Lösung entwickelt, wobei der
@@ -650,7 +648,7 @@ führt der nächste Abschnitt in die durchaus komplexe Datenstruktur \ac{MRML} e
 die bei einer Entwicklung mit Slicer unausweichlich zu berücksichtigen ist.
 % ---------------------------------------------------------------------------------------
 
-\subsection{MRML Datenstruktur}
+\subsection{MRML-Datenstruktur}
 \label{subsec:mrml_datenstruktur} Die \ac{MRML}, gesprochen \textit{"Murlm"} ist
 ein Datenmodell, das dafür entwickelt wurde, alle möglichen Bilddaten zu
 visualisieren und zu speichern, die für einen klinischen Zweck Einsatz finden \citep[vgl.][]{slicer2024}.
@@ -752,45 +750,4 @@ interaktiven Benutzerschnittstelle von Slicer baut, ist der \textit{Parameter
 node}. Warum dieser eine zentrale Rolle spielt und wie Slicer die Schnittstelle grundsätzlich
 gestaltet, soll in Kapitel \ref{subsec:benutzerschnitstelle}
 Benutzerschnittstelle diskutiert werden.
-% ---------------------------------------------------------------------------------------
-
-\subsection{Benutzerschnittstelle}
-\label{subsec:benutzerschnitstelle} Für das Erstellen einer \ac{UI}, die für
-eine Slicer Erweiterung notwendig ist, nutzt 3D Slicer den Qt-Designer \citep[vgl.][]{qt2024}.
-Die Integration des Qt-Designers als Applikation in eine andere Applikation funktioniert
-aufgrund der Plattformintegrität, die der Designer mitbringt \citep[vgl.][]{qt2024}.
-Diese bietet so die Möglichkeit die benötigten Widgets über eine interaktive
-Benutzerschnittstelle zu bauen. Für diese \ac{UI}-Vorrichtung gibt es einen
-Gegenspieler im Quelltext des Programmes, welcher als \textit{ParameterNode}
-bekannt ist. Der \textit{ParameterNode} ist laut \citet{slicer2024} eine leichte
-Variante eines \ac{MRML}-Knoten um Parametereinstellungen zu speichern. Durch das
-Zusammenspiel zwischen \ac{UI} und \textit{ParameterNode} wird die \ac{UI}
-automatisch aktualisiert, wenn sich das Programm ändert \citep[vgl.][]{slicer2024}.
-
-\begin{minipage}{0.35\textwidth}
-	Das Erstellen der Verknüpfung zwischen \ac{UI}-Widget und \textit{ParameterNode}
-	erfolgt über die dynamische Eigenschaft \texttt{SlicerParameterName}, die direkt
-	in der Komponentenansicht im Qt-Designer einstellbar ist. Die Abbildung
-	\ref{fig:qt_designer} soll diesen Vorgang verdeutlichen. Dabei ist es wichtig,
-	dass genau diese Eigenschaft auch verwendet wird. Diese Verknüpfung lässt sich
-	laut \citet{slicer2024} auch via Programmcode setzten.
-\end{minipage}
-\hfill
-\begin{minipage}{0.55\textwidth}
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/qt_designer.jpg}
-	\captionof{figure}{Komponentenansicht im Qt-Designer nach der \citet{slicer2024}}
-	\label{fig:qt_designer}
-\end{minipage}
-
-Über das Objekt \texttt{widget} kann die Eigenschaft einer Komponente gesetzt
-werden, ohne dass sie im Designer berührt werden muss. Das nachfolgende Beispiel
-zeigt dies genauer.
-\begin{center}
-	\texttt{widget.setProperty('SlicerParameterName', 'parameterName')}
-\end{center}
-Mit dem Ende dieses Abschnittes wurden alle wichtigen Bestandteile von 3D Slicer
-abgedeckt und diskutiert, sowie alle weiteren Domänen eingeführt. So bleibt nun die
-Frage nach dem Sinn dieser Arbeit. Das Kapitel \ref{chap:fragestellung} soll
-hier Klarheit liefern und die konkrete Fragestellung ausarbeiten.
 % ---------------------------------------------------------------------------------------
