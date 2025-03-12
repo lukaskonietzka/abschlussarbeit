@@ -34,3 +34,6 @@ eventbasierten
 Segmentierungsverfahren
 Zahnkronensegmentierung
 Operatormatrix
+Kariesklassifizierung
+Segmentierungsergebnisse
+Segmentierungstechniken

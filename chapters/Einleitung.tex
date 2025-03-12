@@ -57,34 +57,34 @@ Der aktuelle Stand der Kunst zeigt, dass es bereits ein Verfahren gibt, mit dem 
 Daten erzeugt werden können. Hierbei unterteilt das Verfahren ein gegebenes
 Mikro-\ac{CT}-Bild in die zwei Gewebesubstanzen Dentin und Schmelz. Dieser
 Vorgang kann als anatomische Segmentierung des Zahns bezeichnet werden. Die Ergebnisse
-die das Verfahrens, zeigen vielversprechende Ergebnisse. Jedoch bringt es auch einige
-Limitierungen mit, was die Benutzung deutlich einschränkt. Eine dieser Limitierungen
-bezieht sich auf die Art der Ausführung. Zum aktuellen Stand muss das Verfahren
-aufwendig über ein Terminal gestartet werden. Dies stellt für praktizierende Ärzte,
-die letzten Endes die Anwendergruppe dieses Verfahrens sind, eine besondere Herausforderung
-dar.
+des Verfahrens zeigen vielversprechende Ergebnisse. Jedoch bringt es auch einige
+Limitierungen mit, was die Benutzung deutlich einschränkt. Eine dieser
+Limitierungen bezieht sich auf die Art der Ausführung. Zum aktuellen Stand muss das
+Verfahren aufwendig über ein Terminal gestartet werden. Dies stellt für
+praktizierende Ärzte, die letzten Endes die Anwendergruppe dieses Verfahrens sind,
+eine besondere Herausforderung dar.
 
-Die vorliegende Arbeit widmet sich genau dieser aktuellen Herausforderung. Ziel
-ist es, eine Benutzerschnittstelle zu entwickeln, die den Anwender mit der
-anatomischen Segmentierung verbindet und so die Verwendung des Verfahrens
-deutlich vereinfacht. Da Mikro-\ac{CT}-Bilder weltweit eine zentrale Rolle in
-der zahnmedizinischen Forschung spielt, bietet sich hierfür die Plattform 3D Slicer
-an. Diese etablierte Software wird in zahlreichen Kliniken und
-Forschungseinrichtungen weltweit zur Verarbeitung und Analyse medizinischer
-Bilddaten eingesetzt. Aufbauend auf dieser Grundlage soll nun eine spezielle Benutzerschnittstelle
-innerhalb 3D Slicer entwickelt werden, die auf der vorhandenen Modul- und Plug-in-Infrastruktur
-der Plattform basiert. Diese Infrastruktur bietet die Möglichkeit, eigene Module
-mit individuellen Algorithmen zu befüllen, eine Schnittstelle bereitzustellen
-und diese nahtlos in das Kernsystem zu integrieren. 3D Slicer sieht hierfür die Implementierung
-einer \ac{SEM} vor. Hierbei handelt es sich um einer Erweiterung oder ein Plug-in
-für die Slice Kernanwendung. Durch die Bereitstellung von segmentierten Daten in
-einer \ac{SEM} würde so nicht nur die der aktuellen Forschungsumgebung einen Mehrwert
-erhalten, sondern die gesamte Zahnmedizin.
+Die vorliegende Arbeit widmet sich genau dieser aktuellen Herausforderung. Ziel ist
+es, eine Benutzerschnittstelle zu entwickeln, die den Anwender mit der anatomischen
+Segmentierung verbindet und so die Verwendung des Verfahrens deutlich vereinfacht.
+Da Mikro-\ac{CT}-Bilder weltweit eine zentrale Rolle in der zahnmedizinischen Forschung
+spielt, bietet sich hierfür die Plattform 3D Slicer an. Diese etablierte Software
+wird in zahlreichen Kliniken und Forschungseinrichtungen weltweit zur Verarbeitung
+und Analyse medizinischer Bilddaten eingesetzt. Aufbauend auf dieser Grundlage
+soll nun eine spezielle Benutzerschnittstelle innerhalb 3D Slicer entwickelt
+werden, die auf der vorhandenen Modul- und Plug-in-Infrastruktur der Plattform
+basiert. Diese Infrastruktur bietet die Möglichkeit, eigene Module mit
+individuellen Algorithmen zu befüllen, eine Schnittstelle bereitzustellen und diese
+nahtlos in das Kernsystem zu integrieren. 3D Slicer sieht hierfür die
+Implementierung einer \ac{SEM} vor. Hierbei handelt es sich um einer Erweiterung
+oder ein Plug-in für die 3D Slicer Kernanwendung. Durch die Bereitstellung von segmentierten
+Daten in einer \ac{SEM} würde so nicht nur die der aktuellen Forschungsumgebung
+einen Mehrwert erhalten, sondern die gesamte Zahnmedizin.
 
-Bei der Umsetzung dieser Erweiterung stehen nicht nur die funktionalen
-Anforderungen im Fokus, sondern auch softwaretechnische Qualitätskriterien. Eine
-möglichst generische Architektur soll gewährleisten, dass das Modul flexibel bleibt
-und künftig um weitere Funktionalitäten erweitert werden kann.
+Bei der Umsetzung dieser Erweiterung stehen nicht nur die funktionalen Anforderungen
+im Fokus, sondern auch softwaretechnische Qualitätskriterien. Eine möglichst generische
+Architektur soll gewährleisten, dass das Modul flexibel bleibt und künftig um
+weitere Funktionalitäten erweitert werden kann.
 
 Mit diesen konkreten Zielsetzungen lässt sich nun eine Forschungsfrage ableiten,
 die in dieser Arbeit im Fokus stehen soll.
@@ -97,10 +97,10 @@ die in dieser Arbeit im Fokus stehen soll.
 \end{center}
 
 Um das in dieser Arbeit zu entwickelnde Modul optimal in den bestehenden Prozess
-der anatomischen Segmentierung zu integrieren, ist es essenziell, zunächst ein grundlegendes
-Verständnis dieses Verfahrens zu erlangen. Daher wird im folgenden Kapitel
-erläutert, wie die anatomische Segmentierung funktioniert, welche Techniken und
-Algorithmen dabei zum Einsatz kommen und welche Herausforderungen sich daraus
-ergeben. Dieses theoretische Fundament bildet so die Basis für die darauf aufbauende
-Entwicklung einer 3D Slicer Erweiterung.
+der anatomischen Segmentierung zu integrieren, ist es essenziell, zunächst ein
+grundlegendes Verständnis dieses Verfahrens zu erlangen. Daher wird im folgenden
+Kapitel erläutert, wie die anatomische Segmentierung funktioniert, welche Techniken
+und Algorithmen dabei zum Einsatz kommen und welche Herausforderungen sich daraus
+ergeben. Dieses theoretische Fundament bildet so die Basis für die darauf
+aufbauende Entwicklung einer 3D Slicer Erweiterung.
 % ---------------------------------------------------------------------------------------

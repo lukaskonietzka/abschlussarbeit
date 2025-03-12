@@ -344,18 +344,213 @@ und welche Vorteile daraus entstehen wird im folgenden Abschnitt \ref{sec:3d_sli
 erläutert.
 % ---------------------------------------------------------------------------------------
 
-TODO:
+\subsection{Datenformate}
+\label{subsec:datensätze} Die rohen Datensätze, welche direkt aus dem Mikro-\ac{CT}-Gerät
+kommen, haben nach \citet{scanco2024} das Format \ac{ISQ}. Dieses Format fällt speziell
+auf die Geräte der Firma SCANCO zurück. Wie das vorherige Kapitel
+\ref{subsec:computertomografie} bereits eingeführt hat, ist dieser Dateityp für eine
+weitere Bearbeitung nur bedingt geeignet. Unter anderem wegen ihrer Größe. \citet[S.~118-119]{RoeschKunzelmann2018}
+haben hierfür ein Paket entwickelt. Dieses konvertiert ein \ac{ISQ} Format in
+ein \ac{MHD} Format. Bei einer \ac{MHD}-Datei handelt es sich um ein Metafile,
+dass auf die eigentliche Datei verweist. Folgender Ausschnitt zeigt die Verwendung
+des Pakets.
+\begin{center}
+	\texttt{python3 isq\_to\_mhd.py <quelle> <ziel>}
+\end{center}
+Diese Metadatei kann genutzt werden, um interessante Informationen über das Bild
+zu erlangen. Wird dieses Kommando ausgeführt, so erstellt das Skript \texttt{isq\_to\_mhd}
+ein Metafile, das detaillierte Daten über die Datei enthält. Ein Ausschnitt
+dieses Metafiles liefer das Listing \ref{lst:inhalt_mhd_datei}
 
-- Kurzfassung überarbeiten : DONE
+\begin{lstlisting}[
+	caption={Ausschnitt des Inhaltes einer MHD-Datei},
+	label={lst:inhalt_mhd_datei}]
+ObjectType = Image
+NDims = 3
+CenterOfRotation = 0 0 0
+ElementSpacing = 0.02 0.02 0.02
+DimSize = 1024 1024 517
+ElementType = MET_SHORT
+ElementDataFile = P01A-C0005278.ISQ
+\end{lstlisting}
+
+In der Datei sind Informationen über die Ausprägung, Art und Größe der Datei zu finden.
+Besonders interessant sind die Punkte \texttt{DimSize und ElementType}. Über
+diese Parameter lässt sich die Größe eines Bildes berechnen. \citet[S.~10-11]{burger2009}
+erklärt, dass ein Bild in Zellen aufgeteilt ist, welche Informationen enthalten.
+Diese Zellen sind im zweidimensionalen Raum als Pixel bekannt. Betrachtet man
+jedoch ein, wie im Falle der Zahnklinik an der \ac{LMU} dreidimensionales Bild, so
+spricht man nicht mehr von einem Pixel, sondern von einem Voxel. Ein Voxel ist demnach
+das dreidimensionale Äquivalent zu einem Pixel. \citet[S.~10-11]{burger2009} beschreiben
+weiter das jeder diese Zellen ein binäres Wort der Länge $2^{k}$ ist. Die Basis
+2 ergibt sich durch das binäre Wort, wo hingegen für $k$ gilt:
+$k \in \mathbb{N}$. Um für den konkreten Fall aus Listing \ref{lst:inhalt_mhd_datei}
+das entsprechenden $k$ zu ermitteln, muss der \texttt{ElementType} näher betrachtet
+werden. \texttt{MET\_SHORT} steht hierbei für \textit{Signed short}, was eine Größe
+von 16 Bit entspricht. Damit ergibt sich für die Länge $k$ ein Wert von 4. So
+können nach \citet[S.~10-11]{burger2009} folgende Gleichungen festgehalten werden.
+
+\begin{align}
+	\label{equ:größe_bestimmen}1024 \cdot 1024 \cdot 517    & = 542,113,792 \, \text{Voxel}\notag  \\
+	542,113,792 \, \text{Voxel}\cdot 2 \, \text{Byte/Voxel} & = 1,084,227,584 \, \text{Byte}\notag \\
+	1,084,227,584 / 1,000,000,000                           & = 1.0842 \, \text{GB}
+\end{align}
+
+Die erste Gleichung bestimmt die Gesamtzahl aller Voxel in einem Bild. Gleichung
+zwei ermittelt die Größe des Bildes in der Einheit Byte. Die letzte Zeile nimmt
+eine Umrechnung von Byte nach \ac{GB} vor.
+
+Durch die Gleichungen in \ref{equ:größe_bestimmen} wird klar, dass eine \ac{CT}-Aufnahme
+des Typs \ac{ISQ} direkt nach seiner Aufnahme über einen \ac{GB} groß ist. Es
+stellt sich also die spannende Frage, wie solch eine Datei komprimiert werden kann,
+ohne das es Verluste in der Qualität gibt. Dr. Elisa Walter hat hierfür eine
+Lösung entwickelt. Betrachtet man den \texttt{ElementType} genauer, so fällt auf,
+dass es noch weitere Typen gibt, die durch eine geringere Länge $k$ deutlich weniger
+Speicher benötigen. Durch Anwendung simpler Statistik lässt sich herauslesen, dass
+die $2^{4}$ Byte je Element nicht ausgenutzt werden. Als Werkzeug für die
+Betrachtung einer solchen Statistik kann das Histogramm eines Bildes genutzt
+werden. Laut \citet[S.~249]{jahne2024} ist ein Histogramm die
+Häufigkeitsverteilung der Grauwerte. Diese zeigt grafisch die unterschiedlichen Grauwerte
+(x-Achse) zu ihren Häufigkeiten im Bild (y-Achse). \citet[S.~249]{jahne2024} macht
+deutlich, dass das Histogramm jedoch kein Aufschluss über die räumliche
+Verteilung der Pixel oder Voxel liefert. Werden einige der Argumente nicht verwenden,
+so kann der \texttt{ElementType} verkleinert werden.
+% ---------------------------------------------------------------------------------------
+
+\textbf{Das Verfahren nach Rényi} ist ein weiteres Verfahren, das im Laufe dieser
+Arbeit noch eine wichtige Rolle spielt. Wie bereits beschrieben gehört es
+ebenfalls zu der Gruppe der Schwellwertverfahren und generiert demnach einen
+Schwellwert $t$. Wie auch das Verfahren nach Otsu, benötigt Rényi keine
+Information über die räumliche Anordnung der Bilder, es genügt das Bildhistogramm.
+Dabei ist der optimal Schwellwert $t$ der, der eine maximale Entropie der Bildverteilung
+erzeugt. Unter einer Entropie wird ein Konzept verstanden, das eine Unordnung,
+Unsicherheit oder den Informationsgehalt innerhalb eines Systems beschreibt, so \citet[S.~102]{bein2006}.
+Die Rényi-Entropie ist eine Verallgemeinerung der Shannon-Entropie und hängt von
+einem Parameter $q$ ab. Die Entropie misst die Unsicherheit oder den
+Informationsgehalt einer Wahrscheinlichkeitsverteilung, welche sich wie folgt ausdrücken
+lässt. \citep[vgl.][K.~2]{bromiley2004}.
+
+\begin{align}
+	\label{equ:renyi}H_{q}(P) = \frac{1}{1-q}\ln \left( \sum_{i=1}^{N}p_{i}^{q}\right)
+\end{align}
+
+Besonderes Augenmerk verdienen hierbei die Parameter $p_{i}$ und $q$, welche die
+charakteristischen Eigenschaften der Rényi-Entropie beschreiben. Der Parameter
+$p_{i}$ ist die Wahrscheinlichkeit eines jeden Grauwertes im Bild. $i$ symbolisiert
+hierbei jeden Grauwert. Wie viele Grauwerte genau betrachten werden sollen
+definiert $N$. Die Variable $q$ hingegen beeinflusst die Gewichtung der Wahrscheinlichkeit
+$p_{i}$ für jeden Grauwert. Setzt man den Parameter $q$ auf $q = 1$ so lässt
+sich mittels Algebra die Shannon-Entropie zeigen \citep[vgl.][K.~2]{bromiley2004}.
+Um nun mit der Rényi-Entropie den optimalen Schwellwert für ein Bild zu
+berechnen, sieht Rényi ähnlich wie Otsu eine Einteilung in Klassen vor. Die
+Einteilung erfolgt mittels des Parameters $N$. So kann nun für jede gebildete Klasse
+die Gleichung \ref{equ:renyi} angewendet werden. Die Gesamtentropie des Systems
+wird aus den beiden Teilentropien der jeweiligen Klassen bestimmt\citep[vgl.][K.~2]{bromiley2004}.
+\begin{align}
+	H_{q}(T) = H_{q}(P)^{(1)}+ H_{q}(P)^{(2)}
+\end{align}
+Um nun den optimalen Schwellwert $t$ bestimmen zu können muss der Wert genommen werden,
+bei dem die Gesamtentropie des Systems maximal ist. Dieser Sachverhalt lässt sich
+wie folgt ausdrücken \citep[vgl.][K.~2]{bromiley2004}.
+\begin{align}
+	t = max(H_{q}(T))
+\end{align}
+Neben unzähligen weiteren Segmentierungstechniken, ist eine für diese Arbeit von
+ganz besonderer Bedeutung. Diese Technik wurde speziell zum Segmentieren der Mikro-\ac{CT}-Bilder
+des Zahnklinikums an der \ac{LMU} in München entwickelt.
+
+\pagebreak
+% ---------------------------------------------------------------------------------------
+
+\chapter{Forschungsfrage}
+\label{chap:fragestellung} Dieses Kapitel beleuchtet die zentrale Frage, welche
+mit Hilfe der Ergebnisse dieser Arbeit beantwortet werden soll. Dabei kann die Fragestellung
+in erster Linie als Ergebnis der theoretischen Grundlagen aus Kapitel \ref{chap:theoretische_grundlagen}
+interpretiert werden.
+
+Die vorliegende Arbeit befasst sich mit der Erstellung einer Erweiterung für die
+Plattform 3D Slicer, die ein spezifisches Segmentierungsverfahren auf Basis der
+anatomischen Segmentierung integriert. Die Grundlagen für diese Methode bildet das
+Kapitel \ref{sec:verwwandte_arbeit}. Die anatomische Segmentierung nutzt
+bestehende Segmentierungsmethoden und wurde speziell für die Anforderungen der
+Zahnklinik in München entwickelt. Sie ist prototypisch implementiert und zeigt in
+ihrer Funktionalität vielversprechende Ergebnisse. Allerdings hat das aktuelle
+Verfahren eine wesentliche Einschränkung: Es muss über das Terminal ausgeführt werden.
+Dies erschwert die Anwendung in der klinischen Praxis und reduziert die
+Benutzerfreundlichkeit erheblich. Als interaktive Lösung bietet sich die Software
+3D Slicer an, da sie bereits in der Zahnklinik eingesetzt wird und über eine
+flexible Infrastruktur für die Integration von Erweiterungen verfügt. Diese Eigenschaften
+machen Slicer zu einer idealen Plattform, um die anatomische Segmentierung der
+Zahnkronen in einer benutzerfreundlichen Form bereitzustellen.
+
+Die zentrale Frage, die so aus den Grundlagen abgeleitet werden kann, teilt sich
+in drei einzelne Fragen auf, die hier zu sehen sind.
+
+\begin{description}
+	\item[1. Fragestellung] kann das Verfahren der anatomischen Segmentierung als \ac{SEM}
+		in Slicer implementiert werden?
+
+	\item[2. Fragestellung] ist es möglich, die Integration so zu gestalten, dass der
+		zugrunde liegende Algorithmus problemlos austauschbar ist oder zusätzliche Algorithmen
+		eingebaut werden können?
+
+	\item[3. Fragestellung] welche Erfahrungen lassen sich bei der Entwicklung einer
+		Slicer-Extension sammeln, und welche Herausforderungen treten dabei auf?
+\end{description}
+
+Im folgenden Kapitel wird dargestellt, wie diese Fragestellung methodisch bearbeitet
+wurde. Es wird gezeigt, wie das Problem strukturiert in Teilaufgaben zerlegt wurde
+und welche Schritte zur Lösung unternommen wurden.
+% ---------------------------------------------------------------------------------------
+
+\chapter{Diskussion und Fazit}
+\label{chap:diskussion} Betrachtet man gegen Ende dieser vorliegenden Arbeit
+nochmals die Forschungsfrage aus Kapitel \ref{chap:fragestellung} so können noch
+weitere Punkte hinzugefügt werden. Grundsätzlich lässt sich sagen, dass die
+Integration der anatomischen Segmentierung aus Kapitel
+\ref{sec:verwwandte_arbeit} gut in das Ökosystem von Slicer integriert werden
+konnte. Somit ergibt sich die Situation, dass das zuvor aufwendig zu bedienenden
+Verfahren nach dieser Arbeit mit nur wenigen Klicks ein Ergebnis liefert. Bei der
+Integration dieses Verfahrens mussten keine Abstriche in Bezug auf die Qualität des
+Ergebnisses gemacht werden. Die Benutzerfreundlichkeit der Software konnte so um
+ein vielfaches verbessert werden. Es steigt auch der Benutzerkreis der Anwendung.
+Der Entwicklungsprozess selbst kann ebenfalls als durchwegs positiv betrachtet
+werden. Durch die sehr gute Dokumentation von 3D Slicer konnten schnell erste Ergebnisse
+erzielt werden, die noch nicht final waren, jedoch in die richtige Richtung gingen.
+Es lässt sich so sagen, dass einfache Algorithmen ohne viel zusätzliche Abhängigkeiten,
+mit etwas Vorwissen schnell in einem Slicer Modul integriert werden können. Es ist
+auch nicht zwingend notwendig, ein Modul über den \textit{Extension Manager} zu veröffentlichen.
+Soll das Modul nur wenigen ausgewählten Personen zur Verfügung stehen, so kann es
+auch lokal in die Slicer Anwendung eingebunden werden. Betrachtet man die
+Erweiterbarkeit der Software, so kann auch diese als weites gehend erfolgreich angesehen
+werde. Durch die Kapselung des zugrunde liegenden Verfahrens lässt sich dieses
+einfach durch ein anderes austauschen. Auch das Hinzufügen neuer Funktionalität lässt
+sich problemlos realisieren. Es sei jedoch gesagt, das zu viele unterschiedliche
+Funktionen zur Überladung des Moduls führen könnte. Zu empfehlen ist dann eine
+Aufteilung in Submodule. Bei der technischen Umsetzung dieser Ansprüche konnten jedoch
+nicht alle Prinzipien einer sauberen Softwareentwicklung gewährleistet werden.
+Diese Entscheidung war jedoch aktiv und hat auch positive Auswirkungen auf das
+Gesamtsystem. Abschließend lässt sich also sagen, dass diese vorliegende Arbeit
+der zu Beginn gestellten Forschungsfrage gerecht werden konnte und alle
+Anforderungen erfüllte. Betrachtet man jedoch die Relevanz dieser Arbeit aus Kapitel
+\ref{sec:relevanz_der_arbeit} so stellt man fest, dass der Tooth Analyser noch
+lange nicht den Reifegrad erreicht hat, der auf diesen Punkt abzielt. Um dies
+endgültig zu gewährleisten, sind unter anderem weitere Benutzertests und gegebenenfalls
+Fehlerbehebungen notwendig.
+% ---------------------------------------------------------------------------------------
+
+TODO:
 
 - Diskussion überarbeiten, mehr auf die Forschungsfrage eingehen
 
-- Das Kapitel theoretische Grundlagen umbauen
-
-- Benutzerschnittstelle kommt in das Kapitel Ergebnisse : DONE
-
-- Überleitung von MRML-Datenstruktur auf Das Kapitel Methodik : DONE
-
 - passt das Kapitel Forschungsevaluation zu den tatsächlichen Evaluationen
+
+- Das Kapitel Datenformate nochmal ansehen
+
+- Ergebnisse umbnauen
+
+- die Idee der BIldverarbeitung in den ergebnissen erwähnen, preprocessing, ....
+
+- Es ist gut, wenn programmierer auf Zahnarzt trifft in ergebnissen erwähnen
 
 Diese Seiten muss Sara nochmal lesen:
