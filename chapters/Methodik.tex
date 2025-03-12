@@ -6,10 +6,10 @@ sowohl evaluierbar als auch für zukünftige Arbeiten nutzbar zu machen. Das
 Hauptziel dieser Arbeit ist die Entwicklung einer Erweiterung für die Software
 3D Slicer, die in der Klinik eingesetzt werden kann. Dabei geht es nicht
 ausschließlich um die Entwicklung einer Software, sondern auch um die Art der Entwicklung
-und die Ideen hinte der Implementierung. Zu Beginn wurde demnach eine umfassende
-Anforderungsanalyse durchgeführt, um die spezifischen Anforderungen der Domäne zu
-erfassen und die Ausgangssituation zu klären. Darauf aufbauend folgte eine
-detaillierte Literaturrecherche, um den aktuellen Stand der Technik zu untersuchen
+und die Ideen hinter der Implementierung. Zu Beginn wurde demnach eine
+umfassende Anforderungsanalyse durchgeführt, um die spezifischen Anforderungen der
+Domäne zu erfassen und die Ausgangssituation zu klären. Darauf aufbauend folgte
+eine detaillierte Literaturrecherche, um den aktuellen Stand der Technik zu untersuchen
 und bestehende Lösungen für eine Implementierung zu identifizieren. Da das Ziel
 dieser Arbeit die Entwicklung einer vollständigen Softwarelösung ist, wurde das Problem
 anschließend in Teilaufgaben zerlegt. Dies ermöglicht eine gezielte Bearbeitung
@@ -20,7 +20,7 @@ einzelner Komponenten und erleichtert die iterative Entwicklung.
 Das Forschungsdesign dieser Arbeit folgt einem praktischen Entwicklungsansatz
 mit einem Fokus auf softwaretechnische Methoden. Zum Erreichen der Ziele stützt sich
 diese Arbeit so am Entwicklungsprozess ab und dokumentiert diesen. Während des
-gesamten Entwickllungsprozesses wurde stehts die Kommunikation zum Fachpersonal
+gesamten Entwicklungsprozesses wurde stets die Kommunikation zum Fachpersonal
 gepflegt. So konnte schnell beurteilt werden, ob die Entwicklung in die richtige
 Richtung geht. Im Falle dieser Arbeit übernahm diese Position DR. med. Elias Walter,
 welcher als praktizierender Arzt an der Klinik tätig ist. Des weiteren lässt sich
@@ -39,7 +39,7 @@ bezüglich der Reihenfolge während der Bearbeitung geben.
 	\item[Entwicklungsphase] die Entwicklungsphase bildet den größten Teil. Hier
 		findet die konkrete Umsetzung statt. Hierzu wird das System in mehrere Subsysteme
 		unterteilt. Dies ermöglicht eine isolierte Betrachtung. Während der Entwicklung
-		wird ein protoypische Ansatz verfolgt.
+		wird ein prototypischen Ansatz verfolgt.
 
 	\item[Evaluationsphase] die letzte Phase dieser Arbeit beschäftigt sich ausschließlich
 		mit der Evaluation der Ergebnisse. Hier soll eine Antwort auf die in Kapitel
@@ -68,8 +68,8 @@ In erster Linie wird klar, dass im Rahme dieser vorliegenden Arbeit eine Erweite
 für die Plattform 3D Slicer entwickelt werden soll. Die Kernfunktionalität soll
 dabei die anatomische Segmentierung bilden, wie sie in Kapitel \ref{chap:theoretische_grundlagen}
 beschrieben wurde. Neben dieser Kernfunktionalität soll auch eine Vor- und Nachbereitung
-der Bilder mögiche sein. Dieser Prozess zwischen Vorverarbeitung, Bearbeitung und
-Nachbearbeitung soll an einem Stück ausgeführt werden könnnen. Greift man das
+der Bilder mögich sein. Dieser Prozess zwischen Vorverarbeitung, Bearbeitung und
+Nachbearbeitung soll an einem Stück ausgeführt werden können. Greift man das
 Ziel dieser Arbeit aus der Einleitung \ref{sec:ziel_der_arbeit} nochmals auf, dann
 kann hierdurch die nächste wichtige Anforderung abgeleitet werden. Die
 Erweiterung soll gut und einfach über eine \ac{UI} bedient werden können.
@@ -80,22 +80,22 @@ ermöglichen so. So können beispielsweise Parameter an einem Bild erprobt werde
 diese anschließend in einen Batch-Prozess auf viele Bilder überführt werden.
 Außerdem soll es möglich sein, verschiedenen Schwellwertverfahren, die in der
 anatomischen Segmentierung vorgesehen sind, auch in der Erweiterung auszuwählen.
-Neben dem Ergebnis selber, wurden auch Anforderungen an die Art der Abspeicherung
-gesetzt. Es ist wichtig, dass es in der 3D Slicer-Szene nicht zu einer Überfüllung
-von Daten kommt. So soll nach jeder Einzelausführung die Szene wieder gelert
-werden, sodass immer nur das aktuell segmentierte Bild in der Anwendung liegt.
+Neben dem Ergebnis selber wurden auch Anforderungen an die Art der Abspeicherung
+gesetzt. Es ist wichtig, dass es in der Slicer-Szene nicht zu einer Überfüllung
+von Daten kommt. So soll nach jeder Einzelausführung die Szene wieder geleert werden,
+sodass immer nur das aktuell segmentierte Bild in der Anwendung liegt.
 
-Ein wichtiger Softwaretechnischer Anspruch an die Extension ist die Erweiterbarkeit.
-Es soll ohne große Mühen möglich sein, ein weiteres Verfahren zu integrieren,
-ohne das große Anpassungen an der UI oder der Erweiterung selbst unternommen
-werden müssen. Für ein solides Verständnis dieser Software soll es selbstverständlich
-eine Dokumentation mit Benutzerhandbuch geben. Zudem wird großer Wert auf die
-Qualitätssicherung gelegt, weshalb eine Reihe von Unit-Tests (Tests für einzelne
-Programmeinheiten) vorgesehen ist. Um die Anforderungen an die Software besser
-zu verstehen und zu strukturieren, ist neben der Sammlung technischer Spezifikationen
-auch ein solides Verständnis für die zugrunde liegende Domäne essenziell. Die
-Abbildung \ref{fig:3d_slicer_domäne} veranschaulicht dies durch ein
-Domänenmodell, das der \ac{UML} entspricht. Mittels dieser Grafik, können die
+Ein wichtiger Softwaretechnischer Anspruch an die Extension ist die
+Erweiterbarkeit. Es soll ohne große Mühen möglich sein, ein weiteres Verfahren
+zu integrieren, ohne das große Anpassungen an der UI oder der Erweiterung selbst
+unternommen werden müssen. Für ein solides Verständnis dieser Software soll es
+selbstverständlich eine Dokumentation mit Benutzerhandbuch geben. Zudem wird großer
+Wert auf die Qualitätssicherung gelegt, weshalb eine Reihe von Unit-Tests (Tests
+für einzelne Programmeinheiten) vorgesehen ist. Um die Anforderungen an die Software
+besser zu verstehen und zu strukturieren, ist neben der Sammlung technischer
+Spezifikationen auch ein solides Verständnis für die zugrunde liegende Domäne
+essenziell. Die Abbildung \ref{fig:3d_slicer_domäne} veranschaulicht dies durch ein
+Domänenmodell, das der \ac{UML} entspricht. Mittels dieser Grafik können die
 gestellten Anforderungen visuell dargestellt werden \citep[vgl.][]{walter2025}.
 
 \begin{figure}[h]
@@ -226,5 +226,5 @@ soll die Performance des Systems noch gemessen und analysiert werden.
 Die in diesem Kapitel beschriebenen methodischen Schritte bildeten die Grundlage
 für die Entwicklung der Erweiterung. Nachdem die Analysephase abgeschlossen ist,
 folgen nun die Phasen Entwicklung und Evaluation in Form der Ergebnisse. Hierzu
-wird die erstellte \ac{SEM} detalliert vorgestellt und die Funktionen näher beschrieben.
+wird die erstellte \ac{SEM} detailliert vorgestellt und die Funktionen näher beschrieben.
 % ---------------------------------------------------------------------------------------

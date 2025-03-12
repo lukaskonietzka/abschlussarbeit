@@ -20,49 +20,50 @@ konnte gezeigt werden, dass das entwickelte Modul die gewünschten Ergebnisse
 liefert, ohne dabei die Qualität der anatomischen Segmentierung zu beeinträchtigen.
 Durch die enge Verzahnung mit 3D Slicer bleibt das Modul kompatibel mit
 bestehenden Workflows, wodurch eine nahtlose Nutzung innerhalb der Klinik ermöglicht
-wird. Mit dem Tooth Analyser entstand so eine Struktur die ein gutes Vorgehen
-bei der Verarbietung von Mikro-CT-Aufnhamen beschreibt, das für die gesamte Zahnmedizin
-eine Bereicherung bietet. Der Luxus einer interaktiven Schnittstelle ist hier
-nur die Spize des Eisberges.
+wird. Mit dem Tooth Analyser entstand so eine Struktur, die ein gutes Vorgehen bei
+der Verarbeitung von Mikro-CT-Aufnahmen beschreibt, das für die gesamte
+Zahnmedizin eine Bereicherung bietet. Der Luxus einer interaktiven Schnittstelle
+ist hier nur die Spitze des Eisberges.
 
-Auch die Erweiterbarkeit des Systems wurde berücksichtigt. Dank der modularen Architektur
-kann das zugrunde liegende Segmentierungsverfahren ohne größere Anpassungen ausgetauscht
-oder durch weitere Funktionalitäten ergänzt werden. Dies stellt sicher, dass das
-System auch in Zukunft flexibel bleibt. Es wurde auch deutlich, dass eine zu große
-Funktionsvielfalt zu einer Überladung des Moduls führen könnte. Hier bietet sich
-eine mögliche Lösung in der Aufteilung in Submodule.
+Auch die Erweiterbarkeit des Systems wurde berücksichtigt. Dank der modularen
+Architektur kann das zugrunde liegende Segmentierungsverfahren ohne größere
+Anpassungen ausgetauscht oder durch weitere Funktionalitäten ergänzt werden. Dies
+stellt sicher, dass das System auch in Zukunft flexibel bleibt. Es wurde auch deutlich,
+dass eine zu große Funktionsvielfalt zu einer Überladung des Moduls führen
+könnte. Hier bietet sich eine mögliche Lösung in der Aufteilung in Submodule.
 
-Während der Entwicklung erwiesen sich die umfangreiche Dokumentation und die
-bestehende Infrastruktur von 3D Slicer als große Vorteile. Die Implementierung einfacher
-Algorithmen gestaltete sich dadurch effizient, und erste funktionale Prototypen
-konnten zügig erstellt werden. Auch zeigte sich, dass eine Veröffentlichung über
-den \textit{Extension Manager} nicht zwingend erforderlich ist – für bestimmte Nutzergruppen
-kann das Modul problemlos lokal eingebunden werden.
+Während der Entwicklung erwiesen sich die umfangreiche Dokumentation und die bestehende
+Infrastruktur von 3D Slicer als große Vorteile. Die Implementierung einfacher
+Algorithmen gestaltete sich dadurch effizient, und erste funktionale Prototypen konnten
+zügig erstellt werden. Auch zeigte sich, dass eine Veröffentlichung über den \textit{Extension
+Manager} nicht zwingend erforderlich ist – für bestimmte Nutzergruppen kann das
+Modul problemlos lokal eingebunden werden.
 
-Dennoch gab es Herausforderungen. Nicht alle Prinzipien einer idealen
-Softwarearchitektur konnten konsequent umgesetzt werden. Diese Entscheidungen wurden
-jedoch bewusst getroffen, um die Entwicklung pragmatisch und
-anwendungsorientiert zu gestalten. Auch eine Vorverarbeitung der Bilder konnte nicht
-implementiert werden. Zwar wurde diese Funktionalität vorgesehen und muss nur
-noch befüllt werden, aber ein konkrete Ausführung ist zu dieser Zeit nicht mögliche.
+Dennoch gab es Herausforderungen. Nicht alle Prinzipien einer idealen Softwarearchitektur
+konnten konsequent umgesetzt werden. Diese Entscheidungen wurden jedoch bewusst
+getroffen, um die Entwicklung pragmatisch und anwendungsorientiert zu gestalten.
+Auch eine Vorverarbeitung der Bilder konnte nicht implementiert werden. Zwar wurde
+diese Funktionalität vorgesehen und muss nur noch befüllt werden, aber eine
+konkrete Ausführung ist zu dieser Zeit nicht mögliche.
 
-Auch die Anforderungen aus Kapitel \ref{sec:anforderungsanalyse} sollen hier noch
-einmal von kritischer Seite betrachtet werden. Neben der Frage, ob alle Anforderungen
-erfüllt wurden, stellt sich hier auch die Frage, ob die Anforderungen auch passend
-gewählt wurden. Wie die ersten Anwendertests zeigten, liefert der Tooth Analyser
-einen guten Mehrwert im Forschungsaltag, sodass keine der Anforderungen als
-misslungen bezeichnet werden kann. Auch die Ergenisdarsstellung in der Slicer-Szene
-erlang in der ersten Testreihe ein gutes Feedback.
+Auch die Anforderungen aus Kapitel \ref{sec:anforderungsanalyse} sollen hier
+noch einmal von kritischer Seite betrachtet werden. Neben der Frage, ob alle
+Anforderungen erfüllt wurden, stellt sich hier auch die Frage, ob die
+Anforderungen auch passend gewählt wurden. Wie die ersten Anwendertests zeigten,
+liefert der Tooth Analyser einen guten Mehrwert im Forschungsalltag, sodass keine
+der Anforderungen als misslungen bezeichnet werden kann. Auch die
+Ergebnisdarstellung in der Slicer-Szene erlangt in der ersten Testreihe ein
+gutes Feedback.
 
-Zusammenfassend lässt sich sagen, dass die in dieser Arbeit entwickelte Lösung
-die Forschungsfrage in wesentlichen Punkten beantworten konnte: Die Segmentierung
-wurde effizient in 3D Slicer integriert, die Benutzerfreundlichkeit erheblich
-verbessert und eine Erweiterbarkeit der Software gewährleistet. Darüber hinaus konnte
-ein Modell ausgearbeitet werden, nach dem diverse Mikro-CT-Aufnahmen effizient
-bearbeitet werden können. Allerdings zeigt ein Blick auf die in Kapitel \ref{sec:relevanz_der_arbeit}
-diskutierte Relevanz der Arbeit, dass der Tooth Analyser noch nicht den
-endgültigen Reifegrad erreicht hat. Um das System weiter zu optimieren, sind
-zusätzliche Benutzertests und potenzielle Fehlerbehebungen erforderlich. Erst mit
-diesen weiteren Schritten kann das Ziel einer langfristig etablierten und klinisch
-einsetzbaren Lösung vollständig erreicht werden.
+Zusammenfassend lässt sich sagen, dass die in dieser Arbeit entwickelte Lösung die
+Forschungsfrage in wesentlichen Punkten beantworten konnte: Die Segmentierung
+wurde effizient in 3D Slicer integriert, die Benutzerfreundlichkeit erheblich verbessert
+und eine Erweiterbarkeit der Software gewährleistet. Darüber hinaus konnte ein
+Modell ausgearbeitet werden, nach dem diverse Mikro-CT-Aufnahmen effizient bearbeitet
+werden können. Allerdings zeigt ein Blick auf die in Kapitel
+\ref{sec:relevanz_der_arbeit} diskutierte Relevanz der Arbeit, dass der Tooth Analyser
+noch nicht den endgültigen Reifegrad erreicht hat. Um das System weiter zu
+optimieren, sind zusätzliche Benutzertests und potenzielle Fehlerbehebungen erforderlich.
+Erst mit diesen weiteren Schritten kann das Ziel einer langfristig etablierten
+und klinisch einsetzbaren Lösung vollständig erreicht werden.
 % ---------------------------------------------------------------------------------------

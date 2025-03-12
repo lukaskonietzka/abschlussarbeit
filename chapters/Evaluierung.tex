@@ -154,9 +154,9 @@ wesentlichen Teil stellen die beiden medialen Flächen dar. Um dieser doch
 enormen Laufzeit etwas entgegen zu Wirken wurden zwei Mechanismen implementiert.
 Das Verfahren kann einerseits erkennen, ob ein Bild bereits gefiltert wurde und
 andererseits die medialen Flächen optional berechnen. So kommt es, dass sich ein
-\textit{Best Case} ergibt der grob nur noch einviertel der Zeit benötigt. Dieser
-\textit{Best Case} tritt ein, wenn ein Bild in den Algorithmus gegeben wird, das
-bereits gefiltert wurde und keine medialen Flächen erfordert. Unter
+\textit{Best Case} ergibt der grob nur noch ein Viertel der Zeit benötigt.
+Dieser \textit{Best Case} tritt ein, wenn ein Bild in den Algorithmus gegeben
+wird, das bereits gefiltert wurde und keine medialen Flächen erfordert. Unter
 Berücksichtigung von Abbildung \ref{fig:laufzeit} kann dann die Zeit für die
 Filterung und die medialen Flächen abgezogen werden. So kommt es, dass das
 Verfahren nur noch 16 Prozent der ursprünglichen Zeit benötigt.
@@ -179,9 +179,8 @@ wie lange ein einzelnes Bild benötigt. Dies entspricht dem Y-Achsenabschnitt im
 \ref{fig:laufzeit_batch}. Ist die Zeit eines einzelnen Bildes bekannt, so lässt sich
 gut prognostizieren, wie lange eine Verarbeitung von $n$ vielen Bildern dauert. Wie
 bereits angedeutet, hängt die Zeit eines einzelnen Bilds von vielen Faktoren ab.
-Nimmt man den den Fall aus Abbildung \ref{fig:laufzeit}, würde die Bearbeitung
-von zehn Bilder etwa 170 Minuten beanspruchen. Dies entspricht zwei Stunden und 50
-Minuten.
+Nimmt man den Fall aus Abbildung \ref{fig:laufzeit}, würde die Bearbeitung von
+zehn Bilder etwa 170 Minuten beanspruchen. Dies entspricht zwei Stunden und 50 Minuten.
 
 Im Rahmen eines kleinen Stresstests wurden 103 \ac{CT}-Aufnahmen aus dem Tooth
 Analyser heraus in einem Batch Prozess gestartet. Hierzu wurde ein Server der \ac{LMU}
@@ -204,7 +203,7 @@ eingesetzt werden kann, darüber berichtet das Kapitel Anwendungsszenarien.
 In erster Linie bietet der Tooth Analyser eine Visualisierungshilfe, die für Ärzte
 unterstützend wirken soll. Wie auch von Slicer empfohlen wird dieses Modul von
 den Ärzten rein zur Forschung eingesetzt. Mit dem Tooth Analyser lässt sich mittels
-einer mikro-\ac{CT}-Aufnahme ein 3D Modell des Zahnes erstellen. Man spricht hier
+einer Mikro-\ac{CT}-Aufnahme ein 3D Modell des Zahnes erstellen. Man spricht hier
 von einer Rekonstruktion des Zahnes. Durch die Segmentierung erlaubt dieser
 rekonstruierte Zahn auch eine Segmentbetrachtung von Dentin und Schmelz. Die Abbildungen
 \ref{fig:3d_view} und \ref{fig:3d_view_dentin} zeigt diese Rekonstruktion genauer.
