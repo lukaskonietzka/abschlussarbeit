@@ -4,9 +4,9 @@ Verfahren, das bereits von der Klinik an der LMU eingesetzt wird, um segmentiert
 Daten aus Mikro-\ac{CT}-Bildern gezielt zu gewinnen. Einen wichtigen Meilenstein
 hierfür liefert Hofmann. Im Rahmen einer Bachelorarbeit an der Hochschule für
 angewandte Wissenschaften in Augsburg unterstützte Herr Hofmann die
-Kariesklassifizierung auf den unterschiedlichen Mikro-\ac{CT}-Aufnahmen. Hierzu
-entwickelte er ein Verfahren, das auf Basis von Schwellwertverfahren die Zahnsubstanzen
-Schmelz und Dentin aus dem Originalbild herauslöst. Dabei wird die anatomische
+Kariesklassifizierung auf den Zahnkronen-\ac{CT}-Aufnahmen. Hierzu entwickelte
+er ein Verfahren, das auf Basis von Schwellwertverfahren die Zahnsubstanzen Schmelz
+und Dentin aus dem Originalbild herauslöst. Dabei wird die anatomische
 Segmentierung als der Prozess verstanden, bei dem diese Gewebetypen gezielt voneinander
 getrennt und visuell sowie rechnerisch unterscheidbar gemacht werden.
 
@@ -30,17 +30,6 @@ Schritte, die in einer strukturierten Pipeline ablaufen. Abbildung
 \ref{fig:anatomische_segmentierung} veranschaulicht den groben Ablauf dieses
 Verfahrens, wobei kleinere Zwischenschritte nicht berücksichtigt wurden.
 
-Wie \citet[S.~55]{hoffmann2020} beschreibt, kann dieses Verfahren bis zu einem gewissen
-Fortschritt von Karies angewendet werden. Da Karies im Laufe der Zeit zur
-Zersetzung des Zahns führt, entstehen dunkle Stellen im Schmelzbereich, die die
-zusammenhängenden Grauwerte im Bild stören und somit die Segmentierung
-erschweren.
-
-Eine weitere Herausforderung liegt in der Art der Bilddaten, für die das Verfahren
-ursprünglich entwickelt wurde. Es basiert auf \ac{ISQ}-Bildern, die im \ac{16Int}-Format
-vorliegen. Um die Segmentierungsergebnisse später anschaulich darzustellen, kann
-eine überlappende Visualisierung in einer geeigneten Software verwendet werden.
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{img/anatomischeSegmentierung.png}
@@ -49,24 +38,34 @@ eine überlappende Visualisierung in einer geeigneten Software verwendet werden.
 	\label{fig:anatomische_segmentierung}
 \end{figure}
 
-Die einzelnen Schritte in Abbildung \ref{fig:anatomische_segmentierung}
-verdeutlichen, dass die Segmentierung stets einem spezifischen Muster folgt und das
-Verfahren primär zwischen Dentin und Schmelz unterscheidet. Zudem wird
-ersichtlich, dass sowohl Filter als auch Segmentierungstechniken essenziell für eine
-präzise Trennung der Strukturen sind. Um ein besseres Verständnis für diesen
-Prozess zu gewinnen, führt das folgende Kapitel in die anatomischen Strukturen eines
-Zahns ein und zeigt, wie diese auf Mikro-\ac{CT}-Aufnahmen erkennbar sind. Dabei
-werden die grundlegenden Techniken der Bildgewinnung und -bearbeitung näher erläutert.
+Wie \citet[S.~55]{hoffmann2020} beschreibt, kann dieses Verfahren bis zu einem
+gewissen Fortschritt von Karies angewendet werden. Da Karies im Laufe der Zeit zur
+Zersetzung des Zahns führt, entstehen dunkle Stellen im Schmelzbereich, die die zusammenhängenden
+Grauwerte im Bild stören und somit die Segmentierung erschweren. Eine weitere
+Herausforderung liegt in der Art der Bilddaten, für die das Verfahren ursprünglich
+entwickelt wurde. Es basiert auf \ac{ISQ}-Bildern, die im \ac{16Int}-Format vorliegen.
+
+Die einzelnen Schritte in Abbildung \ref{fig:anatomische_segmentierung} verdeutlichen,
+dass die Segmentierung stets einem spezifischen Muster folgt und das Verfahren
+primär zwischen Dentin und Schmelz unterscheidet. Die Pulpa wird wie bereits beschrieben
+in diesem Verfahren nicht berücksichtigt. Zudem wird ersichtlich, dass sowohl Filter
+als auch Segmentierungstechniken essenziell für eine präzise Trennung der Strukturen
+sind. Um ein besseres Verständnis für diesen Prozess zu gewinnen, führt das folgende
+Kapitel in die anatomischen Strukturen eines Zahns ein und zeigt, wie diese auf
+Mikro-\ac{CT}-Aufnahmen erkennbar sind. Dabei werden die grundlegenden Techniken
+der Bildgewinnung und -bearbeitung näher erläutert.
+
+\pagebreak
 % ---------------------------------------------------------------------------------------
 
 \section{Anatomische Zahnstrukturen in Mikro-CT-Bildern}
 \label{sec:domänenspezifisch} Um nachvollziehen zu können, wie eine \ac{CT}-Aufnahme
-technisch segmentiert und in ihre einzelnen Bestandteile zerlegt werden kann,
-ist es zunächst essenziell, die anatomische Struktur des Zahns genau zu verstehen.
-Dazu gehören die unterschiedlichen Gewebeschichten wie Zahnschmelz, Dentin und die
-Pulpa, die sich nicht nur in ihrer physikalischen Zusammensetzung, sondern auch in
-ihrer radiologischen Darstellung innerhalb der \ac{CT}-Bilder unterscheiden. Erst
-mit diesem grundlegenden Verständnis lassen sich Methoden zur 3D-Bildbearbeitung
+technisch segmentiert und in ihre einzelnen Bestandteile zerlegt werden kann, ist
+es zunächst essenziell, die anatomische Struktur des Zahns genau zu verstehen. Dazu
+gehören die unterschiedlichen Gewebeschichten wie Zahnschmelz, Dentin und die
+Pulpa, die sich nicht nur in ihrer physikalischen Zusammensetzung, sondern auch
+in ihrer radiologischen Darstellung innerhalb der \ac{CT}-Bilder unterscheiden.
+Erst mit diesem grundlegenden Verständnis lassen sich Methoden zur 3D-Bildbearbeitung
 ableiten.
 
 \begin{minipage}{0.40\textwidth}
@@ -77,6 +76,9 @@ ableiten.
 	Mundhöhle und ist nach \citet[S.~41]{lehmann2012Zahnheilkunde} das härteste Material
 	im menschlichen Körper. In der Mitte des Zahnes befindet sich Weichgewebe, das
 	als Pulpa bezeichnet wird vgl. \citep[vgl.][S.~15]{lehmann2012Zahnheilkunde}.
+	Für die anatomische Segmentierung von Zahn-\ac{CT}-Aufnahmen spielen insbesondere
+	die drei Hauptbestandteile des Zahns – Schmelz, Dentin und Pulpa – eine
+	entscheidende Rolle.
 \end{minipage}
 \hfill
 \begin{minipage}{0.50\textwidth}
@@ -86,17 +88,13 @@ ableiten.
 	\label{fig:aufbau_eines_zahnes}
 \end{minipage}
 
-Für die anatomische Segmentierung von Zahn-\ac{CT}-Aufnahmen spielen insbesondere
-die drei Hauptbestandteile des Zahns – Schmelz, Dentin und Pulpa – eine
-entscheidende Rolle. Diese Gewebearten weisen unterschiedliche Strukturen auf,
-die sich in den verschiedenen Graustufen auf einem Mikro-\ac{CT}-Bild widerspiegeln.
-
-Die Pulpa, das innere Weichgewebe des Zahns, unterscheidet sich dabei nur geringfügig
-vom Hintergrund, da sie als einzige der drei Hauptstrukturen nur sehr wenig
-Röntgenstrahlen absorbiert. Aufgrund dieser geringen Sichtbarkeit spielt die Pulpa
-in dieser Arbeit eine untergeordnete Rolle und wird nicht in das Segmentierungsverfahren
-einbezogen. Dadurch konzentriert sich das Verfahren in erster Linie auf die
-Zahnkrone. Geht man von innen nach außen, folgt auf die Pulpa das Dentin, das auch
+Diese Gewebearten weisen unterschiedliche Strukturen auf, die sich in den
+verschiedenen Graustufen auf einem Mikro-\ac{CT}-Bild widerspiegeln. Die Pulpa, das
+innere Weichgewebe des Zahns, unterscheidet sich dabei nur geringfügig vom
+Hintergrund, da sie als einzige der drei Hauptstrukturen nur sehr wenig Röntgenstrahlen
+absorbiert. Aufgrund dieser geringen Sichtbarkeit spielt die Pulpa in dieser
+Arbeit eine untergeordnete Rolle und wird nicht in das Segmentierungsverfahren
+einbezogen. Geht man von innen nach außen, folgt auf die Pulpa das Dentin, das auch
 als Zahnbein bezeichnet wird. Laut \citet[S.~41]{lehmann2012Zahnheilkunde} handelt
 es sich dabei um eine Hartsubstanz, die den Zahn im Kieferknochen hält. Aufgrund
 seiner Dichte ist das Dentin in \ac{CT}-Aufnahmen bereits deutlich erkennbar. Die
@@ -158,20 +156,17 @@ Abbildung \ref{fig:spectrum} zeigt dieses elektromagnetische Spektrum.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{img/x_ray.jpg}
+	\includegraphics[width=0.6\textwidth]{img/x_ray.jpg}
 	\caption{Einordnung der Röntgenstrahlung (X-Ray) in das elektromagnetische
 	Spektrum nach \citet[S.~5]{zwinkels2015}}
 	\label{fig:spectrum}
 \end{figure}
 
-Durch Betrachtung der Abbildung wird klar, dass Röntgenstrahlen eine viel höhere
-Energiedichte haben als das sichtbar Licht. So kommt es, dass es auch harte
-Gewebestrukturen durchdringen kann. Durchdringt ein solcher Röntgenstrahl ein Untersuchungsobjekt,
-werden die Details aufgrund der Wechselwirkung mit Materie auf einer \ac{CT}-Aufnahme
-sichtbar. Die bekannteste Wechselwirkung ist die Absorption. Mit der Steigerung der
-Atomzahl in einem Material nimmt auch die Absorption eines Materials zu, sodass
-es leicht ist verschiedene Materialien in einer \ac{CT}-Aufnahme zu unterscheiden
-\citep[vgl.][K.~1]{nib2024}.
+Durchdringt ein solcher Röntgenstrahl ein Untersuchungsobjekt, werden die
+Details aufgrund der Wechselwirkung mit Materie auf einer \ac{CT}-Aufnahme sichtbar.
+Die bekannteste Wechselwirkung ist die Absorption. Mit der Steigerung der Atomzahl
+in einem Material nimmt auch die Absorption eines Materials zu, sodass es leicht
+ist verschiedene Materialien in einer \ac{CT}-Aufnahme zu unterscheiden \citep[vgl.][K.~1]{nib2024}.
 
 Für eine Mikro-\ac{CT}-Aufnahme bedarf es spezieller Technik. Es gibt
 unterschiedliche Firmen, welche die unterschiedlichsten Modelle anbieten. Im
