@@ -503,7 +503,7 @@ wurde. Es wird gezeigt, wie das Problem strukturiert in Teilaufgaben zerlegt wur
 und welche Schritte zur Lösung unternommen wurden.
 % ---------------------------------------------------------------------------------------
 
-\chapter{Diskussion und Fazit}
+\chapter{Diskussion}
 \label{chap:diskussion} Betrachtet man gegen Ende dieser vorliegenden Arbeit
 nochmals die Forschungsfrage aus Kapitel \ref{chap:fragestellung} so können noch
 weitere Punkte hinzugefügt werden. Grundsätzlich lässt sich sagen, dass die
@@ -537,24 +537,97 @@ Anforderungen erfüllte. Betrachtet man jedoch die Relevanz dieser Arbeit aus Ka
 lange nicht den Reifegrad erreicht hat, der auf diesen Punkt abzielt. Um dies
 endgültig zu gewährleisten, sind unter anderem weitere Benutzertests und gegebenenfalls
 Fehlerbehebungen notwendig.
+
+\chapter{Diskussion und Fazit}
+\label{chap:diskussion} Am Ende dieser Arbeit lohnt es sich, erneut einen Blick auf
+die in Kapitel \ref{sec:ziel_der_arbeit} formulierte Forschungsfrage zu werfen und
+noch einige Aspekte hinzuzufügen:
+
+\textit{Wie kann eine benutzerfreundliche Schnittstelle innerhalb von 3D Slicer
+entwickelt werden, die nicht nur das Verfahren der anatomischen Segmentierung effizient
+integriert und den Zugang für Anwender vereinfacht, sondern auch eine
+strukturierte und flexible Umgebung zur Verarbeitung von Mikro-CT-Aufnahmen
+bietet?}
+
+Die Ergebnisse dieser Arbeit zeigen, dass die Integration der anatomischen
+Segmentierung erfolgreich in das Ökosystem von 3D Slicer eingebunden werden
+konnte. Das zuvor aufwendig zu bedienende Verfahren wurde durch die entwickelte Benutzeroberfläche
+erheblich vereinfacht. Anstelle einer manuellen Ausführung über das Terminal
+lässt sich die Segmentierung nun mit wenigen Klicks starten, was die Anwendung besonders
+für Praktiker in der Zahnmedizin zugänglicher macht.
+
+Ein zentraler Aspekt der Forschungsfrage betraf die Effizienz der Integration.
+Hier konnte gezeigt werden, dass das entwickelte Modul die gewünschten Ergebnisse
+liefert, ohne dabei die Qualität der anatomischen Segmentierung zu
+beeinträchtigen. Durch die enge Verzahnung mit 3D Slicer bleibt das Modul kompatibel
+mit bestehenden Workflows, wodurch eine nahtlose Nutzung innerhalb der Klinik
+ermöglicht wird. Mit dem Tooth Analyser entstand so eine Struktur, die ein gutes
+Vorgehen bei der Verarbeitung von Mikro-CT-Aufnahmen beschreibt, das für die gesamte
+Zahnmedizin eine Bereicherung bietet. Der Luxus einer interaktiven Schnittstelle
+ist hier nur die Spitze des Eisberges.
+
+Auch die Erweiterbarkeit des Systems wurde berücksichtigt. Dank der modularen Architektur
+kann das zugrunde liegende Segmentierungsverfahren ohne größere Anpassungen ausgetauscht
+oder durch weitere Funktionalitäten ergänzt werden. Dies stellt sicher, dass das
+System auch in Zukunft flexibel bleibt. Es wurde auch deutlich, dass eine zu große
+Funktionsvielfalt zu einer Überladung des Moduls führen könnte. Um dies zu
+vermeiden, können einzelne Funktionen in separate Module ausgelagert werden.
+
+Während der Entwicklung erwiesen sich die umfangreiche Dokumentation und die bestehende
+Infrastruktur von 3D Slicer als große Vorteile. Die Implementierung einfacher
+Algorithmen gestaltete sich dadurch effizient, und erste funktionale Prototypen konnten
+zügig erstellt werden. Auch zeigte sich, dass eine Veröffentlichung über den \textit{Extension
+Manager} nicht zwingend erforderlich ist. Für bestimmte Nutzergruppen kann das Modul
+problemlos lokal eingebunden werden, ohhne das dabei Qualitätsabstirche gemacht
+werden müssen.
+
+Ein Punkt, der zu Beginn nicht feststand war die optionale Generierung der medialen
+Flächen, sowie eine automtische Erkennung eines bereits gefilterten Bildes. Beide
+Punkte sind ein Ergebniss der Performancemessung und tragen dazu bei, dass die
+Laufzeit der Anwendung in manchen Fällen deutlich verbessert werden kann.
+
+Dennoch gab es Herausforderungen. Nicht alle Prinzipien einer idealen Softwarearchitektur
+konnten konsequent umgesetzt werden. Diese Entscheidungen wurden jedoch bewusst
+getroffen, um die Entwicklung pragmatisch und anwendungsorientiert zu gestalten.
+Auch eine Vorverarbeitung der Bilder konnte nicht implementiert werden. Zwar wurde
+diese Funktionalität vorgesehen und muss nur noch befüllt werden, aber eine
+konkrete Ausführung ist zu dieser Zeit nicht mögliche.
+
+Auch die Anforderungen aus Kapitel \ref{sec:anforderungsanalyse} sollen hier
+noch einmal von kritischer Seite betrachtet werden. Neben der Frage, ob alle
+Anforderungen erfüllt wurden, stellt sich hier auch die Frage, ob die
+Anforderungen auch passend gewählt wurden. Wie die ersten Anwendertests zeigten,
+liefert der Tooth Analyser einen guten Mehrwert im Forschungsalltag, sodass keine
+der Anforderungen als misslungen bezeichnet werden kann. Auch die
+Ergebnisdarstellung in der Slicer-Szene erlangt in der ersten Testreihe ein
+gutes Feedback.
+
+Zusammenfassend lässt sich sagen, dass die in dieser Arbeit entwickelte Lösung die
+Forschungsfrage in wesentlichen Punkten beantworten konnte: Die Segmentierung
+wurde effizient in 3D Slicer integriert, die Benutzerfreundlichkeit erheblich verbessert
+und eine Erweiterbarkeit der Software gewährleistet. Darüber hinaus konnte ein
+Modell ausgearbeitet werden, nach dem diverse Mikro-CT-Aufnahmen effizient bearbeitet
+werden können. Allerdings zeigt ein Blick auf die in Kapitel
+\ref{sec:relevanz_der_arbeit} diskutierte Relevanz der Arbeit, dass der Tooth Analyser
+noch nicht den endgültigen Reifegrad erreicht hat. Um das System weiter zu
+optimieren, sind zusätzliche Benutzertests und potenzielle Fehlerbehebungen erforderlich.
+Erst mit diesen weiteren Schritten kann das Ziel einer langfristig etablierten
+und klinisch einsetzbaren Lösung vollständig erreicht werden.
+% ---------------------------------------------------------------------------------------
 % ---------------------------------------------------------------------------------------
 % ---------------------------------------------------------------------------------------
 % ---------------------------------------------------------------------------------------
 
 TODO:
 
-- Mikro-CT ist die wichtigeste Forschungsgrundlage in der Zahnmedozin -> so die
-Kurzfassung beginnen.
-
-- Diskussion überarbeiten, mehr auf die Forschungsfrage eingehen, Immer bezogen
-auf die ganze Forschung
-
-- Kapitel Anwendertests einbauen
-
 - die Reihenfolge der evaluaton im Kapitel Forschungsevaluation erklären, sodass
 es auch zur Evaluations reihhenfolge passt
 
 - Das Kapitel Datenformate nochmal ansehen
+
+- Den Batch in das Struktur Diagramm noch mit einbauen
+
+- Die medialne flächhen im kapitel anatomische Segme. erwähenn 
 % ---------------------------------------------------------------------------------------
 
 Diese Seiten muss Sara nochmal lesen:
@@ -562,3 +635,38 @@ Diese Seiten muss Sara nochmal lesen:
 - Einleitung
 
 - Datenformate
+
+- Evaluation
+
+% ---------------------------------------------------------------------------------------
+
+Inhalt der Diskussion:
+
+% Aus Performance
+Nichtsdestotrotz bietet die Anwendung trotz ihrer doch hohen Laufzeit ein enormes
+Zeitersparnis für die praktizierenden Ärzte. Laut Dr. Elias Walter würde eine händische
+Segmentierung ca. 20 Minuten aktive Arbeit bedeute. Diese Arbeit kann der Tooth Analyser
+deutlich reduzieren, indem er kein aktives Arbeiten erfordert, sondern im Hintergrund
+läuft.
+
+% limiierung
+Der Grund hierfür liegt in der Implementierung des Algorithmus. Die anatomische
+Segmentierung wurde speziell für die \ac{CT}-Aufnahmen im \ac{ISQ} Typ
+entwickelt. Aus diesem Grund wurden die Schwellwerte und Parameter für dieses Verfahren
+fest codiert.
+
+Nach einer etwas detaillierteren Analyse konnte festgestellt werden, dass das
+Problem im Bereich der Auffüllung liegt. Den Grund dafür liefern die einzelnen Datensätze
+während der Segmentierung. Betrachtet man diese genauer so fällt auf, das der Zahn
+zu Beginn richtig segmentiert wird, auch in Bezug auf die Pulpa. Nachdem dann die
+Auffüllung für das Schmelzsegment über das Bild läuft, wird diese zuerst
+richtige Segmentierung wieder verworfen.
+
+Diese Situation ist zwar entgegen vieler Konventionen, jedoch sorgt sie auch dafür,
+dass die Komplexität des Quellcodes nicht zu groß wird.
+
+Diesem Verhalten könnte man mit einer einfache Checkbox entgegenwirken, indem man
+die Checkbox setzt, wenn man nach dem Batch alle Bilder laden möchte.
+
+% Benutzertests
+Auf die Benutzertest eingehen

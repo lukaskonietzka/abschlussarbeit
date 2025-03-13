@@ -181,26 +181,32 @@ gut prognostizieren, wie lange eine Verarbeitung von $n$ vielen Bildern dauert. 
 bereits angedeutet, hängt die Zeit eines einzelnen Bilds von vielen Faktoren ab.
 Nimmt man den Fall aus Abbildung \ref{fig:laufzeit}, würde die Bearbeitung von
 zehn Bilder etwa 170 Minuten beanspruchen. Dies entspricht zwei Stunden und 50 Minuten.
-
-Im Rahmen eines kleinen Stresstests wurden 103 \ac{CT}-Aufnahmen aus dem Tooth
-Analyser heraus in einem Batch Prozess gestartet. Hierzu wurde ein Server der \ac{LMU}
-genutzt, der über große Ressourcen verfügt. Die Bearbeitung eines Bildes
-benötigt hier etwa neun Minuten. Befolgt man die Verteilung aus der Abbildung \ref{fig:laufzeit_batch},
-so lässt sich eine Zeit von 15 Stunden und 27 Minuten prognostizieren. Das Resultat
-dieses Tests zeigt, das in etwa auch diese Zeit benötigt wurde. Viel wichtiger ist
-jedoch, dass hierbei alle Bilder erfolgreich anatomisch segmentiert werden
-konnten.
-
-Nichtsdestotrotz bietet die Anwendung trotz ihrer doch hohen Laufzeit ein
-enormes Zeitersparnis für die praktizierenden Ärzte. Laut Dr. Elias Walter würde
-eine händische Segmentierung ca. 20 Minuten aktive Arbeit bedeute. Diese Arbeit
-kann der Tooth Analyser deutlich reduzieren, indem er kein aktives Arbeiten erfordert,
-sondern im Hintergrund läuft. Für welche Anwendungsfälle der Tooth Analyser genau
-eingesetzt werden kann, darüber berichtet das Kapitel Anwendungsszenarien.
 % ---------------------------------------------------------------------------------------
 
 \section{Benutzertests}
-\label{sec:benutzertests}
+\label{sec:benutzertests}Um die entwickelte Software objektiv zu bewerten, wurden
+gezielte Benutzertests mit Anwendern durchgeführt. Dabei nahmen drei Zahnärzte
+der Poliklinik für Zahnerhaltung und Parodontologie an der LMU an der Testphase
+teil, in der sie den Tooth Analyser in ihren Forschungsalltag integrierten. Über
+einen Zeitraum von drei Wochen konnten sie die Software in realen
+Anwendungsszenarien erproben.
+
+Zusätzlich wurde ein kleiner Stresstest durchgeführt, bei dem 103 CT-Aufnahmen in
+einem Batch-Prozess mit dem Tooth Analyser verarbeitet wurden. Die Berechnung
+erfolgte auf einem leistungsstarken Server der LMU, der über ausreichend Rechenkapazitäten
+verfügt. Die durchschnittliche Bearbeitungszeit pro Bild lag hier bei etwa neun
+Minuten. Basierend auf der in Abbildung \ref{fig:laufzeit_batch} dargestellten Verteilung
+ergab sich eine prognostizierte Gesamtverarbeitungszeit von 15 Stunden und 27 Minuten.
+Ein Wert, der in der Praxis gut bestätigt wurde. Besonders erfreulich war, dass sämtliche
+Bilder bis zu einem gewissen Grad an Karies erfolgreich anatomisch segmentiert werden
+konnten. Die Tests in der Klinik zeigten zudem, dass auch die vollständige Segmentierung
+ganzer Zähne mit komplexen Wurzeln möglich ist.
+
+Die Ergebnisse der Benutzertests aus der Klink verdeutlichen, dass der Tooth
+Analyser in der Praxis eine wertvolle Unterstützung bietet, und durch die Segmentierung
+ganzer Zähnen den Anwendungskreis noch weiter spannt. Um ein besseres
+Verständnis für die realen Einsatzmöglichkeiten der Software zu gewinnen, werden
+im folgenden Kapitel verschiedene Anwendungsszenarien vorgestellt.
 % ---------------------------------------------------------------------------------------
 
 \section{Anwendungsszenarien}
@@ -210,53 +216,60 @@ von den Ärzten rein zur Forschung eingesetzt. Mit dem Tooth Analyser lässt sic
 mittels einer Mikro-\ac{CT}-Aufnahme ein 3D Modell des Zahnes erstellen. Man
 spricht hier von einer Rekonstruktion des Zahnes. Durch die Segmentierung erlaubt
 dieser rekonstruierte Zahn auch eine Segmentbetrachtung von Dentin und Schmelz.
-Die Abbildungen \ref{fig:3d_view} und \ref{fig:3d_view_dentin} zeigt diese
-Rekonstruktion genauer.
+Die Abbildungen \ref{fig:3d_view}, \ref{fig:3d_view_dentin} und \ref{fig:3d_view_schmelz}
+zeigt diese Rekonstruktion genauer.
 
-\begin{minipage}{0.45\textwidth}
+\begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.2, width=\textwidth]{img/3dView.png}
-	\captionof{figure}{Rekonstruktion eines Zahns aus einer CT-Aufnahme mittels der Erweiterung Tooth Analyser}
-	\label{fig:3d_view}
-\end{minipage}
-\hfill
-\begin{minipage}{0.45\textwidth}
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/3dView.png}
+		\caption{Rekonstruktion eines Zahns aus einer CT-Aufnahme}
+		\label{fig:3d_view}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/3dViewDentin.png}
+		\caption{Dentinsegment eines rekonstruierten Zahns}
+		\label{fig:3d_view_dentin}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/3dViewEnamel.png}
+		\caption{Schmelzsegment eines rekonstruierten Zahns}
+		\label{fig:3d_view_schmelz}
+	\end{minipage}
+\end{figure}
+
+Das Betrachten der einzelnen Segmente wie sie in Abbildung
+\ref{fig:3d_view_dentin} gezeigt wird, erfolgt nicht in der Erweiterung Tooth Analyser.
+Hierzu wird auf das Modul \textit{Data} verwiesen, das eine hierarchische
+Darstellung aller Daten in der Szene liefert. Über die Sichtbarkeitseinstellungen
+der einzelnen Datenelemente können dann die Segmente sichtbar oder unsichtbar geschaltet
+werden.
+
+Einen weiteren Fall, indem die Anwendung unterstützen kann, ist die Klassifizierung
+von Karies. Die Abbildung \ref{fig:classification} zeigt diesen Fall. Hierfür sind
+die medialen Flächen der einzelnen Segmente nötig. Diese sind im Bild als rote
+und grüne Linie sichtbar, verteilen sich aber über das ganze 3D Bild, was daraus
+eine Fläche macht. Legt man nun diese Flächen über das originale Bild, so lässt
+sich mittels dieser Linie der Karies auf einem \ac{CT} gut klassifizieren. Diese
+besagten Linien bilden dann die Grenzen. Ragt der Karies über diese mediale Fläche
+hinaus hat er bereits einen sehr ausgeprägten Zustand und wird anders eingeordnet
+als ein Karies, der die mediale Fläche noch nicht überschritten hat.
+
+\begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.2, width=\textwidth]{img/3dViewDentin.png}
-	\captionof{figure}{Segmentbetrachtung eines rekonstruierten Zahns auf Basis einer CT-Aufnahme}
-	\label{fig:3d_view_dentin}
-\end{minipage}
+	\includegraphics[width=0.4 \textwidth]{img/classification.png}
+	\caption{Klassifizierung von Karies mittels der medialen Flächen}
+	\label{fig:classification}
+\end{figure}
 
-Das Betrachten der einzelnen Segmente wie sie in Abbildung \ref{fig:3d_view_dentin}
-gezeigt wird, erfolgt nicht in der Erweiterung Tooth Analyser. Hierzu wird auf das
-Modul \textit{Data} verwiesen, das eine hierarchische Darstellung aller Daten in
-der Szene liefert. Über die Sichtbarkeitseinstellungen der einzelnen
-Datenelemente können dann die Segmente sichtbar oder unsichtbar geschaltet
-werden. Einen weiteren Fall, indem die Anwendung unterstützen kann, ist die Klassifizierung
-von Karies. Die Abbildung \ref{fig:classification} zeigt diesen Fall.
-
-\begin{minipage}{0.45\textwidth}
-	Hierfür sind die medialen Flächen der einzelnen Segmente nötig. Diese sind im
-	Bild als rote und grüne Linie sichtbar, verteilen sich aber über das ganze 3D Bild,
-	was daraus eine Fläche macht. Legt man nun diese Flächen über das originale Bild,
-	so lässt sich mittels dieser Linie der Karies auf einem \ac{CT} gut klassifizieren.
-	Diese besagten Linien bilden dann die Grenzen. Ragt der Karies über diese mediale
-	Fläche hinaus hat er bereits einen sehr ausgeprägten Zustand und wird anders eingeordnet
-	als ein Karies, der die mediale Fläche noch nicht überschritten hat.
-\end{minipage}
-\hfill
-\begin{minipage}{0.45\textwidth}
-	\centering
-	\includegraphics[scale=0.2, width=\textwidth]{img/classification.png}
-	\captionof{figure}{Klassifizierung von Karies mittels der medialen Flächen} \label{fig:classification}
-\end{minipage}
-
-Da durch die Klinik für Zahnerhaltung nur \ac{CT}-Bilder von Zahnkronen
-bereitgestellt wurden, wurde der Tooth Analyser auch nur mittels dieser Aufnahmen
-getestet. Durch einige Benutzertests in der Klinik zeigte sich aber, dass auch die
-Segmentierung eines ganzen Zahns möglich ist. Selbst bei einer komplexeren
-Wurzel. Jedoch bleibt es nicht aus, dass der Tooth Analyser auch Einschränkungen
-mitbringt und so auch die Verwendung dieses Moduls limitiert.
+Die konkreten Anwendungsfälle zeigen, dass der Tooth Analyser duchaus Anwendung
+im Forschungsaltag der Klinik finden. Dennoch traten während der Nutzung auch einige
+Einschränkungen auf, die die Einsatzmöglichkeiten des Tooth Analysers begrenzen.
 % ---------------------------------------------------------------------------------------
 
 \section{Limitierungen}
@@ -264,13 +277,12 @@ mitbringt und so auch die Verwendung dieses Moduls limitiert.
 die im Modul Tooth Analyser noch Probleme machen, oder gar nicht erst umgesetzt
 wurden. Der limitierende Faktor in der Erweiterung ist das eingeschränkte Format
 der Bilder. Es können innerhalb dieser Erweiterung nur Bilder verarbeitet werden,
-die das Format \ac{16Int} haben. Der Grund hierfür liegt in der Implementierung des
-Algorithmus. Die anatomische Segmentierung wurde speziell für die \ac{CT}-Aufnahmen
-im \ac{ISQ} Typ entwickelt. Aus diesem Grund wurden die Schwellwerte und Parameter
-für dieses Verfahren fest codiert. Führt man dennoch die Segmentierung mit einem
-anderen Format durch (z.B. \ac{8UInt}), so stellt man fest, dass der Algorithmus
-zwar ein Ergebnis generiert, dieses aber nicht verwendbar ist. Die Abbildung
-\ref{fig:3d_error} zeigt ein solches falsche Ergebnis.
+die das Format \ac{16Int} haben. Führt man dennoch die Segmentierung mit einem anderen
+Format durch (z.B. \ac{8UInt}), so stellt man fest, dass der Algorithmus zwar ein
+Ergebnis generiert, dieses aber nicht verwendbar ist. Die Abbildung \ref{fig:3d_error}
+zeigt ein solches falsche Ergebnis. Zu sehen ist ein 3D Modell, das nur aus einem
+Segment besteht. In diesem Fall wurde der gesamte Zahn mit Pulpa als Dentin
+markiert.
 
 \begin{figure}[h]
 	\centering
@@ -278,14 +290,6 @@ zwar ein Ergebnis generiert, dieses aber nicht verwendbar ist. Die Abbildung
 	\caption{Fehlerhafte Segmentierung einer CT-Aufnahme im Format 8UInt}
 	\label{fig:3d_error}
 \end{figure}
-
-Zu sehen ist ein 3D Modell, das nur aus einem Segment besteht. In diesem Fall wurde
-der gesamte Zahn mit Pulpa als Dentin markiert. Nach einer etwas detaillierteren
-Analyse konnte festgestellt werden, dass das Problem im Bereich der Auffüllung liegt.
-Den Grund dafür liefern die einzelnen Datensätze während der Segmentierung. Betrachtet
-man diese genauer so fällt auf, das der Zahn zu Beginn richtig segmentiert wird,
-auch in Bezug auf die Pulpa. Nachdem dann die Auffüllung für das Schmelzsegment
-über das Bild läuft, wird diese zuerst richtige Segmentierung wieder verworfen.
 
 Durch diese Limitierung ergibt sich eine weitere. Zu Beginn in der Analysephase
 des Projektes, war eine Vorverarbeitung der Bilder vorgesehen, dass die
@@ -299,19 +303,11 @@ Eine weitere Limitierung der Software liegt im Batch Modus. Wird ein Batch Modus
 ausgeführt, so werden im Anschluss die Bilder nicht in die Szene geladen. Dies
 muss manuell über den Import des Kernsystems erfolgen. Soll für die unterschiedlichen
 Bilder ein \ac{3D} Modell erzeugt werden müssen diese ebenfalls manuell als
-Segmentierung geladen werden. Diesem Verhalten könnte man mit einer einfache Checkbox
-entgegenwirken, indem man die Checkbox setzt, wenn man nach dem Batch alle Bilder
-laden möchte.
+Segmentierung geladen werden.
 
-Zuletzt sei noch auf eine Limitierung hingewiesen, die der Erweiterbarkeit des
-Moduls dient. Soll die Erweiterung um zusätzliche Funktionen erweiter werden,
-dann sind kleine Änderungen in einer bestehenden Klasse notwendig. Konkret geht es
-hier um die Klasse \texttt{ToothAnalyserWidget}. Hier muss je nach Ausprägung der
-\ac{UI} der neuen Funktion, Methoden hinzugefügt werden. Diese Situation ist
-zwar entgegen vieler Konventionen, jedoch sorgt sie auch dafür, dass die
-Komplexität des Quellcodes nicht zu groß wird.
-
-Mit der Beschreibung dieser limitierenden Faktoren wurden alle Ergebnisse, die in
-dieser Arbeit erzielt wurden präsentiert. Es bleibt zum Schluss noch eine
-Interpretation der Ergebnisse aus kritischer Sicht.
+Zuletzt sei noch auf eine Limitierung hingewiesen, die der Erweiterbarkeit des Moduls
+dient. Soll die Erweiterung um zusätzliche Funktionen erweiter werden, dann sind
+kleine Änderungen in einer bestehenden Klasse notwendig. Konkret geht es hier um
+die Klasse \texttt{ToothAnalyserWidget}. Hier muss je nach Ausprägung der \ac{UI}
+der neuen Funktion, Methoden hinzugefügt werden.
 % ---------------------------------------------------------------------------------------
