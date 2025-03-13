@@ -199,14 +199,19 @@ sondern im Hintergrund läuft. Für welche Anwendungsfälle der Tooth Analyser g
 eingesetzt werden kann, darüber berichtet das Kapitel Anwendungsszenarien.
 % ---------------------------------------------------------------------------------------
 
+\section{Benutzertests}
+\label{sec:benutzertests}
+% ---------------------------------------------------------------------------------------
+
 \section{Anwendungsszenarien}
-In erster Linie bietet der Tooth Analyser eine Visualisierungshilfe, die für Ärzte
-unterstützend wirken soll. Wie auch von Slicer empfohlen wird dieses Modul von
-den Ärzten rein zur Forschung eingesetzt. Mit dem Tooth Analyser lässt sich mittels
-einer Mikro-\ac{CT}-Aufnahme ein 3D Modell des Zahnes erstellen. Man spricht hier
-von einer Rekonstruktion des Zahnes. Durch die Segmentierung erlaubt dieser
-rekonstruierte Zahn auch eine Segmentbetrachtung von Dentin und Schmelz. Die Abbildungen
-\ref{fig:3d_view} und \ref{fig:3d_view_dentin} zeigt diese Rekonstruktion genauer.
+In erster Linie bietet der Tooth Analyser eine Visualisierungshilfe, die für
+Ärzte unterstützend wirken soll. Wie auch von Slicer empfohlen wird dieses Modul
+von den Ärzten rein zur Forschung eingesetzt. Mit dem Tooth Analyser lässt sich
+mittels einer Mikro-\ac{CT}-Aufnahme ein 3D Modell des Zahnes erstellen. Man
+spricht hier von einer Rekonstruktion des Zahnes. Durch die Segmentierung erlaubt
+dieser rekonstruierte Zahn auch eine Segmentbetrachtung von Dentin und Schmelz.
+Die Abbildungen \ref{fig:3d_view} und \ref{fig:3d_view_dentin} zeigt diese
+Rekonstruktion genauer.
 
 \begin{minipage}{0.45\textwidth}
 	\centering
@@ -222,13 +227,13 @@ rekonstruierte Zahn auch eine Segmentbetrachtung von Dentin und Schmelz. Die Abb
 	\label{fig:3d_view_dentin}
 \end{minipage}
 
-Das Betrachten der einzelnen Segmente wie sie in Abbildung
-\ref{fig:3d_view_dentin} gezeigt wird, erfolgt nicht in der Erweiterung Tooth Analyser.
-Hierzu wird auf das Modul \textit{Data} verwiesen, das eine hierarchische
-Darstellung aller Daten in der Szene liefert. Über die Sichtbarkeitseinstellungen
-der einzelnen Datenelemente können dann die Segmente sichtbar oder unsichtbar geschaltet
-werden. Einen weiteren Fall, indem die Anwendung unterstützen kann, ist die
-Klassifizierung von Karies. Die Abbildung \ref{fig:classification} zeigt diesen Fall.
+Das Betrachten der einzelnen Segmente wie sie in Abbildung \ref{fig:3d_view_dentin}
+gezeigt wird, erfolgt nicht in der Erweiterung Tooth Analyser. Hierzu wird auf das
+Modul \textit{Data} verwiesen, das eine hierarchische Darstellung aller Daten in
+der Szene liefert. Über die Sichtbarkeitseinstellungen der einzelnen
+Datenelemente können dann die Segmente sichtbar oder unsichtbar geschaltet
+werden. Einen weiteren Fall, indem die Anwendung unterstützen kann, ist die Klassifizierung
+von Karies. Die Abbildung \ref{fig:classification} zeigt diesen Fall.
 
 \begin{minipage}{0.45\textwidth}
 	Hierfür sind die medialen Flächen der einzelnen Segmente nötig. Diese sind im
@@ -246,26 +251,26 @@ Klassifizierung von Karies. Die Abbildung \ref{fig:classification} zeigt diesen 
 	\captionof{figure}{Klassifizierung von Karies mittels der medialen Flächen} \label{fig:classification}
 \end{minipage}
 
-Da durch die Klinik für Zahnerhaltung nur \ac{CT}-Bilder von Zahnkronen bereitgestellt
-wurden, wurde der Tooth Analyser auch nur mittels dieser Aufnahmen getestet. Durch
-einige Benutzertests in der Klinik zeigte sich aber, dass auch die Segmentierung
-eines ganzen Zahns möglich ist. Selbst bei einer komplexeren Wurzel. Jedoch
-bleibt es nicht aus, dass der Tooth Analyser auch Einschränkungen mitbringt und so
-auch die Verwendung dieses Moduls limitiert.
+Da durch die Klinik für Zahnerhaltung nur \ac{CT}-Bilder von Zahnkronen
+bereitgestellt wurden, wurde der Tooth Analyser auch nur mittels dieser Aufnahmen
+getestet. Durch einige Benutzertests in der Klinik zeigte sich aber, dass auch die
+Segmentierung eines ganzen Zahns möglich ist. Selbst bei einer komplexeren
+Wurzel. Jedoch bleibt es nicht aus, dass der Tooth Analyser auch Einschränkungen
+mitbringt und so auch die Verwendung dieses Moduls limitiert.
 % ---------------------------------------------------------------------------------------
 
 \section{Limitierungen}
 \label{sec:limitierungen} Dieses Kapitel soll alle Punkte transparent aufdecken,
-die im Modul Tooth Analyser noch Probleme machen, oder gar nicht erst umgesetzt wurden.
-Der limitierende Faktor in der Erweiterung ist das eingeschränkte Format der
-Bilder. Es können innerhalb dieser Erweiterung nur Bilder verarbeitet werden,
-die das Format \ac{16Int} haben. Der Grund hierfür liegt in der Implementierung
-des Algorithmus. Die anatomische Segmentierung wurde speziell für die \ac{CT}-Aufnahmen
-im \ac{ISQ} Typ entwickelt. Aus diesem Grund wurden die Schwellwerte und
-Parameter für dieses Verfahren fest codiert. Führt man dennoch die Segmentierung
-mit einem anderen Format durch (z.B. \ac{8UInt}), so stellt man fest, dass der Algorithmus
-zwar ein Ergebnis generiert, dieses aber nicht verwendbar ist. Die Abbildung \ref{fig:3d_error}
-zeigt ein solches falsche Ergebnis.
+die im Modul Tooth Analyser noch Probleme machen, oder gar nicht erst umgesetzt
+wurden. Der limitierende Faktor in der Erweiterung ist das eingeschränkte Format
+der Bilder. Es können innerhalb dieser Erweiterung nur Bilder verarbeitet werden,
+die das Format \ac{16Int} haben. Der Grund hierfür liegt in der Implementierung des
+Algorithmus. Die anatomische Segmentierung wurde speziell für die \ac{CT}-Aufnahmen
+im \ac{ISQ} Typ entwickelt. Aus diesem Grund wurden die Schwellwerte und Parameter
+für dieses Verfahren fest codiert. Führt man dennoch die Segmentierung mit einem
+anderen Format durch (z.B. \ac{8UInt}), so stellt man fest, dass der Algorithmus
+zwar ein Ergebnis generiert, dieses aber nicht verwendbar ist. Die Abbildung
+\ref{fig:3d_error} zeigt ein solches falsche Ergebnis.
 
 \begin{figure}[h]
 	\centering
@@ -274,39 +279,39 @@ zeigt ein solches falsche Ergebnis.
 	\label{fig:3d_error}
 \end{figure}
 
-Zu sehen ist ein 3D Modell, das nur aus einem Segment besteht. In diesem Fall
-wurde der gesamte Zahn mit Pulpa als Dentin markiert. Nach einer etwas detaillierteren
-Analyse konnte festgestellt werden, dass das Problem im Bereich der Auffüllung
-liegt. Den Grund dafür liefern die einzelnen Datensätze während der Segmentierung.
-Betrachtet man diese genauer so fällt auf, das der Zahn zu Beginn richtig segmentiert
-wird, auch in Bezug auf die Pulpa. Nachdem dann die Auffüllung für das Schmelzsegment
+Zu sehen ist ein 3D Modell, das nur aus einem Segment besteht. In diesem Fall wurde
+der gesamte Zahn mit Pulpa als Dentin markiert. Nach einer etwas detaillierteren
+Analyse konnte festgestellt werden, dass das Problem im Bereich der Auffüllung liegt.
+Den Grund dafür liefern die einzelnen Datensätze während der Segmentierung. Betrachtet
+man diese genauer so fällt auf, das der Zahn zu Beginn richtig segmentiert wird,
+auch in Bezug auf die Pulpa. Nachdem dann die Auffüllung für das Schmelzsegment
 über das Bild läuft, wird diese zuerst richtige Segmentierung wieder verworfen.
 
-Durch diese Limitierung ergibt sich eine weitere. Zu Beginn in der Analysephase des
-Projektes, war eine Vorverarbeitung der Bilder vorgesehen, dass die Komprimierung
-eines Bildes vornimmt und so die Bilder deutlich handlicher macht. Das Verfahren
-hierzu wurde in Kapitel \ref{subsec:datensätze} erläutert. Da dieses Verfahren allerdings
-einen Formatwechsel von \ac{16Int} nach \ac{8UInt} bewirkt und diese Bilder nicht
-richtig segmentiert werden können, scheidet die Vorverarbeitung von Bildern
-vorerst aus.
+Durch diese Limitierung ergibt sich eine weitere. Zu Beginn in der Analysephase
+des Projektes, war eine Vorverarbeitung der Bilder vorgesehen, dass die
+Komprimierung eines Bildes vornimmt und so die Bilder deutlich handlicher macht.
+Das Verfahren hierzu wurde in Kapitel \ref{subsec:datensätze} erläutert. Da
+dieses Verfahren allerdings einen Formatwechsel von \ac{16Int} nach \ac{8UInt}
+bewirkt und diese Bilder nicht richtig segmentiert werden können, scheidet die Vorverarbeitung
+von Bildern vorerst aus.
 
 Eine weitere Limitierung der Software liegt im Batch Modus. Wird ein Batch Modus
-ausgeführt, so werden im Anschluss die Bilder nicht in die Szene geladen. Dies muss
-manuell über den Import des Kernsystems erfolgen. Soll für die unterschiedlichen
-Bilder ein \ac{3D} Modell erzeugt werden müssen diese ebenfalls manuell als Segmentierung
-geladen werden. Diesem Verhalten könnte man mit einer einfache Checkbox
-entgegenwirken, indem man die Checkbox setzt, wenn man nach dem Batch alle
-Bilder laden möchte.
+ausgeführt, so werden im Anschluss die Bilder nicht in die Szene geladen. Dies
+muss manuell über den Import des Kernsystems erfolgen. Soll für die unterschiedlichen
+Bilder ein \ac{3D} Modell erzeugt werden müssen diese ebenfalls manuell als
+Segmentierung geladen werden. Diesem Verhalten könnte man mit einer einfache Checkbox
+entgegenwirken, indem man die Checkbox setzt, wenn man nach dem Batch alle Bilder
+laden möchte.
 
-Zuletzt sei noch auf eine Limitierung hingewiesen, die der Erweiterbarkeit des Moduls
-dient. Soll die Erweiterung um zusätzliche Funktionen erweiter werden, dann sind
-kleine Änderungen in einer bestehenden Klasse notwendig. Konkret geht es hier um
-die Klasse \texttt{ToothAnalyserWidget}. Hier muss je nach Ausprägung der \ac{UI}
-der neuen Funktion, Methoden hinzugefügt werden. Diese Situation ist zwar entgegen
-vieler Konventionen, jedoch sorgt sie auch dafür, dass die Komplexität des Quellcodes
-nicht zu groß wird.
+Zuletzt sei noch auf eine Limitierung hingewiesen, die der Erweiterbarkeit des
+Moduls dient. Soll die Erweiterung um zusätzliche Funktionen erweiter werden,
+dann sind kleine Änderungen in einer bestehenden Klasse notwendig. Konkret geht es
+hier um die Klasse \texttt{ToothAnalyserWidget}. Hier muss je nach Ausprägung der
+\ac{UI} der neuen Funktion, Methoden hinzugefügt werden. Diese Situation ist
+zwar entgegen vieler Konventionen, jedoch sorgt sie auch dafür, dass die
+Komplexität des Quellcodes nicht zu groß wird.
 
-Mit der Beschreibung dieser limitierenden Faktoren wurden alle Ergebnisse, die
-in dieser Arbeit erzielt wurden präsentiert. Es bleibt zum Schluss noch eine Interpretation
-der Ergebnisse aus kritischer Sicht.
+Mit der Beschreibung dieser limitierenden Faktoren wurden alle Ergebnisse, die in
+dieser Arbeit erzielt wurden präsentiert. Es bleibt zum Schluss noch eine
+Interpretation der Ergebnisse aus kritischer Sicht.
 % ---------------------------------------------------------------------------------------

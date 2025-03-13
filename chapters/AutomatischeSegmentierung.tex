@@ -19,42 +19,41 @@ Komponenten von Slicer zu erlangen, soll die Abbildung
 \citet[S.~1326]{fedorov2012slicer} teilt mit der Abbildung
 \ref{fig:3d_slicer_oekosystem} die Plattform in drei Schichten auf. Auf der Obersten
 wird klar, dass 3D Slicer aus der Kernanwendung und den installierbaren Modulen
-besteht. Neben den bereits vorhandenen Modulen können von externen Entwicklern Module
-über die Slicer Erweiterung entwickelt und bereitgestellt werden. Um eine
-Weiterentwicklung möglich zu machen hat Slicer eine Reihe von Abhängigkeiten, die
-jedoch portabel gehalten werden. Auf der untersten Schicht sind die
-Plattformspezifischen Anforderungen zu sehen, die Slicer erfüllen soll. So kommt
-es, dass das 3D Slicer Ökosystem sich durch einige Kriterien auszeichnet, die es
-besonders attraktiv für die Bearbeitung von medizinischen Bilddaten machen. Zu den
-wichtigsten Vorteilen gehört die Tatsache, dass die Software kostenfrei
-verfügbar ist. Darüber hinaus bietet sie eine umfassende Plug-in-Infrastruktur,
-die über den sogenannten Extension Manager zugänglich ist. Dies ermöglicht eine einfache
-Erweiterung der Funktionalitäten nach Bedarf. Ein weiteres herausragendes
-Merkmal ist die Möglichkeit, Skripte direkt in der integrierten Python-Konsole auszuführen,
-was eine flexible und effiziente Automatisierung von Prozessen ermöglicht. Schließlich
-ist 3D Slicer besonders für seine Vielseitigkeit bekannt, da es medizinische
-Bilddaten aus sämtlichen Bereichen der Medizin – von Kopf bis Fuß – verarbeiten
-kann.
+besteht. Neben den bereits vorhandenen Modulen können, von externen Entwicklern
+Module über die Slicer Erweiterung entwickelt und bereitgestellt werden. Um eine
+Weiterentwicklung möglich zu machen hat Slicer eine Reihe von Abhängigkeiten,
+die jedoch portabel gehalten werden. Auf der untersten Schicht sind die Plattformspezifischen
+Anforderungen zu sehen, die Slicer erfüllen soll. So kommt es, dass das 3D
+Slicer Ökosystem sich durch einige Kriterien auszeichnet, die es besonders attraktiv
+für die Bearbeitung von medizinischen Bilddaten machen. Zu den wichtigsten
+Vorteilen gehört die Tatsache, dass die Software kostenfrei verfügbar ist.
+Darüber hinaus bietet sie eine umfassende Plug-in-Infrastruktur, die über den sogenannten
+Extension Manager zugänglich ist. Dies ermöglicht eine einfache Erweiterung der
+Funktionalitäten nach Bedarf. Ein weiteres herausragendes Merkmal ist die Möglichkeit,
+Skripte direkt in der integrierten Python-Konsole auszuführen, was eine flexible
+und effiziente Automatisierung von Prozessen ermöglicht. Schließlich ist 3D
+Slicer besonders für seine Vielseitigkeit bekannt, da es medizinische Bilddaten aus
+sämtlichen Bereichen der Medizin verarbeiten kann.
 
-3D Slicer hat für alle diese Punkte jeweils eine Lösung entwickelt, wobei der erste
-Punkt durch die Open-Source-Philosophie schon gegeben ist. Die folgenden
-Abschnitte decken diese Lösungen ab und bilden so eine erste Grundlage für die
-Entwicklung mit 3D Slicer.
+3D Slicer hat für alle diese Punkte jeweils eine Lösung entwickelt, wobei der
+erste Punkt durch die Open-Source-Philosophie schon gegeben ist. Die folgenden Abschnitte
+decken diese Lösungen ab und bilden so eine erste Grundlage für die Entwicklung mit
+3D Slicer.
 % ---------------------------------------------------------------------------------------
 
 \section{Plug-in-Infrastruktur}
-Der wohl bedeutendste Punkt ist die Plug-in-Infrastruktur, welche Slicer von sich
-aus mitbringt. Um dieses Konzept genauer zu beleuchten, teilt man die Plattform am
-besten in zwei Teile auf, die Kernanwendung und die Module, welcher jeder Anwender
-personalisiert installieren oder deinstallieren kann. Diese Module werden als
-\textit{Slicer lodabel module} bezeichnet \citep[vgl.][S.~1332]{fedorov2012slicer}.
-Slicer realisiert die Struktur durch den \textit{Extension Manager}, welcher durchaus
-vergleichbar ist mit einer Art App-Store. Über diesen können bequem und mit
-wenig Klicks die gewünschten Erweiterungen in das Kernsystem installiert werden.
-Neben der Möglichkeit Module zu installieren bietet Slicer noch die Möglichkeit eigenen
-Module zu bauen und Sie im \textit{Extension Manager} zu veröffentlichen. Diese werden
-als \ac{SEM} bezeichnet. Abbildung \ref{fig:3d_slicer_extension_index} soll diesen
-Vorgang verdeutlichen \citep[vgl.][]{slicer2024}.
+Der wohl bedeutendste Punkt ist die Plug-in-Infrastruktur, welche Slicer von
+sich aus mitbringt. Um dieses Konzept genauer zu beleuchten, teilt man die
+Plattform am besten in zwei Teile auf, die Kernanwendung und die Module, welcher
+jeder Anwender personalisiert installieren oder deinstallieren kann. Diese Module
+werden als \textit{Slicer lodabel module} bezeichnet \citep[vgl.][S.~1332]{fedorov2012slicer}.
+Slicer realisiert die Struktur durch den \textit{Extension Manager}, welcher
+durchaus vergleichbar ist mit einer Art App-Store. Über diesen können bequem und
+mit wenig Klicks die gewünschten Erweiterungen in das Kernsystem installiert werden.
+Neben der Möglichkeit Module zu installieren bietet Slicer noch die Möglichkeit
+eigenen Module zu bauen und Sie im \textit{Extension Manager} zu veröffentlichen.
+Diese werden als \ac{SEM} bezeichnet. Abbildung
+\ref{fig:3d_slicer_extension_index} soll diesen Vorgang verdeutlichen \citep[vgl.][]{slicer2024}.
 
 \begin{figure}[h]
 	\centering
@@ -63,27 +62,28 @@ Vorgang verdeutlichen \citep[vgl.][]{slicer2024}.
 	\label{fig:3d_slicer_extension_index}
 \end{figure}
 
-Slicer realisiert dies, indem die Plattform über ein zusätzliches Repository
-verfügt, dass sich \href{https://github.com/Slicer/ExtensionsIndex?tab=readme-ov-file}{\textit{ExtensionIndex}}
-nennt. Dieses öffentliche Repository ist eine Auflistung aller \ac{SEM}. Die
-Auflistung erfolgt durch eine Reihe an \ac{JSON} Dateien, die auf die
-Repositorien der einzelnen Entwickler verweisen. Dieser \href{https://github.com/Slicer/ExtensionsIndex?tab=readme-ov-file}{\textit{ExtensionIndex}}
-ist über die Slicer Factory an den Extention Server und damit auch an den Extention
-Manager angebunden. Die Slicer Factory ist ein System, das aus einem Slicer Extention
-Repository ein lauffähiges Build erstellt, welches in den Extention Katalog
-eingebunden werden kann. Ist eine Erweiterung in dem Erweiterungskatalog gelistet,
-so sorgt der \textit{Extension Manager} dafür, dass die von der Slicer Factory
-erstellt Build-Datei installiert werden kann.
+Slicer realisiert dies, indem die Plattform über ein zusätzliches Repository verfügt,
+dass sich
+\href{https://github.com/Slicer/ExtensionsIndex?tab=readme-ov-file}{\textit{ExtensionIndex}}
+nennt. Dieses öffentliche Repository ist eine Auflistung aller \ac{SEM}. Die Auflistung
+erfolgt durch eine Reihe an \ac{JSON} Dateien, die auf die Repositorien der einzelnen
+Entwickler verweisen. Dieser
+\href{https://github.com/Slicer/ExtensionsIndex?tab=readme-ov-file}{\textit{ExtensionIndex}}
+ist über die Slicer Factory an den Extention Server und damit auch an den
+Extention Manager angebunden. Die Slicer Factory ist ein System, das aus einem
+Slicer Extention Repository ein lauffähiges Build erstellt, welches in den Extention
+Katalog eingebunden werden kann. Ist eine Erweiterung in dem Erweiterungskatalog
+gelistet, so sorgt der \textit{Extension Manager} dafür, dass die von der Slicer
+Factory erstellt Build-Datei installiert werden kann.
 
-Während die Module von Slicer gebaut werden, werden parallel auch immer die Tests
-für die Kernanwendung ausgeführt. Diese sind über ein Dashboard einsehbar. So wird
-sichergestellt, dass keines der Module einen Fehler im Kernsystem verursacht. Außerdem
-ist so für alle Benutzer von Slicer transparent einsehbar, in welchem Zustand
-sich die Software gerade befindet. Die Kernanwendung von 3D Slicer folgt einem Entwurfsmuster,
-dass sich \ac{MVC} nennt. Bei der Erstellung einer \ac{SEM} soll dieser Ansatz ebenfalls
-gepflegt werden. Eine High Level Betrachtung der Softwarearchitektur von 3D
-Slicer bietet \cite[S.~1332]{fedorov2012slicer} mit der Abbildung
-\ref{fig:3d_slicer_architektur}.
+Während die Module von Slicer gebaut werden, werden parallel auch immer die
+Tests für die Kernanwendung ausgeführt. Diese sind über ein Dashboard einsehbar.
+So wird sichergestellt, dass keines der Module einen Fehler im Kernsystem verursacht.
+Außerdem ist so für alle Benutzer von Slicer transparent einsehbar, in welchem Zustand
+sich die Software gerade befindet. Die Kernanwendung von 3D Slicer folgt einem
+Entwurfsmuster, dass sich \ac{MVC} nennt. Bei der Erstellung einer \ac{SEM} soll
+dieser Ansatz ebenfalls gepflegt werden. Eine High Level Betrachtung der Softwarearchitektur
+von 3D Slicer bietet \cite[S.~1332]{fedorov2012slicer} mit der Abbildung \ref{fig:3d_slicer_architektur}.
 
 \begin{figure}[h]
 	\centering
@@ -94,32 +94,33 @@ Slicer bietet \cite[S.~1332]{fedorov2012slicer} mit der Abbildung
 
 Das Zusammenspiel zwischen \ac{MRML}, \ac{GUI} und der Logik bilden das MVC-Pattern
 in der Kernanwendung. Das identische Pattern spiegelt sich auch in den einzelnen
-Modulen von Slicer wieder. So wird sichergestellt, dass ein Softwareentwicklungsparadigma
-eingehalten wird, was sich \textit{separation of concerns} nennt. Die Kapselung
-von zusammengehöriger Logik. Bei der Erstellung einer eigenen Erweiterung ist die
-Idee, dass nur die Logik implementiert werden muss und die komplexe Architektur
-von Slicer erstmal nicht relevant ist.
+Modulen von Slicer wieder. So wird sichergestellt, dass ein
+Softwareentwicklungsparadigma eingehalten wird, was sich \textit{separation of
+concerns} nennt. Die Kapselung von zusammengehöriger Logik. Bei der Erstellung
+einer eigenen Erweiterung ist die Idee, dass nur die Logik implementiert werden muss
+und die komplexe Architektur von Slicer erstmal nicht relevant ist.
 
-Jedoch bietet sich in Slicer nicht nur die Möglichkeit eigene Erweiterungen zu
-erstellen, es lässt sich hierfür auch die integrierte Python-Konsole nutzen.
+Jedoch bietet sich in Slicer nicht nur die Möglichkeit eigene Erweiterungen zu erstellen,
+es lässt sich hierfür auch die integrierte Python-Konsole nutzen.
 % ---------------------------------------------------------------------------------------
 
 \section{Python-Umgebung}
-\label{subsec:pythob_umgebung} 3D Slicer bringt eine integrierte Python-Konsole mit,
-über die mit der Datenstruktur interagiert werden kann. So ist es möglich,
-Python-Skripte direkt in der Konsole auszuführen. Um dies zu realisieren, bringt
-Slicer mit der Installation im jeweiligen Betriebssystem eine eigene Python-Umgebung
-mit. Dieses sieht wie folgt aus.
+\label{subsec:pythob_umgebung} 3D Slicer bringt eine integrierte Python-Konsole
+mit, über die mit der Datenstruktur interagiert werden kann. So ist es möglich, Python-Skripte
+direkt in der Konsole auszuführen. Um dies zu realisieren, bringt Slicer mit der
+Installation im jeweiligen Betriebssystem eine eigene Python-Umgebung mit.
+Dieses sieht wie folgt aus.
 
 \begin{center}
 	\texttt{./Slicer/bin/PythonSlicer}
 \end{center}
 
-Diese Python-Umgebung verfügt über alle notwendigen Abhängigkeiten und Pakete. Bei
-der Entwicklung eines \ac{SEM} kann dann auf das \ac{PyPi} in der integrierten Python-Umgebung
-zurückgegriffen werden. So kommt es, dass für eine Entwicklung mit Slicer keine eigene
-Python-Umgebung auf der lokalen Maschine installiert sein muss. Slicer bringt
-hier alles mit.
+Diese Python-Umgebung verfügt über alle notwendigen Abhängigkeiten und Pakete.
+Bei der Entwicklung eines \ac{SEM} kann dann auf das \ac{PyPi} in der
+integrierten Python-Umgebung zurückgegriffen werden. So kommt es, dass für eine
+Entwicklung mit Slicer keine eigene Python-Umgebung auf der lokalen Maschine
+installiert sein muss. Slicer bringt hier alles mit. Für die Anwender, die eine terminalbasierte
+Bearbeitung vorziehen, besteht diese Möglichkeit nach wie vor.
 
 Für den letzten charakteristischen Punkt von Slicer aus Kapitel
 \ref{sec:3d_slicer} führt der nächste Abschnitt in die durchaus komplexe
@@ -225,9 +226,7 @@ Durch das Betrachten der \ac{MRML}-Szene wird klar, dass Slicer hierdurch viele
 Möglichkeiten bietet. Speziell für die effiziente Speicherung der Proben in einer
 Szene durch die unterschiedlichen Knotentypen. Ein besonderer Knoten, der gleichzeitig
 auch die Brücke zu der interaktiven Benutzerschnittstelle von Slicer baut, ist
-der \textit{Parameter node}. Warum dieser eine zentrale Rolle spielt und wie
-Slicer die Schnittstelle grundsätzlich gestaltet, soll in Kapitel \ref{subsec:benutzerschnitstelle}
-Benutzerschnittstelle diskutiert werden.
+der \textit{Parameter node}.
 
 Mit dem Ende dieses Kapitels wurden alle wichtigen theoretischen Grundlage besprochen,
 die notwendig sind um die anatomische Segmentierung über ein 3D Slicer Modul

@@ -6,84 +6,98 @@ sowohl evaluierbar als auch für zukünftige Arbeiten nutzbar zu machen. Das
 Hauptziel dieser Arbeit ist die Entwicklung einer Erweiterung für die Software
 3D Slicer, die in der Klinik eingesetzt werden kann. Dabei geht es nicht
 ausschließlich um die Entwicklung einer Software, sondern auch um die Art der Entwicklung
-und die Ideen hinter der Implementierung. Zu Beginn wurde demnach eine
-umfassende Anforderungsanalyse durchgeführt, um die spezifischen Anforderungen der
-Domäne zu erfassen und die Ausgangssituation zu klären. Darauf aufbauend folgte
-eine detaillierte Literaturrecherche, um den aktuellen Stand der Technik zu untersuchen
-und bestehende Lösungen für eine Implementierung zu identifizieren. Da das Ziel
-dieser Arbeit die Entwicklung einer vollständigen Softwarelösung ist, wurde das Problem
-anschließend in Teilaufgaben zerlegt. Dies ermöglicht eine gezielte Bearbeitung
-einzelner Komponenten und erleichtert die iterative Entwicklung.
+und die Ideen hinter der Implementierung. Wie können Mikro-CT-Bilder für die
+zahnmedizin effizient und interkativ aufbereitet werden. Zu Beginn wurde demnach
+eine umfassende Anforderungsanalyse durchgeführt, um die spezifischen
+Anforderungen der Domäne zu erfassen und die Ausgangssituation zu klären. Darauf
+aufbauend folgte eine detaillierte Literaturrecherche, um den aktuellen Stand
+der Technik zu untersuchen und bestehende Lösungen für eine Implementierung zu
+identifizieren. Da das Ziel dieser Arbeit die Entwicklung einer vollständigen Softwarelösung
+ist, wurde das Problem anschließend in Teilaufgaben zerlegt. Dies ermöglicht eine
+gezielte Bearbeitung einzelner Komponenten und erleichtert die iterative Entwicklung.
 % ---------------------------------------------------------------------------------------
 
 \section{Forschungsdesign}
-Das Forschungsdesign dieser Arbeit folgt einem praktischen Entwicklungsansatz
-mit einem Fokus auf softwaretechnische Methoden. Zum Erreichen der Ziele stützt sich
-diese Arbeit so am Entwicklungsprozess ab und dokumentiert diesen. Während des
-gesamten Entwicklungsprozesses wurde stets die Kommunikation zum Fachpersonal
-gepflegt. So konnte schnell beurteilt werden, ob die Entwicklung in die richtige
-Richtung geht. Im Falle dieser Arbeit übernahm diese Position DR. med. Elias Walter,
-welcher als praktizierender Arzt an der Klinik tätig ist. Des weiteren lässt sich
-der gesamte Zeitraum dieser Arbeit in drei Phasen aufteilen, die jeweils einem
-unterschiedlichen Zweck dienen. Diese drei Phasen sollen auch eine grobe Orientierung
-bezüglich der Reihenfolge während der Bearbeitung geben.
+Das Forschungsdesign dieser Arbeit folgt einem praktischen Entwicklungsansatz mit
+einem Fokus auf softwaretechnische Methoden. Zum Erreichen der Ziele stützt sich
+diese Arbeit so am Entwicklungsprozess ab und dokumentiert diesen. Während des gesamten
+Entwicklungsprozesses wurde stets die Kommunikation zum Fachpersonal gepflegt.
+So konnte schnell beurteilt werden, ob die Entwicklung in die richtige Richtung geht.
+Im Falle dieser Arbeit übernahm diese Position DR. Elias Walter, welcher als
+praktizierender Arzt an der Klinik tätig ist. Durch das Aufeinandertreffen zweier
+Fachexperten, kann so der optimale Leistungsumfang bestimmt werden. Des weiteren
+lässt sich der gesamte Zeitraum dieser Arbeit in drei Phasen aufteilen, die
+jeweils einem unterschiedlichen Zweck dienen. Diese drei Phasen sollen auch eine
+Orientierung bezüglich der Reihenfolge während der Bearbeitung geben.
 \pagebreak
 
 \begin{description}
-	\item[Analysephase] diese erste Phase ist bei fast allen Softwareprojekten die
+	\item[Analysephase,] diese erste Phase ist bei fast allen Softwareprojekten die
 		wichtigste Phase und gleichzeitig die, die meist zu kurz kommt. Innerhalb der
 		Analysephase werden also alle Anforderungen an die Software gesammelt. Diese
 		basieren zum großen Teil auf der Literaturrecherche. Außerdem werden bestehende
 		Lösungen analysiert und so die Kernfunktionalität herausgefiltert.
 
-	\item[Entwicklungsphase] die Entwicklungsphase bildet den größten Teil. Hier
+	\item[Entwicklungsphase,] die Entwicklungsphase bildet den größten Teil. Hier
 		findet die konkrete Umsetzung statt. Hierzu wird das System in mehrere Subsysteme
 		unterteilt. Dies ermöglicht eine isolierte Betrachtung. Während der Entwicklung
 		wird ein prototypischen Ansatz verfolgt.
 
-	\item[Evaluationsphase] die letzte Phase dieser Arbeit beschäftigt sich ausschließlich
+	\item[Evaluationsphase,] die letzte Phase dieser Arbeit beschäftigt sich ausschließlich
 		mit der Evaluation der Ergebnisse. Hier soll eine Antwort auf die in Kapitel
 		\ref{sec:ziel_der_arbeit} formulierten Fragestellungen gefunden werden.
 \end{description}
 
 Durch diese Unterteilung ist eine gutes strukturelles vorgehen Möglich um
 mittels einer praktischen Umsetzungsmethodik zu einem guten Ergebnis zu kommen. Die
-nächsten Kapitel blicken nun kurz in die einzelnen Phasen, beginnend mit einer
-Anforderungsanalyse.
+restlichen Abschnitte in diesem Kapitel bilden die Analysephase.
 % ---------------------------------------------------------------------------------------
 
 \section{Anforderungsanalyse}
-\label{sec:anforderungsanalyse} Nach genauerem Betrachten der Fragestellung aus
-Kapitel \ref{sec:ziel_der_arbeit} und den Zielen aus \ref{sec:ziel_der_arbeit}
-können bereits erste Anforderungen abgeleitet werden, die für die Erweiterung gelten
-sollen. Neben diesen Anforderungen wurden auch die Klinik für Zahnerhaltung mit
-in diesen Prozess eingebunden. Hierzu wurde innerhalb einer Besprechung mit dem verantwortlichen
+\label{sec:anforderungsanalyse} Nach genauerem Betrachten der Fragestellung aus Kapitel
+\ref{sec:ziel_der_arbeit} können bereits erste Anforderungen abgeleitet werden,
+die für die Erweiterung gelten sollen. Neben diesen Anforderungen wurden auch die
+Klinik für Zahnerhaltung mit in diesen Prozess eingebunden um so mehr relevante Anforderungen
+zu definieren. Hierzu wurde innerhalb einer Besprechung mit dem verantwortlichen
 Arzt, Dr. Elias Walter, ein Anforderungskatalog ausgearbeitet \citep[vgl.][]{walter2025}.
-Diese Anforderungen waren vor allem zu Beginn der Entwicklung sehr wichtig um
-einen ersten Anhaltspunkt zu gewinnen. Im Laufe des Entwicklungsprozesses wurden
-Statusberichte eingeplant, die ein Reagieren auf Anforderungsänderungen
-ermöglichen.
+Diese Anforderungen waren vor allem zu Beginn der Entwicklung sehr wichtig um einen
+ersten Anhaltspunkt zu gewinnen. Im Laufe des Entwicklungsprozesses wurden
+Statusberichte eingeplant, die ein Reagieren auf Anforderungsänderungen ermöglichen.
+
+Um die Anforderungen an die Software besser zu verstehen und zu strukturieren,
+ist neben der Sammlung technischer Spezifikationen auch ein solides Verständnis
+für die zugrunde liegende Domäne essenziell. Die Abbildung \ref{fig:3d_slicer_domäne}
+veranschaulicht dies durch ein Domänenmodell, das der \ac{UML} entspricht.
+Mittels dieser Grafik können die gestellten Anforderungen visuell dargestellt
+werden \citep[vgl.][]{walter2025}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/domaene.png}
+	\caption{UML-Domänenmodell des gesamten Softwaresystems}
+	\label{fig:3d_slicer_domäne}
+\end{figure}
 
 In erster Linie wird klar, dass im Rahme dieser vorliegenden Arbeit eine Erweiterung
 für die Plattform 3D Slicer entwickelt werden soll. Die Kernfunktionalität soll
 dabei die anatomische Segmentierung bilden, wie sie in Kapitel \ref{chap:theoretische_grundlagen}
 beschrieben wurde. Neben dieser Kernfunktionalität soll auch eine Vor- und Nachbereitung
-der Bilder mögich sein. Dieser Prozess zwischen Vorverarbeitung, Bearbeitung und
-Nachbearbeitung soll an einem Stück ausgeführt werden können. Greift man das
-Ziel dieser Arbeit aus der Einleitung \ref{sec:ziel_der_arbeit} nochmals auf, dann
-kann hierdurch die nächste wichtige Anforderung abgeleitet werden. Die
-Erweiterung soll gut und einfach über eine \ac{UI} bedient werden können.
-Außerdem ist eine stabile Anwendung gefragt, die sich gut in die Kernanwendung von
-3D Slicer einfügt. \citet[]{walter2025} machte im Interview deutlich, dass die
-Erweiterung neben einer Einzelbildbearbeitung auch einen Batch-Prozess
-ermöglichen so. So können beispielsweise Parameter an einem Bild erprobt werden und
-diese anschließend in einen Batch-Prozess auf viele Bilder überführt werden.
-Außerdem soll es möglich sein, verschiedenen Schwellwertverfahren, die in der
-anatomischen Segmentierung vorgesehen sind, auch in der Erweiterung auszuwählen.
+der Bilder mögich sein. Dieser Prozess der Vorverarbeitung, Bearbeitung und Nachbearbeitung
+soll an einem Stück ausgeführt werden können. Die Erweiterung soll gut und
+einfach über eine \ac{UI} bedient werden können. Außerdem ist eine stabile
+Anwendung gefragt, die sich gut in die Kernanwendung von 3D Slicer einfügt.
+\citet[]{walter2025} machte im Interview deutlich, dass die Erweiterung neben
+einer Einzelbildbearbeitung auch einen Batch-Prozess ermöglichen so. So können beispielsweise
+Parameter an einem Bild erprobt werden und diese anschließend in einen Batch-Prozess
+auf viele Bilder überführt werden. Außerdem soll es möglich sein, verschiedenen Schwellwertverfahren,
+die in der anatomischen Segmentierung vorgesehen sind, auch in der Erweiterung auszuwählen.
 Neben dem Ergebnis selber wurden auch Anforderungen an die Art der Abspeicherung
 gesetzt. Es ist wichtig, dass es in der Slicer-Szene nicht zu einer Überfüllung
 von Daten kommt. So soll nach jeder Einzelausführung die Szene wieder geleert werden,
-sodass immer nur das aktuell segmentierte Bild in der Anwendung liegt.
+sodass immer nur das aktuell segmentierte Bild in der Anwendung liegt. Neben den
+segmentierten Daten, sollen auch die Medial-Flächen für jedes Segment
+bereitgestellt werden. Ähnlich wie die Segmentiertung selbst, sollen diese mit
+jeder neuen Generierung aktualisiert werden.
 
 Ein wichtiger Softwaretechnischer Anspruch an die Extension ist die
 Erweiterbarkeit. Es soll ohne große Mühen möglich sein, ein weiteres Verfahren
@@ -91,19 +105,7 @@ zu integrieren, ohne das große Anpassungen an der UI oder der Erweiterung selbs
 unternommen werden müssen. Für ein solides Verständnis dieser Software soll es
 selbstverständlich eine Dokumentation mit Benutzerhandbuch geben. Zudem wird großer
 Wert auf die Qualitätssicherung gelegt, weshalb eine Reihe von Unit-Tests (Tests
-für einzelne Programmeinheiten) vorgesehen ist. Um die Anforderungen an die Software
-besser zu verstehen und zu strukturieren, ist neben der Sammlung technischer
-Spezifikationen auch ein solides Verständnis für die zugrunde liegende Domäne
-essenziell. Die Abbildung \ref{fig:3d_slicer_domäne} veranschaulicht dies durch ein
-Domänenmodell, das der \ac{UML} entspricht. Mittels dieser Grafik können die
-gestellten Anforderungen visuell dargestellt werden \citep[vgl.][]{walter2025}.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.75\textwidth]{img/domaenenmodell.jpg}
-	\caption{UML-Domänenmodell des gesamten Softwaresystems}
-	\label{fig:3d_slicer_domäne}
-\end{figure}
+für einzelne Programmeinheiten) vorgesehen ist.
 
 Durch diese breite Palette an Anforderungen ergeben sich verschiedene Aufgaben
 für die Implementierung. Bevor jedoch mit der konkreten Umsetzung begonnen werden
@@ -112,44 +114,39 @@ dazu, den aktuellen Stand der Technik zu erfassen und geeignete Lösungsansätze
 identifizieren.
 % ---------------------------------------------------------------------------------------
 
-\section{Recherche zu Implementierung}
+\section{Literatur zur Implementierung}
 Es wäre äußerst ungünstig, erst am Ende eines Projekts festzustellen, dass bereits
 veröffentlichte Lösungen existieren, in die erhebliche Ressourcen investiert
 wurden. Um dies zu vermeiden, ist eine umfassende Literaturrecherche essenziell,
-die den aktuellen Stand der Technik abbildet. Dabei wird auf Fachliteratur sowie
-domänenspezifische Quellen zurückgegriffen, um alle relevanten Aspekte abzudecken.
+die den aktuellen Stand der Technik abbildet.
 
 Für diese Arbeit spielt eine Quelle eine besonders wichtige Rolle: die
 offizielle Dokumentation von 3D Slicer. Sie bietet wertvolle Anhaltspunkte für die
 Implementierung und hilft dabei, die technischen Gegebenheiten von 3D Slicer zu
 verstehen. Zudem enthält sie \textit{Best-Practice-Ansätze}, die bei der Entwicklung
-berücksichtigt wurden. 3D Slicer stellt außerdem einen Developer Guide zur
-Verfügung, der Teil der offiziellen Dokumentation ist und den Einstieg in das Framework
-erleichtert. Ein weiterer zentraler Referenzpunkt ist der \textit{3D Slicer
-Extension Index}, in dem bereits entwickelte Erweiterungen einsehbar sind. Ein konkretes
-Beispiel ist das Modul \textit{Airway Segmentation}, dessen Analyse dazu beiträgt,
-bewährte Konventionen für die Entwicklung der eigenen Erweiterung abzuleiten. So
-kommt es, dass beispielsweise für die Gestaltung einer Benutzerschnittstelle
+berücksichtigt wurden. 3D Slicer stellt außerdem einen \textit{Developer Guide} zur
+Verfügung, der Teil der offiziellen Dokumentation ist und den Einstieg in das
+Framework erleichtert. Ein weiterer zentraler Referenzpunkt ist der \textit{3D
+Slicer Extension Index}, in dem bereits entwickelte Erweiterungen einsehbar sind.
+Ein konkretes Beispiel ist das Modul \textit{Airway Segmentation}, dessen
+Analyse dazu beiträgt, bewährte Konventionen für die Entwicklung der eigenen Erweiterung
+abzuleiten. So kommt es, dass beispielsweise für die Gestaltung einer Benutzerschnittstelle
 bereits Lösungen existieren, die sich bewährten und so übernommen werden können.
+Da dieses Modul mit der Absicht entwickelt wird, später im \textit{Extension
+Manager} veröffentlicht zu werden, sind einige dieser Richtlinien im Leitfaden
+obligatorisch. Welche dies sind, ist der Dokumentation von Slicer zu entnehmen.
 
-Neben einer konkreten Implementierungshilfe dient die Literaturrecherche auch dazu,
-ein fundiertes Verständnis für die Domäne der medizinischen Bildverarbeitung und
-deren zugrunde liegende Strukturen zu entwickeln. Mithilfe verschiedener domänenspezifischer
-Publikationen kann ein tieferes Wissen über diesen Fachbereich gewonnen werden.
-Besonders relevant sind hierbei die verschiedenen Verfahren für die Verarbeitung
-der Mikro-\ac{CT}-Aufnahmen. Konkret handelt es sich hier um die
-unterschiedlichen Algorithmen zur Filterung und Segmentierung von Mikro-\ac{CT}-Bildern
+Neben einer konkreten Implementierungshilfe dient die Recherche zur
+Implementierung auch dazu, ein fundiertes Verständnis für die Domäne der medizinischen
+Bildverarbeitung und deren zugrunde liegende Strukturen zu entwickeln. Mithilfe
+verschiedener domänenspezifischer Publikationen kann ein tieferes Wissen über
+diesen Fachbereich gewonnen werden. Besonders relevant sind hierbei die verschiedenen
+Verfahren für die Verarbeitung der Mikro-\ac{CT}-Aufnahmen. Konkret handelt es sich
+hier um die unterschiedlichen Algorithmen zur Filterung und Segmentierung von Mikro-\ac{CT}-Bildern
 in der Zahnmedizin.
 
-Darüber hinaus ermöglicht die Recherche einen Blick auf alternative Plattformen zur
-Bildverarbeitung, wie beispielsweise die weit verbreitete Software \ac{ITK-SNAP}.
-Ein kurzer Vergleich ergab jedoch, dass diese Lösung aufgrund ihrer Struktur in diesem
-speziellen Fall nicht mit 3D Slicer konkurrieren kann.
-
-Die Recherche bietet somit einen ersten fundierten Überblick über mögliche Lösungen
-für die einzelnen Anforderungen. Um nun detaillierter auf die Umsetzung
-einzugehen, nimmt das nächste Kapitel eine Unterteilung der Gesamtheit der Anforderungen
-in kleinere Teilsysteme vor.
+Um nun detaillierter auf die Umsetzung einzugehen, nimmt das nächste Kapitel eine
+Unterteilung der Gesamtheit der Anforderungen in kleinere Teilsysteme vor.
 % ---------------------------------------------------------------------------------------
 
 \section{Zerlegung in Teilprobleme}
@@ -161,22 +158,22 @@ auf den konkreten Anwendungsfall ankommt. Diese Arbeit sieht folgenden Teilaufga
 für das Gesamtsystem vor:
 
 \begin{description}
-	\item[Architektur- und \ac{UI}-Design,] mithilfe von UML Diagrammen soll die Architektur
-		dieses Systems abgebildet werden und sukzessive immer detaillierter beschrieben
-		werden. Es soll dann verglichen werden, welche Entwurfsmuster für dieses System
-		infrage kommen. Durch die Bearbeitung dieses Teilproblems kann die
+	\item[Architektur- und \ac{UI}-Design,] Die Systemarchitektur wird mithilfe von
+		\ac{UML}-Klassendiagrammen modelliert und schrittweise verfeinert.Anschließend
+		wird ein geeignetes Entwurfsmuster ausgewählt, das die Struktur und Modularität
+		des Systems unterstützt. Durch die Bearbeitung dieses Teilproblems kann die
 		Anforderung an eine flexible Architektur erfüllt werden.
 
 	\item[Kapselung der anatomischen Segmentierung,] das bereits bestehende Segmentierungsverfahren
 		muss in das Modul integriert werden. Hier soll das Verfahren von einem
-		IPython-Notebook in eine Bibliothek überführt werden, sodass dieses Verfahren
+		IPython-Notebook in eine Python-Bibliothek überführt werden, sodass dieses Verfahren
 		in der Erweiterung ausführbar ist.
 
 	\item[Parameter Node,] der Benutzer steuert das Verfahren über die Parameter in
 		der \ac{UI}. Für die Speicherung der Parametereinstellungen hat Slicer den Mechanismus
-		des \textit{ParameterNode} entworfen. Diese wurde bereits in Abschnitt \ref{subsec:benutzerschnitstelle}
-		erwähnt. Dieser Mechanismus ist nicht trivial, erhöht aber die Benutzerfreundlichkeit
-		des Systems erheblich und soll demnach auch in diese Erweiterung Anwendung finden.
+		des \textit{ParameterNode} entworfen. Dieser Mechanismus ist nicht trivial,
+		erhöht aber die Benutzerfreundlichkeit des Systems erheblich und soll
+		demnach auch in diese Erweiterung Anwendung finden.
 
 	\item[Einzelbildbearbeitung,] sobald alle notwendigen Vorbereitungen getroffen
 		sind, kann der Algorithmus nun eingebettet werden. Hierzu betrachtet man isoliert
@@ -186,7 +183,7 @@ für das Gesamtsystem vor:
 
 	\item[Batch Prozess,] ist das einfache Verfahren fertig implementiert und funktioniert,
 		so kann der Batch Prozess hinzukommen. Hier geht es federführend um das richtige
-		und organisierte Abspeichern der erstellten Bilder.
+		und organisierte Abspeichern der erstellten Bilder im Dateisystem.
 
 	\item[Ausführungsmodus,] während der Ausführung des Algorithmus soll das Modul
 		in einem Aufführungszustand wechseln. Hierbei ist wichtig, dass die \ac{UI}
@@ -202,19 +199,23 @@ für das Gesamtsystem vor:
 \end{description}
 
 Die Ordnung dieser Punkte gibt eine grobe Orientierung bezüglich der Reihenfolge
-während der Umsetzung an. Damit eine Umsetzung überhaupt realisiert werden kann,
-sind unterschiedliche Werkzeuge und Mittel notwendig. Diese sollen im nächsten Kapitel
-kurz erläutert werden.
+während der Umsetzung an. Bevor es im nächsten Kapitel um die konkreten Ergebnisse
+diese Arbeiot geht, soll hier Abschließend noch ein Blich auf die Art der
+Evaluation geworfen werden. Diese stellt sicher, dass die Ergebnisse bewertbar
+sind.
 % ---------------------------------------------------------------------------------------
 
 \section{Forschungsevaluation}
 Die Evaluation kann grob in zwei Teile unterteilt werden. Der erste Teil ist der
-wohl Wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die
-Benutzer. Hier kann also die Benutzerfreundlichkeit und die \ac{UI} der
-Erweiterung gut analysiert werden. Dabei werden Verbesserungen gesammelt und als
-möglicher Ausblick zur Verfügung gestellt. Wichtig für die Benutzbarkeit der
-Software ist auch das Benutzerhandbuch. Dies ist auch Teil der Ergebnisse und muss
-mittels Benutzertests evaluiert werden.
+wohl Wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die Benutzer.
+Hier kann also die Benutzerfreundlichkeit und die \ac{UI} der Erweiterung gut analysiert
+werden. Diese Art von Test involviert mehrere Außenstehende und sorgt damit für
+eine objektive Bewertungsgrundlage. Verbesserungen, die durch die Test
+hervorkommen, werden gesammelt und als möglicher Ausblick zur Verfügung gestellt.
+Wichtig für die Benutzbarkeit der Software ist auch das Benutzerhandbuch. Dies ist
+auch Teil der Ergebnisse und muss mittels Benutzertests evaluiert werden. Neben
+dem Konkreten Feedback der Anwender, sollen auch verschiedenen Anwendungsszenarien
+diskutiert werden.
 
 Der zweite Teil der Evaluation soll prüfen ob der softwaretechnische Ansatz erfolgreich
 umgesetzt wurde. Um dies gewährleisten zu können, müssen zusätzlich zur Funktionalität
@@ -225,6 +226,7 @@ soll die Performance des Systems noch gemessen und analysiert werden.
 
 Die in diesem Kapitel beschriebenen methodischen Schritte bildeten die Grundlage
 für die Entwicklung der Erweiterung. Nachdem die Analysephase abgeschlossen ist,
-folgen nun die Phasen Entwicklung und Evaluation in Form der Ergebnisse. Hierzu
-wird die erstellte \ac{SEM} detailliert vorgestellt und die Funktionen näher beschrieben.
+folgen nun die Phasen Entwicklung und Evaluation in Form der Kapitel Ergebnisse und
+Evaluation. Hierzu wird die erstellte \ac{SEM} detailliert vorgestellt und die Funktionen
+näher beschrieben.
 % ---------------------------------------------------------------------------------------
