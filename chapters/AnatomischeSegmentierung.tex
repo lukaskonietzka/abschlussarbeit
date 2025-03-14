@@ -28,17 +28,18 @@ getrennt und visuell sowie rechnerisch unterscheidbar gemacht werden.
 Neben der Erstellung von segmentierten Daten stellt das Verfahren noch
 sogenannte mediale Flächen zur Verfügung. Diese sind insbesondere für die Klassifizierung
 von Karies notwendig. \citet[S.~42]{hoffmann2020} erklärt, das sich bei einer
-Überlagert der medialen Flächen auf das Originale Bild auf einem Blick erkennen
-lassen, ob die vorhandene Karies in diesen Schichten weiter als die Hälfte fortgeschritten
-ist. Für die Erstellung der medial Flächen sind die segmentierte Daten eines
-Zahnes zwingend erforderlich. Die Berechnung der medial Flächen erfolgte auf den
-Segmenten mithilfe einer Distanztransformation und anschließender Kantenfindung \citep[vgl.][S.~42]{hoffmann2020}.
+Überlagerung der medialen Flächen auf das Originale Bild auf einem Blick
+erkennen lässt, ob die vorhandene Karies in diesen Schichten weiter als die Hälfte
+fortgeschritten ist. Für die Erstellung der medial Flächen sind die segmentierte
+Daten eines Zahnes zwingend erforderlich. Die Berechnung der medial Flächen erfolgte
+auf den Segmenten mithilfe einer Distanztransformation und anschließender Kantenfindung
+\citep[vgl.][S.~42]{hoffmann2020}.
 
 Die anatomische Segmentierung eines Zahnes – einschließlich der medialen Flächen
 – erfolgt in mehreren algorithmischen Schritten, die in einer klar strukturierten
 Pipeline ablaufen. Abbildung \ref{fig:anatomische_segmentierung} veranschaulicht
 den groben Ablauf des Verfahrens, wobei kleinere Zwischenschritte ausgeklammert sind.
-Der Prozess beginnt oben links und endet mit der Segmentierung der medialen
+Der Prozess beginnt oben links und endet mit der Generierung der medialen
 Flächen in der unteren rechten Ecke.
 
 \begin{figure}[h]
@@ -176,37 +177,37 @@ als das Licht haben die Röntgenstrahlen eine viel höhere Energie. Das führt d
 dass man mit dieser elektromagnetischen Strahlung viele Objekte durchdringt werden
 können. So auch Gewebeteile eines Zahnes \citep[vgl.][K.~1]{nib2024}. Mit der
 Steigerung der Atomzahl in einem Material, also der Dichte, nimmt auch die
-Absorption eines Materials zu, sodass es leicht ist verschiedene Materialien in einer
-\ac{CT}-Aufnahme zu unterscheiden \citep[vgl.][K.~1]{nib2024}. Um nun mittels
+Absorption eines Materials zu, sodass es leicht ist, verschiedene Materialien in
+einer \ac{CT}-Aufnahme zu unterscheiden \citep[vgl.][K.~1]{nib2024}. Um nun mittels
 der Röntgenstrahlen und den einzelnen \ac{2D} Projektionen ein \ac{3D}-Micro-\ac{CT}
-zu erstellen, werden 2D-Röntgenaufnahmen eines Objektes aus verschiedenen
-Winkeln geschossen und in einem weiteren Schritt dann zu einem \ac{3D}-Modell rekonstruiert.
-Das Ergebnis einer solchen Rekonstruktion ist dann eine Art Papierstapel. Dieser
-besteht aus vielen 2D-Bilder, die aufgrund der Stapelung zu einem \ac{3D}-Bild werden.
+zu erstellen, werden 2D-Röntgenaufnahmen eines Objektes aus verschiedenen Winkeln
+geschossen und in einem weiteren Schritt dann zu einem \ac{3D}-Modell
+rekonstruiert. Das Ergebnis einer solchen Rekonstruktion ist dann eine Art Papierstapel.
+Dieser besteht aus vielen 2D-Bilder, die aufgrund der Stapelung zu einem \ac{3D}-Bild
+werden.
 
-Für die Erzeugung dieser Bilder bedarf spezieller Geräte, im Falle der
-Zahnklinik an der \ac{LMU} handelt es sich um ein Mikro-\ac{CT}-Gerät der Firma
-\citet{scanco2024}. Dieses Gerät erstellt Aufnahmen mittels Röntgenstrahlung und
-generiert mithilfe der Computertomografie ein dreidimensionales Bild, welches im
-Format \ac{ISQ} abgelegt wird. Das folgende Kapitel zeigt, dass Mikro-\ac{CT}-Bilder
-mit dem Typ \ac{ISQ} zwar eine hohe Detailgenauigkeit bieten, jedoch auch einen erheblichen
+Für die Erzeugung dieser Bilder bedarf spezieller Geräte, im Falle der Zahnklinik
+an der \ac{LMU} handelt es sich um ein Mikro-\ac{CT}-Gerät der Firma \citet{scanco2024}.
+Dieses Gerät erstellt Aufnahmen mittels Röntgenstrahlung und generiert mithilfe der
+Computertomografie ein dreidimensionales Bild, welches im Format \ac{ISQ} abgelegt
+wird. Das folgende Kapitel zeigt, dass Mikro-\ac{CT}-Bilder mit dem Typ \ac{ISQ}
+zwar eine hohe Detailgenauigkeit bieten, jedoch auch einen erheblichen
 Speicherbedarf mit sich bringen.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Datenformate}
 \label{subsec:datensätze} Die rohen Datensätze, welche direkt aus dem Mikro-\ac{CT}-Gerät
-kommen, haben nach \citet{scanco2024} das Format \ac{ISQ}. Dieses Format fällt speziell
-auf die Geräte der Firma SCANCO zurück. Wie das vorherige Kapitel
-\ref{subsec:computertomografie} bereits eingeführt hat, ist dieser Dateityp für eine
-weitere Bearbeitung nur bedingt geeignet. Unter anderem wegen ihrer Größe. \citet[S.~118-119]{RoeschKunzelmann2018}
-haben ein Paket entwickelt, mit dem sich gu zeigen lässt, wie sich diese großen
-Bilder zusammensetzten. Hierfür konvertiert das Paket ein \ac{ISQ}-Bild in ein
-\ac{MHD} Format. Bei einer \ac{MHD}-Datei handelt es sich um ein Metafile, dass
-auf die eigentliche Datei verweist. Wird dieses Paket demnach verwendet, so
-erstellt das Skript \texttt{isq\_to\_mhd} ein Metafile, das detaillierte Daten
-über die Datei enthält. Ein Ausschnitt dieses Metafiles liefer das Listing \ref{lst:inhalt_mhd_datei}.
-Diese Metadatei kann genutzt werden, um interessante Informationen über das Bild
-zu erlangen.
+kommen, haben nach \citet{scanco2024} das Format \ac{ISQ}. Dieses Format fällt
+speziell auf die Geräte der Firma SCANCO zurück. Wie das vorherige Kapitel \ref{subsec:computertomografie}
+bereits eingeführt hat, ist dieser Dateityp für eine weitere Bearbeitung nur
+bedingt geeignet. Unter anderem wegen ihrer Größe. \citet[S.~118-119]{RoeschKunzelmann2018}
+haben ein Paket entwickelt, mit dem sich gu zeigen lässt, wie sich diese großen Bilder
+zusammensetzten. Hierfür konvertiert das Paket ein \ac{ISQ}-Bild in ein \ac{MHD}
+Format. Bei einer \ac{MHD}-Datei handelt es sich um ein Metafile, dass auf die eigentliche
+Datei verweist. Wird dieses Paket demnach verwendet, so erstellt das Skript \texttt{isq\_to\_mhd}
+ein Metafile, das detaillierte Daten über die Datei enthält. Ein Ausschnitt
+dieses Metafiles liefer das Listing \ref{lst:inhalt_mhd_datei}. Diese Metadatei kann
+genutzt werden, um interessante Informationen über das Bild zu erlangen.
 
 \begin{lstlisting}[
 	caption={Ausschnitt des Inhaltes einer MHD-Datei},
@@ -220,20 +221,20 @@ ElementType = MET_SHORT
 ElementDataFile = P01A-C0005278.ISQ
 \end{lstlisting}
 
-In der Datei sind Informationen über die Ausprägung, Art und Größe der Datei zu finden.
-Besonders interessant sind die Punkte \texttt{DimSize und ElementType}. Über
+In der Datei sind Informationen über die Ausprägung, Art und Größe der Datei zu
+finden. Besonders interessant sind die Punkte \texttt{DimSize und ElementType}. Über
 diese Parameter lässt sich die Größe eines Bildes berechnen. \citet[S.~10-11]{burger2009}
 erklärt, dass ein Bild in Zellen aufgeteilt ist, welche Informationen enthalten.
-Diese Zellen sind im zweidimensionalen Raum als Pixel bekannt. Betrachtet man
-jedoch ein dreidimensionales Bild, so spricht man nicht mehr von einem Pixel,
-sondern von einem Voxel. Ein Voxel ist demnach das dreidimensionale Äquivalent zu
-einem Pixel. \citet[S.~10-11]{burger2009} beschreiben weiter das jeder diese Zellen
+Diese Zellen sind im zweidimensionalen Raum als Pixel bekannt. Betrachtet man jedoch
+ein dreidimensionales Bild, so spricht man nicht mehr von einem Pixel, sondern von
+einem Voxel. Ein Voxel ist demnach das dreidimensionale Äquivalent zu einem
+Pixel. \citet[S.~10-11]{burger2009} beschreiben weiter das jeder diese Zellen
 ein binäres Wort der Länge $2^{k}$ ist. Die Basis 2 ergibt sich durch das binäre
-Wort, wo hingegen für $k$ gilt: $k \in \mathbb{N}$. Um für den konkreten Fall aus
-Listing \ref{lst:inhalt_mhd_datei} das entsprechenden $k$ zu ermitteln, muss der
-\texttt{ElementType} näher betrachtet werden. \texttt{MET\_SHORT} steht hierbei für
-\textit{Signed short}, was eine Größe von 16 Bit entspricht. Damit ergibt sich
-für die Länge $k$ ein Wert $k = 4$. So können nach \citet[S.~10-11]{burger2009}
+Wort, wo hingegen für $k$ gilt: $k \in \mathbb{N}$. Um für den konkreten Fall
+aus Listing \ref{lst:inhalt_mhd_datei} das entsprechenden $k$ zu ermitteln, muss
+der \texttt{ElementType} näher betrachtet werden. \texttt{MET\_SHORT} steht
+hierbei für \textit{Signed short}, was eine Größe von 16 Bit entspricht. Damit ergibt
+sich für die Länge $k$ ein Wert $k = 4$. So können nach \citet[S.~10-11]{burger2009}
 folgende Gleichungen festgehalten werden, mit der die Größe eines Mikro-\ac{CT}-Bilds
 erfasst werden können.
 
@@ -244,36 +245,36 @@ erfasst werden können.
 \end{align}
 
 Die erste Gleichung bestimmt die Gesamtzahl aller Voxel in einem Bild. Gleichung
-zwei ermittelt die Größe des Bildes in der Einheit Byte. Die letzte Zeile nimmt eine
-Umrechnung von Byte nach \ac{GB} vor. Durch die Gleichungen in \ref{equ:größe_bestimmen}
-wird klar, dass eine \ac{CT}-Aufnahme des Typs \ac{ISQ} direkt nach seiner
-Aufnahme über einen \ac{GB} groß ist. Damit lässt sich zeigen, dass diese Form des
-Mikro-\ac{CT} einen hohen Detailgrad aufweist. Es wird jedoch auch klar, dass
-diese Größe an Bildern den alltäglichen Einsatz etwas erschweren, Da ein regelmäßiger
-Umgang mit Ihnen erhebliche Speicherressourcen benötigt.
+zwei ermittelt die Größe des Bildes in der Einheit Byte. Die letzte Zeile nimmt
+eine Umrechnung von Byte nach \ac{GB} vor. Durch die Gleichungen in
+\ref{equ:größe_bestimmen} wird klar, dass eine \ac{CT}-Aufnahme des Typs \ac{ISQ}
+direkt nach seiner Aufnahme über einen \ac{GB} groß ist. Damit lässt sich zeigen,
+dass diese Form des Mikro-\ac{CT} einen hohen Detailgrad aufweist. Es wird
+jedoch auch klar, dass diese Größe an Bildern den alltäglichen Einsatz etwas erschweren,
+Da ein regelmäßiger Umgang mit Ihnen erhebliche Speicherressourcen benötigt.
 
-Nachdem dieses Kapitel erläutert hat, wie Mikro-\ac{CT}-Bilder erzeugt werden und
-in welchem Datenformat sie vorliegen, beschäftigt sich das nächste Kapitel mit
-der konkreten Bearbeitung der Mikro-\ac{CT}-Aufnahmen. Hierbei werden Konzepte
-erläutert welche innerhalb der anatomischen Segmentierung zum Einsatz kommen. Dies
-umfasst unter anderem die Rauschreduktion sowie die Segmentierung der relevanten
-Strukturen. Daher werden wesentliche Methoden und Algorithmen zur Optimierung
-und Analyse von Mikro-\ac{CT}-Aufnahmen vorgestellt, wobei insbesondere die
-Filterung und die Segmentierung eine zentrale Rolle spielen.
+Nachdem dieses Kapitel erläutert hat, wie Mikro-\ac{CT}-Bilder erzeugt werden
+und in welchem Datenformat sie vorliegen, beschäftigt sich das nächste Kapitel mit
+der konkreten Bearbeitung der Mikro-\ac{CT}-Aufnahmen. Hierbei werden Konzepte erläutert
+welche innerhalb der anatomischen Segmentierung zum Einsatz kommen. Dies umfasst
+unter anderem die Rauschreduktion sowie die Segmentierung der relevanten
+Strukturen. Daher werden wesentliche Methoden und Algorithmen zur Optimierung und
+Analyse von Mikro-\ac{CT}-Aufnahmen vorgestellt, wobei insbesondere die Filterung
+und die Segmentierung eine zentrale Rolle spielen.
 
 \pagebreak
 % ---------------------------------------------------------------------------------------
 
 \section{Bearbeitung von Mikro-CT-Bildern}
-\label{sec:bildbearbeitung} Nachdem ein \ac{CT} erzeugt wrude folgt die
+\label{sec:bildbearbeitung} Nachdem ein \ac{CT} erzeugt wurde, folgt die
 Bearbeitung eines Bildes. Hierfür bietet das Pipeline-Modell von \citet[S.~50]{handels2000}
-eine gute Richtlinie. Er beschreibt mit dieser Visualisierungs-Pipeline Schritte,
+eine gute Richtlinie. Er beschreibt mit dieser Visualisierungspipeline Schritte,
 die bei der Bearbeitung von dreidimensionalen \ac{CT}-Aufnahmen notwendig sind \citep[vgl.][S.~50]{handels2000}.
 Die ersten Schritte, \textit{Bildvorverarbeitung} und \textit{Segmentierung}, sind
 von besonderem Interesse. Dieser Abschnitt orientiert sich an dieser
 Unterteilung und nimmt sie sich als Vorbild. Daraus ergeben sich die Abschnitte \ref{subsec:filter}
-Filter und \ref{subsec:segmentierung} Segmentierung, welche die Pipelineschritte
-\textit{Bildvorverarbeitung} und \textit{Segmentierung} widerspiegeln sollen.
+Filter und \ref{subsec:segmentierung} Segmentierung, welche die Schritte \textit{Bildvorverarbeitung}
+und \textit{Segmentierung} widerspiegeln sollen.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Filterung}

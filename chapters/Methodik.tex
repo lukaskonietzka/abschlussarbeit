@@ -10,12 +10,11 @@ und die Ideen hinter der Implementierung. Wie können Mikro-\ac{CT}-Bilder für 
 Zahnmedizin effizient und interaktiv aufbereitet werden? Zu Beginn wurde demnach
 eine umfassende Anforderungsanalyse durchgeführt, um die spezifischen Anforderungen
 der Domäne zu erfassen und die Ausgangssituation zu klären. Darauf aufbauend
-folgte eine detaillierte Literaturrecherche, um den aktuellen Stand der Technik zu
-untersuchen und bestehende Lösungen für eine Implementierung zu identifizieren.
-Da das Ziel dieser Arbeit die Entwicklung einer vollständigen Softwarelösung ist,
-wurde das Problem anschließend in Teilaufgaben zerlegt. Dies ermöglicht eine
-gezielte Bearbeitung einzelner Komponenten und erleichtert die iterative
-Entwicklung.
+folgte eine detaillierte Recherche, um den aktuellen Stand der Technik zu untersuchen
+und bestehende Lösungen für eine Implementierung zu identifizieren. Da das Ziel
+dieser Arbeit die Entwicklung einer vollständigen Softwarelösung ist, wurde das Problem
+anschließend in Teilaufgaben zerlegt. Dies ermöglicht eine gezielte Bearbeitung
+einzelner Komponenten und erleichtert die iterative Entwicklung.
 % ---------------------------------------------------------------------------------------
 
 \section{Forschungsdesign}
@@ -36,8 +35,8 @@ eine Orientierung bezüglich der Reihenfolge während der Bearbeitung geben.
 	\item[Analysephase,] diese erste Phase ist bei fast allen Softwareprojekten die
 		wichtigste Phase und gleichzeitig die, die meist zu kurz kommt. Innerhalb der
 		Analysephase werden also alle Anforderungen an die Software gesammelt. Diese
-		basieren zum großen Teil auf der Literaturrecherche. Außerdem werden bestehende
-		Lösungen analysiert und so die Kernfunktionalität herausgefiltert.
+		basieren zum großen Teil auf der Recherche. Außerdem werden bestehende Lösungen
+		analysiert und so die Kernfunktionalität herausgefiltert.
 
 	\item[Entwicklungsphase,] die Entwicklungsphase bildet den größten Teil. Hier
 		findet die konkrete Umsetzung statt. Hierzu wird das System in mehrere Subsysteme
@@ -111,8 +110,8 @@ für einzelne Programmeinheiten) vorgesehen ist.
 Durch diese breite Palette an Anforderungen ergeben sich verschiedene Aufgaben
 für die Implementierung. Bevor jedoch mit der konkreten Umsetzung begonnen werden
 kann, ist ein noch wichtigerer Schritt erforderlich: die Recherche. Sie dient
-dazu, den aktuellen Stand der Technik zu erfassen und geeignete Lösungsansätze zu
-identifizieren.
+dazu, den aktuellen Stand der Technik zu erfassen und geeignete Lösungsansätze für
+die Implementierung zu identifizieren.
 % ---------------------------------------------------------------------------------------
 
 \section{Literatur zur Implementierung}
@@ -140,30 +139,31 @@ obligatorisch. Welche dies sind, ist der Dokumentation von Slicer zu entnehmen.
 Neben einer konkreten Implementierungshilfe dient die Recherche zur
 Implementierung auch dazu, ein fundiertes Verständnis für die Domäne der medizinischen
 Bildverarbeitung und deren zugrunde liegende Strukturen zu entwickeln. Mithilfe
-verschiedener domänenspezifischer Publikationen kann ein tieferes Wissen über
-diesen Fachbereich gewonnen werden. Besonders relevant sind hierbei die verschiedenen
-Verfahren für die Verarbeitung der Mikro-\ac{CT}-Aufnahmen. Konkret handelt es sich
-hier um die unterschiedlichen Algorithmen zur Filterung und Segmentierung von Mikro-\ac{CT}-Bildern
-in der Zahnmedizin.
+verschiedener domänenspezifischer Publikationen, kann ein tieferes Wissen über diesen
+Fachbereich gewonnen werden. Besonders relevant sind hierbei die verschiedenen
+Verfahren für die Verarbeitung der Mikro-\ac{CT}-Aufnahmen. Konkret handelt es
+sich hier um die unterschiedlichen Algorithmen zur Filterung und Segmentierung
+von Mikro-\ac{CT}-Bildern in der Zahnmedizin.
 
-Um nun detaillierter auf die Umsetzung einzugehen, nimmt das nächste Kapitel eine
-Unterteilung der Gesamtheit der Anforderungen in kleinere Teilsysteme vor.
+Um nun detaillierter auf die Umsetzung einzugehen, nimmt das nächste Kapitel
+eine Unterteilung der Gesamtheit der Anforderungen in kleinere Teilsysteme vor.
 % ---------------------------------------------------------------------------------------
 
 \section{Zerlegung in Teilprobleme}
-\label{sec_zerlegung_in_teilprobleme} Durch die Aufteilung des Gesamtsystems in mehrere
-kleine Teilaufgaben wird die Software für die Entwicklungsphase übersichtlicher.
-Die einzelnen Domänen können so schneller und besser verstanden werden. Es gibt viele
-Möglichkeiten ein Softwaresystem in kleine Teile aufzuteilen, sodass es am Ende
-auf den konkreten Anwendungsfall ankommt. Diese Arbeit sieht folgenden Teilaufgaben
-für das Gesamtsystem vor:
+\label{sec_zerlegung_in_teilprobleme} Durch die Aufteilung des Gesamtsystems in
+mehrere kleine Teilaufgaben wird die Software für die Entwicklungsphase
+übersichtlicher. Die einzelnen Domänen können so schneller und besser verstanden
+werden. Es gibt viele Möglichkeiten ein Softwaresystem in kleine Teile
+aufzuteilen, sodass es am Ende auf den konkreten Anwendungsfall ankommt. Diese
+Arbeit sieht folgenden Teilaufgaben für das Gesamtsystem vor:
 
 \begin{description}
 	\item[Architektur- und \ac{UI}-Design,] die Systemarchitektur wird mithilfe von
-		\ac{UML}-Klassendiagrammen modelliert und schrittweise verfeinert. Anschließend
-		wird ein geeignetes Entwurfsmuster ausgewählt, das die Struktur und
-		Modularität des Systems unterstützt. Durch die Bearbeitung dieses Teilproblems
-		kann die Anforderung an eine flexible Architektur erfüllt werden.
+		\ac{UML}-Klassendi-\\agrammen modelliert und schrittweise verfeinert.
+		Anschließend wird ein geeignetes Entwurfsmuster ausgewählt, das die Struktur
+		und Modularität des Systems unterstützt. Durch die Bearbeitung dieses
+		Teilproblems kann die Anforderung an eine flexible Architektur erfüllt
+		werden.
 
 	\item[Kapselung der anatomischen Segmentierung,] das bereits bestehende Segmentierungsverfahren
 		muss in das Modul integriert werden. Hier soll das Verfahren von einem
@@ -182,8 +182,8 @@ für das Gesamtsystem vor:
 		wie es für den einfachen Prozess nötig ist. Hierbei wird auf das erstellte Paket
 		der anatomischen Segmentierung zurückgegriffen.
 
-	\item[Batch Prozess,] ist das einfache Verfahren fertig implementiert und funktioniert,
-		so kann der Batch Prozess hinzukommen. Hier geht es federführend um das richtige
+	\item[Batch-Prozess,] ist das einfache Verfahren fertig implementiert und funktioniert,
+		so kann der Batch-Prozess hinzukommen. Hier geht es federführend um das richtige
 		und organisierte Abspeichern der erstellten Bilder im Dateisystem.
 
 	\item[Ausführungsmodus,] während der Ausführung des Algorithmus soll das Modul
@@ -200,35 +200,33 @@ für das Gesamtsystem vor:
 \end{description}
 
 Die Ordnung dieser Punkte gibt eine grobe Orientierung bezüglich der Reihenfolge
-während der Umsetzung an. Bevor es im nächsten Kapitel um die konkreten Ergebnisse
-diese Arbeit geht, soll hier abschließend noch ein Blich auf die Art der
-Evaluation geworfen werden. Diese stellt sicher, dass die Ergebnisse bewertbar
-sind.
+während der Umsetzung an. Bevor es im nächsten Kapitel um die konkreten
+Ergebnisse diese Arbeit geht, soll hier abschließend noch ein Blick auf die Art der
+Evaluation geworfen werden. Diese stellt sicher, dass die Ergebnisse bewertbar sind.
 % ---------------------------------------------------------------------------------------
 
 \section{Forschungsevaluation}
 Die Evaluation kann grob in zwei Teile unterteilt werden. Der erste Teil ist der
-wohl Wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die Benutzer.
-Hier kann also die Benutzerfreundlichkeit und die \ac{UI} der Erweiterung gut analysiert
-werden. Diese Art von Test involviert mehrere Außenstehende und sorgt damit für
-eine objektive Bewertungsgrundlage. Verbesserungen, die durch die Tests
-hervorkommen, werden gesammelt und als möglicher Ausblick zur Verfügung gestellt.
-Wichtig für die Benutzbarkeit der Software ist auch das Benutzerhandbuch. Dies ist
-auch Teil der Ergebnisse und muss mittels Benutzertests evaluiert werden. Neben
-dem konkreten Feedback der Anwender sollen auch verschiedenen
-Anwendungsszenarien diskutiert werden.
+wohl Wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die
+Benutzer. Hier kann also die Benutzerfreundlichkeit und die \ac{UI} der
+Erweiterung gut analysiert werden. Diese Art von Test involviert mehrere Außenstehende
+und sorgt damit für eine objektive Bewertungsgrundlage. Verbesserungen, die durch
+die Tests hervorkommen, werden gesammelt und als möglicher Ausblick zur
+Verfügung gestellt. Wichtig für die Benutzbarkeit der Software ist auch das Benutzerhandbuch.
+Dies ist auch Teil der Ergebnisse und muss mittels Benutzertests evaluiert
+werden. Neben dem konkreten Feedback der Anwender sollen auch verschiedenen Anwendungsszenarien
+diskutiert werden.
 
-Der zweite Teil der Evaluation soll prüfen ob der softwaretechnische Ansatz
-erfolgreich umgesetzt wurde. Um dies gewährleisten zu können, müssen zusätzlich
-zur Funktionalität auch Softwaretests bereitgestellt werden. Wie eine der Teilaufgaben
-aus Kapitel \ref{sec_zerlegung_in_teilprobleme} bereits zeigt, handelt es sich
-hierbei um Unittests. Außerdem ist für diesen Teil auch die technische Dokumentation
-notwendig. Abschießend soll die Performance des Systems noch gemessen und
-analysiert werden.
+Der zweite Teil der Evaluation soll prüfen ob der softwaretechnische Ansatz erfolgreich
+umgesetzt wurde. Um dies gewährleisten zu können, müssen zusätzlich zur Funktionalität
+auch Softwaretests bereitgestellt werden. Wie eine der Teilaufgaben aus Kapitel
+\ref{sec_zerlegung_in_teilprobleme} bereits zeigt, handelt es sich hierbei um Unittests.
+Außerdem ist für diesen Teil auch die technische Dokumentation notwendig. Abschießend
+soll die Performance des Systems noch gemessen und analysiert werden.
 
 Die in diesem Kapitel beschriebenen methodischen Schritte bildeten die Grundlage
 für die Entwicklung der Erweiterung. Nachdem die Analysephase abgeschlossen ist,
-folgen nun die Phasen Entwicklung und Evaluation in Form der Kapitel Ergebnisse
-und Evaluation. Hierzu wird die erstellte \ac{SEM} detailliert vorgestellt und
-die Funktionen näher beschrieben.
+folgen nun die Phasen Entwicklung und Evaluation in Form der Kapitel Ergebnisse und
+Evaluation. Hierzu wird die erstellte \ac{SEM} detailliert vorgestellt und die Funktionen
+näher beschrieben.
 % ---------------------------------------------------------------------------------------
