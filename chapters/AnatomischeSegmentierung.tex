@@ -15,7 +15,7 @@ getrennt und visuell sowie rechnerisch unterscheidbar gemacht werden.
 	\citet[S.~41]{hoffmann2020} eine gute Hilfe für die Befundung kariöse Stellen
 	liefern. Ein Ergebnis aus der Arbeit von Hofmann sei in Abbildung \ref{fig:ergebnis_hoffmann}
 	gezeigt. Hierfür entwickelte Hofmann ein prototypisches Verfahren innerhalb
-	eines IPython Notebooks, mit dem es gelang ca. 250 Datensätze der Zahnklinik
+	eines IPython Notebooks, mit dem es gelang ca. 250 Datensätze der Klinik
 	automatisch aufzubereiten.
 \end{minipage}
 \hfill
@@ -25,10 +25,21 @@ getrennt und visuell sowie rechnerisch unterscheidbar gemacht werden.
 	\captionof{figure}{Reproduziertes Ergebnis der anatomischen Segmentierung} \label{fig:ergebnis_hoffmann}
 \end{minipage}
 
-Die anatomische Segmentierung des Zahnes umfasst eine Reihe algorithmischer
-Schritte, die in einer strukturierten Pipeline ablaufen. Abbildung
-\ref{fig:anatomische_segmentierung} veranschaulicht den groben Ablauf dieses
-Verfahrens, wobei kleinere Zwischenschritte nicht berücksichtigt wurden.
+Neben der Erstellung von segmentierten Daten stellt das Verfahren noch
+sogenannte mediale Flächen zur Verfügung. Diese sind insbesondere für die Klassifizierung
+von Karies notwendig. \citet[S.~42]{hoffmann2020} erklärt, das sich bei einer
+Überlagert der medialen Flächen auf das Originale Bild auf einem Blick erkennen
+lassen, ob die vorhandene Karies in diesen Schichten weiter als die Hälfte fortgeschritten
+ist. Für die Erstellung der medial Flächen sind die segmentierte Daten eines
+Zahnes zwingend erforderlich. Die Berechnung der medial Flächen erfolgte auf den
+Segmenten mithilfe einer Distanztransformation und anschließender Kantenfindung \citep[vgl.][S.~42]{hoffmann2020}.
+
+Die anatomische Segmentierung eines Zahnes – einschließlich der medialen Flächen
+– erfolgt in mehreren algorithmischen Schritten, die in einer klar strukturierten
+Pipeline ablaufen. Abbildung \ref{fig:anatomische_segmentierung} veranschaulicht
+den groben Ablauf des Verfahrens, wobei kleinere Zwischenschritte ausgeklammert sind.
+Der Prozess beginnt oben links und endet mit der Segmentierung der medialen
+Flächen in der unteren rechten Ecke.
 
 \begin{figure}[h]
 	\centering
@@ -38,34 +49,35 @@ Verfahrens, wobei kleinere Zwischenschritte nicht berücksichtigt wurden.
 	\label{fig:anatomische_segmentierung}
 \end{figure}
 
-Wie \citet[S.~55]{hoffmann2020} beschreibt, kann dieses Verfahren bis zu einem
-gewissen Fortschritt von Karies angewendet werden. Da Karies im Laufe der Zeit zur
-Zersetzung des Zahns führt, entstehen dunkle Stellen im Schmelzbereich, die die zusammenhängenden
-Grauwerte im Bild stören und somit die Segmentierung erschweren. Eine weitere
-Herausforderung liegt in der Art der Bilddaten, für die das Verfahren ursprünglich
-entwickelt wurde. Es basiert auf \ac{ISQ}-Bildern, die im \ac{16Int}-Format vorliegen.
+Wie \citet[S.~55]{hoffmann2020} beschreibt, kann dieses Verfahren bis zu einem gewissen
+Fortschritt von Karies angewendet werden. Da Karies im Laufe der Zeit zur
+Zersetzung des Zahns führt, entstehen dunkle Stellen im Schmelzbereich, die die
+zusammenhängenden Grauwerte im Bild stören und somit die Segmentierung
+erschweren. Eine weitere Herausforderung liegt in der Art der Bilddaten, für die
+das Verfahren ursprünglich entwickelt wurde. Es basiert auf \ac{ISQ}-Bildern, die
+im \ac{16Int}-Format vorliegen.
 
-Die einzelnen Schritte in Abbildung \ref{fig:anatomische_segmentierung} verdeutlichen,
-dass die Segmentierung stets einem spezifischen Muster folgt und das Verfahren
-primär zwischen Dentin und Schmelz unterscheidet. Die Pulpa wird wie bereits beschrieben
-in diesem Verfahren nicht berücksichtigt. Zudem wird ersichtlich, dass sowohl Filter
-als auch Segmentierungstechniken essenziell für eine präzise Trennung der Strukturen
-sind. Um ein besseres Verständnis für diesen Prozess zu gewinnen, führt das folgende
-Kapitel in die anatomischen Strukturen eines Zahns ein und zeigt, wie diese auf
-Mikro-\ac{CT}-Aufnahmen erkennbar sind. Dabei werden die grundlegenden Techniken
-der Bildgewinnung und -bearbeitung näher erläutert.
+Die einzelnen Schritte in Abbildung \ref{fig:anatomische_segmentierung}
+verdeutlichen, dass die Segmentierung stets einem spezifischen Muster folgt und das
+Verfahren primär zwischen Dentin und Schmelz unterscheidet. Die Pulpa wird wie
+bereits beschrieben in diesem Verfahren nicht berücksichtigt. Zudem wird ersichtlich,
+dass sowohl Filter als auch Segmentierungstechniken essenziell für eine präzise
+Trennung der Strukturen sind. Um ein besseres Verständnis für diesen Prozess zu gewinnen,
+führt das folgende Kapitel in die anatomischen Strukturen eines Zahns ein und
+zeigt, wie diese auf Mikro-\ac{CT}-Aufnahmen erkennbar sind. Dabei werden die grundlegenden
+Techniken der Bildgewinnung und -bearbeitung näher erläutert.
 
 \pagebreak
 % ---------------------------------------------------------------------------------------
 
 \section{Anatomische Zahnstrukturen in Mikro-CT-Bildern}
 \label{sec:domänenspezifisch} Um nachvollziehen zu können, wie eine \ac{CT}-Aufnahme
-technisch segmentiert und in ihre einzelnen Bestandteile zerlegt werden kann, ist
-es zunächst essenziell, die anatomische Struktur des Zahns genau zu verstehen. Dazu
-gehören die unterschiedlichen Gewebeschichten wie Zahnschmelz, Dentin und die
-Pulpa, die sich nicht nur in ihrer physikalischen Zusammensetzung, sondern auch
-in ihrer radiologischen Darstellung innerhalb der \ac{CT}-Bilder unterscheiden.
-Erst mit diesem grundlegenden Verständnis lassen sich Methoden zur 3D-Bildbearbeitung
+technisch segmentiert und in ihre einzelnen Bestandteile zerlegt werden kann,
+ist es zunächst essenziell, die anatomische Struktur des Zahns genau zu verstehen.
+Dazu gehören die unterschiedlichen Gewebeschichten wie Zahnschmelz, Dentin und die
+Pulpa, die sich nicht nur in ihrer physikalischen Zusammensetzung, sondern auch in
+ihrer radiologischen Darstellung innerhalb der \ac{CT}-Bilder unterscheiden. Erst
+mit diesem grundlegenden Verständnis lassen sich Methoden zur \ac{3D}-Bildbearbeitung
 ableiten.
 
 \begin{minipage}{0.40\textwidth}
@@ -88,23 +100,23 @@ ableiten.
 	\label{fig:aufbau_eines_zahnes}
 \end{minipage}
 
-Diese Gewebearten weisen unterschiedliche Strukturen auf, die sich in den
-verschiedenen Graustufen auf einem Mikro-\ac{CT}-Bild widerspiegeln. Die Pulpa, das
-innere Weichgewebe des Zahns, unterscheidet sich dabei nur geringfügig vom
-Hintergrund, da sie als einzige der drei Hauptstrukturen nur sehr wenig Röntgenstrahlen
-absorbiert. Aufgrund dieser geringen Sichtbarkeit spielt die Pulpa in dieser
-Arbeit eine untergeordnete Rolle und wird nicht in das Segmentierungsverfahren
-einbezogen. Geht man von innen nach außen, folgt auf die Pulpa das Dentin, das auch
-als Zahnbein bezeichnet wird. Laut \citet[S.~41]{lehmann2012Zahnheilkunde} handelt
+Diese Gewebearten weisen unterschiedliche Strukturen auf, die sich in den verschiedenen
+Graustufen auf einem Mikro-\ac{CT}-Bild widerspiegeln. Die Pulpa, das innere
+Weichgewebe des Zahns, unterscheidet sich dabei nur geringfügig vom Hintergrund,
+da sie als einzige der drei Hauptstrukturen nur sehr wenig Röntgenstrahlen
+absorbiert. Aufgrund dieser geringen Sichtbarkeit spielt die Pulpa in dieser Arbeit
+eine untergeordnete Rolle und wird nicht in das Segmentierungsverfahren einbezogen.
+Geht man von innen nach außen, folgt auf die Pulpa das Dentin, das auch als
+Zahnbein bezeichnet wird. Laut \citet[S.~41]{lehmann2012Zahnheilkunde} handelt
 es sich dabei um eine Hartsubstanz, die den Zahn im Kieferknochen hält. Aufgrund
-seiner Dichte ist das Dentin in \ac{CT}-Aufnahmen bereits deutlich erkennbar. Die
-äußerste Schicht des Zahns bildet der Zahnschmelz. Dieser stellt die härteste
-Substanz im menschlichen Körper dar und erscheint auf den \ac{CT}-Bildern besonders
-hell. Seine hohe Dichte sorgt für eine klare Abgrenzung zu den darunterliegenden
-Schichten, was ihn zu einem wichtigen Orientierungspunkt für die Segmentierung macht
-\citep[vgl.][S.~41]{lehmann2012Zahnheilkunde}. Mit der folgenden Abbildung \ref{fig:pulpa_dentin_schmelz}
-werden die verschiedenen Gewebearten in einem Zahn den entsprechenden Graustufen
-zugeordnet.
+seiner Dichte ist das Dentin in \ac{CT}-Aufnahmen bereits deutlich erkennbar.
+Die äußerste Schicht des Zahns bildet der Zahnschmelz. Dieser stellt die härteste
+Substanz im menschlichen Körper dar und erscheint auf den \ac{CT}-Bildern
+besonders hell. Seine hohe Dichte sorgt für eine klare Abgrenzung zu den darunterliegenden
+Schichten, was ihn zu einem wichtigen Orientierungspunkt für die Segmentierung
+macht \citep[vgl.][S.~41]{lehmann2012Zahnheilkunde}. Mit der folgenden Abbildung
+\ref{fig:pulpa_dentin_schmelz} werden die verschiedenen Gewebearten in einem
+Zahn den entsprechenden Graustufen zugeordnet.
 
 \begin{figure}[h]
 	\centering
@@ -114,39 +126,39 @@ zugeordnet.
 	\label{fig:pulpa_dentin_schmelz}
 \end{figure}
 
-Zu Beachten ist hier, dass es sich bei der in Abbildung \ref{fig:pulpa_dentin_schmelz}
-gezeigten \ac{CT}-Aufnahme um eine Zahnkrone handelt und nicht um den ganzen
-Zahn. Zu sehen ist auch der fast identische Grauwert zwischen dem Hintergrund und
-der Pulpa.
+Zu Beachten ist hier, dass es sich bei der in Abbildung
+\ref{fig:pulpa_dentin_schmelz} gezeigten \ac{CT}-Aufnahme um eine Zahnkrone handelt
+und nicht um den ganzen Zahn. Zu sehen ist auch der fast identische Grauwert
+zwischen dem Hintergrund und der Pulpa.
 
-Mit diesem Wissen über die Anatomie eines Zahnes und die Zusammensetzung auf einem
-Mikro-CT, kann nun ein Schritt weiter gegangen werden, indem der Fokus auf die \ac{CT}-Bilder
-gerichtet wird. Das folgende Kapitel bietet daher einen Überblick über die Erstellung
-von Röntgenaufnahmen sowie die Berechnung einer Mikro-\ac{CT}-Aufnahme. Durch die
-Bildgewinnung wir auch klar, mit welcher hohen Auflösung gearbeitet wird und
-warum dies auch zu Hindernissen führt.
+Mit diesem Wissen über die Anatomie eines Zahnes und die Zusammensetzung auf
+einem Mikro-\ac{CT}, kann nun ein Schritt weiter gegangen werden, indem der Fokus auf
+die \ac{CT}-Bilder gerichtet wird. Das folgende Kapitel bietet daher einen
+Überblick über die Erstellung von Röntgenaufnahmen sowie die Berechnung einer
+Mikro-\ac{CT}-Aufnahme. Durch die Bildgewinnung wir auch klar, mit welcher hohen
+Auflösung gearbeitet wird und warum dies auch zu Hindernissen führt.
 % ---------------------------------------------------------------------------------------
 
 \section{Erstellung von Mikro-CT-Bildern}
-\label{sec:technologisch} Die Erzeugung dreidimensionaler Bilddaten ist ein
-essenzieller Bestandteil der modernen medizinischen Bildgebung und kann auf
-verschiedene Weise erfolgen. Je nach Anwendungsgebiet kommen unterschiedliche Verfahren
-zum Einsatz, darunter \ac{MRT}, \ac{OCT} und insbesondere die Computertomografie
-\citep[vgl.][S.~14]{handels2000}. Eine spezielle Variante der Computertomografie
-ist das Mikro-\ac{CT}, das durch seine kleinere Ausführung in der zahnmedizinischen
-Forschung und Diagnostik eine zentrale Rolle spielt. Auch die Handhabung dieser
-erstellten Daten ist ein wichtiger Bestandteil der Forschung.
+\label{sec:technologisch} Die Erzeugung dreidimensionaler Bilddaten ist ein essenzieller
+Bestandteil der modernen medizinischen Bildgebung und kann auf verschiedene Weise
+erfolgen. Je nach Anwendungsgebiet kommen unterschiedliche Verfahren zum Einsatz,
+darunter \ac{MRT}, \ac{OCT} und insbesondere die Computertomografie \citep[vgl.][S.~14]{handels2000}.
+Eine spezielle Variante der Computertomografie ist das Mikro-\ac{CT}, das durch
+seine kleinere Ausführung in der zahnmedizinischen Forschung und Diagnostik eine
+zentrale Rolle spielt. Auch die Handhabung dieser erstellten Daten ist ein wichtiger
+Bestandteil der Forschung.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Computertomografie}
 \label{subsec:computertomografie} Die Erfindung der Computertomografie (\ac{CT})
-war ein Quantensprung in der Geschichte der Medizin. Sie ist aus heutigen
-Diagnosen nicht mehr wegzudenken. Ein Mikro-\ac{CT}-Bild ist laut \citet[S.~1]{baird2017}
-ein Menge hochauflösender Bilder, die wie ein Stapel zusammengelegt werden. Vereinfacht
-gesagt, werden so \ac{2D} Bilder zu einem 3D-CT zusammengesetzt. Der Aspekt
-Mikro deutet dabei darauf hin, dass es eine miniaturisierte Ausführung eines üblichen
-Kegelstrahl-\ac{CT}s ist, so \citet[S.~340]{buzug2011}. Eine andere Definition
-erläutert \citet[S.~49]{lehmann2013bildverarbeitung}. Er beschreibt die
+war ein Quantensprung in der Geschichte der Medizin. Sie ist aus heutigen Diagnosen
+nicht mehr wegzudenken. Ein Mikro-\ac{CT}-Bild ist laut \citet[S.~1]{baird2017}
+ein Menge hochauflösender Bilder, die wie ein Stapel zusammengelegt werden.
+Vereinfacht gesagt, werden so \ac{2D} Bilder zu einem \ac{3D}-\ac{CT} zusammengesetzt. Der
+Aspekt Mikro deutet dabei darauf hin, dass es eine miniaturisierte Ausführung
+eines üblichen Kegelstrahl-\ac{CT}s ist, so \citet[S.~340]{buzug2011}. Eine andere
+Definition erläutert \citet[S.~49]{lehmann2013bildverarbeitung}. Er beschreibt die
 Computertomografie als Projektionen einzelner Ebenen im Untersuchungsobjekt. Die
 Abbildung \ref{fig:spectrum} soll diesen Vorgang genauer beschreiben.
 
@@ -157,28 +169,28 @@ Abbildung \ref{fig:spectrum} soll diesen Vorgang genauer beschreiben.
 	\label{fig:spectrum}
 \end{figure}
 
-Die Technologie, mit der diese Bilder aufgenommen werden, ist unter der
-Röntgentechnik oder auch \ac{X-Ray} bekannt. Die Röntgenstrahlung ist eine Form
-der elektromagnetischen Strahlung, ähnlich wie das sichtbare Licht, so das
-\citet[K.~1]{nib2024}. Anders als das Licht haben die Röntgenstrahlen eine viel
-höhere Energie. Das führt dazu, dass man mit dieser elektromagnetischen
-Strahlung viele Objekte durchdringt werden können. So auch Gewebeteile eines Zahnes
-\citep[vgl.][K.~1]{nib2024}. Mit der Steigerung der Atomzahl in einem Material,
-also der Dichte, nimmt auch die Absorption eines Materials zu, sodass es leicht
-ist verschiedene Materialien in einer \ac{CT}-Aufnahme zu unterscheiden \citep[vgl.][K.~1]{nib2024}.
-Um nun mittels der Röntgenstrahlen und den einzelnen \ac{2D} Projektionen ein 3D-Micro-CT
-zu erstellen, werden 2D-Röntegenaufnahmen eines Obejkte aus verschiedenen Winkeln
-geschossen und in einem Weiteren Schritt dann zu einem 3D-Modell rekonstruiert.
-Das Ergebnis einer solchen Rekonstruktion ist dann eine Art Papierstapel. Dieser
-besteht aus vielen 2D-Bilder, die aufgrund der Stapelung zu einem 3D-Bild werden.
+Die Technologie, mit der diese Bilder aufgenommen werden, ist unter der Röntgentechnik
+oder auch \ac{X-Ray} bekannt. Die Röntgenstrahlung ist eine Form der elektromagnetischen
+Strahlung, ähnlich wie das sichtbare Licht, so das \citet[K.~1]{nib2024}. Anders
+als das Licht haben die Röntgenstrahlen eine viel höhere Energie. Das führt dazu,
+dass man mit dieser elektromagnetischen Strahlung viele Objekte durchdringt werden
+können. So auch Gewebeteile eines Zahnes \citep[vgl.][K.~1]{nib2024}. Mit der
+Steigerung der Atomzahl in einem Material, also der Dichte, nimmt auch die
+Absorption eines Materials zu, sodass es leicht ist verschiedene Materialien in einer
+\ac{CT}-Aufnahme zu unterscheiden \citep[vgl.][K.~1]{nib2024}. Um nun mittels
+der Röntgenstrahlen und den einzelnen \ac{2D} Projektionen ein \ac{3D}-Micro-\ac{CT} zu erstellen,
+werden 2D-Röntgenaufnahmen eines Objektes aus verschiedenen Winkeln geschossen
+und in einem weiteren Schritt dann zu einem \ac{3D}-Modell rekonstruiert. Das Ergebnis
+einer solchen Rekonstruktion ist dann eine Art Papierstapel. Dieser besteht aus
+vielen 2D-Bilder, die aufgrund der Stapelung zu einem \ac{3D}-Bild werden.
 
-Für die Erzeugung dieser Bilder bedarf spezieller Geräte Im Falle der Zahnklinik
-an der \ac{LMU} handelt es sich um ein Mikro-\ac{CT}-Gerät der Firma \citet{scanco2024}.
-Dieses Gerät erstellt Aufnahmen mittels Röntgenstrahlung und generiert mithilfe
-der Computertomografie ein dreidimensionales Bild, welches im Format \ac{ISQ}
-abgelegt wird. Das folgende Kapitel zeigt, dass Mikro-CT-Bilder mit dem Typ \ac{ISQ}
-zwar eine hohe Detailgenauigkeit bieten, jedoch auch einen erheblichen
-Speicherbedarf mit sich bringen.
+Für die Erzeugung dieser Bilder bedarf spezieller Geräte, im Falle der
+Zahnklinik an der \ac{LMU} handelt es sich um ein Mikro-\ac{CT}-Gerät der Firma
+\citet{scanco2024}. Dieses Gerät erstellt Aufnahmen mittels Röntgenstrahlung und
+generiert mithilfe der Computertomografie ein dreidimensionales Bild, welches im
+Format \ac{ISQ} abgelegt wird. Das folgende Kapitel zeigt, dass Mikro-\ac{CT}-Bilder
+mit dem Typ \ac{ISQ} zwar eine hohe Detailgenauigkeit bieten, jedoch auch einen
+erheblichen Speicherbedarf mit sich bringen.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Datenformate}
@@ -190,7 +202,7 @@ bedingt geeignet. Unter anderem wegen ihrer Größe. \citet[S.~118-119]{RoeschKu
 haben ein Paket entwickelt, mit dem sich gu zeigen lässt, wie sich diese großen Bilder
 zusammensetzten. Hierfür konvertiert das Paket ein \ac{ISQ}-Bild in ein \ac{MHD}
 Format. Bei einer \ac{MHD}-Datei handelt es sich um ein Metafile, dass auf die eigentliche
-Datei verweist. Wird dieses Pakte demnach verwendet, so erstellt das Skript \texttt{isq\_to\_mhd}
+Datei verweist. Wird dieses Paket demnach verwendet, so erstellt das Skript \texttt{isq\_to\_mhd}
 ein Metafile, das detaillierte Daten über die Datei enthält. Ein Ausschnitt
 dieses Metafiles liefer das Listing \ref{lst:inhalt_mhd_datei}. Diese Metadatei kann
 genutzt werden, um interessante Informationen über das Bild zu erlangen.
@@ -237,7 +249,7 @@ eine Umrechnung von Byte nach \ac{GB} vor. Durch die Gleichungen in
 direkt nach seiner Aufnahme über einen \ac{GB} groß ist. Damit lässt sich zeigen,
 dass diese Form des Mikro-\ac{CT} einen hohen Detailgrad aufweist. Es wird
 jedoch auch klar, dass diese Größe an Bildern den alltäglichen Einsatz etwas erschweren,
-Da ein regelmäßiger Umgang mit Ihnen erhebliche Speicherrecourcen benötigt.
+Da ein regelmäßiger Umgang mit Ihnen erhebliche Speicherressourcen benötigt.
 
 Nachdem dieses Kapitel erläutert hat, wie Mikro-\ac{CT}-Bilder erzeugt werden
 und in welchem Datenformat sie vorliegen, beschäftigt sich das nächste Kapitel mit
@@ -328,7 +340,7 @@ verwiesen.
 
 Wie zu Anfang dieses Kapitels beschrieben, ist eine Bildvorverarbeitung (Filterung)
 für eine gute Segmentierung des Bildes unerlässlich. So kommt es das auch in der
-Visualisierungs-Pipeline nach \citet[S.~50]{handels2000} der zweite Schritt bereits
+Visualisierungspipeline nach \citet[S.~50]{handels2000} der zweite Schritt bereits
 die Segmentierung einführt. Warum dies so ein wichtiger Bestandteil der
 Bildanalyse ist und welche Methoden sich hier bieten, erläutert das folgende Kapitel.
 % ---------------------------------------------------------------------------------------
@@ -346,7 +358,7 @@ Segmentierungsverfahren also ein Bild in Teilbereiche auf. Dabei sind die Teilbe
 in sich bemerkenswert homogen. \citet[S.~1]{ramesh2021} beschreiben, dass der
 Prozess der Segmentierung zur Gewinnung wichtiger Informationen dient wie zum
 Beispiel die Zahnkaries Ausbreitung. So kommt es, dass \citet[S.~50]{handels2000}
-in seiner Visualisierungs-Pipeline die Segmentierung als zweiten Schritt und damit
+in seiner Visualisierungspipeline die Segmentierung als zweiten Schritt und damit
 als zentrales Problem darstellt. \citet[S.~95]{handels2000} und \citet[S.~360]{lehmann2013bildverarbeitung}
 beschreiben beide, dass die Bildsegmentierung eines \ac{CT}s für eine gute und eindeutige
 ärztliche Diagnose nicht mehr wegzudenken ist. Warum dem so ist, verdeutlicht die
@@ -433,7 +445,7 @@ tatsächliche Bild, benötigt dieser Algorithmus nicht \citep[vgl.][S.~264]{lehm
 \begin{minipage}{0.50\textwidth}
 	\centering
 	\includegraphics[width=1\textwidth]{img/histogramm.jpg}
-	\captionof{figure}{Histogramm einer Zahnkronenaufnahme nach \citet[S.~13]{hoffmann2020}}
+	\captionof{figure}{Histogramm einer CT-Aufnahme einer Zahnkrone nach \citet[S.~13]{hoffmann2020}}
 	\label{fig:histogramm}
 \end{minipage}
 
@@ -459,7 +471,7 @@ zwei lokale Maxima aufweist. Vereinfacht gesagt, wenn es zwei lokale Piecks enth
 \citep[vgl.][S.~264]{lehmann2013bildverarbeitung}.
 
 Eine ähnliche Technik für die Bestimmung des Schwellwerts liefert das Verfahren
-der Renyi Entropie. Auch hier ist eine Einteilung der Voxel in Klassen vorgesehen.
+der Rényi Entropie. Auch hier ist eine Einteilung der Voxel in Klassen vorgesehen.
 
 \pagebreak
 % ---------------------------------------------------------------------------------------

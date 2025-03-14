@@ -37,3 +37,5 @@ Operatormatrix
 Kariesklassifizierung
 Segmentierungsergebnisse
 Segmentierungstechniken
+Otsu
+Rényi

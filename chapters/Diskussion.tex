@@ -6,7 +6,7 @@ werfen und noch einige Aspekte hinzuzufügen:
 \textit{Wie kann eine benutzerfreundliche Schnittstelle innerhalb von 3D Slicer
 entwickelt werden, die nicht nur das Verfahren der anatomischen Segmentierung effizient
 integriert und den Zugang für Anwender vereinfacht, sondern auch eine
-strukturierte und flexible Umgebung zur Verarbeitung von Mikro-CT-Aufnahmen
+strukturierte und flexible Umgebung zur Verarbeitung von Mikro-\ac{CT}-Aufnahmen
 bietet?}
 
 Die Ergebnisse dieser Arbeit zeigen, dass die Integration der anatomischen Segmentierung
@@ -22,13 +22,13 @@ liefert, ohne dabei die Qualität der anatomischen Segmentierung zu beeinträcht
 Durch die enge Verzahnung mit 3D Slicer bleibt das Modul kompatibel mit
 bestehenden Workflows, sodass eine nahtlose Nutzung innerhalb der Klinik ermöglicht
 wird. Mit dem Tooth Analyser entstand somit eine durchdachte Struktur für die
-Verarbeitung von Mikro-CT-Aufnahmen, die einen bedeutenden Fortschritt für die zahnmedizinische
+Verarbeitung von Mikro-\ac{CT}-Aufnahmen, die einen bedeutenden Fortschritt für die zahnmedizinische
 Forschung darstellt. Der Luxus einer interaktiven Schnittstelle ist dabei nur
-die Spitze des Eisbergs. Des weitern konnte beobachtet werden, dass es neben der
-Auführung einer ganzen Bearbeitungspipelin auch sinnvoll ist einzelne Schritte
-in der Pipeline isoliert ausführen zu können. Auch ein Batch-Prozess, der eine
-ganze Sammlung an Bilder auf einmal verarbeiten kann stellte sich als sehr
-praktikabel herraus.
+die Spitze des Eisbergs. Des Weiteren konnte beobachtet werden, dass es neben
+der Ausführung einer ganzen Bearbeitungspipeline auch sinnvoll ist einzelne
+Schritte in der Pipeline isoliert ausführen zu können. Auch ein Batch-Prozess,
+der eine ganze Sammlung an Bilder auf einmal verarbeiten kann stellte sich als
+sehr praktikabel heraus.
 
 Neben der verbesserten Benutzerfreundlichkeit wurde auch die Effizienz des
 Workflows gesteigert. Eine manuelle Segmentierung eines einzelnen Zahns nimmt durchschnittlich
@@ -39,11 +39,11 @@ da die Segmentierung nicht mehr manuell durchgeführt werden muss.
 
 Ein Punkt, der zu Beginn der Entwicklung nicht feststand, war die optionale
 Generierung der medialen Flächen sowie die automatische Erkennung bereits
-gefilterter Bilder. Beide Funktionen sind das Ergebnis der Performancemessungen und
-tragen zur Effizienzsteigerung der Anwendung bei. Die optionale Generierung
-medialer Flächen ermöglicht es, die Berechnung gezielt an- oder auszuschalten, je
-nach den Anforderungen des jeweiligen Anwendungsfalls. Dadurch wird verhindert, dass
-unnötige Rechenoperationen ausgeführt werden, wenn diese für die Analyse nicht
+gefilterter Bilder. Beide Funktionen sind das Ergebnis der Laufzeitmessung und tragen
+zur Effizienzsteigerung der Anwendung bei. Die optionale Generierung medialer
+Flächen ermöglicht es, die Berechnung gezielt an- oder auszuschalten, je nach den
+Anforderungen des jeweiligen Anwendungsfalls. Dadurch wird verhindert, dass unnötige
+Rechenoperationen ausgeführt werden, wenn diese für die Analyse nicht
 erforderlich sind. Die automatische Erkennung bereits gefilterter Bilder sorgt dafür,
 dass doppelte Verarbeitungsschritte vermieden werden. Anstatt ein Bild erneut durch
 die gesamte Pipeline zu schicken, erkennt das System, ob eine vorherige Filterung
@@ -54,60 +54,72 @@ Auch die Erweiterbarkeit des Systems wurde berücksichtigt. Dank der modularen A
 kann das zugrunde liegende Segmentierungsverfahren ohne größere Anpassungen ausgetauscht
 oder durch weitere Funktionalitäten ergänzt werden. Dies gewährleistet
 langfristige Flexibilität und Anpassungsfähigkeit an zukünftige Entwicklungen. Gleichzeitig
-zeigte sich jedoch auch, dass eine übermäßige anzahl an Funktionen im Modul zu
-einer Überladung der \ac{UI} führen kann. Um dies in der Zukunft zu vermeiden, kann
-die 3D Slicher-Erweiterung auf mehrer Module aufgeteilt werden, die einen
-logischen und inhaltlichen Zusammenhang haben.
+zeigte sich jedoch auch, dass eine große Anzahl an Funktionen im Modul zu einer
+Überladung der \ac{UI} führen kann. Um dies in der Zukunft zu vermeiden, kann die
+3D Slicer Erweiterung auf mehrere Module aufgeteilt werden, die einen logischen
+und inhaltlichen Zusammenhang haben.
 
 Zur objektiven Evaluation wurden Benutzertests mit mehreren Zahnärzten der
 Klinik durchgeführt. Über einen Zeitraum von drei Wochen integrierten sie den Tooth
 Analyser in ihren Forschungsalltag. Dabei gelang nicht nur die Segmentierung
 einzelner Zahnkronen, sondern auch vollständiger Zähne mit komplexen Wurzeln.
 Besonders bemerkenswert ist, dass die Software während der gesamten Entwicklung ausschließlich
-mit CT-Aufnahmen von Zahnkronen getestet wurde. Dennoch konnte sie ohne
+mit \ac{CT}-Aufnahmen von Zahnkronen getestet wurde. Dennoch konnte sie ohne
 zusätzliche Anpassungen auch diese erweiterte Anwendungsform erfolgreich
 bewältigen. Dies unterstreicht die Flexibilität des Systems und stellt einen bedeutenden
-Erfolg dar. Grundsätlzich lässt sich auch zu den Benutzertest sagen, dass diese mit
+Erfolg dar. Grundsätzlich lässt sich auch zu den Benutzertest sagen, dass diese mit
 einer der wichtigsten Testgrundlagen sind.
 
 In einem weiteren Test wurde die Skalierbarkeit der Anwendung überprüft. Hierbei
-wurden 103 Mikro-CT-Aufnahmen in einem Batch-Prozess über einen leistungsstarken
+wurden 103 Mikro-\ac{CT}-Aufnahmen in einem Batch-Prozess über einen leistungsstarken
 Server der LMU verarbeitet. Die Bearbeitungszeit pro Bild lag bei etwa neun Minuten,
 sodass eine Gesamtzeit von etwa 15 Stunden und 27 Minuten prognostiziert wurde –
 ein Wert, der sich in der Praxis bestätigte. Entscheidend war jedoch, dass alle Bilder
 erfolgreich anatomisch segmentiert werden konnten.
 
 Trotz der vielen positiven Ergebnisse zeigen sich auch einige Einschränkungen.
-Die wesenstlichen wurden bereits im Kapitel Limitation erwähnt. So kommt es, das
-die anatomische Segmentierung speziell für Mikro-CT-Aufnahmen im ISQ-Format
-entwickelt wurde, wodurch bestimmte Parameter und Schwellwerte fest im Code hinterlegt
-wurden. Dies kann die Flexibilität bei der Nutzung mit anderen Bildformaten
-einschränken. Eine detaillierte Analyse der Segmentierungsergebnisse zeigte zudem
-eine unerwartete Herausforderung im Bereich der Auffüllung. Zu Beginn der
-Segmentierung werden die Zahnbestandteile, einschließlich der Pulpa, korrekt
-erkannt. Während der anschließenden Auffüllung des Schmelzsegments kommt es jedoch
-zu einer fehlerhaften Überschreibung bereits segmentierter Strukturen. Diese
-wohl größte Limitierung des Tooth Aanalyser führt auf eine weitere, welche die Vorverarbeitung
-von Bilder betrifft.
+Die wesentlichen wurden bereits im Kapitel Limitation erwähnt. So kommt es, das
+die anatomische Segmentierung speziell für Mikro-\ac{CT}-Aufnahmen im \ac{ISQ}-Format
+entwickelt wurde, wodurch bestimmte Parameter und Schwellwerte fest im Code
+hinterlegt wurden. Dies kann die Flexibilität bei der Nutzung mit anderen Bildformaten
+einschränken. Eine detaillierte Analyse der Segmentierungsergebnisse zeigte
+zudem eine unerwartete Herausforderung im Bereich der Auffüllung. Zu Beginn der Segmentierung
+werden die Zahnbestandteile, einschließlich der Pulpa, korrekt erkannt. Während
+der anschließenden Auffüllung des Schmelzsegments kommt es jedoch zu einer
+fehlerhaften Überschreibung bereits segmentierter Strukturen. Diese wohl größte Limitierung
+des Tooth Analyser führt auf eine weitere, welche die Vorverarbeitung von Bilder
+betrifft.
 
-die Implementierung einer Vorverarbeitung der Bilder konnte bislang nicht umgesetzt
-werden. Zwar ist diese Funktionalität bereits konzeptionell vorgesehen, jedoch bedarf
-es noch weiterer Arbeit, um eine vollumfängliche Implementierung zu ermöglichen.
-der Grund hierfür ist, dass innerhalb der Vorverarbeitung eine Komprimierung der
-Bilder geplant war. Diese Komprimierung zieht jedoch auch einen Formatwechsel von
-\ac{16Int} auf \ac{8UInt} nachsich. Da diese Bilder ohnehin nicht bearbeitet
-weden können, wurde hierfür keine implementierung bereitgestellt.
+Die Implementierung einer Vorverarbeitung der Bilder konnte bislang nicht
+umgesetzt werden. Zwar ist diese Funktionalität bereits konzeptionell vorgesehen,
+jedoch bedarf es noch weiterer Arbeit, um eine vollumfängliche Implementierung zu
+ermöglichen. Der Grund hierfür ist, dass innerhalb der Vorverarbeitung eine Komprimierung
+der Bilder geplant war. Diese Komprimierung zieht jedoch auch einen
+Formatwechsel von \ac{16Int} auf \ac{8UInt} nach sich. Da diese Bilder ohnehin nicht
+bearbeitet werden können, wurde hierfür keine Implementierung bereitgestellt. Zur
+Vorverarbeitung der Bilder kann grundsätzlich noch eine andere Überlegung angestellt
+werden. Die anatomische Segmentierung enthält eine umfangreiche Filterung zur
+Rauschreduktion. Laut der Visualisierungspipeline nach \citet[S.~50]{handels2000},
+gehört dieser Schritt auch zu einer Vorverarbeitung. Eine gute Idee ist es also,
+die Filterung der anatomischen Segmentierung aus dem eigentlichen Verfahren herauszuziehen
+und im Bereich der Vorverarbeitung bereitzustellen. Die ermöglicht auch ein
+Filter der Bilder, unabhängig von einer anschließenden Segmentierung.
 
-Zusammenfassend lässt sich sagen, dass die in dieser Arbeit entwickelte Lösung
-die Forschungsfrage in wesentlichen Punkten beantworten konnte: Die Segmentierung
-wurde effizient in 3D Slicer integriert, die Benutzerfreundlichkeit erheblich
-verbessert und die Softwarearchitektur flexibel gestaltet. Darüber hinaus wurde ein
-strukturiertes Modell für die effiziente und interaktive Verarbeitung von Mikro-CT-Aufnahmen
-entwickelt. Nichtsdestotrotz ist das System noch nicht in seinem finalen
-Entwicklungsstadium. Insbesondere weitere Benutzertests und mögliche Anpassungen
-der Segmentierungsparameter könnten zu einer noch höheren Präzision und Benutzerfreundlichkeit
-beitragen. Auch die in Kapitel \ref{sec:relevanz_der_arbeit} diskutierte
-Relevanz der Arbeit zeigt, dass der Tooth Analyser zwar bereits einen großen Fortschritt
-darstellt, jedoch noch Optimierungen erforderlich sind, um eine langfristig etablierte
-und klinisch einsetzbare Lösung zu erreichen.
+Eine Gute Idee zeigt sich auch im Bereich der Analysen. Diese stehen aktuell als
+eingenes Verfahren bereit. Wie bereits beschrieben, könnten diese auch im
+bereich der Nachverarbeitung einen Platz finden. Anstelle der Analysen als Verfahren,
+könnte dann eine andere Art der Segmentierung implementiert werden.
+
+Zusammenfassend lässt sich sagen, dass die in dieser Arbeit entwickelte Lösung die
+Forschungsfrage in wesentlichen Punkten beantworten konnte: Die Segmentierung
+wurde effizient in 3D Slicer integriert, die Benutzerfreundlichkeit erheblich verbessert
+und die Softwarearchitektur flexibel gestaltet. Darüber hinaus wurde ein
+strukturiertes Modell für die effiziente und interaktive Verarbeitung von Mikro-\ac{CT}-Aufnahmen
+entwickelt. Nichtsdestotrotz ist das System noch nicht in seinem finalen Entwicklungsstadium.
+Insbesondere weitere Benutzertests und Anpassungen der Parameter innerhalb der
+Segmentierung könnten zu einer noch höheren Präzision und Benutzerfreundlichkeit
+beitragen. Auch die in Kapitel \ref{sec:relevanz_der_arbeit} diskutierte Relevanz
+der Arbeit zeigt, dass der Tooth Analyser zwar bereits einen großen Fortschritt
+darstellt, jedoch noch Optimierungen erforderlich sind, um eine langfristig
+etablierte und klinisch einsetzbare Lösung zu erreichen.
 % ---------------------------------------------------------------------------------------

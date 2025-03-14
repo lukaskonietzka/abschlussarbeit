@@ -1,8 +1,8 @@
 \chapter{Ergebnisse}
 \label{chap:ergebnisse} Dieses Kapitel präsentiert alle Ergebnisse, die in
 dieser Arbeit erzielt wurde. Dabei spielen zunächst das Vorgehen eine Rolle, mit
-der eine Bildbearbeitung durchgeführt werden kann. Gefolgt von einer Vorsellung der
-entwickelten Software und deren Kernfunktionen. Anschließend wird auf die
+der eine Bildbearbeitung durchgeführt werden kann. Gefolgt von einer Vorstellung
+der entwickelten Software und deren Kernfunktionen. Anschließend wird auf die
 Konzeptionen und Umsetzungen der verschiedenen Teile eingegangen. Diese bilden auch
 gleichzeitig die Lösungen der einzelnen Teilaufgaben aus \ref{sec_zerlegung_in_teilprobleme}.
 % ---------------------------------------------------------------------------------------
@@ -21,15 +21,15 @@ Anforderungen der medizinischen Bildanalyse als auch die technischen
 Möglichkeiten effizient in die Software einflossen.
 
 Ein Besonders wichtiges Ergebnis dieser Zusammenarbeit ist die daraus
-entstandene Struktur für die Bearbeitung von Mikro-CT-Aufnahmen. Dieses Vorgehen
+entstandene Struktur für die Bearbeitung von Mikro-\ac{CT}-Aufnahmen. Dieses Vorgehen
 ist in der Abbildung \ref{fig:struktur_der_software} gezeigt und bildet die Grundlage
 für alle weiteren Ergebnisse dieser Arbeit.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{img/struktur_der_software.png}
+	\includegraphics[width=0.8\textwidth]{img/struktur_der_software.png}
 	\caption{Struktur der Software, die zusammen mit der Fachseite in der Klinik ausgearbeitet
-	wurde}
+	wurde (Pfeil: Mikro-CT-Datenstrom; Assoziation gestrichelt: abhängig)}
 	\label{fig:struktur_der_software}
 \end{figure}
 
@@ -37,31 +37,32 @@ Die Abbildung zeigt die Gesamtstruktur der entwickelten Software, die aus mehrer
 Teilbereichen besteht. Diese lassen sich in einzelne Submodule unterteilen, um eine
 klare funktionale Trennung zu gewährleisten. Die Software ist in drei zentrale
 Verarbeitungsschritte gegliedert: die Vorverarbeitung, das eigentliche Verfahren
-und die Nachverarbeitung des Mikro-CT. Das dargestellte Verfahren umfasst verschiedene
-Segmentierungsmethoden, darunter die Karies-Segmentierung, die anatomische Segmentierung
+und die Nachverarbeitung des Mikro-\ac{CT}. Das dargestellte Verfahren umfasst verschiedene
+Methoden zur Segmentierung, darunter die Karies-Segmentierung, die anatomische Segmentierung
 und die morphologische Segmentierung. Diese Auswahl ist jedoch nicht
 abschließend, sondern repräsentiert nur einige der möglichen Verarbeitungsmethoden.
-Ein Mikro-CT kann innerhalb einer Pipeline alle drei Verarbeitungsschritte in
+Ein Mikro-\ac{CT} kann innerhalb einer Pipeline alle drei Verarbeitungsschritte in
 festgelegter Reihenfolge durchlaufen (Vorverarbeitung, Bearbeitung, Nachverarbeitung).
 Gleichzeitig hat die Forschung gezeigt, dass auch eine isolierte Ausführung
 einzelner Schritte essenziell ist. Diese Flexibilität wird in der Abbildung durch
 die verschiedenen Pfeilverbindungen verdeutlicht, die den Datenfluss darstellen,
-von der Eingabe eines Mikro-CTs über die Verarbeitung bis hin zum finalen Ergebnis.
-Unter der Vorverarbeitung eines Bildes wird die Vorbereitung auf eine
-Verarbeitung verstanden. Dies könnte beispielsweise eine Komprimierung der CT-Aufnahme
-beinhalten. Das Kapitel \ref{subsec:datensätze} Datensätze wies bereits auf eine
-enorme Größe der Mikro-CT-Aufnahmen hin und das diese dadurch schwer zu
-handhaben sind. Mittels Nachbearbeitung könnten dann auf dem erzeugten Ergebnis Analysen
-durchgeführt werden. Durch Betrachtung der Vor- und Nachverarbeitung anhand eines
-konkreten Beispiels, wird auch klar, dass es durchaus sinnvoll ist, die
-geplanten Schritte auch einzeln auszuführen.
+von der Eingabe eines Mikro-\ac{CT} über die Verarbeitung bis hin zum finalen Ergebnis.
+Neben der Einzelbildbearbeitung sollen alle diese gezeigten Schritte auch in
+einem Batch-Prozess ausgeführt werden können. Dies sollen die gestrichelten Assoziationen
+illustrieren. So kann Beispielsweise eine Vorverarbeitung isoliert in einem
+Batch-Prozess durchgeführt werden. Unter der Vorverarbeitung eines Bildes wird die
+Vorbereitung auf eine Verarbeitung verstanden. Dies könnte beispielsweise eine
+Komprimierung der \ac{CT}-Aufnahme beinhalten. Das Kapitel \ref{subsec:datensätze} Datensätze
+wies bereits auf eine enorme Größe der Mikro-\ac{CT}-Aufnahmen hin und das diese dadurch
+schwer zu handhaben sind. Mittels Nachbearbeitung könnten dann auf dem erzeugten
+Ergebnis Analysen durchgeführt werden. Durch Betrachtung der Vor- und
+Nachverarbeitung anhand eines konkreten Beispiels, wird auch klar, dass es
+durchaus sinnvoll ist, die geplanten Schritte auch einzeln auszuführen.
 
 Auf dieser Basis wurde eine voll funktionsfähige Anwendung implementiert, die es
-ermöglicht, Mikro-CT-Bilder effizient zu analysieren und zu segmentieren. Im folgenden
-wird die entstandene Software im Detail vorgestellt, von der Benutzeroberfläche
+ermöglicht, Mikro-\ac{CT}-Bilder effizient zu analysieren und zu segmentieren. Im
+Folgenden wird die entstandene Software im Detail vorgestellt, von der Benutzeroberfläche
 über die zentralen Funktionen bis hin zu den technischen Implementierungen.
-
-\pagebreak
 % ---------------------------------------------------------------------------------------
 
 \section{Tooth Analyser}
@@ -120,9 +121,9 @@ erreichbar. Zu beachten ist, dass dieser Bereich nicht eigens für den Tooth
 Analyser entwickelt wurde. Es handelt sich hier um eine Funktionalität, die
 automatisch allen \ac{SEM} zur Verfügung steht. Die übrigen Abschnitte sind
 Funktionen, die spezifisch für den Tooth Analyser entwickelt wurden. Hier
-spiegelt sich auch der Strukturelle Aufbau wieder, den der Tooth Analyser verfolgt
+spiegelt sich auch der strukturelle Aufbau wider, den der Tooth Analyser verfolgt
 und in Kapitel \ref{sec:struktur_der_software} beschrieben wurde. Jede
-Funktionalität kan separat ausgeführt werden. Bevor genauer auf die Funktionalitäten
+Funktionalität kann separat ausgeführt werden. Bevor genauer auf die Funktionalitäten
 des Tooth Analyser eingegangen wird, sei zunächst auf die Abbildung
 \ref{fig:tooth_analyser_full_view} verwiesen, welche die Ergebnisansicht zeigt.
 
@@ -141,7 +142,7 @@ sind Schwellwertverfahren, die das Histogramm eines Bildes betrachten, um es zu 
 Das erstellte Histogramm ist rechts oben in der Abbildung
 \ref{fig:tooth_analyser_full_view} zu erkennen. Es wird in einem \textit{Plot
 node} dargestellt und kann über diesen auch verändert werden. Hierzu ist die Pinnnadel
-im Fenster des Plot-Knoten zu wählen. Durch die Speicherfunktion der
+im Fenster des Plot-Knotens zu wählen. Durch die Speicherfunktion der
 Kernanwendung kann der Plot auch problemlos gespeichert werden. Bevor die Analysen
 erstellt werden können, müssen Parametereinstellungen gewählt werden. Hierbei ist
 der wichtigste Parameter der, indem das konkrete Bild ausgewählt wird. Bei diesem
@@ -163,7 +164,7 @@ konkreten Ergebnisse dieser Segmentierung sind in der Abbildung
 Neben der eigentlichen Segmentierung sind auch hier die medialen Flächen für die
 Segmente Dentin (rot) und Schmelz (grün) gut sichtbar. Hinzu kommt ein \ac{3D}
 Modell, das auf Basis der erstellten Segmentierung generiert wurde und nur der Visualisierung
-dient. Ein Abspeichern dieses 3D Modells als Netz ist nicht möglich. Um überhaupt
+dient. Ein Abspeichern dieses \ac{3D}-Modells als Netz ist nicht möglich. Um überhaupt
 eine anatomische Segmentierung eines Zahnes erstellen zu können, sieht der
 Algorithmus zunächst drei Parameter vor, die eingestellt werden müssen. Um die
 Komplexität gering zu halten, wurde bewusst auf viele Parameter verzichtet.

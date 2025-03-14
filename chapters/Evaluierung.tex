@@ -121,7 +121,7 @@ keiner Zeit im Fokus dieser Arbeit. Dennoch ergaben sich interessante Ergebnisse
 die hier kurz erläutert werden sollen. Unter der Performance versteht dieses Kapitel
 das konkrete Laufzeitverhalten der Anwendung also jene Zeit die zwischen Start und
 Ende vergeht. Grundsätzlich lässt sich dazu sagen, dass die Laufzeit bei der Bearbeitung
-von 3D Mikro-\ac{CT}-Aufnahmen sehr stark vom Typ des Bildes abhängt. So kommt es
+von \ac{3D}-Mikro-\ac{CT}-Aufnahmen sehr stark vom Typ des Bildes abhängt. So kommt es
 beispielsweise darauf an, wie groß das Bild ist, oder ob es bereits eine Filterung
 erfahren hat. Bei der Verarbeitung der Mikro-\ac{CT}-Bilder aus dem Klinikum für
 Zahnerhaltung wurde eine konkrete Messung durchgeführt, die hier in Abbildung
@@ -191,7 +191,7 @@ teil, in der sie den Tooth Analyser in ihren Forschungsalltag integrierten. Übe
 einen Zeitraum von drei Wochen konnten sie die Software in realen
 Anwendungsszenarien erproben.
 
-Zusätzlich wurde ein kleiner Stresstest durchgeführt, bei dem 103 CT-Aufnahmen in
+Zusätzlich wurde ein kleiner Stresstest durchgeführt, bei dem 103 \ac{CT}-Aufnahmen in
 einem Batch-Prozess mit dem Tooth Analyser verarbeitet wurden. Die Berechnung
 erfolgte auf einem leistungsstarken Server der LMU, der über ausreichend Rechenkapazitäten
 verfügt. Die durchschnittliche Bearbeitungszeit pro Bild lag hier bei etwa neun
@@ -199,10 +199,11 @@ Minuten. Basierend auf der in Abbildung \ref{fig:laufzeit_batch} dargestellten V
 ergab sich eine prognostizierte Gesamtverarbeitungszeit von 15 Stunden und 27 Minuten.
 Ein Wert, der in der Praxis gut bestätigt wurde. Besonders erfreulich war, dass sämtliche
 Bilder bis zu einem gewissen Grad an Karies erfolgreich anatomisch segmentiert werden
-konnten. Die Tests in der Klinik zeigten zudem, dass auch die vollständige Segmentierung
+konnten. Die Ergebnisse diese Batch-Prozesses sind dem Anhang zu entnehmen.
+Die Tests in der Klinik zeigten zudem, dass auch die vollständige Segmentierung
 ganzer Zähne mit komplexen Wurzeln möglich ist.
 
-Die Ergebnisse der Benutzertests aus der Klink verdeutlichen, dass der Tooth
+Die Ergebnisse der Benutzertests aus der Klinik verdeutlichen, dass der Tooth
 Analyser in der Praxis eine wertvolle Unterstützung bietet, und durch die Segmentierung
 ganzer Zähnen den Anwendungskreis noch weiter spannt. Um ein besseres
 Verständnis für die realen Einsatzmöglichkeiten der Software zu gewinnen, werden
@@ -213,7 +214,7 @@ im folgenden Kapitel verschiedene Anwendungsszenarien vorgestellt.
 In erster Linie bietet der Tooth Analyser eine Visualisierungshilfe, die für
 Ärzte unterstützend wirken soll. Wie auch von Slicer empfohlen wird dieses Modul
 von den Ärzten rein zur Forschung eingesetzt. Mit dem Tooth Analyser lässt sich
-mittels einer Mikro-\ac{CT}-Aufnahme ein 3D Modell des Zahnes erstellen. Man
+mittels einer Mikro-\ac{CT}-Aufnahme ein \ac{3D}-Modell des Zahnes erstellen. Man
 spricht hier von einer Rekonstruktion des Zahnes. Durch die Segmentierung erlaubt
 dieser rekonstruierte Zahn auch eine Segmentbetrachtung von Dentin und Schmelz.
 Die Abbildungen \ref{fig:3d_view}, \ref{fig:3d_view_dentin} und \ref{fig:3d_view_schmelz}
@@ -253,7 +254,7 @@ werden.
 Einen weiteren Fall, indem die Anwendung unterstützen kann, ist die Klassifizierung
 von Karies. Die Abbildung \ref{fig:classification} zeigt diesen Fall. Hierfür sind
 die medialen Flächen der einzelnen Segmente nötig. Diese sind im Bild als rote
-und grüne Linie sichtbar, verteilen sich aber über das ganze 3D Bild, was daraus
+und grüne Linie sichtbar, verteilen sich aber über das ganze \ac{3D}-Bild, was daraus
 eine Fläche macht. Legt man nun diese Flächen über das originale Bild, so lässt
 sich mittels dieser Linie der Karies auf einem \ac{CT} gut klassifizieren. Diese
 besagten Linien bilden dann die Grenzen. Ragt der Karies über diese mediale Fläche
@@ -267,9 +268,9 @@ als ein Karies, der die mediale Fläche noch nicht überschritten hat.
 	\label{fig:classification}
 \end{figure}
 
-Die konkreten Anwendungsfälle zeigen, dass der Tooth Analyser duchaus Anwendung
-im Forschungsaltag der Klinik finden. Dennoch traten während der Nutzung auch einige
-Einschränkungen auf, die die Einsatzmöglichkeiten des Tooth Analysers begrenzen.
+Die konkreten Anwendungsfälle zeigen, dass der Tooth Analyser durchaus Anwendung
+im Forschungsalltag der Klinik finden. Dennoch traten während der Nutzung auch einige
+Einschränkungen auf, die die Einsatzmöglichkeiten des Tooth Analyser begrenzen.
 % ---------------------------------------------------------------------------------------
 
 \section{Limitierungen}
@@ -280,7 +281,7 @@ der Bilder. Es können innerhalb dieser Erweiterung nur Bilder verarbeitet werde
 die das Format \ac{16Int} haben. Führt man dennoch die Segmentierung mit einem anderen
 Format durch (z.B. \ac{8UInt}), so stellt man fest, dass der Algorithmus zwar ein
 Ergebnis generiert, dieses aber nicht verwendbar ist. Die Abbildung \ref{fig:3d_error}
-zeigt ein solches falsche Ergebnis. Zu sehen ist ein 3D Modell, das nur aus einem
+zeigt ein solches falsche Ergebnis. Zu sehen ist ein \ac{3D}-Modell, das nur aus einem
 Segment besteht. In diesem Fall wurde der gesamte Zahn mit Pulpa als Dentin
 markiert.
 
@@ -299,15 +300,16 @@ dieses Verfahren allerdings einen Formatwechsel von \ac{16Int} nach \ac{8UInt}
 bewirkt und diese Bilder nicht richtig segmentiert werden können, scheidet die Vorverarbeitung
 von Bildern vorerst aus.
 
-Eine weitere Limitierung der Software liegt im Batch Modus. Wird ein Batch Modus
-ausgeführt, so werden im Anschluss die Bilder nicht in die Szene geladen. Dies
-muss manuell über den Import des Kernsystems erfolgen. Soll für die unterschiedlichen
-Bilder ein \ac{3D} Modell erzeugt werden müssen diese ebenfalls manuell als
-Segmentierung geladen werden.
+Eine weitere Limitierung liegt im Batch-Modus. Dieser steht laut der Struktur in
+Kapitel \ref{sec:struktur_der_software} nicht nur für die ganze
+Verarbeitungsvioline zur Verfügung, sondern auch für die einzelnen Schritte dieser
+Pipeline. Da eine konkret implementierte Vorverarbeitung ohnehin vorerst
+ausscheidet, wurde der Batch-Prozess nur für die reine anatomische Segmentierung
+implementiert.
 
-Zuletzt sei noch auf eine Limitierung hingewiesen, die der Erweiterbarkeit des Moduls
-dient. Soll die Erweiterung um zusätzliche Funktionen erweiter werden, dann sind
-kleine Änderungen in einer bestehenden Klasse notwendig. Konkret geht es hier um
-die Klasse \texttt{ToothAnalyserWidget}. Hier muss je nach Ausprägung der \ac{UI}
-der neuen Funktion, Methoden hinzugefügt werden.
+Zuletzt sei noch auf eine Limitierung hingewiesen, die der Erweiterbarkeit des
+Moduls dient. Soll die Erweiterung um zusätzliche Funktionen erweiter werden,
+dann sind kleine Änderungen in einer bestehenden Klasse notwendig. Konkret geht es
+hier um die Klasse \texttt{ToothAnalyserWidget}. Hier muss je nach Ausprägung der
+\ac{UI} der neuen Funktion, Methoden hinzugefügt werden.
 % ---------------------------------------------------------------------------------------
