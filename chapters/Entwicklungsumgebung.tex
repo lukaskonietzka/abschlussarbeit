@@ -1,18 +1,15 @@
 \chapter{Entwicklungsumgebung}
-\label{chap:entwicklungsumgebung} Da bereits ein Framework feststeht, mit dem
-gearbeitet werden soll, ist keine weitere Forschung nötig, um die richtige
-Programmiersprache auszuwählen. Jedoch gibt es eine kleine Auswahl zu treffen.
-3D Slicer unterscheidet zwischen zwei Arten von Modulen, die \ac{CLI}-Module, welche
-in der Sprache C++ geschrieben werden und die Scripted Moduls, die eine Python
-Implementierung verlangen. Da die anatomische Segmentierung ohnehin in einem IPython-Notebook
-bereitliegt, fiel die Wahl hier auf die Scripted Moduls. So kann auch die breite
-Palette der Python-Pakete genutzte werden. Für eine detaillierte Beschreibung
-des Frameworks selber sei an dieser Stelle auf das Kapitel
-\ref{sec:bildbearbeitung}f verwiesen, indem das Framework und alle zugehörigen
-Eigenheiten noch genauer beschrieben wurden. Um den Entwicklungsprozess etwas zu
-vereinfachen, wurde während der Entwicklung auf ein Modul von Slicer
-zurückgegriffen, das speziell für Entwickler entworfen wurde. Die Abbildung
-\ref{fig:entwicklungsumgebung} verdeutlicht dieses Tool.
+\label{chap:entwicklungsumgebung} Da bereits 3D Slicer als Framework feststeht,
+ist keine weitere Forschung nötig, um die richtige Programmiersprache auszuwählen.
+Jedoch gibt es eine kleine Auswahl zu treffen. 3D Slicer unterscheidet zwischen zwei
+Arten von Modulen, die \ac{CLI} Module, welche in der Sprache C++ geschrieben
+werden und die Scripted Moduls, die eine Python Implementierung verlangen. Da
+die anatomische Segmentierung ohnehin in einem IPython-Notebook bereitliegt, fiel
+die Wahl hier auf die Scripted Moduls. So kann auch die breite Palette der
+Python-Pakete genutzte werden. Um den Entwicklungsprozess etwas zu vereinfachen,
+wurde während der Entwicklung auf ein Modul von Slicer zurückgegriffen, das speziell
+für Entwickler entworfen wurde. Die Abbildung \ref{fig:entwicklungsumgebung}
+verdeutlicht dieses Tool.
 
 \begin{figure}[h]
 	\centering
@@ -47,13 +44,14 @@ Repository kann dem Anhang entnommen werden.
 
 Damit während der Entwicklung auch Teilbereiche der Software bereits getestet werden
 können, werden Testdaten benötigt. Bei diesen Testdaten handelt es sich um originale
-Mikro-\ac{CT}-Aufnahmen als \ac{ISQ}. Diese wurden auf einem Server an der \ac{LMU}
-in München bereitgestellt. Der Zugriff auf den Server erfolgt über den \textit{x2goclient}.
-Heruntergeladen wurden die Daten über eine \ac{SSH} Verbindung. Bei den Mikro-\ac{CT}-Bildern
-handelt es sich ausschließlich um Aufnahmen der Zahnkrone. Mit dem Zugriff auf
-den Server an der \ac{LMU} konnten auch diverse Pythonumgebungen zum Verarbeiten
-von Daten genutzt werden. Dies war in erster Linie für ein Nachvollziehen und
-Verstehen der anatomischen Segmentierung hilfreich.
+Mikro-\ac{CT}-Aufnahmen im Format \ac{16Int}, \ac{ISQ}. Diese wurden auf einem
+Server an der \ac{LMU} in München bereitgestellt. Der Zugriff auf den Server
+erfolgt über den \textit{x2goclient}. Heruntergeladen wurden die Daten über eine
+\ac{SSH} Verbindung. Bei den Mikro-\ac{CT}-Bildern handelt es sich ausschließlich
+um Aufnahmen der Zahnkrone. Mit dem Zugriff auf den Server an der \ac{LMU} konnten
+auch diverse Pythonumgebungen zum Verarbeiten von Daten genutzt werden. Dies war
+in erster Linie für ein Nachvollziehen und Verstehen der anatomischen
+Segmentierung hilfreich.
 
 Neben der eigentlichen Umgebung von Slicer und den Entwicklerwerkzeugen steht
 zur Entwicklung auch ein Python Paket zur Verfügung, das von Herrn Prof. Rösch

@@ -44,14 +44,14 @@ ist simpel gehalten. Es gibt eine Methode \texttt{setup()} in der die Testumgebu
 bereitgestellt wird und eine Methode \texttt{runTest()} in der die einzelnen
 Testfälle ausgeführt werden.
 
-Betrachtet man die konkrete Testmethode \texttt{testIsSmoothed()} genauer, so
+Betrachtet man konkrete dei Testmethode \texttt{testIsSmoothed()} genauer, so
 fällt die Methode \texttt{getSampleDataAsITK()} auf, die hier kurz thematisiert
 werden soll. Viele der geschriebenen Methoden und Funktionen benötigen für einen
 guten Test ein konkretes Bild. Hierfür stellt der Tooth Analyser Beispielbilder
 zur Verfügung, mit denen die Tests ausgeführt werden können. Da diese Bilder mit
-ca. 500 \ac{MB} eine ausgeprägte Größe haben, wurden diese in einem separaten Repository
-bereitgestellt. So müssen nicht erst einige \ac{GB} an Bildern heruntergeladen werden,
-wenn das Modul installiert werden soll. Die Bilder werden erst dann heruntergeladen,
+ca. 500 \ac{MB} eine ausgeprägte Größe haben, wurden diese vorerst in einem separaten
+Repository bereitgestellt. So müssen nicht erst einige \ac{GB} an Bildern heruntergeladen
+werden, wenn das Modul installiert werden soll. Die Bilder werden erst dann heruntergeladen,
 wenn sie benötigt werden. Um dieses Herunterladen zu ermöglichen, werden die
 Bilder beim Starten des Moduls erstmals in Slicer registriert, sodass sie dann im
 Modul \texttt{sampleData} zur Verfügung stehen. Damit ist nicht nur gewährleistet,
@@ -76,9 +76,9 @@ den gesamten Umfang der Methode zu Testen. Vergleicht man ein verrauschtes Bild 
 einem geglätteten, dann unterschieden sie sich bis auf die visuelle Darstellung
 auch in der Streuung der Pixelwerte. So kann mittels der Standardabweichung kontrolliert
 werden, ob das Bild nach einer Filterung eine kleinere Standardabweichung hat
-als vor der Filterung. Ist dies der Fall, so kann von einer erfolgreichen
-Filterung ausgegangen werden. Zu Beachten ist an dieser Stelle, das eine
-Filterung unter Umständen einige Zeit in Anspruch nehmen kann. Es sei gesagt,
+als vor der Filterung. Ist dies der Fall, so kann vorerst von einer
+erfolgreichen Filterung ausgegangen werden. Zu Beachten ist an dieser Stelle,
+das eine Filterung unter Umständen einige Zeit in Anspruch nehmen kann. Es sei gesagt,
 dass diese bei einer Testausführung zu berücksichtigen ist. Eine gute Option dem
 entgegenzuwirken ist es, das bereits gefilterte Bild mit in den Testdaten zur
 Verfügung zu stellen. Die konkrete Implementierung eines solchen Tests liefert der
@@ -99,17 +99,17 @@ def testSmoothImage(self):
     self.delayDisplay("Test 1 passed")
 \end{lstlisting}
 
-Im ersten Schritt wird ein Beispielbild geladen und in ein \ac{ITK} Format umgewandelt.
-Anschließend folgt die Glättung des Bildes. Ist diese Glättung fertig, so können
-die Streuungen der beiden Bilder verglichen werden.
+Im ersten Schritt wird ein Beispielbild geladen. Anschließend folgt die Glättung
+des Bildes. Ist diese Glättung fertig, so können die Streuungen der beiden Bilder
+verglichen werden.
 
-Abschließend lässt sich über die Softwaretests sagen, dass einige Testfälle abgedeckt
-wurden. Jedoch wurden nicht alle Methoden und Funktionen getestet. Viele bilden eine
-sehr konkrete Lösung, die nicht einfach zu testen ist und deshalb einiges an
-Entwicklungszeit beanspruchen. Gerade die Funktionen der Pipeline. Aus diesem
-Grund konzentriert sich diese Arbeit nicht auf eine 100 prozentige Testabdeckung,
-sondern soll noch weitere Metriken bieten. Eine ebenso gute Aussage lässt sich
-anhand der Laufzeit des Moduls treffen. Hierzu wurde die Performance des Tooth Analyser
+Abschließend lässt sich über die Softwaretests sagen, dass einige Testfälle
+abgedeckt wurden. Jedoch wurden nicht alle Methoden und Funktionen getestet.
+Viele bilden eine sehr konkrete Lösung, die nicht einfach zu testen ist und deshalb
+einiges an Entwicklungszeit beanspruchen. Gerade die Funktionen der Pipeline. Aus
+diesem Grund konzentriert sich diese Arbeit nicht auf eine 100 prozentige Testabdeckung,
+sondern soll noch weitere Metriken bieten. Eine ebenso gute Aussage lässt sich anhand
+der Laufzeit des Moduls treffen. Hierzu wurde die Performance des Tooth Analyser
 genauer unter die Lupe genommen und in verschiedenen Szenarien gemessen.
 
 \pagebreak
@@ -118,14 +118,14 @@ genauer unter die Lupe genommen und in verschiedenen Szenarien gemessen.
 \section{Performance}
 Die Performance des Systems war nie ein wichtiges Kriterium und stand deshalb zu
 keiner Zeit im Fokus dieser Arbeit. Dennoch ergaben sich interessante Ergebnisse,
-die hier kurz erläutert werden sollen. Unter der Performance versteht dieses Kapitel
-das konkrete Laufzeitverhalten der Anwendung also jene Zeit die zwischen Start und
-Ende vergeht. Grundsätzlich lässt sich dazu sagen, dass die Laufzeit bei der Bearbeitung
-von \ac{3D}-Mikro-\ac{CT}-Aufnahmen sehr stark vom Typ des Bildes abhängt. So
-kommt es beispielsweise darauf an, wie groß das Bild ist, oder ob es bereits
-eine Filterung erfahren hat. Bei der Verarbeitung der Mikro-\ac{CT}-Bilder aus
-dem Klinikum für Zahnerhaltung wurde eine konkrete Messung durchgeführt, die hier
-in Abbildung \ref{fig:laufzeit} gezeigt wird.
+die hier kurz erläutert werden sollen. Unter der Performance versteht dieses
+Kapitel das konkrete Laufzeitverhalten der Anwendung also jene Zeit die zwischen
+Start und Ende vergeht. Grundsätzlich lässt sich dazu sagen, dass die Laufzeit
+bei der Bearbeitung von \ac{3D}-Mikro-\ac{CT}-Aufnahmen sehr stark vom Typ des
+Bildes abhängt. So kommt es beispielsweise darauf an, wie groß das Bild ist, oder
+ob es bereits eine Filterung erfahren hat. Bei der Verarbeitung der Mikro-\ac{CT}-Bilder
+aus dem Klinikum für Zahnerhaltung wurde eine konkrete Messung durchgeführt, die
+hier in Abbildung \ref{fig:laufzeit} gezeigt wird.
 
 \textbf{Vorbedingungen:}
 \begin{itemize}
@@ -141,29 +141,29 @@ in Abbildung \ref{fig:laufzeit} gezeigt wird.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{img/laufzeit_diagramm.png}
-	\caption{Verteilung der Laufzeit über den gesamten Bearbeitungszeitraum. 100\%
+	\caption{Verteilung der Laufzeit über den gesamten Bearbeitungszeitraum, 100\%
 	entsprechen 16:27 Minuten}
 	\label{fig:laufzeit}
 \end{figure}
 
-Zu sehen ist, dass unter diesen Bedingungen die Bearbeitung eines einzelnen Bildes
-ca. 17 Minuten beansprucht. Dabei fallen über dreiviertel der Zeit auf die Filterung
-zurück. Der Bereich Auffüllung beinhaltet ebenfalls eine Filterung der einzelnen
-Segmente, weswegen dieser den zweitgrößten Teil ausmacht. Ein Weiterer
-wesentlichen Teil stellen die beiden medialen Flächen dar. Um dieser doch enormen
-Laufzeit etwas entgegen zu Wirken wurden zwei Mechanismen implementiert. Das
-Verfahren kann einerseits erkennen, ob ein Bild bereits gefiltert wurde und andererseits
-die medialen Flächen optional berechnen. So kommt es, dass sich ein \textit{Best
-Case} ergibt der grob nur noch ein Viertel der Zeit benötigt. Dieser \textit{Best
-Case} tritt ein, wenn ein Bild in den Algorithmus gegeben wird, das bereits
-gefiltert wurde und keine medialen Flächen erfordert. Unter Berücksichtigung von
-Abbildung \ref{fig:laufzeit} kann dann die Zeit für die Filterung und die medialen
-Flächen abgezogen werden. So kommt es, dass das Verfahren nur noch 16 Prozent der
-ursprünglichen Zeit benötigt.
+Zu sehen ist, dass unter diesen Bedingungen die Bearbeitung eines einzelnen
+Bildes ca. 17 Minuten beansprucht. Dabei fallen über dreiviertel der Zeit auf
+die Filterung zurück. Der Bereich Auffüllung beinhaltet ebenfalls eine Filterung
+der einzelnen Segmente, weswegen dieser den zweitgrößten Teil ausmacht. Ein Weiterer
+wesentlichen Teil stellen die beiden medialen Flächen dar. Um dieser doch
+enormen Laufzeit etwas entgegen zu Wirken wurden zwei Mechanismen implementiert.
+Das Verfahren kann einerseits erkennen, ob ein Bild bereits gefiltert wurde und
+andererseits die medialen Flächen optional berechnen. So kommt es, dass sich ein
+\textit{Best Case} ergibt der grob nur noch ein Viertel der Zeit benötigt.
+Dieser \textit{Best Case} tritt ein, wenn ein Bild in den Algorithmus gegeben
+wird, das bereits gefiltert wurde und keine medialen Flächen erfordert. Unter
+Berücksichtigung von Abbildung \ref{fig:laufzeit} kann dann die Zeit für die
+Filterung und die medialen Flächen abgezogen werden. So kommt es, dass das
+Verfahren nur noch 16 Prozent der ursprünglichen Zeit benötigt.
 
-Überträgt man das Laufzeitverhalten eines einzelnen Bildes auf die Bearbeitung der
-Bilder in einem Batch-Prozess so lässt sich die Laufzeit mit der Anzahl der zu bearbeitenden
-Bilder steigend linear ausdrücken. Das Diagramm aus \ref{fig:laufzeit_batch}
+Überträgt man das Laufzeitverhalten eines einzelnen Bildes auf die Bearbeitung
+der Bilder in einem Batch-Prozess so lässt sich die Laufzeit mit der Anzahl der
+zu bearbeitenden Bilder steigend linear ausdrücken. Das Diagramm aus \ref{fig:laufzeit_batch}
 zeigt dies.
 
 \begin{figure}[h]
@@ -174,14 +174,18 @@ zeigt dies.
 	\label{fig:laufzeit_batch}
 \end{figure}
 
-Wie zu sehen ist, ist die Laufzeit eines Batch Prozesses maßgeblich davon
-geprägt, wie lange ein einzelnes Bild benötigt. Dies entspricht dem Y-Achsenabschnitt
-im Diagramm \ref{fig:laufzeit_batch}. Ist die Zeit eines einzelnen Bildes bekannt,
-so lässt sich gut prognostizieren, wie lange eine Verarbeitung von $n$ vielen Bildern
-dauert. Wie bereits angedeutet, hängt die Zeit eines einzelnen Bilds von vielen Faktoren
-ab. Nimmt man den Fall aus Abbildung \ref{fig:laufzeit}, würde die Bearbeitung von
-zehn Bilder etwa 170 Minuten beanspruchen. Dies entspricht zwei Stunden und 50
-Minuten.
+Wie zu sehen ist, ist die Laufzeit eines Batch Prozesses maßgeblich davon geprägt,
+wie lange ein einzelnes Bild benötigt. Dies entspricht dem Y-Achsenabschnitt im Diagramm
+\ref{fig:laufzeit_batch}. Ist die Zeit eines einzelnen Bildes bekannt, so lässt sich
+gut prognostizieren, wie lange eine Verarbeitung von $n$ vielen Bildern dauert. Wie
+bereits angedeutet, hängt die Zeit eines einzelnen Bilds von vielen Faktoren ab.
+Nimmt man den Fall aus Abbildung \ref{fig:laufzeit}, würde die Bearbeitung von
+zehn Bilder etwa 170 Minuten beanspruchen. Dies entspricht zwei Stunden und 50 Minuten.
+
+Die Softwaretests und die Laufzeit des Moduls geben bereits detaillierte Informationen
+über den Tooth Analyser preis. Die deutliche wichtigeren Tests für den Tooth
+Analyser, sind die Tests durch Dritte. Hierzu wurde ein kleiner Benutzertest
+innerhalb der Klinik durchgeführt.
 % ---------------------------------------------------------------------------------------
 
 \section{Benutzertests}
@@ -225,7 +229,7 @@ zeigt diese Rekonstruktion genauer.
 	\begin{minipage}[b]{0.32\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{img/3dView.png}
-		\caption{Rekonstruktion eines Zahns aus einer CT-Aufnahme}
+		\caption{Rekonstruktion eines Zahns aus einem Mikro-CT}
 		\label{fig:3d_view}
 	\end{minipage}
 	\hfill
@@ -276,7 +280,7 @@ einige Einschränkungen auf, die die Einsatzmöglichkeiten des Tooth Analyser be
 \section{Limitierungen}
 \label{sec:limitierungen} Dieses Kapitel soll alle Punkte transparent aufdecken,
 die im Modul Tooth Analyser noch Probleme machen, oder gar nicht erst umgesetzt wurden.
-Der limitierende Faktor in der Erweiterung ist das eingeschränkte Format der
+Der limitierenste Faktor in der Erweiterung ist das eingeschränkte Format der
 Bilder. Es können innerhalb dieser Erweiterung nur Bilder verarbeitet werden,
 die das Format \ac{16Int} haben. Führt man dennoch die Segmentierung mit einem
 anderen Format durch (z.B. \ac{8UInt}), so stellt man fest, dass der Algorithmus
@@ -288,7 +292,7 @@ Pulpa als Dentin markiert.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/3d_view_error.png}
-	\caption{Fehlerhafte Segmentierung einer CT-Aufnahme im Format 8UInt}
+	\caption{Fehlerhafte Segmentierung einer Mikro-CT-Aufnahme im Format 8UInt}
 	\label{fig:3d_error}
 \end{figure}
 

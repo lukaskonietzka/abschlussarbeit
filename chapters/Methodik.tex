@@ -23,7 +23,7 @@ mit einem Fokus auf softwaretechnische Methoden. Zum Erreichen der Ziele stützt
 diese Arbeit so am Entwicklungsprozess ab und dokumentiert diesen. Während des
 gesamten Entwicklungsprozesses wurde stets die Kommunikation zum Fachpersonal
 gepflegt. So konnte schnell beurteilt werden, ob die Entwicklung in die richtige
-Richtung geht. Im Falle dieser Arbeit übernahm diese Position DR. Elias Walter, welcher
+Richtung geht. Im Falle dieser Arbeit übernahm diese Position Dr. Elias Walter, welcher
 als praktizierender Arzt an der Klinik tätig ist. Durch das Aufeinandertreffen
 zweier Fachexperten, kann so der optimale Leistungsumfang bestimmt werden. Des
 Weiteren lässt sich der gesamte Zeitraum dieser Arbeit in drei Phasen aufteilen,
@@ -48,7 +48,7 @@ eine Orientierung bezüglich der Reihenfolge während der Bearbeitung geben.
 		\ref{sec:ziel_der_arbeit} formulierten Fragestellungen gefunden werden.
 \end{description}
 
-Durch diese Unterteilung ist eine gutes strukturelles vorgehen Möglich um mittels
+Durch diese Unterteilung ist ein gutes strukturelles vorgehen Möglich um mittels
 einer praktischen Umsetzungsmethodik zu einem guten Ergebnis zu kommen. Die
 restlichen Abschnitte in diesem Kapitel bilden die Analysephase.
 % ---------------------------------------------------------------------------------------
@@ -56,20 +56,19 @@ restlichen Abschnitte in diesem Kapitel bilden die Analysephase.
 \section{Anforderungsanalyse}
 \label{sec:anforderungsanalyse} Nach genauerem Betrachten der Fragestellung aus
 Kapitel \ref{sec:ziel_der_arbeit} können bereits erste Anforderungen abgeleitet
-werden, die für die Erweiterung gelten sollen. Neben diesen Anforderungen wurden
-auch die Klinik für Zahnerhaltung mit in diesen Prozess eingebunden, um so mehr relevante
-Anforderungen zu definieren. Hierzu wurde innerhalb einer Besprechung mit dem
-verantwortlichen Arzt, Dr. Elias Walter, ein Anforderungskatalog ausgearbeitet \citep[vgl.][]{walter2025}.
-Diese Anforderungen waren vor allem zu Beginn der Entwicklung sehr wichtig um einen
-ersten Anhaltspunkt zu gewinnen. Im Laufe des Entwicklungsprozesses wurden
-Statusberichte eingeplant, die ein Reagieren auf Anforderungsänderungen ermöglichen.
+werden. Neben diesen Anforderungen wurden auch die Klinik für Zahnerhaltung mit in
+diesen Prozess eingebunden, um so mehr relevante Anforderungen zu definieren. Hierzu
+wurde innerhalb einer Besprechung mit dem verantwortlichen Arzt, Dr. Elias Walter,
+ein Anforderungskatalog ausgearbeitet \citep[vgl.][]{walter2025}. Diese
+Anforderungen waren vor allem zu Beginn der Entwicklung sehr wichtig um einen
+ersten Anhaltspunkt zu gewinnen. Im Laufe des Entwicklungsprozesses wurden Statusberichte
+eingeplant, die ein Reagieren auf Anforderungsänderungen ermöglichen.
 
-Um die Anforderungen an die Software besser zu verstehen und zu strukturieren,
-ist neben der Sammlung technischer Spezifikationen auch ein solides Verständnis
-für die zugrunde liegende Domäne essenziell. Die Abbildung \ref{fig:3d_slicer_domäne}
-veranschaulicht dies durch ein Domänenmodell, das der \ac{UML} entspricht.
-Mittels dieser Grafik können die gestellten Anforderungen visuell dargestellt
-werden \citep[vgl.][]{walter2025}.
+Um die Anforderungen an die Software besser zu verstehen und zu strukturieren, ist
+neben der Sammlung technischer Spezifikationen auch ein solides Verständnis für die
+zugrunde liegende Domäne essenziell. Die Abbildung \ref{fig:3d_slicer_domäne}
+veranschaulicht dies durch ein Domänenmodell, das der \ac{UML} entspricht. Mittels
+dieser Grafik können die gestellten Anforderungen visuell dargestellt werden \citep[vgl.][]{walter2025}.
 
 \begin{figure}[h]
 	\centering
@@ -78,28 +77,29 @@ werden \citep[vgl.][]{walter2025}.
 	\label{fig:3d_slicer_domäne}
 \end{figure}
 
-In erster Linie wird klar, dass im Rahme dieser vorliegenden Arbeit eine Erweiterung
-für die Plattform 3D Slicer entwickelt werden soll. Die Kernfunktionalität soll
-dabei die anatomische Segmentierung bilden, wie sie in Kapitel \ref{chap:theoretische_grundlagen}
-beschrieben wurde. Neben dieser Kernfunktionalität soll auch eine Vor- und Nachbereitung
-der Bilder möglich sein. Dieser Prozess der Vorverarbeitung, Bearbeitung und Nachbearbeitung
-soll an einem Stück ausgeführt werden können. Die Erweiterung soll gut und
-einfach über eine \ac{UI} bedient werden können. Außerdem ist eine stabile
-Anwendung gefragt, die sich gut in die Kernanwendung von 3D Slicer einfügt.
-\citet[]{walter2025} machte im Interview deutlich, dass die Erweiterung neben
-einer Einzelbildbearbeitung auch einen Batch-Prozess ermöglichen so. So können beispielsweise
-Parameter an einem Bild erprobt werden und diese anschließend in einen Batch-Prozess
-auf viele Bilder überführt werden. Außerdem soll es möglich sein, verschiedenen Schwellwertverfahren,
-die in der anatomischen Segmentierung vorgesehen sind, auch in der Erweiterung auszuwählen.
-Neben dem Ergebnis selber wurden auch Anforderungen an die Art der Abspeicherung
-gesetzt. Es ist wichtig, dass es in der Slicer-Szene nicht zu einer Überfüllung
-von Daten kommt. So soll nach jeder Einzelausführung die Szene wieder geleert werden,
-sodass immer nur das aktuell segmentierte Bild in der Anwendung liegt. Neben den
-segmentierten Daten sollen auch die Medial-Flächen für jedes Segment bereitgestellt
-werden. Ähnlich wie die Segmentierung selbst sollen diese mit jeder neuen
-Generierung aktualisiert werden.
+In erster Linie wird klar, dass im Rahmen dieser vorliegenden Arbeit eine
+Erweiterung für die Plattform 3D Slicer entwickelt werden soll. Die Kernfunktionalität
+soll dabei die anatomische Segmentierung bilden, wie sie in Kapitel
+\ref{chap:theoretische_grundlagen} beschrieben wurde. Neben dieser Kernfunktionalität
+soll auch eine Vor- und Nachbereitung der Bilder möglich sein. Dieser Prozess der
+Vorverarbeitung, Bearbeitung und Nachbearbeitung soll an einem Stück ausgeführt
+werden können. Die Erweiterung soll gut und einfach über eine \ac{UI} bedient
+werden können. Außerdem ist eine stabile Anwendung gefragt, die sich gut in die
+Kernanwendung von 3D Slicer einfügt. \citet[]{walter2025} machte im Interview
+deutlich, dass die Erweiterung neben einer Einzelbildbearbeitung auch einen Batch-Prozess
+ermöglichen so. So können beispielsweise Parameter an einem Bild erprobt werden
+und diese anschließend in einen Batch-Prozess auf viele Bilder überführt werden.
+Außerdem soll es möglich sein, verschiedenen Schwellwertverfahren, die in der anatomischen
+Segmentierung vorgesehen sind, auch in der Erweiterung auszuwählen. Neben dem Ergebnis
+selber wurden auch Anforderungen an die Art der Abspeicherung gesetzt. Es ist
+wichtig, dass es in der Slicer-Szene nicht zu einer Überfüllung von Daten kommt.
+So soll nach jeder Einzelausführung die Szene wieder geleert werden, sodass immer
+nur das aktuell segmentierte Bild in der Anwendung liegt. Neben den
+segmentierten Daten sollen auch die medialen Flächen für jedes Segment
+bereitgestellt werden. Ähnlich wie die Segmentierung selbst sollen diese mit jeder
+neuen Generierung aktualisiert werden.
 
-Ein wichtiger Softwaretechnischer Anspruch an die Extension ist die
+Ein wichtiger Softwaretechnischer Anspruch an das \ac{SEM} ist die
 Erweiterbarkeit. Es soll ohne große Mühen möglich sein, ein weiteres Verfahren
 zu integrieren, ohne das große Anpassungen an der \ac{UI} oder der Erweiterung
 selbst unternommen werden müssen. Für ein solides Verständnis dieser Software soll
@@ -117,8 +117,8 @@ Implementierung zu identifizieren.
 \section{Literatur zur Implementierung}
 Es wäre äußerst ungünstig, erst am Ende eines Projekts festzustellen, dass
 bereits veröffentlichte Lösungen existieren, in die erhebliche Ressourcen investiert
-wurden. Um dies zu vermeiden, ist eine umfassende Literaturrecherche essenziell,
-die den aktuellen Stand der Technik abbildet.
+wurden. Um dies zu vermeiden, ist eine gute Recherche essenziell, die den
+aktuellen Stand der Technik abbildet.
 
 Für diese Arbeit spielt eine Quelle eine besonders wichtige Rolle: die offizielle
 Dokumentation von 3D Slicer. Sie bietet wertvolle Anhaltspunkte für die
@@ -162,7 +162,7 @@ für das Gesamtsystem vor:
 		\ac{UML}-Klassendi-\\agrammen modelliert und schrittweise verfeinert.
 		Anschließend wird ein geeignetes Entwurfsmuster ausgewählt, das die Struktur
 		und Modularität des Systems unterstützt. Durch die Bearbeitung dieses
-		Teilproblems kann die Anforderung an eine flexible Architektur erfüllt
+		Teilproblems kann die Anforderung an eine flexible Architektur gut erfüllt
 		werden.
 
 	\item[Kapselung der anatomischen Segmentierung,] das bereits bestehende Segmentierungsverfahren
@@ -182,12 +182,12 @@ für das Gesamtsystem vor:
 		wie es für den einfachen Prozess nötig ist. Hierbei wird auf das erstellte Paket
 		der anatomischen Segmentierung zurückgegriffen.
 
-	\item[Batch-Prozess,] ist das einfache Verfahren fertig implementiert und funktioniert,
+	\item[Batch-Prozess,] ist die Einzelbildbearbeitung fertig implementiert und funktioniert,
 		so kann der Batch-Prozess hinzukommen. Hier geht es federführend um das richtige
 		und organisierte Abspeichern der erstellten Bilder im Dateisystem.
 
 	\item[Ausführungsmodus,] während der Ausführung des Algorithmus soll das Modul
-		in einem Aufführungszustand wechseln. Hierbei ist wichtig, dass die \ac{UI}
+		in einen Aufführungszustand wechseln. Hierbei ist wichtig, dass die \ac{UI}
 		in dieser Zeit gesperrt bleibt.
 
 	\item[Dokumentation und Test,] abschließend ist eine ausführliche Dokumentation
@@ -202,8 +202,8 @@ für das Gesamtsystem vor:
 Die Ordnung dieser Punkte gibt eine grobe Orientierung bezüglich der Reihenfolge
 während der Umsetzung an. Bevor es im nächsten Kapitel um die konkreten Ergebnisse
 diese Arbeit geht, soll hier abschließend noch ein Blick auf die Art der
-Evaluation geworfen werden. Diese stellt sicher, dass die Ergebnisse bewertbar
-sind.
+Evaluation geworfen werden. Diese stellt sicher, dass die Ergebnisse am Ende
+bewertbar sind.
 % ---------------------------------------------------------------------------------------
 
 \section{Forschungsevaluation}
@@ -229,6 +229,6 @@ analysiert werden.
 Die in diesem Kapitel beschriebenen methodischen Schritte bildeten die Grundlage
 für die Entwicklung der Erweiterung. Nachdem die Analysephase abgeschlossen ist,
 folgen nun die Phasen Entwicklung und Evaluation in Form der Kapitel Ergebnisse
-und Evaluation. Hierzu wird die erstellte \ac{SEM} detailliert vorgestellt und
+und Evaluation. Hierzu wird das erstellte \ac{SEM} detailliert vorgestellt und
 die Funktionen näher beschrieben.
 % ---------------------------------------------------------------------------------------
