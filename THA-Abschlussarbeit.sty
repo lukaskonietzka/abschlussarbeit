@@ -306,15 +306,18 @@
 
 \vspace{55mm}
 
- \fontsize{11}{18}  \selectfont
+
+\fontsize{11}{18}  \selectfont
 \begin{tabularx}{\textwidth}{ll} \toprule
     \localeSupervisor  & \thesis@supervisor \\%
-\ifthenelse{\equal{\thesis@supervisorDeputy}{}}{}{\localeSupervisorDep  & \thesis@supervisorDeputy \\}%
+\ifthenelse{\equal{\thesis@supervisorDeputy}{}}{}{\localeSupervisorDep  & \thesis@supervisorDeputy \\}% 
+    \localeTopicAssignment  & \thesis@topicAssignment \\
     \localeSubmittedOn  & \thesis@submissionDate \\
 \ifthenelse{\equal{\thesis@defenseDate}{}}{}{\localeDefenseOn  & \thesis@defenseDate \\}%
     \localeNDA & \ifthenelse{\boolean{thesis@nonDisclosure}}{\localeYes}{\localeNo}  \\
     \bottomrule
 \end{tabularx}
+
 
 \end{minipage}
 \qquad

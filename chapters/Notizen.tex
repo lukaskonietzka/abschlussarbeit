@@ -620,8 +620,6 @@ TODO:
 
 - mediale flächen nachzeichnen
 
-- Doku in der Diskousion erwähnen
-
 % ---------------------------------------------------------------------------------------
 
 Diese Seiten muss Sara nochmal lesen:
@@ -637,30 +635,29 @@ Diese Seiten muss Sara nochmal lesen:
 Inhalt der Diskussion:
 
 % Aus Performance
-Nichtsdestotrotz bietet die Anwendung trotz ihrer doch hohen Laufzeit ein enormes
-Zeitersparnis für die praktizierenden Ärzte. Laut Dr. Elias Walter würde eine händische
-Segmentierung ca. 20 Minuten aktive Arbeit bedeute. Diese Arbeit kann der Tooth Analyser
-deutlich reduzieren, indem er kein aktives Arbeiten erfordert, sondern im Hintergrund
-läuft.
+Nichtsdestotrotz bietet die Anwendung trotz ihrer doch hohen Laufzeit ein
+enormes Zeitersparnis für die praktizierenden Ärzte. Laut Dr. Elias Walter würde
+eine händische Segmentierung ca. 20 Minuten aktive Arbeit bedeute. Diese Arbeit
+kann der Tooth Analyser deutlich reduzieren, indem er kein aktives Arbeiten erfordert,
+sondern im Hintergrund läuft.
 
 % limiierung
-Der Grund hierfür liegt in der Implementierung des Algorithmus. Die anatomische
-Segmentierung wurde speziell für die \ac{CT}-Aufnahmen im \ac{ISQ} Typ
-entwickelt. Aus diesem Grund wurden die Schwellwerte und Parameter für dieses Verfahren
-fest codiert.
+Der Grund hierfür liegt in der Implementierung des Algorithmus. Die anatomische Segmentierung
+wurde speziell für die \ac{CT}-Aufnahmen im \ac{ISQ} Typ entwickelt. Aus diesem
+Grund wurden die Schwellwerte und Parameter für dieses Verfahren fest codiert.
 
-Nach einer etwas detaillierteren Analyse konnte festgestellt werden, dass das
-Problem im Bereich der Auffüllung liegt. Den Grund dafür liefern die einzelnen Datensätze
-während der Segmentierung. Betrachtet man diese genauer so fällt auf, das der Zahn
-zu Beginn richtig segmentiert wird, auch in Bezug auf die Pulpa. Nachdem dann die
-Auffüllung für das Schmelzsegment über das Bild läuft, wird diese zuerst
-richtige Segmentierung wieder verworfen.
+Nach einer etwas detaillierteren Analyse konnte festgestellt werden, dass das Problem
+im Bereich der Auffüllung liegt. Den Grund dafür liefern die einzelnen
+Datensätze während der Segmentierung. Betrachtet man diese genauer so fällt auf,
+das der Zahn zu Beginn richtig segmentiert wird, auch in Bezug auf die Pulpa.
+Nachdem dann die Auffüllung für das Schmelzsegment über das Bild läuft, wird diese
+zuerst richtige Segmentierung wieder verworfen.
 
-Diese Situation ist zwar entgegen vieler Konventionen, jedoch sorgt sie auch dafür,
-dass die Komplexität des Quellcodes nicht zu groß wird.
+Diese Situation ist zwar entgegen vieler Konventionen, jedoch sorgt sie auch
+dafür, dass die Komplexität des Quellcodes nicht zu groß wird.
 
-Diesem Verhalten könnte man mit einer einfache Checkbox entgegenwirken, indem man
-die Checkbox setzt, wenn man nach dem Batch alle Bilder laden möchte.
+Diesem Verhalten könnte man mit einer einfache Checkbox entgegenwirken, indem
+man die Checkbox setzt, wenn man nach dem Batch alle Bilder laden möchte.
 
 % Benutzertests
 Auf die Benutzertest eingehen
