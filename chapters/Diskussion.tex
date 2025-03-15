@@ -94,56 +94,55 @@ Dokumentation erstellt. Dabei zeigte sich, dass es vorteilhaft ist, anstelle ein
 umfassenden Dokumentation mehrere kleinere, zielgerichtete Dokumente zu
 verfassen, die auf unterschiedliche Anwendungsfälle abgestimmt sind. Nach \citet{procida2017}
 lassen sich hierfür vier verschiedene Dokumentationstypen unterscheiden, die
-jeweils auf eine spezifische Nutzung ausgerichtet sind.
+jeweils auf eine spezifische Nutzung ausgerichtet sind. Im Rahmen des Tooth Analyser
+wurden daher die folgenden Dokumentationen erstellt: \textit{Quick Start Guide, Tutorial,
+Explanation, Reference Material}. Diese Struktur ermöglicht es Interessierten, schneller
+die benötigten Informationen zu finden, ohne sich durch übermäßig umfangreiche
+Dokumente arbeiten zu müssen. Gleichzeitig verhindert sie eine Überladung einzelner
+Dokumentationen.
 
-Im Rahmen des Tooth Analyser wurden daher die folgenden Dokumentationen erstellt:
-\textit{Quick Start Guide, Tutorial, Explanation, Reference Material}. Diese Struktur
-ermöglicht es Interessierten, schneller die benötigten Informationen zu finden, ohne
-sich durch übermäßig umfangreiche Dokumente arbeiten zu müssen. Gleichzeitig
-verhindert sie eine Überladung einzelner Dokumentationen.
+Trotz der vielen positiven Ergebnisse zeigen sich auch einige Einschränkungen.
+Die wesentlichen wurden bereits im Kapitel Limitation erwähnt. So kommt es, das
+die anatomische Segmentierung speziell für Mikro-\ac{CT}-Aufnahmen im \ac{ISQ}-Format
+entwickelt wurde, wodurch bestimmte Parameter und Schwellwerte fest im Code hinterlegt
+wurden. Dies schränkt die Flexibilität bei der Nutzung mit anderen Bildformaten
+ein. Eine detaillierte Analyse der Segmentierungsergebnisse zeigte, dass das
+Problem im Bereich der Auffüllung liegt. Zu Beginn der Segmentierung werden die Zahnbestandteile,
+einschließlich der Pulpa, korrekt erkannt. Während der anschließenden Auffüllung
+des Schmelzsegments kommt es jedoch zu einer fehlerhaften Überschreibung bereits
+richtig segmentierter Strukturen. Diese wohl größte Limitierung des Tooth Analyser
+führt auf eine weitere, welche die Vorverarbeitung von Bilder betrifft.
 
-Trotz der vielen positiven Ergebnisse zeigen sich auch einige Einschränkungen. Die
-wesentlichen wurden bereits im Kapitel Limitation erwähnt. So kommt es, das die anatomische
-Segmentierung speziell für Mikro-\ac{CT}-Aufnahmen im \ac{ISQ}-Format entwickelt
-wurde, wodurch bestimmte Parameter und Schwellwerte fest im Code hinterlegt
-wurden. Dies schränkt die Flexibilität bei der Nutzung mit anderen Bildformaten ein.
-Eine detaillierte Analyse der Segmentierungsergebnisse zeigte, dass das Problem im
-Bereich der Auffüllung liegt. Zu Beginn der Segmentierung werden die
-Zahnbestandteile, einschließlich der Pulpa, korrekt erkannt. Während der anschließenden
-Auffüllung des Schmelzsegments kommt es jedoch zu einer fehlerhaften Überschreibung
-bereits richtig segmentierter Strukturen. Diese wohl größte Limitierung des
-Tooth Analyser führt auf eine weitere, welche die Vorverarbeitung von Bilder betrifft.
-
-Die Implementierung einer Vorverarbeitung der Bilder konnte bislang nicht umgesetzt
-werden. Zwar ist diese Funktionalität bereits konzeptionell vorgesehen, jedoch bedarf
-es noch weiterer Arbeit, um eine vollumfängliche Implementierung zu ermöglichen.
-Der Grund hierfür ist, dass innerhalb der Vorverarbeitung eine Komprimierung der
-Bilder geplant war. Diese Komprimierung zieht jedoch auch einen Formatwechsel von
-\ac{16Int} auf \ac{8UInt} nach sich. Da diese Bilder ohnehin nicht bearbeitet
-werden können, wurde hierfür keine Implementierung bereitgestellt. Zur
-Vorverarbeitung der Bilder kann grundsätzlich noch eine andere Überlegung
-angestellt werden. Die anatomische Segmentierung enthält eine umfangreiche Filterung
-zur Rauschreduktion. Laut der Visualisierungspipeline nach \citet[S.~50]{handels2000},
+Die Implementierung einer Vorverarbeitung der Bilder konnte bislang nicht
+umgesetzt werden. Zwar ist diese Funktionalität bereits konzeptionell vorgesehen,
+jedoch bedarf es noch weiterer Arbeit, um eine vollumfängliche Implementierung zu
+ermöglichen. Der Grund hierfür ist, dass innerhalb der Vorverarbeitung eine Komprimierung
+der Bilder geplant war. Diese Komprimierung zieht jedoch auch einen
+Formatwechsel von \ac{16Int} auf \ac{8UInt} nach sich. Da diese Bilder ohnehin nicht
+bearbeitet werden können, wurde hierfür keine Implementierung bereitgestellt. Zur
+Vorverarbeitung der Bilder kann grundsätzlich noch eine andere Überlegung angestellt
+werden. Die anatomische Segmentierung enthält eine umfangreiche Filterung zur
+Rauschreduktion. Laut der Visualisierungspipeline nach \citet[S.~50]{handels2000},
 gehört dieser Schritt auch zu einer Vorverarbeitung. Eine gute Idee ist es also,
-die Filterung der anatomischen Segmentierung aus dem eigentlichen Verfahren
-herauszuziehen und im Bereich der Vorverarbeitung bereitzustellen. Dies ermöglicht
-auch ein Filter der Bilder, unabhängig von einer anschließenden Segmentierung.
+die Filterung der anatomischen Segmentierung aus dem eigentlichen Verfahren herauszuziehen
+und im Bereich der Vorverarbeitung bereitzustellen. Dies ermöglicht auch ein
+Filter der Bilder, unabhängig von einer anschließenden Segmentierung.
 
 Eine Gute Idee zeigt sich auch im Bereich der Analysen. Diese stehen aktuell als
 eigenes Verfahren bereit. Wie bereits beschrieben, könnten diese auch im Bereich
-der Nachverarbeitung einen Platz finden. Anstelle der Analysen als Verfahren, könnte
-dann eine andere Art der Segmentierung implementiert werden.
+der Nachverarbeitung einen Platz finden. Anstelle der Analysen als Verfahren,
+könnte dann eine andere Art der Segmentierung implementiert werden.
 
-Zusammenfassend lässt sich sagen, dass die in dieser Arbeit entwickelte Lösung
-die Forschungsfrage in wesentlichen Punkten beantworten konnte: Die Segmentierung
-wurde effizient in 3D Slicer integriert, die Benutzerfreundlichkeit erheblich
-verbessert und die Softwarearchitektur flexibel gestaltet. Darüber hinaus wurde ein
+Zusammenfassend lässt sich sagen, dass die in dieser Arbeit entwickelte Lösung die
+Forschungsfrage in wesentlichen Punkten beantworten konnte: Die Segmentierung
+wurde effizient in 3D Slicer integriert, die Benutzerfreundlichkeit erheblich verbessert
+und die Softwarearchitektur flexibel gestaltet. Darüber hinaus wurde ein
 strukturiertes Modell für die effiziente und interaktive Verarbeitung von Mikro-\ac{CT}-Aufnahmen
-entwickelt. Nichtsdestotrotz ist das System noch nicht in seinem finalen Entwicklungsstadium.
-Insbesondere weitere Benutzertests und Anpassungen der Parameter innerhalb der
-Segmentierung könnten zu einer noch höheren Präzision und Benutzerfreundlichkeit
-beitragen. Auch die in Kapitel \ref{sec:relevanz_der_arbeit} diskutierte Relevanz
-der Arbeit zeigt, dass der Tooth Analyser zwar bereits einen großen Fortschritt
-darstellt, jedoch noch Optimierungen erforderlich sind, um eine langfristig
-etablierte und klinisch einsetzbare Lösung zu erreichen.
+entwickelt. Nichtsdestotrotz ist das System noch nicht in seinem finalen
+Entwicklungsstadium. Insbesondere weitere Benutzertests und Anpassungen der Parameter
+innerhalb der Segmentierung könnten zu einer noch höheren Präzision und Benutzerfreundlichkeit
+beitragen. Auch die in Kapitel \ref{sec:relevanz_der_arbeit} diskutierte
+Relevanz der Arbeit zeigt, dass der Tooth Analyser zwar bereits einen großen Fortschritt
+darstellt, jedoch noch Optimierungen erforderlich sind, um eine langfristig etablierte
+und klinisch einsetzbare Lösung zu erreichen.
 % ---------------------------------------------------------------------------------------

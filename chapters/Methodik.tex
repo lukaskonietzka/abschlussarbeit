@@ -101,61 +101,61 @@ Generierung aktualisiert werden.
 
 Ein wichtiger Softwaretechnischer Anspruch an die Extension ist die
 Erweiterbarkeit. Es soll ohne große Mühen möglich sein, ein weiteres Verfahren
-zu integrieren, ohne das große Anpassungen an der \ac{UI} oder der Erweiterung selbst
-unternommen werden müssen. Für ein solides Verständnis dieser Software soll es
-selbstverständlich eine Dokumentation mit Benutzerhandbuch geben. Zudem wird großer
-Wert auf die Qualitätssicherung gelegt, weshalb eine Reihe von Unit-Tests (Tests
-für einzelne Programmeinheiten) vorgesehen ist.
+zu integrieren, ohne das große Anpassungen an der \ac{UI} oder der Erweiterung
+selbst unternommen werden müssen. Für ein solides Verständnis dieser Software soll
+es selbstverständlich eine Dokumentation mit Benutzerhandbuch geben. Zudem wird
+großer Wert auf die Qualitätssicherung gelegt, weshalb eine Reihe von Unit-Tests
+(Tests für einzelne Programmeinheiten) vorgesehen ist.
 
-Durch diese breite Palette an Anforderungen ergeben sich verschiedene Aufgaben
-für die Implementierung. Bevor jedoch mit der konkreten Umsetzung begonnen werden
-kann, ist ein noch wichtigerer Schritt erforderlich: die Recherche. Sie dient
-dazu, den aktuellen Stand der Technik zu erfassen und geeignete Lösungsansätze für
-die Implementierung zu identifizieren.
+Durch diese breite Palette an Anforderungen ergeben sich verschiedene Aufgaben für
+die Implementierung. Bevor jedoch mit der konkreten Umsetzung begonnen werden
+kann, ist ein noch wichtigerer Schritt erforderlich: die Recherche. Sie dient dazu,
+den aktuellen Stand der Technik zu erfassen und geeignete Lösungsansätze für die
+Implementierung zu identifizieren.
 % ---------------------------------------------------------------------------------------
 
 \section{Literatur zur Implementierung}
-Es wäre äußerst ungünstig, erst am Ende eines Projekts festzustellen, dass bereits
-veröffentlichte Lösungen existieren, in die erhebliche Ressourcen investiert
+Es wäre äußerst ungünstig, erst am Ende eines Projekts festzustellen, dass
+bereits veröffentlichte Lösungen existieren, in die erhebliche Ressourcen investiert
 wurden. Um dies zu vermeiden, ist eine umfassende Literaturrecherche essenziell,
 die den aktuellen Stand der Technik abbildet.
 
-Für diese Arbeit spielt eine Quelle eine besonders wichtige Rolle: die
-offizielle Dokumentation von 3D Slicer. Sie bietet wertvolle Anhaltspunkte für die
-Implementierung und hilft dabei, die technischen Gegebenheiten von 3D Slicer zu
-verstehen. Zudem enthält sie \textit{Best-Practice-Ansätze}, die bei der Entwicklung
-berücksichtigt wurden. 3D Slicer stellt außerdem einen \textit{Developer Guide} zur
-Verfügung, der Teil der offiziellen Dokumentation ist und den Einstieg in das
+Für diese Arbeit spielt eine Quelle eine besonders wichtige Rolle: die offizielle
+Dokumentation von 3D Slicer. Sie bietet wertvolle Anhaltspunkte für die
+Implementierung und hilft dabei, die technischen Gegebenheiten von 3D Slicer zu verstehen.
+Zudem enthält sie \textit{Best-Practice-Ansätze}, die bei der Entwicklung
+berücksichtigt wurden. 3D Slicer stellt außerdem einen \textit{Developer Guide}
+zur Verfügung, der Teil der offiziellen Dokumentation ist und den Einstieg in das
 Framework erleichtert. Ein weiterer zentraler Referenzpunkt ist der \textit{3D
 Slicer Extension Index}, in dem bereits entwickelte Erweiterungen einsehbar sind.
-Ein konkretes Beispiel ist das Modul \textit{Airway Segmentation}, dessen
-Analyse dazu beiträgt, bewährte Konventionen für die Entwicklung der eigenen Erweiterung
-abzuleiten. So kommt es, dass beispielsweise für die Gestaltung einer Benutzerschnittstelle
-bereits Lösungen existieren, die sich bewährten und so übernommen werden können.
-Da dieses Modul mit der Absicht entwickelt wird, später im \textit{Extension
-Manager} veröffentlicht zu werden, sind einige dieser Richtlinien im Leitfaden
-obligatorisch. Welche dies sind, ist der Dokumentation von Slicer zu entnehmen.
+Ein konkretes Beispiel ist das Modul \textit{Airway Segmentation}, dessen Analyse
+dazu beiträgt, bewährte Konventionen für die Entwicklung der eigenen Erweiterung
+abzuleiten. So kommt es, dass beispielsweise für die Gestaltung einer
+Benutzerschnittstelle bereits Lösungen existieren, die sich bewährten und so übernommen
+werden können. Da dieses Modul mit der Absicht entwickelt wird, später im \textit{Extension
+Manager} veröffentlicht zu werden, sind einige dieser Richtlinien im Leitfaden obligatorisch.
+Welche dies sind, ist der Dokumentation von Slicer zu entnehmen.
 
-Neben einer konkreten Implementierungshilfe dient die Recherche zur
-Implementierung auch dazu, ein fundiertes Verständnis für die Domäne der medizinischen
-Bildverarbeitung und deren zugrunde liegende Strukturen zu entwickeln. Mithilfe
-verschiedener domänenspezifischer Publikationen, kann ein tieferes Wissen über diesen
-Fachbereich gewonnen werden. Besonders relevant sind hierbei die verschiedenen
-Verfahren für die Verarbeitung der Mikro-\ac{CT}-Aufnahmen. Konkret handelt es
-sich hier um die unterschiedlichen Algorithmen zur Filterung und Segmentierung
-von Mikro-\ac{CT}-Bildern in der Zahnmedizin.
+Neben einer konkreten Implementierungshilfe dient die Recherche zur Implementierung
+auch dazu, ein fundiertes Verständnis für die Domäne der medizinischen
+Bildverarbeitung und deren zugrunde liegende Strukturen zu entwickeln. Mithilfe verschiedener
+domänenspezifischer Publikationen, kann ein tieferes Wissen über diesen
+Fachbereich gewonnen werden. Besonders relevant sind hierbei die verschiedenen Verfahren
+für die Verarbeitung der Mikro-\ac{CT}-Aufnahmen. Konkret handelt es sich hier um
+die unterschiedlichen Algorithmen zur Filterung und Segmentierung von Mikro-\ac{CT}-Bildern
+in der Zahnmedizin.
 
-Um nun detaillierter auf die Umsetzung einzugehen, nimmt das nächste Kapitel
-eine Unterteilung der Gesamtheit der Anforderungen in kleinere Teilsysteme vor.
+Um nun detaillierter auf die Umsetzung einzugehen, nimmt das nächste Kapitel eine
+Unterteilung der Gesamtheit der Anforderungen in kleinere Teilsysteme vor.
 % ---------------------------------------------------------------------------------------
 
 \section{Zerlegung in Teilprobleme}
-\label{sec_zerlegung_in_teilprobleme} Durch die Aufteilung des Gesamtsystems in
-mehrere kleine Teilaufgaben wird die Software für die Entwicklungsphase
-übersichtlicher. Die einzelnen Domänen können so schneller und besser verstanden
-werden. Es gibt viele Möglichkeiten ein Softwaresystem in kleine Teile
-aufzuteilen, sodass es am Ende auf den konkreten Anwendungsfall ankommt. Diese
-Arbeit sieht folgenden Teilaufgaben für das Gesamtsystem vor:
+\label{sec_zerlegung_in_teilprobleme} Durch die Aufteilung des Gesamtsystems in mehrere
+kleine Teilaufgaben wird die Software für die Entwicklungsphase übersichtlicher.
+Die einzelnen Domänen können so schneller und besser verstanden werden. Es gibt viele
+Möglichkeiten ein Softwaresystem in kleine Teile aufzuteilen, sodass es am Ende
+auf den konkreten Anwendungsfall ankommt. Diese Arbeit sieht folgenden Teilaufgaben
+für das Gesamtsystem vor:
 
 \begin{description}
 	\item[Architektur- und \ac{UI}-Design,] die Systemarchitektur wird mithilfe von
@@ -200,33 +200,35 @@ Arbeit sieht folgenden Teilaufgaben für das Gesamtsystem vor:
 \end{description}
 
 Die Ordnung dieser Punkte gibt eine grobe Orientierung bezüglich der Reihenfolge
-während der Umsetzung an. Bevor es im nächsten Kapitel um die konkreten
-Ergebnisse diese Arbeit geht, soll hier abschließend noch ein Blick auf die Art der
-Evaluation geworfen werden. Diese stellt sicher, dass die Ergebnisse bewertbar sind.
+während der Umsetzung an. Bevor es im nächsten Kapitel um die konkreten Ergebnisse
+diese Arbeit geht, soll hier abschließend noch ein Blick auf die Art der
+Evaluation geworfen werden. Diese stellt sicher, dass die Ergebnisse bewertbar
+sind.
 % ---------------------------------------------------------------------------------------
 
 \section{Forschungsevaluation}
 Die Evaluation kann grob in zwei Teile unterteilt werden. Der erste Teil ist der
-wohl Wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die
-Benutzer. Hier kann also die Benutzerfreundlichkeit und die \ac{UI} der
-Erweiterung gut analysiert werden. Diese Art von Test involviert mehrere Außenstehende
-und sorgt damit für eine objektive Bewertungsgrundlage. Verbesserungen, die durch
-die Tests hervorkommen, werden gesammelt und als möglicher Ausblick zur
-Verfügung gestellt. Wichtig für die Benutzbarkeit der Software ist auch das Benutzerhandbuch.
-Dies ist auch Teil der Ergebnisse und muss mittels Benutzertests evaluiert
-werden. Neben dem konkreten Feedback der Anwender sollen auch verschiedenen Anwendungsszenarien
-diskutiert werden.
+wohl Wichtigste und beschäftigt sich mit dem Testen der Anwendung durch die Benutzer.
+Hier kann also die Benutzerfreundlichkeit und die \ac{UI} der Erweiterung gut analysiert
+werden. Diese Art von Test involviert mehrere Außenstehende und sorgt damit für
+eine objektive Bewertungsgrundlage. Verbesserungen, die durch die Tests
+hervorkommen, werden gesammelt und als möglicher Ausblick zur Verfügung gestellt.
+Wichtig für die Benutzbarkeit der Software ist auch das Benutzerhandbuch. Dies ist
+auch Teil der Ergebnisse und muss mittels Benutzertests evaluiert werden. Neben
+dem konkreten Feedback der Anwender sollen auch verschiedenen
+Anwendungsszenarien diskutiert werden.
 
-Der zweite Teil der Evaluation soll prüfen ob der softwaretechnische Ansatz erfolgreich
-umgesetzt wurde. Um dies gewährleisten zu können, müssen zusätzlich zur Funktionalität
-auch Softwaretests bereitgestellt werden. Wie eine der Teilaufgaben aus Kapitel
-\ref{sec_zerlegung_in_teilprobleme} bereits zeigt, handelt es sich hierbei um Unittests.
-Außerdem ist für diesen Teil auch die technische Dokumentation notwendig. Abschießend
-soll die Performance des Systems noch gemessen und analysiert werden.
+Der zweite Teil der Evaluation soll prüfen ob der softwaretechnische Ansatz
+erfolgreich umgesetzt wurde. Um dies gewährleisten zu können, müssen zusätzlich
+zur Funktionalität auch Softwaretests bereitgestellt werden. Wie eine der Teilaufgaben
+aus Kapitel \ref{sec_zerlegung_in_teilprobleme} bereits zeigt, handelt es sich
+hierbei um Unittests. Außerdem ist für diesen Teil auch die technische Dokumentation
+notwendig. Abschießend soll die Performance des Systems noch gemessen und
+analysiert werden.
 
 Die in diesem Kapitel beschriebenen methodischen Schritte bildeten die Grundlage
 für die Entwicklung der Erweiterung. Nachdem die Analysephase abgeschlossen ist,
-folgen nun die Phasen Entwicklung und Evaluation in Form der Kapitel Ergebnisse und
-Evaluation. Hierzu wird die erstellte \ac{SEM} detailliert vorgestellt und die Funktionen
-näher beschrieben.
+folgen nun die Phasen Entwicklung und Evaluation in Form der Kapitel Ergebnisse
+und Evaluation. Hierzu wird die erstellte \ac{SEM} detailliert vorgestellt und
+die Funktionen näher beschrieben.
 % ---------------------------------------------------------------------------------------

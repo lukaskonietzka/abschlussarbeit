@@ -693,11 +693,11 @@ class ToothAnalyserParameterNode:
 \end{lstlisting}
 
 Die Klasse \texttt{ToothAnalyserParameterNode} speichert die
-Benutzereinstellungen und ist mit der \ac{UI}-Datei aus dem QT-Designer gekoppelt. Um
-diese Kopplung herzustellen wird die Klasse mit dem \textit{Decorater} \texttt{@parameterNodeWrapper}
-versehen. Die Klasse \texttt{ToothAnalyserWidget} hat vollen Zugriff auf die Parameter
-Klasse und kann sie verwenden. Diese Verwendung ist in \ref{lst:on_apply} zu
-sehen.
+Benutzereinstellungen und ist mit der \ac{UI}-Datei aus dem QT-Designer gekoppelt.
+Um diese Kopplung herzustellen wird die Klasse mit dem \textit{Decorater} \texttt{@parameterNodeWrapper}
+versehen. Die Klasse \texttt{ToothAnalyserWidget} hat vollen Zugriff auf die
+Parameter Klasse und kann sie verwenden. Diese Verwendung ist in \ref{lst:on_apply}
+zu sehen.
 
 \begin{lstlisting}[
     language={python},
@@ -713,14 +713,14 @@ def onApplyAnatomicalButton(self) -> None:
     self.activateComputingMode(False)
 \end{lstlisting}
 
-Mit dem Zugriff auf die Parameter kann die Widget-Klasse den entsprechenden Algorithmus
-starten und die Parametereinstellungen dafür übergeben. Dies wird in der Methode
-\texttt{onApply()} realisiert, welche in der Klasse \texttt{ToothAnalyserWidget}
-liegt. Die Methode sorgt außerdem dafür, dass der Algorithmus in einer sicheren Umgebung
-gestartet wird. Sollte es bei der Ausführung zu unerwarteten Fehlern kommen, so bricht
-der Tooth Analyser den Vorgang mit einer Fehlermeldung ab. Um die Ausführung in
-der entsprechenden Logikklasse genauer zu betrachten, sei hier auf den nachfolgenden
-Quellcode verwiesen.
+Mit dem Zugriff auf die Parameter kann die Widget-Klasse den entsprechenden
+Algorithmus starten und die Parametereinstellungen dafür übergeben. Dies wird in
+der Methode \texttt{onApply()} realisiert, welche in der Klasse \texttt{ToothAnalyserWidget}
+liegt. Die Methode sorgt außerdem dafür, dass der Algorithmus in einer sicheren
+Umgebung gestartet wird. Sollte es bei der Ausführung zu unerwarteten Fehlern kommen,
+so bricht der Tooth Analyser den Vorgang mit einer Fehlermeldung ab. Um die Ausführung
+in der entsprechenden Logikklasse genauer zu betrachten, sei hier auf den
+nachfolgenden Quellcode verwiesen.
 
 \begin{lstlisting}[
     language={python},
@@ -734,19 +734,19 @@ def execute(cls, param: ToothAnalyserParameterNode) -> None:
 	    param=param,)
 \end{lstlisting}
 
-Die Methode \texttt{execute()} aus \ref{lst:execute}, welche die Schnittstelle
-vorschreibt, bekommt die Parametereinstellungen des Benutzers über das Argument.
-Somit ist während der Ausführung ein voller Zugriff auf die Parameter
-gewährleistet. Ist die Methode \texttt{execute()} vollständig durchgelaufen, so kommt
-das Verfahren zum Ende.
+Die Methode \texttt{execute()} aus \ref{lst:execute}, welche die Schnittstelle vorschreibt,
+bekommt die Parametereinstellungen des Benutzers über das Argument. Somit ist während
+der Ausführung ein voller Zugriff auf die Parameter gewährleistet. Ist die
+Methode \texttt{execute()} vollständig durchgelaufen, so kommt das Verfahren zum
+Ende.
 
-Fasst man dieses Vorgehen kurz zusammen, lässt sich sagen, dass die Parameter,
-die im Parameter Knoten gespeichert werden wie bereits beschrieben als Attribut
-in der Klasse \texttt{ToothAnalyserWidget} liegen. Wenn ein Button zum Ausführen
-der entsprechenden Logik gedrückt wird, wird die Methode \texttt{execute()}
-ausgeführt und alle Parameter als Argument mit übergeben.
+Fasst man dieses Vorgehen kurz zusammen, lässt sich sagen, dass die Parameter, die
+im Parameter Knoten gespeichert werden wie bereits beschrieben als Attribut in der
+Klasse \texttt{ToothAnalyserWidget} liegen. Wenn ein Button zum Ausführen der entsprechenden
+Logik gedrückt wird, wird die Methode \texttt{execute()} ausgeführt und alle Parameter
+als Argument mit übergeben.
 
-Nach der konkreten Umsetzung der Erweiterung und der Implementierungsdetails, kann
-Schritt für Schritt mit der Evaluation der Ergebnisse begonnen werden. Ein
-wichtiger Teil sind die Testergebnisse.
+Nach der konkreten Umsetzung der Erweiterung und der Implementierungsdetails,
+kann Schritt für Schritt mit der Evaluation der Ergebnisse begonnen werden. Ein wichtiger
+Teil sind die Testergebnisse.
 % ---------------------------------------------------------------------------------------
