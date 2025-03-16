@@ -44,28 +44,21 @@ ist simpel gehalten. Es gibt eine Methode \texttt{setup()} in der die Testumgebu
 bereitgestellt wird und eine Methode \texttt{runTest()} in der die einzelnen
 Testfälle ausgeführt werden.
 
-Betrachtet man konkrete dei Testmethode \texttt{testIsSmoothed()} genauer, so
-fällt die Methode \texttt{getSampleDataAsITK()} auf, die hier kurz thematisiert
-werden soll. Viele der geschriebenen Methoden und Funktionen benötigen für einen
-guten Test ein konkretes Bild. Hierfür stellt der Tooth Analyser Beispielbilder
-zur Verfügung, mit denen die Tests ausgeführt werden können. Da diese Bilder mit
-ca. 500 \ac{MB} eine ausgeprägte Größe haben, wurden diese vorerst in einem separaten
-Repository bereitgestellt. So müssen nicht erst einige \ac{GB} an Bildern heruntergeladen
-werden, wenn das Modul installiert werden soll. Die Bilder werden erst dann heruntergeladen,
-wenn sie benötigt werden. Um dieses Herunterladen zu ermöglichen, werden die
-Bilder beim Starten des Moduls erstmals in Slicer registriert, sodass sie dann im
-Modul \texttt{sampleData} zur Verfügung stehen. Damit ist nicht nur gewährleistet,
-dass zukünftige Entwickler Tests ausführen könne, es können so auch Benutzern Beispielbilder
-bereitgestellt werden, um erste Erfahrungen mit dem Tool zu machen. Die Abbildung
-\ref{fig:sample_data} zeigt das Modul \texttt{SampleData} mit besonderem
-Augenmerk auf das Bild \textit{ToothCT}.
+Betrachtet man die Testmethode \texttt{testIsSmoothed()} genauer, so
+fällt die Methode \texttt{getSampleDataAsITK()} auf, die hier kurz
+thematisiert werden soll. Wie das Kapitel \ref{sec:beispieldaten} bereits zeigte,
+steht für die Modul-Tests ein beispielhaftes Mikro-CT zur Verfügung. Mit dieser
+Methode lässt sich genau dieses Bild automatisch herunterladen und in der
+Testumgebung verwenden. Um diesen Vorgang anzustoßen und damit die konkreten Tests
+auszuführen, muss zunächst der Entwicklermodus in Slicer aktiviert werden. Über den
+Button \textit{Reload and Test} werden dann alle hinterlegten Unittests
+gestartet. Die Abbildung \ref{fig:tests} soll genau diese verdeutlichen.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{img/sampleData.png}
-	\caption{Ausschnitt des Moduls SampleData in 3D Slicer mit dem Beispielbild
-	für das Starten eines Verfahrens im Tooth Analyser}
-	\label{fig:sample_data}
+	\includegraphics[width=1\textwidth]{img/toothAnalyser_test.png}
+	\caption{Ansicht des Tooth Analyser während die Softwaretests über den Entwicklermodus ausgeführt werden}
+	\label{fig:tests}
 \end{figure}
 
 Ein Testfall der vielen soll hier Beispielhaft genauer betrachtet werden. Hierbei
