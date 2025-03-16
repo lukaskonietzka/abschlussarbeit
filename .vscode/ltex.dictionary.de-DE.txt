@@ -39,3 +39,4 @@ Segmentierungsergebnisse
 Segmentierungstechniken
 Otsu
 Rényi
+Qt-Designer

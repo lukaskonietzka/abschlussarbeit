@@ -24,7 +24,7 @@ ohne dabei die Qualität der anatomischen Segmentierung zu beeinträchtigen. Mit
 Tooth Analyser entstand somit eine durchdachte Struktur für die Verarbeitung von
 Mikro-\ac{CT}-Aufnahmen, die einen bedeutenden Fortschritt für die zahnmedizinische
 Forschung darstellt. Der Luxus einer interaktiven Schnittstelle ist dabei nur
-die Spitze des Eisbergs. Die wohl wichtigste Erkenntnis, die diese vorliegende
+die Spitze des Eisberges. Die wohl wichtigste Erkenntnis, die diese vorliegende
 Arbeit liefert, ist das zugrunde liegende Modell, mit dem eine effiziente und
 interaktive Bearbeitung von Mikro-CT-Aufnahmen möglich ist. Diese Struktur erwies
 sich als äußerst effektiv im klinischen Forschungsalltag. Insbesondere konnte
@@ -34,11 +34,11 @@ Diese Aspekte betreffen auch den Batch-Prozess, der eine ganze Sammlung an Bilde
 auf einmal verarbeiten kann.
 
 Neben der verbesserten Flexibilität wurde auch die Effizienz des Workflows gesteigert.
-Eine manuelle Segmentierung eines einzelnen Zahns nimmt durchschnittlich rund 20
-Minuten in Anspruch. Durch den Tooth Analyser kann dieser Prozess vollständig automatisiert
-im Hintergrund ablaufen, wodurch wertvolle Zeit eingespart wird. Laut Dr. Elias
-Walter reduziert sich der aktive Arbeitsaufwand dadurch erheblich, da die Segmentierung
-nicht mehr manuell durchgeführt werden muss.
+Eine manuelle Segmentierung eines einzelnen Zahnes nimmt durchschnittlich rund
+20 Minuten in Anspruch. Durch den Tooth Analyser kann dieser Prozess vollständig
+automatisiert im Hintergrund ablaufen, wodurch wertvolle Zeit eingespart wird. Laut
+Dr. Elias Walter reduziert sich der aktive Arbeitsaufwand dadurch erheblich, da die
+Segmentierung nicht mehr manuell durchgeführt werden muss.
 
 Ein Punkt, der zu Beginn der Entwicklung nicht feststand, war die optionale Generierung
 der medialen Flächen sowie die automatische Erkennung bereits gefilterter Bilder.
@@ -55,7 +55,7 @@ nutzen.
 
 Aus den Anforderungen ging auch hervor, dass bei einer mehrfachen Erstellung der
 segmentierten Daten aus einem Mikro-\ac{CT}, die Slicer-Szene die alten Daten
-immer Überschreiben soll. So wird sichergestellt, dass immer nur die aktuelle
+immer überschreiben soll. So wird sichergestellt, dass immer nur die aktuelle
 Segmentierung sichtbar ist. Das Ergebnis hat gezeigt, dass dieses Verhalten
 durchaus sinnvoll ist. Jedoch ist es hilfreich neben der Segmentierung selbst,
 auch noch das originale Mikro-\ac{CT} in der Szene zu halten, sodass der Kontext
@@ -102,7 +102,7 @@ wurden. Dies schränkt die Flexibilität bei der Nutzung mit anderen Bildformate
 Eine detaillierte Analyse der Segmentierungsergebnisse zeigte, dass das Problem im
 Bereich der Auffüllung liegt. Zu Beginn der Segmentierung werden die
 Zahnbestandteile, einschließlich der Pulpa, korrekt erkannt. Während der anschließenden
-Auffüllung des Schmelzsegments kommt es jedoch zu einer fehlerhaften Überschreibung
+Auffüllung des Schmelzsegmentes kommt es jedoch zu einer fehlerhaften Überschreibung
 bereits richtig segmentierter Strukturen. Diese wohl größte Limitierung des
 Tooth Analyser führt auf eine weitere, welche die Vorverarbeitung von Bilder betrifft.
 
