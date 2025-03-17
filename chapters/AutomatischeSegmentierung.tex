@@ -57,7 +57,7 @@ Vorgang verdeutlichen \citep[vgl.][]{slicer2024}.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7 \textwidth]{img/slicer_extention_index.png}
+	\includegraphics[width=0.5\textwidth]{img/slicer_extention_index.png}
 	\caption{Funktionsweise der Plug-in-Infrastruktur von 3D Slicer nach \citet{extensionsIndex2024}}
 	\label{fig:3d_slicer_extension_index}
 \end{figure}
@@ -106,7 +106,7 @@ es lässt sich hierfür auch die integrierte Python-Konsole nutzen.
 \label{subsec:pythob_umgebung} 3D Slicer bringt eine integrierte Python-Konsole
 mit, über die mit der Datenstruktur interagiert werden kann. So ist es möglich, Python-Skripte
 direkt in der Konsole auszuführen. Um dies zu realisieren, bringt Slicer mit der
-Installation im jeweiligen Betriebssystem eine eigene Python-Umgebung mit.
+Installation im jeweiligen Betriebssystem eine komplette Python-Umgebung mit.
 Dieses sieht wie folgt aus.
 
 \begin{center}
@@ -114,46 +114,44 @@ Dieses sieht wie folgt aus.
 \end{center}
 
 Diese Python-Umgebung verfügt über alle notwendigen Abhängigkeiten und Pakete.
-Bei der Entwicklung eines \ac{SEM} kann dann auf das \ac{PyPi} in der
-integrierten Python-Umgebung zurückgegriffen werden. So kommt es, dass für eine
-Entwicklung mit Slicer keine eigene Python-Umgebung auf der lokalen Maschine
-installiert sein muss. Slicer bringt hier alles mit. Für die Anwender, die eine terminal
-basierte Bearbeitung vorziehen, besteht diese Möglichkeit nach wie vor.
+Bei der Entwicklung eines \ac{SEM} kann dann auf die installierten Pakete in der
+integrierten Python-Umgebung zurückgegriffen werden. So kommt es, dass für eine Entwicklung
+mit Slicer keine eigene Python-Umgebung auf der lokalen Maschine installiert sein
+muss. Slicer bringt hier alles mit. Für die Anwender, die eine terminal basierte
+Bearbeitung vorziehen, besteht diese Möglichkeit nach wie vor.
 
-Für den letzten charakteristischen Punkt von Slicer aus Kapitel
-\ref{sec:3d_slicer} führt der nächste Abschnitt in die durchaus komplexe
-Datenstruktur \ac{MRML} ein, die bei einer Entwicklung mit Slicer unausweichlich
-zu berücksichtigen ist.
+Für den letzten charakteristischen Punkt von Slicer aus Kapitel \ref{sec:3d_slicer}
+führt der nächste Abschnitt in die durchaus komplexe Datenstruktur \ac{MRML} ein,
+die bei einer Entwicklung mit Slicer unausweichlich zu berücksichtigen ist.
 % ---------------------------------------------------------------------------------------
 
 \section{MRML-Datenstruktur}
 \label{subsec:mrml_datenstruktur} Die \ac{MRML}, gesprochen \textit{"Murlm"} ist
-ein Datenmodell, das dafür entwickelt wurde, alle möglichen Bilddaten zu visualisieren
-und zu speichern, die für einen klinischen Zweck Einsatz finden \citep[vgl.][]{slicer2024}.
-Laut \citet{slicer2024} wurde die \ac{MRML}-Datenstruktur völlig unabhängig von
-der Slicer Kernanwendung entwickelt. Dies ermöglicht ein Portieren der Datenstruktur
-auf andere Softwareapplikationen. Da Slicer die einzig große Plattform ist, die diese
-Datenstruktur nutzt, wird der Quellcode für \ac{MRML} im Repository von 3D Slicer
-gewartet und weiterentwickelt, so \citet{slicer2024}. Durch den Artikel von
-\citet[S.~1331]{fedorov2012slicer} wird klar, dass \ac{MRML} mehr ist also nur eine
-Datenstruktur. Sie beschreiben \ac{MRML} als Szenenorganisator von Bilder,
-Annotationen, Layouts und Anwendungsdaten. \citet[S.~1327]{fedorov2012slicer} beschreiben
-die \ac{MRML}-Datenstruktur als Schlüsselkomponenten innerhalb von 3D Slicer. Dies
-ist auf die Softwarearchitektur von Slicer zurückzuführen, die in Abbildung
-\ref{fig:3d_slicer_architektur} beschrieben wurde. Die Kernanwendung von Slicer arbeitet
-wie bereits beschrieben nach dem \ac{MVC}-Pattern. \ac{MRML} übernimmt hier den
-Teil des \textit{Models (M)} und bildet damit den Grundstein der Anwendung \citep[vgl.][S.~1332]{fedorov2012slicer}.
-\citet{slicer2024} und der Artikel von \citet[S.~1327]{fedorov2012slicer} beschreibt
-\ac{MRML} als \ac{XML} Format. Wird also eine \ac{MRML}-Szene gespeichert, so
-folgt eine Speicherung als \ac{MRML}-Datei und damit unter der Haube als \ac{XML}-Datei.
-Dabei wird laut \citet{slicer2024} nur eine Referenz auf das Bild gespeichert. Die
-zu bearbeitende Aufnahme selbst wird nicht innerhalb einer \ac{MRML}-Datei
-abgespeichert. \ac{MRML} zeichnet sich vor allem dadurch aus, dass es eine Vielzahl
-an Dateiformaten akzeptiert. Alle Formate, die für einen klinischen Zweck verarbeitet
-werden, können durch \ac{MRML} unterstützt werden. Um dies zu gewährleisten, ist
-die \ac{MRML}-Szene in sogenannte Knoten (engl.: nodes) aufgeteilt. Die Basistypen
-für einen Knoten folgen der \citet{slicer2024} und sind in der folgenden
-Aufzählung zu sehen.
+ein Datenmodell, das dafür entwickelt wurde, alle möglichen Bilddaten zu
+visualisieren und zu speichern, die für einen klinischen Zweck Einsatz finden \citep[vgl.][]{slicer2024}.
+Laut \citet{slicer2024} wurde die \ac{MRML}-Datenstruktur völlig unabhängig von der
+Slicer Kernanwendung entwickelt. Dies ermöglicht ein Portieren der Datenstruktur
+auf andere Softwareapplikationen. Da Slicer die einzig große Plattform ist, die
+diese Datenstruktur nutzt, wird der Quellcode für \ac{MRML} im Repository von 3D
+Slicer gewartet und weiterentwickelt, so die \citet{slicer2024}. Durch den Artikel
+von \citet[S.~1331]{fedorov2012slicer} wird klar, dass \ac{MRML} mehr ist also
+nur eine Datenstruktur. Sie beschreiben \ac{MRML} als Szenenorganisator von
+Bilder, Annotationen, Layouts und Anwendungsdaten. \citet[S.~1327]{fedorov2012slicer}
+beschreiben die \ac{MRML}-Datenstruktur als Schlüsselkomponenten innerhalb von 3D
+Slicer. Dies ist auf die Softwarearchitektur von Slicer zurückzuführen, die in Abbildung
+\ref{fig:3d_slicer_architektur} beschrieben wurde. Die Kernanwendung von Slicer
+arbeitet wie bereits beschrieben nach dem \ac{MVC}-Pattern. \ac{MRML} übernimmt hier
+den Teil des \textit{Models (M)} und bildet damit den Grundstein der Anwendung
+\citep[vgl.][S.~1332]{fedorov2012slicer}. \citet{slicer2024} beschreibt \ac{MRML}
+als \ac{XML} Format. Wird also eine \ac{MRML}-Szene gespeichert, so folgt eine
+Speicherung als \ac{MRML}-Datei und damit unter der Haube als \ac{XML}-Datei. Dabei
+wird laut \citet{slicer2024} nur eine Referenz auf das Bild gespeichert. Die zu bearbeitende
+Aufnahme selbst wird nicht innerhalb einer \ac{MRML}-Datei abgespeichert. \ac{MRML}
+zeichnet sich vor allem dadurch aus, dass es eine Vielzahl an Dateiformaten akzeptiert.
+Alle Formate, die für einen klinischen Zweck verarbeitet werden, können durch
+\ac{MRML} unterstützt werden. Um dies zu gewährleisten, ist die \ac{MRML}-Szene
+in sogenannte Knoten (engl.: nodes) aufgeteilt. Die Basistypen für einen Knoten folgen
+der \citet{slicer2024} und sind in der folgenden Aufzählung zu sehen.
 
 \begin{minipage}{0.45\textwidth}
 	\begin{itemize}
@@ -183,7 +181,7 @@ Wird also ein Bild in eine \ac{MRML}-Szene geladen, so speichert Slicer die unte
 Eigenschaften eines Bildes in unterschiedlichen Knoten. So werden Beispielsweise
 Basiseigenschaften einer Probe im \textit{Data node} gespeichert, wo hingegen
 ein \textit{Storage node} beschreibt wie ein Bild auf der Festplatte gespeichert
-wird. In \textit{Display node} werden die Eigenschaften zur Darstellung eines Bildes
+wird. Im \textit{Display node} werden die Eigenschaften zur Darstellung eines Bildes
 hinterlegt. Der Hintergrund für die Speicherung von Probendaten in
 unterschiedlichen Knoten ist, dass beispielsweise dasselbe Bild in unterschiedlichen
 Formaten vorliegt oder ein und dasselbe Bild auf zwei unterschiedliche Arten visualisiert
@@ -218,12 +216,12 @@ currentVolume.GetDisplayNode()
 Wie die Kommentare in Listing \ref{lst:_auslehsen_nodes} bereits zeigen, gibt es
 noch eine Besonderheit von \ac{MRML}. Damit eine Verwaltung aller Dateiformate möglich
 ist, bedient sich \ac{MRML} einiger Tools, die sich bereits etabliert haben. Die
-Wichtigsten sind hierbei \ac{VTK} und \ac{ITK} \citep[vgl.][K.~1.1]{vtk2006}, \citep[vgl.][K.~1.1]{itkguide2015}.
-Die beiden Tools sind echte Riesen in ihrer Branche. \ac{MRML} nutzt diese, um
-einige Dateiformate zu lesen und zu schreiben. Durch das Betrachten der \ac{MRML}-Szene
-wird klar, dass Slicer hierdurch viele Möglichkeiten bietet. Speziell für die
-effiziente Speicherung der Proben in einer Szene durch die unterschiedlichen
-Knotentypen.
+Wichtigsten sind hierbei das \ac{VTK} und das \ac{ITK} \citep[vgl.][K.~1.1]{vtk2006},
+\citep[vgl.][K.~1.1]{itkguide2015}. Die beiden Tools sind echte Riesen in ihrer Branche.
+\ac{MRML} nutzt diese, um einige Dateiformate zu lesen und zu schreiben. Durch das
+Betrachten der \ac{MRML}-Szene wird klar, dass Slicer hierdurch viele Möglichkeiten
+bietet. Speziell für die effiziente Speicherung der Proben in einer Szene durch
+die unterschiedlichen Knotentypen.
 
 Mit dem Ende dieses Kapitels wurden alle wichtigen theoretischen Grundlage
 besprochen, die notwendig sind um die anatomische Segmentierung über ein 3D Slicer
