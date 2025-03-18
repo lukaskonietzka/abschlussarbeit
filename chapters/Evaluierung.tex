@@ -75,13 +75,13 @@ der Filterung. Ist dies der Fall, so kann vorerst von einer erfolgreichen
 Filterung ausgegangen werden. Zu Beachten ist an dieser Stelle, das eine
 Filterung unter Umständen einige Zeit in Anspruch nehmen kann. Es sei gesagt,
 dass diese bei einer Testausführung zu berücksichtigen ist. Eine gute Option dem
-entgegenzuwirken ist es, das bereits gefilterte Bild mit in den Testdaten zur
+entgegenzuwirken ist es, dass bereits gefilterte Bild mit in den Testdaten zur
 Verfügung zu stellen. Die konkrete Implementierung eines solchen Tests liefert der
 Quellcode \ref{lst:test_smooth_image}.
 
 \begin{lstlisting}[
     language={python},
-    caption={Implementierung eines Tests zum überprüfen einer Funktion},
+    caption={Beispielhafte implementierung des Unitttests für die Methode \texttt{smoothImage()}},
     label={lst:test_smooth_image}]
 def testSmoothImage(self):
     from ToothAnalyserLib.AnatomicalSegmentation.Segmentation import smoothImage
@@ -117,7 +117,7 @@ die hier kurz erläutert werden sollen. Unter der Performance versteht dieses
 Kapitel das konkrete Laufzeitverhalten der Anwendung also jene Zeit die zwischen
 Start und Ende vergeht. Grundsätzlich lässt sich dazu sagen, dass die Laufzeit
 bei der Bearbeitung von \ac{3D}-Mikro-\ac{CT}-Aufnahmen sehr stark vom Typ des
-Bildes abhängt. So kommt es beispielsweise darauf an, wie groß das Bild ist, oder
+Bildes und den zur Verfügung stehenden Ressourcen abhängt. So kommt es beispielsweise darauf an, wie groß das Bild ist, oder
 ob es bereits eine Filterung erfahren hat. Bei der Verarbeitung der Mikro-\ac{CT}-Bilder
 aus dem Klinikum für Zahnerhaltung wurde eine konkrete Messung durchgeführt, die
 hier in Abbildung \ref{fig:laufzeit} gezeigt wird.
@@ -146,7 +146,7 @@ hier in Abbildung \ref{fig:laufzeit} gezeigt wird.
 Zu sehen ist, dass unter diesen Bedingungen die Bearbeitung eines einzelnen
 Bildes ca. 17 Minuten beansprucht. Dabei fallen über dreiviertel der Zeit auf
 die Filterung zurück. Der Bereich Auffüllung beinhaltet ebenfalls eine Filterung
-der einzelnen Segmente, weswegen dieser den zweitgrößten Teil ausmacht. Ein Weiterer
+der einzelnen Segmente, weswegen dieser den zweitgrößten Teil ausmacht. Einen Weiteren
 wesentlichen Teil stellen die beiden medialen Flächen dar. Um dieser doch
 enormen Laufzeit etwas entgegen zu Wirken wurden zwei Mechanismen implementiert.
 Das Verfahren kann einerseits erkennen, ob ein Bild bereits gefiltert wurde und

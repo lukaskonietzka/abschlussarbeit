@@ -12,7 +12,7 @@ getrennt und visuell sowie rechnerisch unterscheidbar gemacht werden.
 
 \begin{minipage}{0.40\textwidth}
 	Durch die Segmentbetrachtung der beiden Gewebesubstanzen Schmelz und Dentin konnte
-	\citet[S.~41]{hoffmann2020} eine gute Hilfe für die Befundung kariöse Stellen
+	\citet[S.~41]{hoffmann2020} eine gute Hilfe für die Befundung kariöser Stellen
 	liefern. Ein Ergebnis aus der Arbeit von Hofmann sei in Abbildung \ref{fig:ergebnis_hoffmann}
 	gezeigt. Hofmann gelang es so mit dem Verfahren der anatomischen Segmentierung
 	250 Datensätze der \ac{LMU} über ein IPython Notebook aufzubereiten.
@@ -26,8 +26,8 @@ getrennt und visuell sowie rechnerisch unterscheidbar gemacht werden.
 
 Neben der Erstellung von segmentierten Daten stellt das Verfahren noch
 sogenannte mediale Flächen zur Verfügung. Diese sind insbesondere für die Klassifizierung
-von Karies notwendig. \citet[S.~42]{hoffmann2020} erklärt, das sich bei einer
-Überlagerung der medialen Flächen auf das Originale Bild auf einem Blick
+von Karies notwendig. \citet[S.~42]{hoffmann2020} erklärt, dass sich bei einer
+Überlagerung der medialen Flächen auf das Originale Bild auf einen Blick
 erkennen lässt, ob die vorhandene Karies in diesen Schichten weiter als die Hälfte
 fortgeschritten ist. Für die Erstellung der medialen Flächen sind die
 segmentierte Daten eines Zahnes zwingend erforderlich. Die Berechnung der medialen
@@ -55,7 +55,7 @@ Fortschritt von Karies angewendet werden. Da Karies im Laufe der Zeit zur
 Zersetzung des Zahnes führt, entstehen dunkle Stellen im Schmelzbereich, die die
 zusammenhängenden Grauwerte im Bild stören und somit die Segmentierung
 erschweren. Eine weitere Herausforderung liegt in der Art der Bilddaten, die für
-das Verfahren ursprünglich entwickelt wurde. Es basiert auf \ac{ISQ}-Bildern, die
+das Verfahren ursprünglich entwickelt wurde. Es basiert auf \ac{ISQ} Bildern, die
 als \ac{16Int} vorliegen.
 
 Die einzelnen Schritte in Abbildung \ref{fig:anatomische_segmentierung}
@@ -74,7 +74,7 @@ Techniken der Bildgewinnung und -bearbeitung näher erläutert.
 \section{Anatomische Zahnstrukturen in Mikro-CT-Bildern}
 \label{sec:domänenspezifisch} Um nachvollziehen zu können, wie eine \ac{CT}-Aufnahme
 technisch segmentiert und in ihre einzelnen Bestandteile zerlegt werden kann,
-ist es zunächst essenziell, die anatomische Struktur eines Zahnes genau zu verstehen.
+ist es zunächst essenziell, die anatomische Struktur eines Zahnes genauer zu verstehen.
 Dazu gehören die unterschiedlichen Gewebeschichten wie Zahnschmelz, Dentin und die
 Pulpa, die sich nicht nur in ihrer physikalischen Zusammensetzung, sondern auch in
 ihrer radiologischen Darstellung innerhalb der \ac{CT}-Bilder unterscheiden. Erst
@@ -82,16 +82,15 @@ mit diesem grundlegenden Verständnis lassen sich Methoden zur \ac{3D}-Bildbearb
 ableiten.
 
 \begin{minipage}{0.40\textwidth}
-	Die Abbildung \ref{fig:aufbau_eines_zahnes} zeigt den groben Aufbau eines Zahnes
-	nach \citet[S.~17]{lehmann2012Zahnheilkunde}. Zu sehen ist, dass das Denit
-	oder auch Zahnbein genannt den Großteil eines Zahnes einnimmt. Im Bereich der Zahnkrone
-	wird das Dentin von Zahnschmelz überzogen. Der Zahnschmelz ragt in die
-	Mundhöhle und ist nach \citet[S.~41]{lehmann2012Zahnheilkunde} das härteste Material
-	im menschlichen Körper. In der Mitte des Zahnes befindet sich Weichgewebe, das
-	als Pulpa bezeichnet wird vgl. \citep[vgl.][S.~15]{lehmann2012Zahnheilkunde}.
-	Für die anatomische Segmentierung von Zahn-\ac{CT}-Aufnahmen spielen insbesondere
-	die drei Hauptbestandteile des Zahnes – Schmelz, Dentin und Pulpa – eine
-	entscheidende Rolle.
+	Die Abbildung \ref{fig:aufbau_eines_zahnes} zeigt den groben Aufbau eines Zahnes.
+	Zu sehen ist, dass das Denit oder auch Zahnbein genannt den Großteil eines Zahnes
+	einnimmt. Im Bereich der Zahnkrone wird das Dentin von Zahnschmelz überzogen. Der
+	Zahnschmelz ragt in die Mundhöhle und ist nach \citet[S.~41]{lehmann2012Zahnheilkunde}
+	das härteste Material im menschlichen Körper. In der Mitte des Zahnes befindet
+	sich Weichgewebe, das als Pulpa bezeichnet wird vgl. \citep[vgl.][S.~15]{lehmann2012Zahnheilkunde}.
+	Für die anatomische Segmentierung von Zahn-\ac{CT}-Aufnahmen spielen
+	insbesondere die drei Hauptbestandteile des Zahnes – Schmelz, Dentin und Pulpa
+	– eine entscheidende Rolle.
 \end{minipage}
 \hfill
 \begin{minipage}{0.50\textwidth}
@@ -131,7 +130,7 @@ gezeigten Mikro-\ac{CT}-Aufnahme um eine Zahnkrone handelt und nicht um den
 ganzen Zahn. Zu sehen ist auch der fast identische Grauwert zwischen dem Hintergrund
 und der Pulpa.
 
-Mit diesem Wissen über die Anatomie eines Zahnes und die Zusammensetzung auf einem
+Mit diesem Wissen über die Anatomie eines Zahnes und der Zusammensetzung auf einem
 Mikro-\ac{CT}, kann nun ein Schritt weiter gegangen werden, indem der Fokus auf
 die Mikro-\ac{CT}-Bilder gerichtet wird. Das folgende Kapitel bietet daher einen
 Überblick über die Erstellung von Röntgenaufnahmen sowie den technischen Aufbau
@@ -173,17 +172,16 @@ Die Technologie, mit der diese Bilder aufgenommen werden, ist unter der Röntgen
 oder auch \ac{X-Ray} bekannt. Die Röntgenstrahlung ist eine Form der elektromagnetischen
 Strahlung, ähnlich wie das sichtbare Licht, so das \citet[K.~1]{nib2024}. Anders
 als das Licht haben die Röntgenstrahlen eine viel höhere Energie. Das führt dazu,
-dass man mit dieser elektromagnetischen Strahlung viele Objekte durchdringt werden
-können. So auch Gewebeteile eines Zahnes \citep[vgl.][K.~1]{nib2024}. Mit der
-Steigerung der Atomzahl in einem Material, also der Dichte, nimmt auch die
-Absorption eines Materials zu, sodass es leicht ist, verschiedene Materialien in
-einer Mikro-\ac{CT}-Aufnahme zu unterscheiden \citep[vgl.][K.~1]{nib2024}. Um nun
-mittels der Röntgenstrahlen und den einzelnen \ac{2D} Projektionen ein \ac{3D}-Micro-\ac{CT}
-zu erstellen, werden 2D-Röntgenaufnahmen eines Objektes aus verschiedenen Winkeln
-geschossen und in einem weiteren Schritt dann zu einem \ac{3D}-Bild
-rekonstruiert. Das Ergebnis einer solchen Rekonstruktion ist dann eine Art Papierstapel.
-Dieser besteht aus vielen 2D-Bilder, die aufgrund der Stapelung zu einem \ac{3D}-Bild
-werden.
+dass mit dieser elektromagnetischen Strahlung viele Objekte durchdringt werden können.
+So auch Gewebeteile eines Zahnes \citep[vgl.][K.~1]{nib2024}. Mit der Steigerung
+der Atomzahl in einem Material, also der Dichte, nimmt auch die Absorption eines
+Materials zu, sodass es leicht ist, verschiedene Materialien in einer Mikro-\ac{CT}-Aufnahme
+zu unterscheiden \citep[vgl.][K.~1]{nib2024}. Um nun mittels der Röntgenstrahlen
+und den einzelnen \ac{2D} Projektionen ein \ac{3D}-Micro-\ac{CT} zu erstellen, werden
+2D-Röntgenaufnahmen eines Objektes aus verschiedenen Winkeln geschossen und in einem
+weiteren Schritt dann zu einem \ac{3D}-Bild rekonstruiert. Das Ergebnis einer solchen
+Rekonstruktion ist dann eine Art Papierstapel. Dieser besteht aus vielen 2D-Bilder,
+die aufgrund der Stapelung zu einem \ac{3D}-Bild werden.
 
 Für die Erzeugung dieser Bilder bedarf es spezieller Geräte, im Falle der Zahnklinik
 an der \ac{LMU} handelt es sich um ein Mikro-\ac{CT}-Gerät der Firma \citet{scanco2024}.
@@ -195,10 +193,10 @@ Speicherbedarf mit sich bringen.
 % ---------------------------------------------------------------------------------------
 
 \subsection{Technischer Aufbau}
-\label{subsec:datensätze} Dieses Format \ac{ISQ} fällt speziell auf die Geräte der
-Firma SCANCO zurück \citep[vgl.][]{scanco2024}. Wie das vorherige Kapitel \ref{subsec:computertomografie}
+\label{subsec:datensätze} Das Format \ac{ISQ} fällt speziell auf die Geräte der Firma
+SCANCO zurück \citep[vgl.][]{scanco2024}. Wie das vorherige Kapitel \ref{subsec:computertomografie}
 bereits eingeführt hat, ist dieser Dateityp für eine weitere Bearbeitung nur
-bedingt geeignet. Unter anderem wegen ihrer Größe. \citet[S.~118-119]{RoeschKunzelmann2018}
+bedingt geeignet. Unter anderem wegen der Größe. \citet[S.~118-119]{RoeschKunzelmann2018}
 haben ein Paket entwickelt, mit dem sich gut zeigen lässt, wie sich diese großen
 Bilder technisch zusammensetzten. Hierfür konvertiert das Paket ein \ac{ISQ}-Bild
 in ein \ac{MHD} Format. Bei einer \ac{MHD}-Datei handelt es sich um ein Metafile,
@@ -224,7 +222,7 @@ In der Datei sind Informationen über die Ausprägung, Art und Größe der Datei
 Besonders interessant sind die Punkte \texttt{DimSize und ElementType}. Über
 diese Parameter lässt sich viel über den technischen Aufbau eines Mikro-CT
 herausfinden, zum Beispiel die benötigte Speichergröße. \citet[S.~10-11]{burger2009}
-erklärt, dass ein Bild in Zellen aufgeteilt ist, welche Informationen enthalten.
+erklären, dass ein Bild in Zellen aufgeteilt ist, welche Informationen enthalten.
 Diese Zellen sind im zweidimensionalen Raum als Pixel bekannt. Betrachtet man jedoch
 ein dreidimensionales Bild, so spricht man nicht mehr von einem Pixel, sondern von
 einem Voxel. Ein Voxel ist demnach das dreidimensionale Äquivalent zu einem
@@ -289,17 +287,16 @@ Electronic noise} und \textit{roundoff noise}.
 
 Unter dem Rauschen eines Bildes versteht man die Streuung der Pixelwerte im Bild.
 Für eine Segmentierung des Bildes ist dieses Verhalten unerwünscht und führt zu schlechten
-Ergebnissen \citep[vgl.][S.~51]{handels2000}. Die Bildvorverarbeitung oder auch Filter
-genannt, hat die Aufgabe dieses Rauschen so gut wie möglich zu reduzieren. Hierzu
-gibt es diverse Möglichkeiten.
+Ergebnissen \citep[vgl.][S.~51]{handels2000}. Die Filterung hat die Aufgabe dieses
+Rauschen so gut wie möglich zu reduzieren. Hierzu gibt es diverse Möglichkeiten.
 
 \begin{minipage}{0.40\textwidth}
 	Mit Blick auf die anatomische Segmentierung sind für diese Arbeit vor allem die
 	lokalen Operatoren relevant. Die lokalen Operatoren sind charakteristisch für
 	die Betrachtung der lokalen Nachbarschaft. Jeder Pixel betrachtet also seine Umgebung
-	und führt auf deren Basis darauf eine Berechnung des jeweils betrachteten Pixels
-	durch. In Abbildung \ref{fig:lokaler_operator_maske} ist der aktuellen Pixel
-	der, mit der Position $P = (0/0)$ \citep[vgl.][S.~52]{handels2000}.
+	und führt auf deren Basis eine Berechnung des jeweils betrachteten Pixels durch.
+	In Abbildung \ref{fig:lokaler_operator_maske} ist der aktuellen Pixel der, mit
+	der Position $P = (0/0)$ \citep[vgl.][S.~52]{handels2000}.
 \end{minipage}
 \hfill
 \begin{minipage}{0.50\textwidth}
@@ -311,36 +308,37 @@ gibt es diverse Möglichkeiten.
 
 Für die konkrete Betrachtung der Nachbarschaft eines Pixels empfiehlt \citet[S.~52]{handels2000}
 eine Maske (Ausschnitt) heranzuziehen, die mit einer Matrix interpretiert werden
-kann und die Nachbarschaft eines Pixels abbildet. Abbildung \ref{fig:lokaler_operator_maske}
-zeigt eine solche Maske und soll das Verfahren so verdeutlichen. Der gefärbte
-Mittelpunkt $P = (0/0)$ ist das aktuell betrachtete Pixel. Die Felder um die Mitte
-herum die Nachbarn. Es fällt jedoch auf, dass durch dieses Schema nicht jede mögliche
-Ausprägung einer Maske infrage kommt. Um einen Mittelpunkt und damit ein
-aktuelles Pixel betrachten zu können, bedarf es eines ungeraden Grades für $M$.
-Diese Eingrenzung lässt sich in Gleichung \ref{equ:lokaler_operator} generisch
-fassen.
+kann und die Nachbarschaft eines Pixels abbildet. Abbildung
+\ref{fig:lokaler_operator_maske} zeigt eine solche Maske und soll das Verfahren
+so verdeutlichen. Der gefärbte Mittelpunkt $P = (0/0)$ ist das aktuell betrachtete
+Pixel. Die Felder um die Mitte herum die Nachbarn. Es fällt jedoch auf, dass
+durch dieses Schema nicht jede mögliche Ausprägung einer Maske infrage kommt. Um
+einen Mittelpunkt und damit ein aktuelles Pixel betrachten zu können, bedarf es
+eines ungeraden Grades für $M$. Diese Eingrenzung lässt sich in Gleichung \ref{equ:lokaler_operator}
+generisch fassen.
 
 \begin{align}
 	\label{equ:lokaler_operator}M_{(2_m+1)x(2_m+1)} & = \begin{bmatrix}k_{11}&k_{12}&k_{13}\\ k_{21}&x&k_{23}\\ k_{31}&k_{32}&k_{33}\\\end{bmatrix} & m \in \mathbb{N}
 \end{align}
 
-Die Gleichung \ref{equ:lokaler_operator} beschreibt die mögliche Ausprägung eines
-lokalen Operators als Matrix. Dabei sei: $m \in \mathbb{N}\wedge n \in \mathbb{N}$.
-Die Variable $x$ beschreibt das aktuell betrachtete Pixel, während $k_{ij}$ die Nachbarn
-illustrieren soll. Durch die Gleichung ist auch zu erkennen, dass die Maske des lokalen
-Operators beliebig groß werden kann. Eine hohe Ordnung der Operatormatrix ist
-jedoch nicht immer von Vorteil, sodass es letzten Endes auf den Anwendungsfall ankommt.
+Die Gleichung \ref{equ:lokaler_operator} beschreibt die mögliche Ausprägung
+eines lokalen Operators als Matrix. Dabei sei:
+$m \in \mathbb{N}\wedge n \in \mathbb{N}$. Die Variable $x$ beschreibt das aktuell
+betrachtete Pixel, während $k_{ij}$ die Nachbarn illustrieren soll. Durch die Gleichung
+ist auch zu erkennen, dass die Maske des lokalen Operators beliebig groß werden
+kann. Eine hohe Ordnung der Operatormatrix ist jedoch nicht immer von Vorteil,
+sodass es letzten Endes auf den Anwendungsfall ankommt.
 
-Mit der Technik der lokalen Operatoren können nun unterschiedliche Arten angewendet
-werden. \citet[S.~54 - 55]{handels2000} unterscheidet hier in Glättungsfilter,
-Mittelwertfilter, Medianfilter, Gaußfilter und Binomialfilter. Alle dieser Filter
-bedienen sich einer Operatormaske, um auf Basis der Nachbarelemente einen
-statistischen Wert für den Bildpunkt zu erhalten. Um einen genaueren Einblick in
-alle Filter zu erlangen, sei an dieser Stelle auf \citet[S.~54 - 55]{handels2000}
+Mit der Technik der lokalen Operatoren können nun unterschiedliche Arten
+angewendet werden. \citet[S.~54 - 55]{handels2000} unterscheidet hier in
+Glättungsfilter, Mittelwertfilter, Medianfilter, Gaußfilter und Binomialfilter.
+Alle dieser Filter bedienen sich einer Operatormaske, um auf Basis der Nachbarelemente
+einen statistischen Wert für den Bildpunkt zu erhalten. Um einen genaueren
+Einblick in alle Filter zu erlangen, sei an dieser Stelle auf \citet[S.~54 - 55]{handels2000}
 verwiesen.
 
 Wie zu Anfang dieses Kapitels beschrieben, ist eine Bildvorverarbeitung (Filterung)
-für eine gute Segmentierung des Bildes unerlässlich. So kommt es das auch in der
+für eine gute Segmentierung des Bildes unerlässlich. So kommt es, dass auch in der
 Visualisierungspipeline nach \citet[S.~50]{handels2000} der zweite Schritt
 bereits die Segmentierung einführt. Warum dies so ein wichtiger Bestandteil der Bildanalyse
 ist und welche Methoden sich hier bieten, erläutert das folgende Kapitel.
@@ -391,8 +389,8 @@ Schwellwertverfahren \citep[vgl.][S.~361]{lehmann2013bildverarbeitung}.
 
 \textbf{Schwellwertverfahren} (engl.: thresholding) gehören zu den Standardwerkzeugen
 einer Segmentierung, sodass diese die Basis vieler weiterer Verfahren legen. Bei
-einer schwellwertbasierten Segmentierung werden die Pixel eines Bildes anhand von
-Schwellwerten eingruppiert. Die nachfolgende Gleichung
+einer schwellwertbasierten Segmentierung werden die Grauwerte eines Bildes anhand
+von Schwellwerten eingruppiert. Die nachfolgende Gleichung
 \ref{equ:schwellwertverfahren} soll dies verdeutlichen \citep[vgl.][S.~96]{handels2000}.
 
 \begin{align}
@@ -423,7 +421,7 @@ Die interessanteste Frage bei den Schwellwertverfahren ist die Wahl des
 Schwellwerts $t$. Dieser entscheidet zwischen einer guten und einer schlechten Segmentierung.
 Für die Wahl eines Schwellwerts empfiehlt sich der Blick auf das Bildhistogramm.
 Dieses gibt Aufschluss über die Verteilung der Grauwerte in einem Bild \citep[vgl.][S.~361]{lehmann2013bildverarbeitung}.
-Verfahren, welche einen guten Schwellwert gewährleistet, ohne dass zu viele Informationen
+Verfahren, welche einen guten Schwellwert gewährleisten, ohne dass zu viele Informationen
 verloren gehen, sind die Verfahren \textit{Otsu} und \textit{Rényi}.
 
 \pagebreak

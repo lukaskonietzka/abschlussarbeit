@@ -2,9 +2,9 @@
 \label{chap:entwicklungsumgebung} Da bereits 3D Slicer als Framework feststeht,
 ist keine weitere Forschung nötig, um die richtige Programmiersprache auszuwählen.
 Jedoch gibt es eine kleine Auswahl zu treffen. 3D Slicer unterscheidet zwischen zwei
-Arten von Modulen, die \ac{CLI} Module, welche in der Sprache C++ geschrieben
-werden und die Scripted Moduls, die eine Python Implementierung verlangen. Da
-die anatomische Segmentierung ohnehin in einem IPython-Notebook bereitliegt, fiel
+Arten von Modulen, die Module für eine \ac{CLI}, welche in der Sprache C++
+geschrieben werden und die Scripted Moduls, die eine Python Implementierung verlangen.
+Da die anatomische Segmentierung ohnehin in einem IPython-Notebook bereitliegt, fiel
 die Wahl hier auf die Scripted Moduls. So kann auch die breite Palette der
 Python-Pakete genutzte werden. Um den Entwicklungsprozess etwas zu vereinfachen,
 wurde während der Entwicklung auf ein Modul von Slicer zurückgegriffen, das speziell
@@ -30,11 +30,11 @@ of the Art} bezeichnet werden kann \citep[vgl.][]{jetbrains2024}.
 Für die Interaktion mit der Slicer Kernanwendung stellt der Python-Interpreter
 das Paket \texttt{slicer} zur Verfügung. Hierdurch lassen sich diverse
 Mechanismen steuern. Wichtig ist hierbei, dass das Paket \texttt{slicer} nicht auf
-\ac{PyPi} zu finden ist. Es ist nur in der Python-Umgebung vorhanden, die mit
-der Slicer Installation einhergeht. Neben dem Paket \texttt{slicer} sind noch
-viele weitere Pakete verfügbar, die sich in der medizinischen Bildbearbeitung durchgesetzt
-haben. Für eine komplette Auflistung aller Python-Pakete sei an dieser Stelle
-auf die Dokumentation von Slicer verwiesen \citep[vgl.][]{slicer2024}.
+dem \ac{PyPi} zu finden ist. Es ist nur in der Python-Umgebung vorhanden, die
+mit der Slicer Installation einhergeht. Neben dem Paket \texttt{slicer} sind
+noch viele weitere Pakete verfügbar, die sich in der medizinischen Bildbearbeitung
+durchgesetzt haben. Für eine komplette Auflistung aller Python-Pakete sei an
+dieser Stelle auf die Dokumentation von Slicer verwiesen \citep[vgl.][]{slicer2024}.
 
 Auch die Versionierung des Quellcodes wurde von Anfang an in den Entwicklungsprozess
 integriert. Da die Software ohnehin über ein öffentliches GitHub-Repository in
@@ -46,9 +46,9 @@ Damit während der Entwicklung auch Teilbereiche der Software bereits getestet w
 können, werden Testdaten benötigt. Bei diesen Testdaten handelt es sich um originale
 Mikro-\ac{CT}-Aufnahmen im Format \ac{16Int}, \ac{ISQ}. Diese wurden auf einem
 Server an der \ac{LMU} in München bereitgestellt. Der Zugriff auf den Server
-erfolgt über den \textit{x2goclient}. Heruntergeladen wurden die Daten über eine
-\ac{SSH} Verbindung. Bei den Mikro-\ac{CT}-Bildern handelt es sich ausschließlich
-um Aufnahmen der Zahnkrone. Mit dem Zugriff auf den Server an der \ac{LMU} konnten
+erfolgt über den x2goclient. Heruntergeladen wurden die Daten über eine \ac{SSH}
+Verbindung. Bei den Mikro-\ac{CT}-Bildern handelt es sich ausschließlich um
+Aufnahmen der Zahnkrone. Mit dem Zugriff auf den Server an der \ac{LMU}, konnten
 auch diverse Pythonumgebungen zum Verarbeiten von Daten genutzt werden. Dies war
 in erster Linie für ein Nachvollziehen und Verstehen der anatomischen
 Segmentierung hilfreich.
