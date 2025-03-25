@@ -117,10 +117,11 @@ die hier kurz erläutert werden sollen. Unter der Performance versteht dieses
 Kapitel das konkrete Laufzeitverhalten der Anwendung also jene Zeit die zwischen
 Start und Ende vergeht. Grundsätzlich lässt sich dazu sagen, dass die Laufzeit
 bei der Bearbeitung von \ac{3D}-Mikro-\ac{CT}-Aufnahmen sehr stark vom Typ des
-Bildes und den zur Verfügung stehenden Ressourcen abhängt. So kommt es beispielsweise darauf an, wie groß das Bild ist, oder
-ob es bereits eine Filterung erfahren hat. Bei der Verarbeitung der Mikro-\ac{CT}-Bilder
-aus dem Klinikum für Zahnerhaltung wurde eine konkrete Messung durchgeführt, die
-hier in Abbildung \ref{fig:laufzeit} gezeigt wird.
+Bildes und den zur Verfügung stehenden Ressourcen abhängt. So kommt es beispielsweise
+darauf an, wie groß das Bild ist, oder ob es bereits eine Filterung erfahren hat.
+Bei der Verarbeitung der Mikro-\ac{CT}-Bilder aus dem Klinikum für Zahnerhaltung
+wurde eine konkrete Messung durchgeführt, die hier in Abbildung
+\ref{fig:laufzeit} gezeigt wird.
 
 \textbf{Vorbedingungen:}
 \begin{itemize}
@@ -192,7 +193,7 @@ der Poliklinik für Zahnerhaltung und Parodontologie an der Testphase teil, in
 dem sie den Tooth Analyser in ihren Forschungsalltag integrierten. Über einen Zeitraum
 von drei Wochen konnten sie die Software in realen Anwendungsszenarien erproben.
 
-Zusätzlich wurde ein kleiner Stresstest durchgeführt, bei dem 103 \ac{CT}-Aufnahmen
+Zusätzlich wurde ein kleiner Stresstest durchgeführt, bei dem 103 Mikro-\ac{CT}-Aufnahmen
 in einem Batch-Prozess mit dem Tooth Analyser verarbeitet wurden. Die Berechnung
 erfolgte auf einem leistungsstarken Server der LMU, der über ausreichend Rechenkapazitäten
 verfügt. Die durchschnittliche Bearbeitungszeit pro Bild lag hier bei etwa neun
@@ -213,13 +214,13 @@ folgenden Kapitel verschiedene Anwendungsszenarien vorgestellt.
 
 \section{Anwendungsszenarien}
 In erster Linie bietet der Tooth Analyser eine Visualisierungshilfe, die für Ärzte
-unterstützend wirken soll. Wie auch von Slicer empfohlen wird dieses Modul von
-den Ärzten rein zur Forschung eingesetzt. Mit dem Tooth Analyser lässt sich mittels
-einer Mikro-\ac{CT}-Aufnahme ein \ac{3D}-Modell des Zahnes erstellen. Man
-spricht hier von einer Rekonstruktion des Zahnes. Durch die Segmentierung erlaubt
-dieser rekonstruierte Zahn auch eine Segmentbetrachtung von Dentin und Schmelz.
-Die Abbildungen \ref{fig:3d_view}, \ref{fig:3d_view_dentin} und \ref{fig:3d_view_schmelz}
-zeigt diese Rekonstruktion genauer.
+unterstützend wirken soll. Wie auch von Slicer empfohlen, wird dieses Modul von den
+Ärzten rein zur Forschung eingesetzt. Mit dem Tooth Analyser lässt sich mittels
+einer Mikro-\ac{CT}-Aufnahme ein \ac{3D}-Modell des Zahnes erstellen. Man spricht
+hier von einer Rekonstruktion des Zahnes. Durch die Segmentierung erlaubt dieser
+rekonstruierte Zahn auch eine Segmentbetrachtung von Dentin und Schmelz. Die Abbildungen
+\ref{fig:3d_view}, \ref{fig:3d_view_dentin} und \ref{fig:3d_view_schmelz} zeigt
+diese Rekonstruktion genauer.
 
 \begin{figure}[h]
 	\centering
@@ -245,22 +246,22 @@ zeigt diese Rekonstruktion genauer.
 	\end{minipage}
 \end{figure}
 
-Das Betrachten der einzelnen Segmente wie sie in Abbildung
-\ref{fig:3d_view_dentin} gezeigt wird, erfolgt nicht in der Erweiterung Tooth Analyser.
-Hierzu wird auf das Modul \textit{Data} verwiesen, das eine hierarchische
-Darstellung aller Daten in der Szene liefert. Über die Sichtbarkeitseinstellungen
-der einzelnen Datenelemente können dann die Segmente sichtbar oder unsichtbar geschaltet
-werden.
+Durch Betrachten der einzelnen Segmente wie, sie in den Abbildungen
+\ref{fig:3d_view}, \ref{fig:3d_view_dentin} und \ref{fig:3d_view_schmelz} gezeigt
+werden, erfolgt nicht in der Erweiterung Tooth Analyser. Hierzu wird auf das Modul
+\textit{Data} verwiesen, das eine hierarchische Darstellung aller Daten in der Szene
+liefert. Über die Sichtbarkeitseinstellungen der einzelnen Datenelemente können
+dann die Segmente sichtbar oder unsichtbar geschaltet werden.
 
-Einen weiteren Fall, indem die Anwendung unterstützen kann, ist die Klassifizierung
-von Karies. Die Abbildung \ref{fig:classification} zeigt diesen Fall. Hierfür sind
-die medialen Flächen der einzelnen Segmente nötig. Diese sind im Bild als rote
-und grüne Linie sichtbar, verteilen sich aber über das ganze \ac{3D}-Bild, was daraus
-eine Fläche macht. Legt man nun diese Flächen über das originale Bild, so lässt sich
-mittels dieser Linie die Karies auf einem \ac{CT} gut klassifizieren. Diese besagten
-Linien bilden dann die Grenzen. Ragt die Karies über diese mediale Fläche hinaus
-hat sie bereits einen sehr ausgeprägten Zustand und wird anders eingeordnet als
-eine Karies, welche die mediale Fläche noch nicht überschritten hat.
+Einen weiteren Fall, indem die Anwendung unterstützen kann, ist die
+Klassifizierung von Karies. Die Abbildung \ref{fig:classification} zeigt diesen Fall.
+Hierfür sind die medialen Flächen der einzelnen Segmente nötig. Diese sind im Bild
+als rote und grüne Linie sichtbar, verteilen sich aber über das ganze \ac{3D}-Bild,
+was daraus eine Fläche macht. Legt man nun diese Flächen über das originale Bild,
+so lässt sich mittels dieser Linie die Karies auf einem Mikro-\ac{CT} gut klassifizieren.
+Diese besagten Linien bilden dann die Grenzen. Ragt die Karies über diese mediale
+Fläche hinaus, hat sie bereits einen sehr ausgeprägten Zustand und wird anders
+eingeordnet als eine Karies, welche die mediale Fläche noch nicht überschritten hat.
 
 \begin{figure}[h]
 	\centering

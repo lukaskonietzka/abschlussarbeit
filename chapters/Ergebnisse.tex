@@ -560,15 +560,15 @@ class ToothAnalyserWidget(ScriptedLoadableModuleWidget):
 Wie auch schon die Klasse \texttt{ToothAnalyser} ist auch die Widget-Klasse eine
 Kind-Klasse der \texttt{ScriptedLoadableModule}. Der Konstruktor dieser Klasse wird
 jedes Mal aufgerufen, wenn der Benutzer zum ersten Mal nach dem Start von Slicer
-das Modul aufruft. Neben dem Konstruktoraufruf der Elternklasse, werden auch die Parameter
-und die Logik-Schnittstelle initialisiert. So ergibt sich die Situation, dass die
-\ac{UI} die aktuellen Parametereinstellungen abfragt und sie an die Logik
+das Modul aufruft. Neben dem Konstruktoraufruf der Elternklasse, werden auch die
+Parameter und die Logik-Schnittstelle initialisiert. So ergibt sich die Situation,
+dass die \ac{UI} die aktuellen Parametereinstellungen abfragt und sie an die Logik
 weiterleitet.
 
-Neben der Steuerungsaufgabe erstellt die Widget-Klasse auch die \ac{UI} aus der \ac{UI}-Datei
-bereit. Da diese unter der Haube ein \ac{XML}-Format aufweist, kann diese einfach
-in das Modul hineingeladen werden. Der Quellcode aus \ref{lst:create_ui} zeigt
-dies.
+Neben der Steuerungsaufgabe erstellt die Widget-Klasse auch die \ac{UI} aus der
+\ac{UI}-Datei bereit. Da diese unter der Haube ein \ac{XML}-Format aufweist,
+kann diese einfach in das Modul hineingeladen werden. Der Quellcode aus \ref{lst:create_ui}
+zeigt dies.
 
 \begin{lstlisting}[
     language={python},
@@ -582,8 +582,8 @@ def createUI(self) -> any:
 \end{lstlisting}
 
 Mittels der Bibliothek \texttt{slicer} lässt sich hier die Datei für die \ac{UI}
-laden. Diese Datei liegt im Ordner \textit{Resources}, sodass der Pfad zu diesem Ordner
-mit der Methode \texttt{self.resourcePath()} ausgelesen werden kann. Als Argument
+laden. Diese Datei liegt im Ordner \textit{Resources}, sodass der Pfad zu diesem
+Ordner mit der Methode \texttt{self.resourcePath()} ausgelesen werden kann. Als Argument
 kann dann der Name der Datei angegeben werden. In diesem Fall existiert noch ein
 Unterordner mit der entsprechenden Datei (\texttt{"UI/W.ui"}).
 
@@ -673,10 +673,10 @@ class ToothAnalyserLogic(ScriptedLoadableModuleLogic):
 
 Auch die dritte der wichtigen Klassen erbt von einer übergeordneten Klasse und verfügt
 so über deren Funktionen. Die Schnittstelle verfügt über drei Methoden, die eine
-Standardimplementierung haben und direkt in der Schnittstelle implementiert werden. Die
-Methode \texttt{getParameterNode()} sorgt dafür, dass alle Parameter des Moduls
-zur Verfügung stehen und verwendet werden können. \texttt{preProcessing()} und
-\texttt{postProcessing()} sind für eine Vor- und Nachverarbeitung des
+Standardimplementierung haben und direkt in der Schnittstelle implementiert werden.
+Die Methode \texttt{getParameterNode()} sorgt dafür, dass alle Parameter des
+Moduls zur Verfügung stehen und verwendet werden können. \texttt{preProcessing()}
+und \texttt{postProcessing()} sind für eine Vor- und Nachverarbeitung des
 entsprechenden Bildes verantwortlich. Die Vorverarbeitung könnte beispielsweise eine
 Komprimierung des Bildes beinhalten, wohingegen die Nachbereitung Analysen auf
 dem Ergebnis anstoßen könnte. Im Rahmen dieser vorliegenden Arbeit wurden für die
@@ -698,16 +698,17 @@ Integration des Qt-Designers als Applikation in eine andere Applikation
 funktioniert aufgrund der Plattformintegrität, die der Designer mitbringt \citep[vgl.][]{qt2024}.
 Dies bietet so die Möglichkeit die benötigten Widgets über eine interaktive Benutzerschnittstelle
 zu bauen. Für diese \ac{UI}-Vorrichtung gibt es einen Gegenspieler im Quelltext des
-Programmes, welcher als \textit{Parameter node} bekannt ist. Der \textit{Parameter node}
-ist laut \citet{slicer2024} eine leichte Variante eines \ac{MRML}-Knoten um Parametereinstellungen
-zu speichern. Durch das Zusammenspiel zwischen \ac{UI} und \textit{Parameter node}
-wird die \ac{UI} automatisch aktualisiert, wenn sich das Programm ändert \citep[vgl.][]{slicer2024}.
+Programmes, welcher als \textit{Parameter node} bekannt ist. Der \textit{Parameter
+node} ist laut \citet{slicer2024} eine leichte Variante eines \ac{MRML}-Knoten um
+Parametereinstellungen zu speichern. Durch das Zusammenspiel zwischen \ac{UI} und
+\textit{Parameter node} wird die \ac{UI} automatisch aktualisiert, wenn sich das
+Programm ändert \citep[vgl.][]{slicer2024}.
 
 Das Erstellen der Verknüpfung zwischen dem \ac{UI}-Widget und dem Parameter-Knoten
 erfolgt über die dynamische Eigenschaft \texttt{SlicerParameterName}, die direkt
-in der Komponentenansicht im Qt-Designer einstellbar ist. Die Abbildung
-\ref{fig:qt_designer} soll diesen Vorgang verdeutlichen. Dabei ist es wichtig,
-dass genau diese Eigenschaft auch verwendet wird.
+in der Komponentenansicht im Qt-Designer einstellbar ist. Die Abbildung \ref{fig:qt_designer}
+soll diesen Vorgang verdeutlichen. Dabei ist es wichtig, dass genau diese Eigenschaft
+auch verwendet wird.
 
 \begin{minipage}{0.55\textwidth}
 	\centering
@@ -728,24 +729,24 @@ class ToothAnalyserParameterNode:
 	\captionof{figure}{Komponentenansicht der Komponente status im QT-Designer} \label{fig:qt_designer}
 \end{minipage}
 
-Betrachtet man erst das Feld \texttt{status} im Quellcode
-\ref{lst:qt_parameter_node} und dann den Parameter \texttt{SlicerParameterName} in
-der Abbildung \ref{fig:qt_designer}, so fällt auf, dass diese einheitliche Benennung
-die \ac{UI} mit dem Quellcode verbindet. Dabei ist es wichtig, das genau dieser
-Parameter Name für die dynamische Eigenschaft verwendet wird.
+Betrachtet man erst das Feld \texttt{status} im Quellcode \ref{lst:qt_parameter_node}
+und dann den Parameter \texttt{SlicerParameterName} in der Abbildung
+\ref{fig:qt_designer}, so fällt auf, dass diese einheitliche Benennung die \ac{UI}
+mit dem Quellcode verbindet. Dabei ist es wichtig, das genau dieser Parameter Name
+für die dynamische Eigenschaft verwendet wird.
 
-Nachdem die Implementierung der wichtigsten Komponenten isoliert besprochen
-wurden, soll der Abschluss des Kapitels noch genauer beleuchten, wie die
-unterschiedlichen Klassen und Komponenten untereinander interagieren. Dies soll auch
-die grundsätzliche Architektur näher zeigen. Hierbei geht es konkret um die
-Abfolge von Methoden, die zum Starten eines Verfahrens notwendig sind. Dafür sei
-auf die drei nachfolgenden Quellcodeblöcke verwiesen, die jeweils einen Teilbereich
-an Funktionalität bereitstellen.
+Nachdem die Implementierung der wichtigsten Komponenten isoliert besprochen wurden,
+soll der Abschluss des Kapitels noch genauer beleuchten, wie die unterschiedlichen
+Klassen und Komponenten untereinander interagieren. Dies soll auch die
+grundsätzliche Architektur näher zeigen. Hierbei geht es konkret um die Abfolge von
+Methoden, die zum Starten eines Verfahrens notwendig sind. Dafür sei auf die drei
+nachfolgenden Quellcodeblöcke verwiesen, die jeweils einen Teilbereich an
+Funktionalität bereitstellen.
 
-Zu Beginn werden in \ref{lst:parameter_node} die Parameter angelegt. Diese
-können sich noch in weitere Klassen aufteilen, sodass die Parameter unterschiedlicher
-Funktionen in unterschiedlichen Klassen zu finden sind. Siehe auch
-\ref{fig:klassendiagramm} Klassendiagramm.
+Zu Beginn werden in \ref{lst:parameter_node} die Parameter angelegt. Diese können
+sich noch in weitere Klassen aufteilen, sodass die Parameter unterschiedlicher
+Funktionen in unterschiedlichen Klassen zu finden sind. Siehe auch \ref{fig:klassendiagramm}
+Klassendiagramm.
 
 \begin{lstlisting}[
     language={python},
@@ -759,11 +760,11 @@ class ToothAnalyserParameterNode:
     status: str = ""
 \end{lstlisting}
 
-Die Klasse \texttt{ToothAnalyserParameterNode} speichert die
-Benutzereinstellungen und ist mit der \ac{UI}-Datei aus dem QT-Designer gekoppelt.
-Um diese Kopplung herzustellen, wird die Klasse mit dem Decorater \texttt{@parameterNodeWrapper}
-versehen. Die Klasse \texttt{ToothAnalyserWidget} hat vollen Zugriff auf die Parameter-Klasse
-und kann sie verwenden. Diese Verwendung ist in \ref{lst:on_apply} zu sehen.
+Die Klasse \texttt{ToothAnalyserParameterNode} speichert die Benutzereinstellungen
+und ist mit der \ac{UI}-Datei aus dem QT-Designer gekoppelt. Um diese Kopplung herzustellen,
+wird die Klasse mit dem Decorater \texttt{@parameterNodeWrapper} versehen. Die
+Klasse \texttt{ToothAnalyserWidget} hat vollen Zugriff auf die Parameter-Klasse und
+kann sie verwenden. Diese Verwendung ist in \ref{lst:on_apply} zu sehen.
 
 \begin{lstlisting}[
     language={python},
@@ -782,11 +783,11 @@ def onApplyAnatomicalButton(self) -> None:
 Mit dem Zugriff auf die Parameter kann die Widget-Klasse den entsprechenden Algorithmus
 starten und die Parametereinstellungen dafür übergeben. Dies wird in der Methode
 \texttt{onApply<..>Button()} realisiert, welche in der Klasse \texttt{ToothAnalyserWidget}
-liegt. Die Methode  aus \ref{lst:on_apply} sorgt außerdem dafür, dass der Algorithmus in einer sicheren Umgebung
-gestartet wird. Sollte es bei der Ausführung zu unerwarteten Fehlern kommen, so bricht
-der Tooth Analyser den Vorgang mit einer Fehlermeldung ab. Um die Ausführung in
-der entsprechenden Logikklasse genauer zu betrachten, sei hier auf den nachfolgenden
-Quellcode verwiesen.
+liegt. Die Methode aus \ref{lst:on_apply} sorgt außerdem dafür, dass der Algorithmus
+in einer sicheren Umgebung gestartet wird. Sollte es bei der Ausführung zu
+unerwarteten Fehlern kommen, so bricht der Tooth Analyser den Vorgang mit einer Fehlermeldung
+ab. Um die Ausführung in der entsprechenden Logikklasse genauer zu betrachten, sei
+hier auf den nachfolgenden Quellcode verwiesen.
 
 \pagebreak
 
@@ -809,10 +810,10 @@ Methode \texttt{execute()} vollständig durchgelaufen, so kommt das Verfahren zu
 Ende.
 
 Fasst man dieses Vorgehen kurz zusammen, lässt sich sagen, dass die Parameter, die
-im Parameter-Knoten gespeichert werden, wie bereits beschrieben, als Attribut in der
-Klasse \texttt{ToothAnalyserWidget} liegen. Wenn ein Button zum Ausführen der entsprechenden
-Logik gedrückt wird, wird die Methode \texttt{execute()} ausgeführt und alle Parameter
-als Argument mit übergeben.
+im Parameter-Knoten gespeichert werden, wie bereits beschrieben, als Attribut in
+der Klasse \texttt{ToothAnalyserWidget} liegen. Wenn ein Button zum Ausführen der
+entsprechenden Logik gedrückt wird, wird die Methode \texttt{execute()} ausgeführt
+und alle Parameter als Argument mit übergeben.
 
 Nach der konkreten Umsetzung der Erweiterung und der Implementierungsdetails,
 kann Schritt für Schritt mit der Evaluation der Ergebnisse begonnen werden. Ein wichtiger
